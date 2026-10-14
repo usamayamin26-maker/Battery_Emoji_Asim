@@ -1,0 +1,88 @@
+<resources>
+    <string name="app_name">JH Battery</string>
+
+    <!-- Splash Screen -->
+    <string name="splash_title">Emoji Battery</string>
+    <string name="splash_loading">Loading your cute battery friends…</string>
+
+    <!-- Onboarding Screen -->
+    <string name="skip">Skip</string>
+    <string name="onboarding_title_1">Personalize every\ndetail with.</string>
+    <string name="onboarding_desc_1">emojis, pets, battery styles, status bars &amp; beautiful backgrounds.</string>
+    <string name="onboarding_title_2">Make your\nbattery fun.</string>
+    <string name="onboarding_desc_2">Turn your battery icon into cute emojis. A tiny\ndetail. A whole lot of happy.</string>
+    <string name="onboarding_title_3">Your battery.\nYour imagination.</string>
+    <string name="onboarding_desc_3">Mix your favorite emojis and colors to create\na battery that feels like you.</string>
+    <string name="get_started">Get Started</string>
+    <string name="next">Next</string>
+
+    <!-- Home Screen -->
+    <string name="battery_icon_title">Battery Icon</string>
+    <string name="search_emojis_title">Search Emojis</string>
+    <string name="search_placeholder">Search for an emoji or theme…</string>
+    <string name="enable_emoji_battery_banner">Enable emoji battery to begin</string>
+    <string name="start">Start</string>
+    <string name="sticker_shop">Sticker Shop</string>
+    <string name="animation">Animation</string>
+    <string name="themes">Themes</string>
+
+    <!-- Category Tabs -->
+    <string name="tab_hot">🔥 HOT</string>
+    <string name="tab_pokemon">Pokemon</string>
+    <string name="tab_sanrio">Sanrio</string>
+    <string name="tab_anime">Anime</string>
+
+    <!-- Filter Chips -->
+    <string name="chip_all">All</string>
+    <string name="chip_heart">Heart</string>
+    <string name="chip_cute_emoji">Cute Emoji</string>
+    <string name="chip_animations">Animations</string>
+
+    <!-- Home Sections -->
+    <string name="section_recent">Recent</string>
+    <string name="section_top_picks">Top Picks</string>
+
+    <!-- Bottom Navigation -->
+    <string name="nav_trending">Trending</string>
+    <string name="nav_customize">Customize</string>
+    <string name="nav_setting">Setting</string>
+
+    <!-- Dialogs & Actions -->
+    <string name="apply_battery_style">Apply Battery Style</string>
+    <string name="applied_successfully">Style applied successfully!</string>
+    <string name="preview">Preview</string>
+    <string name="battery_level">Battery Level: %1$d%%</string>
+
+    <!-- Settings Screen -->
+    <string name="settings_title">Settings</string>
+    <string name="setting_language">Language</string>
+    <string name="setting_language_current">English</string>
+    <string name="setting_privacy_policy">Privacy Policy</string>
+    <string name="setting_share_app">Share App</string>
+    <string name="setting_rate_us">Rate Us</string>
+
+    <!-- Languages Screen -->
+    <string name="languages_title">Languages</string>
+    <string name="lang_arabic">Arabic</string>
+    <string name="lang_arabic_native">العربية</string>
+    <string name="lang_chinese">Chinese</string>
+    <string name="lang_chinese_native">中文</string>
+    <string name="lang_dutch">Dutch</string>
+    <string name="lang_dutch_native">Nederlands</string>
+    <string name="lang_english">English</string>
+    <string name="lang_english_native">English</string>
+    <string name="lang_french">French</string>
+    <string name="lang_french_native">Français</string>
+    <string name="apply">Apply</string>
+
+    <!-- Dialogs -->
+    <string name="share_dialog_title">Share Emoji app</string>
+    <string name="share_dialog_desc">Invite friends to add emoji in your mobile review.</string>
+    <string name="share_link_url">https://velo.app/get</string>
+    <string name="copy">Copy</string>
+    <string name="link_copied">Link copied to clipboard!</string>
+    <string name="done">Done</string>
+    <string name="feedback_dialog_title">What did you think about it?</string>
+    <string name="feedback_dialog_desc">Your feedback is essential in helping us better understand your specific needs.</string>
+    <string name="feedback_submitted">Thank you for your feedback!</string>
+</resources>

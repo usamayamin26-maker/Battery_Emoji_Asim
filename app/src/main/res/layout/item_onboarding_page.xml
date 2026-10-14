@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Image / Background Drawable Placeholder for each page -->
+    <ImageView
+        android:id="@+id/ivOnboardingImage"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:adjustViewBounds="true"
+        android:contentDescription="@null"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@drawable/ic_blueprint_puppy" />
+
+    <!-- Title (Using scalable _22ssp) -->
+    <TextView
+        android:id="@+id/tvOnboardingTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:gravity="center"
+        android:letterSpacing="-0.01"
+        android:lineSpacingExtra="@dimen/_4sdp"
+        android:textColor="@color/text_primary"
+        android:textSize="@dimen/_22ssp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/tvOnboardingSubtitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="@string/onboarding_title_1" />
+
+    <!-- Subtitle (Using scalable _13ssp) -->
+    <TextView
+        android:id="@+id/tvOnboardingSubtitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_110sdp"
+        android:gravity="center"
+        android:lineSpacingExtra="@dimen/_3sdp"
+        android:paddingHorizontal="@dimen/_10sdp"
+        android:textColor="@color/text_secondary"
+        android:textSize="@dimen/_13ssp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="@string/onboarding_desc_1" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

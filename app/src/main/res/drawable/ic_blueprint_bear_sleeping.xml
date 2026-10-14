@@ -1,0 +1,57 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="120dp"
+    android:height="80dp"
+    android:viewportWidth="120"
+    android:viewportHeight="80">
+    <!-- Battery Container -->
+    <path
+        android:fillColor="#F8FAFC"
+        android:strokeColor="#332D48"
+        android:strokeWidth="2.5"
+        android:pathData="M16,24 H96 C99.3,24 102,26.7 102,30 V66 C102,69.3 99.3,72 96,72 H16 C12.7,72 10,69.3 10,66 V30 C10,26.7 12.7,24 16,24 Z" />
+    <!-- Terminal -->
+    <path
+        android:fillColor="#332D48"
+        android:pathData="M102,38 H108 C109.1,38 110,38.9 110,40 V56 C110,57.1 109.1,58 108,58 H102 Z" />
+    <!-- Battery Level Fill (Green Glow) -->
+    <path
+        android:fillColor="#86EFAC"
+        android:pathData="M18,30 H86 C88,30 89,31 89,33 V63 C89,65 88,66 86,66 H18 C16,66 15,65 15,63 V33 C15,31 16,30 18,30 Z" />
+
+    <!-- Sleeping Teddy Bear curled up -->
+    <!-- Bear Body -->
+    <path
+        android:fillColor="#B47E53"
+        android:strokeColor="#784725"
+        android:strokeWidth="2"
+        android:pathData="M34,44 C34,30 52,24 68,32 C80,38 84,56 74,62 C66,66 40,64 34,44 Z" />
+    <!-- Bear Head -->
+    <path
+        android:fillColor="#C68E63"
+        android:strokeColor="#784725"
+        android:strokeWidth="2"
+        android:pathData="M24,42 C24,32 34,26 42,32 C48,36 48,46 42,50 C36,54 24,52 24,42 Z" />
+    <!-- Bear Ears -->
+    <path
+        android:fillColor="#A26A40"
+        android:pathData="M23,30 A4,4 0 1,1 17,30 A4,4 0 1,1 23,30" />
+    <!-- Sleeping Eye Line (curved slit) -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#4A2810"
+        android:strokeWidth="1.8"
+        android:strokeLineCap="round"
+        android:pathData="M28,42 Q32,45 36,42" />
+    <!-- Little Snout -->
+    <path
+        android:fillColor="#D8A57D"
+        android:pathData="M32,44 A3,3 0 1,1 28,44 A3,3 0 1,1 32,44" />
+    <path
+        android:fillColor="#4A2810"
+        android:pathData="M30,43 A1,1 0 1,1 28,43 A1,1 0 1,1 30,43" />
+
+    <!-- Glowing Heart float -->
+    <path
+        android:fillColor="#F472B6"
+        android:pathData="M95,18 C95,16.5 93.5,15.2 92,16.5 C90.5,15.2 89,16.5 89,18 C89,20 92,22 92,22 C92,22 95,20 95,18 Z" />
+</vector>

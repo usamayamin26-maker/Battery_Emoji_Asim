@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_floating_bottom_bar"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <!-- Handle Bar -->
+    <View
+        android:layout_width="40dp"
+        android:layout_height="4dp"
+        android:layout_marginBottom="16dp"
+        android:background="#D1D5DB" />
+
+    <!-- Preview Mascot in Large Cute Container -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cvPreviewContainer"
+        android:layout_width="160dp"
+        android:layout_height="140dp"
+        app:cardBackgroundColor="@color/card_bg_pink"
+        app:cardCornerRadius="30dp"
+        app:cardElevation="0dp">
+
+        <ImageView
+            android:id="@+id/ivDialogMascot"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="16dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_blueprint_girl_pink" />
+    </com.google.android.material.card.MaterialCardView>
+
+    <TextView
+        android:id="@+id/tvDialogTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Pink Blossom"
+        android:textColor="@color/text_primary"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvDialogSubtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="Status: Active and cuddling on your battery"
+        android:textColor="@color/text_secondary"
+        android:textSize="13sp" />
+
+    <!-- REUSABLE COMPONENT: GradientButton for Applying Style -->
+    <com.asim.jhbatteryapp.presentation.components.GradientButton
+        android:id="@+id/btnApplyStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        app:btnCornerRadius="26dp"
+        app:btnGradientEndColor="@color/primary_gradient_end"
+        app:btnGradientStartColor="@color/primary_gradient_start"
+        app:btnText="@string/apply_battery_style"
+        app:btnTextColor="@color/white" />
+
+</LinearLayout>

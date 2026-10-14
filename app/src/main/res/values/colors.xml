@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Base Colors -->
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="transparent">#00000000</color>
+
+    <!-- Theme & Brand Palette -->
+    <color name="primary_gradient_start">#A855F7</color>
+    <color name="primary_gradient_end">#EC4899</color>
+    <color name="primary_purple">#9333EA</color>
+    <color name="primary_pink">#F43F5E</color>
+    <color name="accent_gold">#FBBF24</color>
+
+    <!-- Backgrounds -->
+    <color name="bg_splash_top">#B5A8F8</color>
+    <color name="bg_splash_mid">#F5BFD7</color>
+    <color name="bg_splash_bottom">#FDE2D0</color>
+    <color name="bg_home">#FDFBFD</color>
+    <color name="bg_surface_card">#FFFFFF</color>
+    <color name="bg_surface_soft">#F8F6FD</color>
+
+    <!-- Text Colors -->
+    <color name="text_primary">#221A3A</color>
+    <color name="text_secondary">#7A738F</color>
+    <color name="text_muted">#A7A0BC</color>
+    <color name="text_white">#FFFFFF</color>
+
+    <!-- Banner & Quick Action Cards -->
+    <color name="banner_bg_start">#FBEBFA</color>
+    <color name="banner_bg_end">#F2EDFF</color>
+    <color name="banner_border">#F0D7FA</color>
+    <color name="sticker_shop_card">#E0F2FE</color>
+    <color name="sticker_shop_card_end">#BAE6FD</color>
+    <color name="sticker_shop_blue_text">#0284C7</color>
+    <color name="animation_card_start">#FF85A1</color>
+    <color name="animation_card_end">#FF708F</color>
+    <color name="themes_card_start">#9F86FF</color>
+    <color name="themes_card_end">#7C5CFC</color>
+
+    <!-- Emoji Item Card Backgrounds -->
+    <color name="card_bg_blue">#E3F4FE</color>
+    <color name="card_bg_pink">#FEE9F1</color>
+    <color name="card_bg_gray">#F1F2F6</color>
+    <color name="card_bg_green">#E7FBE8</color>
+    <color name="card_bg_yellow">#FFF7DE</color>
+    <color name="card_bg_purple">#F4EBFD</color>
+    <color name="card_bg_coral">#FFEBE8</color>
+    <color name="card_bg_mint">#E4FAF4</color>
+
+    <!-- Battery Colors -->
+    <color name="battery_blue">#38BDF8</color>
+    <color name="battery_pink">#FB7185</color>
+    <color name="battery_gray">#94A3B8</color>
+    <color name="battery_green">#4ADE80</color>
+    <color name="battery_yellow">#FBBF24</color>
+    <color name="battery_purple">#C084FC</color>
+    <color name="battery_stroke">#332D48</color>
+
+    <!-- UI Accents & Navigation -->
+    <color name="nav_bar_bg">#EDFFFFFF</color>
+    <color name="nav_bar_border">#20000000</color>
+    <color name="nav_item_active">#EC4899</color>
+    <color name="nav_item_inactive">#9CA3AF</color>
+    <color name="tab_indicator_purple">#9333EA</color>
+    <color name="tab_inactive_text">#78716C</color>
+    <color name="chip_bg_active">#F3E8FF</color>
+    <color name="chip_bg_inactive">#F3F4F6</color>
+    <color name="search_bar_bg">#F5F5F7</color>
+    <color name="divider_soft">#EFEFF5</color>
+</resources>

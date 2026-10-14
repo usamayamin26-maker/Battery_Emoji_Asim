@@ -1,0 +1,21 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="36dp"
+    android:height="36dp"
+    android:viewportWidth="36"
+    android:viewportHeight="36">
+    <!-- Face -->
+    <path
+        android:fillColor="#FDE047"
+        android:pathData="M18,36 C27.94,36 36,27.94 36,18 C36,8.06 27.94,0 18,0 C8.06,0 0,8.06 0,18 C0,27.94 8.06,36 18,36 Z" />
+    <!-- Red Heart Eyes -->
+    <path
+        android:fillColor="#EF4444"
+        android:pathData="M13,11 C11.5,8.5 8,9 8,12 C8,15 13,18 13,18 C13,18 18,15 18,12 C18,9 14.5,8.5 13,11 Z" />
+    <path
+        android:fillColor="#EF4444"
+        android:pathData="M23,11 C21.5,8.5 18,9 18,12 C18,15 23,18 23,18 C23,18 28,15 28,12 C28,9 24.5,8.5 23,11 Z" />
+    <!-- Open Smile -->
+    <path
+        android:fillColor="#713F12"
+        android:pathData="M12,22 Q18,31 24,22 Z" />
+</vector>

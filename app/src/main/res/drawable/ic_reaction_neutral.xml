@@ -1,0 +1,24 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="36dp"
+    android:height="36dp"
+    android:viewportWidth="36"
+    android:viewportHeight="36">
+    <!-- Yellow Face -->
+    <path
+        android:fillColor="#EAB308"
+        android:pathData="M18,36 C27.94,36 36,27.94 36,18 C36,8.06 27.94,0 18,0 C8.06,0 0,8.06 0,18 C0,27.94 8.06,36 18,36 Z" />
+    <!-- Straight neutral eyes -->
+    <path
+        android:fillColor="#713F12"
+        android:pathData="M13,16 A2,2 0 1,1 13,12 A2,2 0 1,1 13,16" />
+    <path
+        android:fillColor="#713F12"
+        android:pathData="M23,16 A2,2 0 1,1 23,12 A2,2 0 1,1 23,16" />
+    <!-- Straight line mouth -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#713F12"
+        android:strokeWidth="2.5"
+        android:strokeLineCap="round"
+        android:pathData="M12,24 L24,24" />
+</vector>

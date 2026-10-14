@@ -1,0 +1,57 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="96dp"
+    android:height="96dp"
+    android:viewportWidth="96"
+    android:viewportHeight="96">
+    <!-- Character Head (Puppy/Bunny Blueprint) -->
+    <path
+        android:fillColor="#E0F2FE"
+        android:strokeColor="#0284C7"
+        android:strokeWidth="2.5"
+        android:pathData="M32,36 C32,24 40,16 48,16 C56,16 64,24 64,36 C64,44 56,48 48,48 C40,48 32,44 32,36 Z" />
+    <!-- Ears -->
+    <path
+        android:fillColor="#BAE6FD"
+        android:strokeColor="#0284C7"
+        android:strokeWidth="2"
+        android:pathData="M24,28 C20,20 28,14 34,22 C34,28 28,34 24,28 Z" />
+    <path
+        android:fillColor="#BAE6FD"
+        android:strokeColor="#0284C7"
+        android:strokeWidth="2"
+        android:pathData="M72,28 C76,20 68,14 62,22 C62,28 68,34 72,28 Z" />
+    <!-- Cute Eyes & Blush -->
+    <path
+        android:fillColor="#0369A1"
+        android:pathData="M43,34 A2.5,2.5 0 1,1 38,34 A2.5,2.5 0 1,1 43,34" />
+    <path
+        android:fillColor="#0369A1"
+        android:pathData="M58,34 A2.5,2.5 0 1,1 53,34 A2.5,2.5 0 1,1 58,34" />
+    <!-- Smile -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#0369A1"
+        android:strokeWidth="1.8"
+        android:strokeLineCap="round"
+        android:pathData="M45,40 Q48,43 51,40" />
+
+    <!-- Battery Container -->
+    <path
+        android:fillColor="#38BDF8"
+        android:strokeColor="#0284C7"
+        android:strokeWidth="2.8"
+        android:pathData="M20,46 H72 C75.3,46 78,48.7 78,52 V72 C78,75.3 75.3,78 72,78 H20 C16.7,78 14,75.3 14,72 V52 C14,48.7 16.7,46 20,46 Z" />
+    <!-- Battery Terminal -->
+    <path
+        android:fillColor="#0284C7"
+        android:strokeColor="#0284C7"
+        android:strokeWidth="1"
+        android:pathData="M78,57 H82 C83.1,57 84,57.9 84,59 V65 C84,66.1 83.1,67 82,67 H78 Z" />
+    <!-- Battery Level Fill Indicator & Heart Icon -->
+    <path
+        android:fillColor="#BAE6FD"
+        android:pathData="M20,52 H64 C65.1,52 66,52.9 66,54 V70 C66,71.1 65.1,72 64,72 H20 C18.9,72 18,71.1 18,70 V54 C18,52.9 18.9,52 20,52 Z" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M69,60 C69,58.3 67,57 65.5,58.5 C64,57 62,58.3 62,60 C62,62 65.5,64.5 65.5,64.5 C65.5,64.5 69,62 69,60 Z" />
+</vector>

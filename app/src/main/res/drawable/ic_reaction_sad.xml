@@ -1,0 +1,30 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="36dp"
+    android:height="36dp"
+    android:viewportWidth="36"
+    android:viewportHeight="36">
+    <!-- Orange/Yellow Face -->
+    <path
+        android:fillColor="#F59E0B"
+        android:pathData="M18,36 C27.94,36 36,27.94 36,18 C36,8.06 27.94,0 18,0 C8.06,0 0,8.06 0,18 C0,27.94 8.06,36 18,36 Z" />
+    <!-- Downward curved Eyes -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#78350F"
+        android:strokeWidth="2.2"
+        android:strokeLineCap="round"
+        android:pathData="M9,17 Q13,13 17,17" />
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#78350F"
+        android:strokeWidth="2.2"
+        android:strokeLineCap="round"
+        android:pathData="M19,17 Q23,13 27,17" />
+    <!-- Sad Mouth -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#78350F"
+        android:strokeWidth="2.2"
+        android:strokeLineCap="round"
+        android:pathData="M12,26 Q18,22 24,26" />
+</vector>

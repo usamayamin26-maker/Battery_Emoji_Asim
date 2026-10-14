@@ -1,0 +1,31 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="36dp"
+    android:height="36dp"
+    android:viewportWidth="36"
+    android:viewportHeight="36">
+    <!-- Red Face -->
+    <path
+        android:fillColor="#EF4444"
+        android:pathData="M18,36 C27.94,36 36,27.94 36,18 C36,8.06 27.94,0 18,0 C8.06,0 0,8.06 0,18 C0,27.94 8.06,36 18,36 Z" />
+    <!-- Angry Eyebrows -->
+    <path
+        android:fillColor="#7F1D1D"
+        android:pathData="M8,12 L15,15 L14,17 L7,14 Z" />
+    <path
+        android:fillColor="#7F1D1D"
+        android:pathData="M28,12 L21,15 L22,17 L29,14 Z" />
+    <!-- Eyes -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M12,18 A2,2 0 1,1 12,14 A2,2 0 1,1 12,18" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M24,18 A2,2 0 1,1 24,14 A2,2 0 1,1 24,18" />
+    <!-- Frown Mouth -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#7F1D1D"
+        android:strokeWidth="2.2"
+        android:strokeLineCap="round"
+        android:pathData="M12,26 Q18,21 24,26" />
+</vector>

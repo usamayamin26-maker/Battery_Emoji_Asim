@@ -1,0 +1,22 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.JHBatteryApp" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Brand Colors -->
+        <item name="colorPrimary">@color/primary_purple</item>
+        <item name="colorSecondary">@color/primary_pink</item>
+        <item name="android:statusBarColor">@color/transparent</item>
+        <item name="android:windowActionModeOverlay">true</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:navigationBarColor">@color/white</item>
+        <item name="android:windowLightNavigationBar" tools:targetApi="o_mr1">true</item>
+    </style>
+
+    <style name="Theme.JHBatteryApp" parent="Base.Theme.JHBatteryApp" />
+
+    <!-- Fullscreen Theme for Splash and Onboarding -->
+    <style name="Theme.JHBatteryApp.Fullscreen" parent="Theme.JHBatteryApp">
+        <item name="android:windowTranslucentStatus">false</item>
+        <item name="android:statusBarColor">@color/transparent</item>
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
+</resources>

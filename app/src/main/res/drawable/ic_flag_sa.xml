@@ -1,0 +1,16 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="36dp"
+    android:height="26dp"
+    android:viewportWidth="36"
+    android:viewportHeight="26">
+    <path
+        android:fillColor="#006C35"
+        android:pathData="M0,4 C0,1.8 1.8,0 4,0 H32 C34.2,0 36,1.8 36,4 V22 C36,24.2 34.2,26 32,26 H4 C1.8,26 0,24.2 0,22 Z" />
+    <!-- White Blueprint Sword & Arabic script shape -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M8,17 H28 V18.5 H8 Z" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M11,10 H25 C25,12 23,13 21,13 H15 C13,13 11,12 11,10 Z" />
+</vector>

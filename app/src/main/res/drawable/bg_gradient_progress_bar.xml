@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Background Track (Translucent White / Soft Rounded Capsule) -->
+    <item android:id="@android:id/background">
+        <shape android:shape="rectangle">
+            <corners android:radius="10dp" />
+            <solid android:color="#40FFFFFF" />
+        </shape>
+    </item>
+
+    <!-- Progress Indicator with Exact Purple-Magenta-Pink Gradient -->
+    <item android:id="@android:id/progress">
+        <scale android:scaleWidth="100%">
+            <shape android:shape="rectangle">
+                <corners android:radius="10dp" />
+                <gradient
+                    android:angle="0"
+                    android:startColor="#9241FD"
+                    android:centerColor="#D424AA"
+                    android:endColor="#F1337B"
+                    android:type="linear" />
+            </shape>
+        </scale>
+    </item>
+</layer-list>

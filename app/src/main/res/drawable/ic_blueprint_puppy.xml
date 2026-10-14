@@ -1,0 +1,71 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="120dp"
+    android:height="100dp"
+    android:viewportWidth="120"
+    android:viewportHeight="100">
+    <!-- Fluffy Golden Puppy peeking -->
+    <!-- Floppy Ears -->
+    <path
+        android:fillColor="#EAB308"
+        android:strokeColor="#CA8A04"
+        android:strokeWidth="2.5"
+        android:pathData="M24,42 C16,28 28,16 38,28 C40,40 32,56 24,42 Z" />
+    <path
+        android:fillColor="#EAB308"
+        android:strokeColor="#CA8A04"
+        android:strokeWidth="2.5"
+        android:pathData="M96,42 C104,28 92,16 82,28 C80,40 88,56 96,42 Z" />
+
+    <!-- Head -->
+    <path
+        android:fillColor="#FEF08A"
+        android:strokeColor="#CA8A04"
+        android:strokeWidth="3"
+        android:pathData="M34,48 C34,26 46,20 60,20 C74,20 86,26 86,48 C86,66 74,74 60,74 C46,74 34,66 34,48 Z" />
+
+    <!-- Cute Eyes with shine -->
+    <path
+        android:fillColor="#451A03"
+        android:pathData="M50,46 A4,4 0 1,1 42,46 A4,4 0 1,1 50,46" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M48,44 A1.5,1.5 0 1,1 45,44 A1.5,1.5 0 1,1 48,44" />
+
+    <path
+        android:fillColor="#451A03"
+        android:pathData="M78,46 A4,4 0 1,1 70,46 A4,4 0 1,1 78,46" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M76,44 A1.5,1.5 0 1,1 73,44 A1.5,1.5 0 1,1 76,44" />
+
+    <!-- Pink Blush Cheeks -->
+    <path
+        android:fillColor="#F472B6"
+        android:pathData="M40,56 A3.5,2 0 1,1 33,56 A3.5,2 0 1,1 40,56" />
+    <path
+        android:fillColor="#F472B6"
+        android:pathData="M87,56 A3.5,2 0 1,1 80,56 A3.5,2 0 1,1 87,56" />
+
+    <!-- Nose & Mouth -->
+    <path
+        android:fillColor="#78350F"
+        android:pathData="M60,54 C62,54 63,56 60,57 C57,56 58,54 60,54 Z" />
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#78350F"
+        android:strokeWidth="1.8"
+        android:strokeLineCap="round"
+        android:pathData="M56,60 Q60,63 64,60" />
+
+    <!-- Two cute paws resting -->
+    <path
+        android:fillColor="#FEF08A"
+        android:strokeColor="#CA8A04"
+        android:strokeWidth="2.5"
+        android:pathData="M38,72 C32,72 32,82 42,82 C48,82 48,72 38,72 Z" />
+    <path
+        android:fillColor="#FEF08A"
+        android:strokeColor="#CA8A04"
+        android:strokeWidth="2.5"
+        android:pathData="M82,72 C76,72 76,82 86,82 C92,82 92,72 82,72 Z" />
+</vector>
