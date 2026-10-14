@@ -67,6 +67,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupBottomNav() {
+        // Initialize frosted liquid glass blur over content
+        binding.floatingBottomNav.setupBlur(binding.root)
+
         binding.floatingBottomNav.setOnTabSelectedListener { tab ->
             when (tab) {
                 FloatingBottomBarView.Tab.TRENDING -> {

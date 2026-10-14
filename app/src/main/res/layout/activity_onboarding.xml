@@ -75,7 +75,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/_20sdp"
         android:layout_marginBottom="@dimen/_28sdp"
-        app:btnCornerRadius="@dimen/_24sdp"
+        app:btnCornerRadius="@dimen/_14sdp"
         app:btnGradientEndColor="@color/primary_gradient_end"
         app:btnGradientStartColor="@color/primary_gradient_start"
         app:btnText="@string/get_started"

@@ -23,7 +23,7 @@
             android:layout_centerVertical="true"
             android:text="@string/battery_icon_title"
             android:textColor="@color/text_primary"
-            android:textSize="22sp"
+            android:textSize="@dimen/_18ssp"
             android:textStyle="bold" />
 
         <!-- Search Icon Button (Navigates to SearchFragment) -->
@@ -82,7 +82,7 @@
                     android:layout_weight="1"
                     android:text="@string/enable_emoji_battery_banner"
                     android:textColor="@color/primary_purple"
-                    android:textSize="13.5sp"
+                    android:textSize="@dimen/_11ssp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -96,7 +96,7 @@
                     android:paddingVertical="6dp"
                     android:text="@string/start"
                     android:textColor="@color/primary_pink"
-                    android:textSize="13sp"
+                    android:textSize="@dimen/_10ssp"
                     android:textStyle="bold" />
             </LinearLayout>
 
@@ -104,7 +104,7 @@
             <LinearLayout
                 android:id="@+id/llQuickActionCards"
                 android:layout_width="match_parent"
-                android:layout_height="148dp"
+                android:layout_height="@dimen/_106sdp"
                 android:layout_marginTop="14dp"
                 android:orientation="horizontal">
 
@@ -185,7 +185,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:background="@drawable/bg_quick_animation"
-                            android:paddingHorizontal="14dp">
+                            android:paddingHorizontal="12dp">
 
                             <ImageView
                                 android:id="@+id/ivAnimIcon"

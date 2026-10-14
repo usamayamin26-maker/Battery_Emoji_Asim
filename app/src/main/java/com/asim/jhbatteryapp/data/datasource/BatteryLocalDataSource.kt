@@ -162,6 +162,84 @@ class BatteryLocalDataSource {
                 isRecent = false,
                 isTopPick = false,
                 tags = listOf("cat", "gray")
+            ),
+            BatteryEmojiItem(
+                id = "7",
+                title = "Cloud Bunny II",
+                category = "sanrio",
+                previewDrawableRes = R.drawable.ic_blueprint_bunny_blue,
+                backgroundColorRes = R.color.card_bg_blue,
+                batteryPercentage = 100,
+                batteryColorRes = R.color.battery_blue,
+                isHot = false,
+                isRecent = false,
+                isTopPick = false,
+                tags = listOf("cute", "bunny", "blue")
+            ),
+            BatteryEmojiItem(
+                id = "8",
+                title = "Pink Blossom II",
+                category = "anime",
+                previewDrawableRes = R.drawable.ic_blueprint_girl_pink,
+                backgroundColorRes = R.color.card_bg_pink,
+                batteryPercentage = 80,
+                batteryColorRes = R.color.battery_pink,
+                isHot = false,
+                isRecent = false,
+                isTopPick = false,
+                tags = listOf("anime", "pink")
+            ),
+            BatteryEmojiItem(
+                id = "9",
+                title = "Scholar Cat II",
+                category = "pokemon",
+                previewDrawableRes = R.drawable.ic_blueprint_cat_gray,
+                backgroundColorRes = R.color.card_bg_gray,
+                batteryPercentage = 50,
+                batteryColorRes = R.color.battery_gray,
+                isHot = false,
+                isRecent = false,
+                isTopPick = false,
+                tags = listOf("cat", "gray")
+            ),
+            BatteryEmojiItem(
+                id = "7",
+                title = "Cloud Bunny II",
+                category = "sanrio",
+                previewDrawableRes = R.drawable.ic_blueprint_bunny_blue,
+                backgroundColorRes = R.color.card_bg_blue,
+                batteryPercentage = 100,
+                batteryColorRes = R.color.battery_blue,
+                isHot = false,
+                isRecent = false,
+                isTopPick = false,
+                tags = listOf("cute", "bunny", "blue")
+            ),
+            BatteryEmojiItem(
+                id = "8",
+                title = "Pink Blossom II",
+                category = "anime",
+                previewDrawableRes = R.drawable.ic_blueprint_girl_pink,
+                backgroundColorRes = R.color.card_bg_pink,
+                batteryPercentage = 80,
+                batteryColorRes = R.color.battery_pink,
+                isHot = false,
+                isRecent = false,
+                isTopPick = false,
+                tags = listOf("anime", "pink")
+            ),
+            BatteryEmojiItem(
+                id = "9",
+                title = "Scholar Cat II",
+                category = "pokemon",
+                previewDrawableRes = R.drawable.ic_blueprint_cat_gray,
+                backgroundColorRes = R.color.card_bg_gray,
+                batteryPercentage = 50,
+                batteryColorRes = R.color.battery_gray,
+                isHot = false,
+                isRecent = false,
+                isTopPick = false,
+                tags = listOf("cat", "gray")
             )
         )
 

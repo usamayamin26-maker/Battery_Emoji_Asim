@@ -1,18 +1,25 @@
 package com.asim.jhbatteryapp.presentation.components
 
+import android.app.Activity
 import android.content.Context
+import android.content.ContextWrapper
+import android.graphics.Color
 import android.util.AttributeSet
 import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.core.content.ContextCompat
+import androidx.core.content.res.ResourcesCompat
 import com.asim.jhbatteryapp.R
+import eightbitlab.com.blurview.BlurView
 
 /**
- * Reusable Floating Navigation Bar Component
- * Displays frosted glass capsule with 3 tabs: Trending, Customize, Setting.
+ * Reusable Floating Navigation Bar Component with Frosted Liquid Glass Effect.
+ * Real-time background blur using BlurView with translucent glass rim highlight.
  */
 class FloatingBottomBarView @JvmOverloads constructor(
     context: Context,
@@ -24,6 +31,7 @@ class FloatingBottomBarView @JvmOverloads constructor(
         TRENDING, CUSTOMIZE, SETTING
     }
 
+    val blurView: BlurView
     private val tabTrending: LinearLayout
     private val tabCustomize: LinearLayout
     private val tabSetting: LinearLayout
@@ -38,9 +46,12 @@ class FloatingBottomBarView @JvmOverloads constructor(
 
     private var selectedTab: Tab = Tab.TRENDING
     private var onTabSelectedListener: ((Tab) -> Unit)? = null
+    private var isBlurInitialized = false
 
     init {
         val root = LayoutInflater.from(context).inflate(R.layout.view_floating_bottom_bar, this, true)
+        blurView = root.findViewById(R.id.blurView)
+
         tabTrending = root.findViewById(R.id.llTabTrending)
         tabCustomize = root.findViewById(R.id.llTabCustomize)
         tabSetting = root.findViewById(R.id.llTabSetting)
@@ -53,11 +64,58 @@ class FloatingBottomBarView @JvmOverloads constructor(
         tvCustomize = root.findViewById(R.id.tvTabCustomize)
         tvSetting = root.findViewById(R.id.tvTabSetting)
 
-        tabTrending.setOnClickListener { selectTab(Tab.TRENDING) }
-        tabCustomize.setOnClickListener { selectTab(Tab.CUSTOMIZE) }
-        tabSetting.setOnClickListener { selectTab(Tab.SETTING) }
+        tabTrending.setOnClickListener {
+            animateTabClick(tabTrending)
+            selectTab(Tab.TRENDING)
+        }
+        tabCustomize.setOnClickListener {
+            animateTabClick(tabCustomize)
+            selectTab(Tab.CUSTOMIZE)
+        }
+        tabSetting.setOnClickListener {
+            animateTabClick(tabSetting)
+            selectTab(Tab.SETTING)
+        }
 
         updateTabUi()
+    }
+
+    override fun onAttachedToWindow() {
+        super.onAttachedToWindow()
+        if (!isInEditMode && !isBlurInitialized) {
+            post {
+                findRootViewGroup()?.let { setupBlur(it) }
+            }
+        }
+    }
+
+    /**
+     * Initializes the real-time background blur for the liquid glass bar.
+     * @param rootView The root ViewGroup whose background is blurred underneath.
+     * @param blurRadius The blur radius intensity (default 20f).
+     */
+    fun setupBlur(rootView: ViewGroup, blurRadius: Float = 20f) {
+        val windowBackground = getActivity()?.window?.decorView?.background
+        blurView.setupWith(rootView)
+            .setFrameClearDrawable(windowBackground)
+            .setBlurRadius(blurRadius)
+            .setBlurAutoUpdate(true)
+        isBlurInitialized = true
+    }
+
+    private fun findRootViewGroup(): ViewGroup? {
+        val activity = getActivity()
+        return activity?.window?.decorView?.findViewById(android.R.id.content)
+            ?: (parent as? ViewGroup)
+    }
+
+    private fun getActivity(): Activity? {
+        var ctx = context
+        while (ctx is ContextWrapper) {
+            if (ctx is Activity) return ctx
+            ctx = ctx.baseContext
+        }
+        return null
     }
 
     fun selectTab(tab: Tab) {
@@ -75,30 +133,66 @@ class FloatingBottomBarView @JvmOverloads constructor(
         }
     }
 
+    fun getSelectedTab(): Tab = selectedTab
+
     fun setOnTabSelectedListener(listener: (Tab) -> Unit) {
         onTabSelectedListener = listener
     }
 
+    private fun animateTabClick(view: View) {
+        view.animate()
+            .scaleX(0.92f)
+            .scaleY(0.92f)
+            .setDuration(90)
+            .withEndAction {
+                view.animate()
+                    .scaleX(1.0f)
+                    .scaleY(1.0f)
+                    .setDuration(120)
+                    .start()
+            }
+            .start()
+    }
+
     private fun updateTabUi() {
-        val activeColor = ContextCompat.getColor(context, R.color.nav_item_active)
-        val inactiveColor = ContextCompat.getColor(context, R.color.nav_item_inactive)
+        val activeColor = ContextCompat.getColor(context, R.color.primary_purple)
+        val boldFont = ResourcesCompat.getFont(context, R.font.outfit_bold)
+        val mediumFont = ResourcesCompat.getFont(context, R.font.outfit_medium)
 
-        // Trending
+        // 1. Trending Tab
         val isTrending = selectedTab == Tab.TRENDING
-        tvTrending.setTextColor(if (isTrending) activeColor else inactiveColor)
-        ivTrending.setColorFilter(if (isTrending) activeColor else inactiveColor)
-        tvTrending.typeface = if (isTrending) android.graphics.Typeface.DEFAULT_BOLD else android.graphics.Typeface.DEFAULT
+        if (isTrending) {
+            ivTrending.clearColorFilter()
+            tvTrending.setTextColor(activeColor)
+            tvTrending.typeface = boldFont
+        } else {
+            ivTrending.setColorFilter(Color.WHITE)
+            tvTrending.setTextColor(Color.WHITE)
+            tvTrending.typeface = mediumFont
+        }
 
-        // Customize
+        // 2. Customize Tab
         val isCustomize = selectedTab == Tab.CUSTOMIZE
-        tvCustomize.setTextColor(if (isCustomize) activeColor else inactiveColor)
-        ivCustomize.setColorFilter(if (isCustomize) activeColor else inactiveColor)
-        tvCustomize.typeface = if (isCustomize) android.graphics.Typeface.DEFAULT_BOLD else android.graphics.Typeface.DEFAULT
+        if (isCustomize) {
+            ivCustomize.setColorFilter(activeColor)
+            tvCustomize.setTextColor(activeColor)
+            tvCustomize.typeface = boldFont
+        } else {
+            ivCustomize.clearColorFilter()
+            tvCustomize.setTextColor(Color.WHITE)
+            tvCustomize.typeface = mediumFont
+        }
 
-        // Setting
+        // 3. Setting Tab
         val isSetting = selectedTab == Tab.SETTING
-        tvSetting.setTextColor(if (isSetting) activeColor else inactiveColor)
-        ivSetting.setColorFilter(if (isSetting) activeColor else inactiveColor)
-        tvSetting.typeface = if (isSetting) android.graphics.Typeface.DEFAULT_BOLD else android.graphics.Typeface.DEFAULT
+        if (isSetting) {
+            ivSetting.setColorFilter(activeColor)
+            tvSetting.setTextColor(activeColor)
+            tvSetting.typeface = boldFont
+        } else {
+            ivSetting.clearColorFilter()
+            tvSetting.setTextColor(Color.WHITE)
+            tvSetting.typeface = mediumFont
+        }
     }
 }
