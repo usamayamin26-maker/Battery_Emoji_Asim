@@ -17,6 +17,9 @@ class CategoryTabAdapter(
     private var selectedCategoryId: String = "hot"
 
     fun setCategories(newCategories: List<CategoryItem>) {
+        if (categories == newCategories && categories.isNotEmpty()) {
+            return
+        }
         categories.clear()
         categories.addAll(newCategories)
         notifyDataSetChanged()

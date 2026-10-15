@@ -16,7 +16,6 @@ import com.asim.jhbatteryapp.R
 import com.asim.jhbatteryapp.databinding.DialogBatteryPreviewBinding
 import com.asim.jhbatteryapp.databinding.FragmentSearchBinding
 import com.asim.jhbatteryapp.domain.model.BatteryEmojiItem
-import com.asim.jhbatteryapp.presentation.common.ViewModelFactory
 import com.asim.jhbatteryapp.presentation.home.BatteryEmojiAdapter
 import com.asim.jhbatteryapp.presentation.home.HomeViewModel
 import com.google.android.material.bottomsheet.BottomSheetDialog
@@ -26,9 +25,7 @@ class SearchFragment : Fragment() {
     private var _binding: FragmentSearchBinding? = null
     private val binding get() = _binding!!
 
-    private val viewModel: HomeViewModel by activityViewModels {
-        ViewModelFactory(requireContext())
-    }
+    private val viewModel: HomeViewModel by activityViewModels()
 
     private lateinit var recentAdapter: BatteryEmojiAdapter
     private lateinit var topPicksAdapter: BatteryEmojiAdapter
@@ -152,7 +149,13 @@ class SearchFragment : Fragment() {
         dialogBinding.tvDialogTitle.text = item.title
 
         dialogBinding.btnApplyStyle.setOnButtonClickListener {
-            Toast.makeText(requireContext(), "${item.title} applied to battery bar!", Toast.LENGTH_SHORT).show()
+            val prefRepo = com.asim.jhbatteryapp.data.repository.PreferenceRepositoryImpl()
+            prefRepo.setAppliedBatteryIconRes(item.previewDrawableRes)
+            prefRepo.setBatteryIconTintable(false)
+            if (com.asim.jhbatteryapp.service.StatusBarAccessibilityService.isAccessibilityServiceEnabled(requireContext())) {
+                com.asim.jhbatteryapp.service.StatusBarAccessibilityService.updateBatteryIcon(item.previewDrawableRes, isTintable = false)
+            }
+            Toast.makeText(requireContext(), "${item.title} applied as battery icon!", Toast.LENGTH_SHORT).show()
             dialog.dismiss()
         }
 

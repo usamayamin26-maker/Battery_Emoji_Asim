@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_dialog_rounded"
+    android:padding="@dimen/_16sdp">
+
+    <!-- Permission Header Icon -->
+    <ImageView
+        android:id="@+id/ivPermIcon"
+        android:layout_width="@dimen/_40sdp"
+        android:layout_height="@dimen/_40sdp"
+        android:background="@drawable/bg_tab_pill_active"
+        android:contentDescription="@null"
+        android:padding="@dimen/_9sdp"
+        android:src="@drawable/ic_theme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/white" />
+
+    <!-- Dialog Title -->
+    <TextView
+        android:id="@+id/tvPermTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:text="Status Bar Permissions"
+        android:textColor="@color/text_primary"
+        android:textSize="@dimen/_14ssp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivPermIcon" />
+
+    <!-- Dialog Description -->
+    <TextView
+        android:id="@+id/tvPermDesc"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_6sdp"
+        android:gravity="center"
+        android:lineSpacingExtra="@dimen/_2sdp"
+        android:text="Please allow both permissions so the status bar theme can display across your phone:"
+        android:textColor="@color/text_secondary"
+        android:textSize="@dimen/_11ssp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvPermTitle" />
+
+    <!-- Step 1: Display Over Other Apps Button -->
+    <TextView
+        android:id="@+id/btnPermOverlay"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_38sdp"
+        android:layout_marginTop="@dimen/_14sdp"
+        android:background="@drawable/bg_tab_pill_container"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center"
+        android:text="1. Allow 'Display over other apps'"
+        android:textColor="@color/primary_purple"
+        android:textSize="@dimen/_11ssp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvPermDesc" />
+
+    <!-- Step 2: Pop-up Windows Button (For Xiaomi / MIUI / HyperOS / OEM) -->
+    <TextView
+        android:id="@+id/btnPermPopup"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_38sdp"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:background="@drawable/bg_tab_pill_container"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center"
+        android:text="2. Allow 'Display pop-up windows'"
+        android:textColor="@color/primary_purple"
+        android:textSize="@dimen/_11ssp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnPermOverlay" />
+
+    <!-- Step 3: Apply Status Bar Theme Button -->
+    <TextView
+        android:id="@+id/btnApplyNow"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_42sdp"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:background="@drawable/bg_btn_apply"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center"
+        android:text="Apply Status Bar Theme"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_12ssp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnPermPopup" />
+
+    <!-- Cancel Button -->
+    <TextView
+        android:id="@+id/btnCancelPerm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_6sdp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:clickable="true"
+        android:focusable="true"
+        android:padding="@dimen/_4sdp"
+        android:text="Not Now"
+        android:textColor="@color/text_muted"
+        android:textSize="@dimen/_11ssp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnApplyNow" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

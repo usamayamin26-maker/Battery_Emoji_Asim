@@ -10,7 +10,22 @@ import com.asim.jhbatteryapp.domain.model.BatteryEmojiItem
 
 class BatteryEmojiAdapter(
     private val onItemClick: (BatteryEmojiItem) -> Unit
-) : ListAdapter<BatteryEmojiItem, BatteryEmojiAdapter.BatteryEmojiViewHolder>(EmojiDiffCallback) {
+) : RecyclerView.Adapter<BatteryEmojiAdapter.BatteryEmojiViewHolder>() {
+
+    private val items = ArrayList<BatteryEmojiItem>()
+
+    fun submitList(newItems: List<BatteryEmojiItem>) {
+        if (items == newItems && items.isNotEmpty()) {
+            return
+        }
+        items.clear()
+        items.addAll(newItems)
+        notifyDataSetChanged()
+    }
+
+    override fun getItemCount(): Int = items.size
+
+    fun getItem(position: Int): BatteryEmojiItem = items[position]
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BatteryEmojiViewHolder {
         val binding = ItemBatteryEmojiBinding.inflate(
@@ -22,7 +37,7 @@ class BatteryEmojiAdapter(
     }
 
     override fun onBindViewHolder(holder: BatteryEmojiViewHolder, position: Int) {
-        holder.bind(getItem(position))
+        holder.bind(items[position])
     }
 
     inner class BatteryEmojiViewHolder(
@@ -35,16 +50,6 @@ class BatteryEmojiAdapter(
             binding.cardEmojiBattery.setOnCardClickListener {
                 onItemClick(item)
             }
-        }
-    }
-
-    object EmojiDiffCallback : DiffUtil.ItemCallback<BatteryEmojiItem>() {
-        override fun areItemsTheSame(oldItem: BatteryEmojiItem, newItem: BatteryEmojiItem): Boolean {
-            return oldItem.id == newItem.id
-        }
-
-        override fun areContentsTheSame(oldItem: BatteryEmojiItem, newItem: BatteryEmojiItem): Boolean {
-            return oldItem == newItem
         }
     }
 }

@@ -6,12 +6,17 @@ import android.animation.ObjectAnimator
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
+import android.view.View
 import android.view.animation.DecelerateInterpolator
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
+import com.asim.jhbatteryapp.R
 import com.asim.jhbatteryapp.data.datasource.PreferenceLocalDataSource
 import com.asim.jhbatteryapp.databinding.ActivitySplashBinding
 import com.asim.jhbatteryapp.presentation.home.MainActivity
@@ -21,6 +26,7 @@ import com.asim.jhbatteryapp.presentation.onboarding.OnboardingActivity
 class SplashActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivitySplashBinding
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,31 +44,20 @@ class SplashActivity : AppCompatActivity() {
     }
 
     private fun startProgressAndNavigate() {
-        // Animate the Gradient Linear Progress Indicator smoothly from 0 to 100
-        val progressAnimator = ObjectAnimator.ofInt(
-            binding.gradientProgressIndicator,
-            "progress",
-            0,
-            100
-        ).apply {
-            duration = 2200 // 2.2 seconds smooth load
-            interpolator = DecelerateInterpolator()
-        }
+        binding.gradientProgressIndicator.visibility = View.VISIBLE
 
-        progressAnimator.addListener(object : AnimatorListenerAdapter() {
-            override fun onAnimationEnd(animation: Animator) {
-                // Check if onboarding was already viewed
-                val preferences = PreferenceLocalDataSource(this@SplashActivity)
-                val targetActivity = if (preferences.isOnboardingCompleted()) {
+        binding.root.postDelayed({
+            val preferences = PreferenceLocalDataSource(this@SplashActivity)
+
+            val targetActivity =
+                if (preferences.isOnboardingCompleted()) {
                     MainActivity::class.java
                 } else {
                     OnboardingActivity::class.java
                 }
-                startActivity(Intent(this@SplashActivity, targetActivity))
-                finish()
-            }
-        })
 
-        progressAnimator.start()
+            startActivity(Intent(this@SplashActivity, targetActivity))
+            finish()
+        }, 6000L)
     }
 }

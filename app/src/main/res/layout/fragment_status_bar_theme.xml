@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_home">
+
+    <!-- Header: Back Arrow Button -->
+    <ImageView
+        android:id="@+id/ivThemeBack"
+        android:layout_width="@dimen/_24sdp"
+        android:layout_height="@dimen/_24sdp"
+        android:layout_marginStart="@dimen/_16sdp"
+        android:layout_marginTop="@dimen/_28sdp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:clickable="true"
+        android:contentDescription="@null"
+        android:focusable="true"
+        android:padding="@dimen/_2sdp"
+        android:src="@drawable/ic_arrow_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/text_primary" />
+
+    <!-- Header: Title -->
+    <TextView
+        android:id="@+id/tvThemeHeaderTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_12sdp"
+        android:text="@string/status_bar_theme_title"
+        android:textColor="@color/text_primary"
+        android:textSize="@dimen/_18ssp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/ivThemeBack"
+        app:layout_constraintStart_toEndOf="@+id/ivThemeBack"
+        app:layout_constraintTop_toTopOf="@+id/ivThemeBack" />
+
+    <!-- Segmented Tab Switcher (ConstraintLayout only) -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clTabSwitcher"
+        android:layout_width="@dimen/_220sdp"
+        android:layout_height="@dimen/_38sdp"
+        android:layout_marginTop="@dimen/_16sdp"
+        android:background="@drawable/bg_tab_pill_container"
+        android:padding="@dimen/_3sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivThemeBack">
+
+        <!-- Gradient Tab -->
+        <TextView
+            android:id="@+id/btnTabGradient"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/bg_tab_pill_active"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:text="@string/gradient_tab"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_11ssp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btnTabBackground"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Background Tab -->
+        <TextView
+            android:id="@+id/btnTabBackground"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/bg_tab_pill_inactive"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:text="@string/background_tab"
+            android:textColor="@color/primary_purple"
+            android:textSize="@dimen/_11ssp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/btnTabGradient"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- Top Status Bar Live Preview Capsule (ConstraintLayout only) -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clStatusBarPreview"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_44sdp"
+        android:layout_marginStart="@dimen/_16sdp"
+        android:layout_marginTop="@dimen/_16sdp"
+        android:layout_marginEnd="@dimen/_16sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/clTabSwitcher">
+
+        <!-- Time Label -->
+        <TextView
+            android:id="@+id/tvPreviewTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:text="20:05"
+            android:textColor="@color/text_primary"
+            android:textSize="@dimen/_11ssp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Signal Bars -->
+        <ImageView
+            android:id="@+id/ivPreviewSignal"
+            android:layout_width="@dimen/_12sdp"
+            android:layout_height="@dimen/_12sdp"
+            android:layout_marginEnd="@dimen/_4sdp"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_status_signal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/ivPreviewWifi"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/text_primary" />
+
+        <!-- Wifi Wave -->
+        <ImageView
+            android:id="@+id/ivPreviewWifi"
+            android:layout_width="@dimen/_12sdp"
+            android:layout_height="@dimen/_12sdp"
+            android:layout_marginEnd="@dimen/_4sdp"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_status_wifi"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/tvPreviewBattery"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/text_primary" />
+
+        <!-- Battery Percent -->
+        <TextView
+            android:id="@+id/tvPreviewBattery"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_3sdp"
+            android:text="58%"
+            android:textColor="@color/text_primary"
+            android:textSize="@dimen/_10ssp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/ivPreviewBattery"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Battery Icon / Custom Icon / Emoji -->
+        <ImageView
+            android:id="@+id/ivPreviewBattery"
+            android:layout_width="@dimen/_24sdp"
+            android:layout_height="@dimen/_14sdp"
+            android:layout_marginEnd="@dimen/_2sdp"
+            android:contentDescription="@null"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_status_battery"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/ivPreviewBolt"
+            app:layout_goneMarginEnd="@dimen/_2sdp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/text_primary" />
+
+        <!-- Charging Bolt -->
+        <ImageView
+            android:id="@+id/ivPreviewBolt"
+            android:layout_width="@dimen/_10sdp"
+            android:layout_height="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_status_bolt"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/text_primary" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- Subtitle: Choose a gradient / background -->
+    <TextView
+        android:id="@+id/tvChooseLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_16sdp"
+        android:layout_marginTop="@dimen/_18sdp"
+        android:text="Choose  a gradient"
+        android:textColor="@color/text_secondary"
+        android:textSize="@dimen/_12ssp"
+        android:textStyle="normal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/clStatusBarPreview" />
+
+    <!-- 2-Column Grid of Theme Styles -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvThemesGrid"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="@dimen/_12sdp"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:layout_marginEnd="@dimen/_12sdp"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:clipToPadding="false"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:layout_constraintBottom_toTopOf="@+id/btnApplyTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvChooseLabel"
+        app:spanCount="2"
+        tools:listitem="@layout/item_status_bar_theme" />
+
+    <!-- Bottom Apply Button (ConstraintLayout only) -->
+    <TextView
+        android:id="@+id/btnApplyTheme"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_44sdp"
+        android:layout_marginStart="@dimen/_18sdp"
+        android:layout_marginEnd="@dimen/_18sdp"
+        android:layout_marginBottom="@dimen/_18sdp"
+        android:background="@drawable/bg_btn_apply"
+        android:clickable="true"
+        android:elevation="@dimen/_2sdp"
+        android:focusable="true"
+        android:gravity="center"
+        android:text="@string/apply"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_13ssp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

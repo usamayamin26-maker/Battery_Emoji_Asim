@@ -12,7 +12,6 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.asim.jhbatteryapp.R
 import com.asim.jhbatteryapp.databinding.FragmentSettingsBinding
-import com.asim.jhbatteryapp.presentation.common.ViewModelFactory
 import com.asim.jhbatteryapp.presentation.home.HomeViewModel
 
 class SettingsFragment : Fragment() {
@@ -20,9 +19,7 @@ class SettingsFragment : Fragment() {
     private var _binding: FragmentSettingsBinding? = null
     private val binding get() = _binding!!
 
-    private val viewModel: HomeViewModel by activityViewModels {
-        ViewModelFactory(requireContext())
-    }
+    private val viewModel: HomeViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -40,11 +37,37 @@ class SettingsFragment : Fragment() {
         observeViewModel()
     }
 
+    override fun onResume() {
+        super.onResume()
+        viewModel.refreshEmojiBatteryState()
+    }
+
     private fun setupListeners() {
-        // Banner Toggle
-        binding.btnBannerStart.setOnClickListener {
-            viewModel.toggleEmojiBattery()
+        // Banner Toggle (Both card and button)
+        val bannerClickListener = View.OnClickListener {
+            val isCurrentlyActive = viewModel.isEmojiBatteryEnabled.value ?: false
+            if (isCurrentlyActive) {
+                viewModel.toggleEmojiBattery()
+                if (com.asim.jhbatteryapp.service.StatusBarAccessibilityService.isAccessibilityServiceEnabled(requireContext())) {
+                    com.asim.jhbatteryapp.service.StatusBarAccessibilityService.updateCustomSettings()
+                } else {
+                    com.asim.jhbatteryapp.service.StatusBarOverlayService.stop(requireContext())
+                }
+                Toast.makeText(requireContext(), "Emoji battery deactivated", Toast.LENGTH_SHORT).show()
+            } else {
+                if (com.asim.jhbatteryapp.service.StatusBarAccessibilityService.isAccessibilityServiceEnabled(requireContext())) {
+                    viewModel.toggleEmojiBattery()
+                    com.asim.jhbatteryapp.service.StatusBarAccessibilityService.updateCustomSettings()
+                    Toast.makeText(requireContext(), "Emoji battery activated!", Toast.LENGTH_SHORT).show()
+                } else {
+                    com.asim.jhbatteryapp.presentation.common.StatusBarPermissionHelper.showAccessibilityDialog(
+                        context = requireContext()
+                    )
+                }
+            }
         }
+        binding.llEnableBanner.setOnClickListener(bannerClickListener)
+        binding.btnBannerStart.setOnClickListener(bannerClickListener)
 
         // 1. Language Item -> Navigate to LanguageFragment via NavGraph!
         binding.itemSettingLanguage.setOnClickListener {

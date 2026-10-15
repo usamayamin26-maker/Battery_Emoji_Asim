@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_dialog_notify_card"
+    android:paddingHorizontal="@dimen/_18sdp"
+    android:paddingTop="@dimen/_22sdp"
+    android:paddingBottom="@dimen/_18sdp">
+
+    <!-- Document Illustration with Checklist & Green Checkmark Badge -->
+    <ImageView
+        android:id="@+id/ivNotifyIllustration"
+        android:layout_width="@dimen/_76sdp"
+        android:layout_height="@dimen/_76sdp"
+        android:contentDescription="@null"
+        android:src="@drawable/notify_ic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Dialog Title -->
+    <TextView
+        android:id="@+id/tvNotifyTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_14sdp"
+        android:text="@string/notify_permission_title"
+        android:textColor="#111827"
+        android:textSize="@dimen/_16ssp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivNotifyIllustration"
+        tools:text="Notify Permission" />
+
+    <!-- Subtitle / Body Description -->
+    <TextView
+        android:id="@+id/tvNotifyDescription"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:gravity="center"
+        android:lineSpacingExtra="@dimen/_2sdp"
+        android:paddingHorizontal="@dimen/_6sdp"
+        android:text="@string/notify_permission_desc"
+        android:textColor="#6B7280"
+        android:textSize="@dimen/_11ssp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvNotifyTitle"
+        tools:text="The app uses notifications to deliver important updates and essential system information." />
+
+    <!-- Action Buttons Row -->
+    <LinearLayout
+        android:id="@+id/llNotifyActions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_22sdp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvNotifyDescription">
+
+        <!-- Left Button: Not Now -->
+        <TextView
+            android:id="@+id/btnNotifyNotNow"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_38sdp"
+            android:layout_marginEnd="@dimen/_7sdp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_btn_not_now"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:text="@string/not_now"
+            android:textColor="#8B5CF6"
+            android:textSize="@dimen/_12ssp"
+            android:textStyle="bold" />
+
+        <!-- Right Button: Allow -->
+        <TextView
+            android:id="@+id/btnNotifyAllow"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_38sdp"
+            android:layout_marginStart="@dimen/_7sdp"
+            android:layout_weight="2"
+            android:background="@drawable/bg_btn_allow_gradient"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:text="@string/allow"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_12ssp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

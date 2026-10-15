@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/clOverlayRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_theme_grad_pink_rect">
+
+    <!-- Automatic Real-Time Clock -->
+    <TextClock
+        android:id="@+id/tcOverlayTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_12sdp"
+        android:format12Hour="h:mm"
+        android:format24Hour="HH:mm"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_10ssp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="20:05" />
+
+    <!-- Left Status Bar Mascot Emoji (Next to Time) -->
+    <ImageView
+        android:id="@+id/ivOverlayLeftEmoji"
+        android:layout_width="@dimen/_13sdp"
+        android:layout_height="@dimen/_13sdp"
+        android:layout_marginStart="@dimen/_3sdp"
+        android:contentDescription="@null"
+        android:scaleType="fitCenter"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tcOverlayTime"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@drawable/ic_blueprint_bunny_blue"
+        tools:visibility="visible" />
+
+    <!-- Optional Date Badge -->
+    <TextView
+        android:id="@+id/tvOverlayDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_4sdp"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_8ssp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/ivOverlayLeftEmoji"
+        app:layout_goneMarginStart="@dimen/_4sdp"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Wed, Oct 07" />
+
+    <!-- Airplane Custom Icon -->
+    <ImageView
+        android:id="@+id/ivOverlayAirplane"
+        android:layout_width="@dimen/_11sdp"
+        android:layout_height="@dimen/_11sdp"
+        android:layout_marginStart="@dimen/_4sdp"
+        android:contentDescription="@null"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_airplane"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tvOverlayDate"
+        app:layout_goneMarginStart="@dimen/_4sdp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/white" />
+
+    <!-- Ringer Silent Custom Icon -->
+    <ImageView
+        android:id="@+id/ivOverlayRinger"
+        android:layout_width="@dimen/_11sdp"
+        android:layout_height="@dimen/_11sdp"
+        android:layout_marginStart="@dimen/_4sdp"
+        android:contentDescription="@null"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_ringer_silent"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/ivOverlayAirplane"
+        app:layout_goneMarginStart="@dimen/_4sdp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/white" />
+
+    <!-- Hotspot Custom Icon -->
+    <ImageView
+        android:id="@+id/ivOverlayHotspot"
+        android:layout_width="@dimen/_11sdp"
+        android:layout_height="@dimen/_11sdp"
+        android:layout_marginStart="@dimen/_4sdp"
+        android:contentDescription="@null"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_hotspot"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/ivOverlayRinger"
+        app:layout_goneMarginStart="@dimen/_4sdp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/white" />
+
+    <!-- Emotion Custom Icon -->
+    <ImageView
+        android:id="@+id/ivOverlayEmotion"
+        android:layout_width="@dimen/_12sdp"
+        android:layout_height="@dimen/_12sdp"
+        android:layout_marginStart="@dimen/_4sdp"
+        android:contentDescription="@null"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_reaction_love"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/ivOverlayHotspot"
+        app:layout_goneMarginStart="@dimen/_4sdp"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Animation Sparkle Custom Icon -->
+    <ImageView
+        android:id="@+id/ivOverlayAnimation"
+        android:layout_width="@dimen/_11sdp"
+        android:layout_height="@dimen/_11sdp"
+        android:layout_marginStart="@dimen/_4sdp"
+        android:contentDescription="@null"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_sparkle"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/ivOverlayEmotion"
+        app:layout_goneMarginStart="@dimen/_4sdp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/white" />
+
+    <!-- Data Swap Icon -->
+    <ImageView
+        android:id="@+id/ivOverlayData"
+        android:layout_width="@dimen/_11sdp"
+        android:layout_height="@dimen/_11sdp"
+        android:layout_marginEnd="@dimen/_4sdp"
+        android:contentDescription="@null"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_data_swap"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/ivOverlaySignal"
+        app:layout_goneMarginEnd="@dimen/_4sdp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/white" />
+
+    <!-- Cellular Signal Bars -->
+    <ImageView
+        android:id="@+id/ivOverlaySignal"
+        android:layout_width="@dimen/_11sdp"
+        android:layout_height="@dimen/_11sdp"
+        android:layout_marginEnd="@dimen/_4sdp"
+        android:contentDescription="@null"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_status_signal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/ivOverlayWifi"
+        app:layout_goneMarginEnd="@dimen/_4sdp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/white" />
+
+    <!-- Wifi Wave -->
+    <ImageView
+        android:id="@+id/ivOverlayWifi"
+        android:layout_width="@dimen/_11sdp"
+        android:layout_height="@dimen/_11sdp"
+        android:layout_marginEnd="@dimen/_4sdp"
+        android:contentDescription="@null"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_status_wifi"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/tvOverlayBattery"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/white" />
+
+    <!-- Real-Time Battery Percentage -->
+    <TextView
+        android:id="@+id/tvOverlayBattery"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/_3sdp"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_9ssp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/ivOverlayBatteryIcon"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="58%" />
+
+    <!-- Battery Status Icon (Always Battery style / Battery emoji) -->
+    <ImageView
+        android:id="@+id/ivOverlayBatteryIcon"
+        android:layout_width="@dimen/_24sdp"
+        android:layout_height="@dimen/_14sdp"
+        android:layout_marginEnd="@dimen/_2sdp"
+        android:contentDescription="@null"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_status_battery"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/ivOverlayBolt"
+        app:layout_goneMarginEnd="@dimen/_2sdp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/white" />
+
+    <!-- Charging Bolt (Visible when phone is charging or charge icon enabled) -->
+    <ImageView
+        android:id="@+id/ivOverlayBolt"
+        android:layout_width="@dimen/_9sdp"
+        android:layout_height="@dimen/_9sdp"
+        android:layout_marginEnd="@dimen/_2sdp"
+        android:contentDescription="@null"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_status_bolt"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/white"
+        tools:visibility="visible" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

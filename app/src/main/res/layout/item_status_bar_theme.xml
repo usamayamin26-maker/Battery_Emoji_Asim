@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingHorizontal="@dimen/_4sdp"
+    android:paddingVertical="@dimen/_5sdp">
+
+    <!-- Outer Card (ConstraintLayout only) -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clThemeCard"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_74sdp"
+        android:background="@drawable/bg_theme_item_card_unselected"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <!-- Inner Status Bar Capsule (ConstraintLayout only) -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clInnerCapsule"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_38sdp"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:background="@drawable/bg_theme_grad_pink"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <!-- Time Label -->
+            <TextView
+                android:id="@+id/tvThemeTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:text="20:05"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_10ssp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!-- Signal Bars -->
+            <ImageView
+                android:id="@+id/ivThemeSignal"
+                android:layout_width="@dimen/_12sdp"
+                android:layout_height="@dimen/_12sdp"
+                android:layout_marginEnd="@dimen/_3sdp"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_status_signal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/ivThemeWifi"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@color/white" />
+
+            <!-- Wifi Wave -->
+            <ImageView
+                android:id="@+id/ivThemeWifi"
+                android:layout_width="@dimen/_12sdp"
+                android:layout_height="@dimen/_12sdp"
+                android:layout_marginEnd="@dimen/_3sdp"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_status_wifi"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/tvThemeBattery"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@color/white" />
+
+            <!-- Battery Percentage -->
+            <TextView
+                android:id="@+id/tvThemeBattery"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_2sdp"
+                android:text="58%"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_9ssp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/ivThemeBattery"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!-- Battery Icon -->
+            <ImageView
+                android:id="@+id/ivThemeBattery"
+                android:layout_width="@dimen/_16sdp"
+                android:layout_height="@dimen/_8sdp"
+                android:layout_marginEnd="@dimen/_2sdp"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_status_battery"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/ivThemeBolt"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@color/white" />
+
+            <!-- Charging Bolt -->
+            <ImageView
+                android:id="@+id/ivThemeBolt"
+                android:layout_width="@dimen/_9sdp"
+                android:layout_height="@dimen/_9sdp"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_status_bolt"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@color/white" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,33 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="72dp"
+    android:height="72dp"
+    android:viewportWidth="72"
+    android:viewportHeight="72">
+
+    <!-- Soft Lavender Rounded Squircle Badge -->
+    <path
+        android:fillColor="#EDE9FE"
+        android:pathData="M16,6 C7.16,6 0,13.16 0,22 L0,50 C0,58.84 7.16,66 16,66 L56,66 C64.84,66 72,58.84 72,50 L72,22 C72,13.16 64.84,6 56,6 Z" />
+
+    <!-- Subtle darker shadow border on badge -->
+    <path
+        android:strokeColor="#DDD6FE"
+        android:strokeWidth="1.2"
+        android:fillColor="#00000000"
+        android:pathData="M16,6 C7.16,6 0,13.16 0,22 L0,50 C0,58.84 7.16,66 16,66 L56,66 C64.84,66 72,58.84 72,50 L72,22 C72,13.16 64.84,6 56,6 Z" />
+
+    <!-- Purple Shield Body -->
+    <path
+        android:fillColor="#7C3AED"
+        android:pathData="M36,20 C42,23 48,24 50,24 C50,38 44,48 36,52 C28,48 22,38 22,24 C24,24 30,23 36,20 Z" />
+
+    <!-- White Checkmark Inside Shield -->
+    <path
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="3"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:fillColor="#00000000"
+        android:pathData="M30,35.5 L34.5,40 L42.5,31.5" />
+
+</vector>

@@ -14,10 +14,31 @@
         <action
             android:id="@+id/action_homeFragment_to_searchFragment"
             app:destination="@id/searchFragment"
-            app:enterAnim="@android:anim/fade_in"
-            app:exitAnim="@android:anim/fade_out"
-            app:popEnterAnim="@android:anim/fade_in"
-            app:popExitAnim="@android:anim/fade_out" />
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_homeFragment_to_statusBarThemeFragment"
+            app:destination="@id/statusBarThemeFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_homeFragment_to_statusBarAnimationFragment"
+            app:destination="@id/statusBarAnimationFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_homeFragment_to_statusBarCustomFragment"
+            app:destination="@id/statusBarCustomFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
 
     <!-- Search Screen Fragment -->
@@ -36,10 +57,10 @@
         <action
             android:id="@+id/action_settingsFragment_to_languageFragment"
             app:destination="@id/languageFragment"
-            app:enterAnim="@android:anim/fade_in"
-            app:exitAnim="@android:anim/fade_out"
-            app:popEnterAnim="@android:anim/fade_in"
-            app:popExitAnim="@android:anim/fade_out" />
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
 
     <!-- Language Screen Fragment -->
@@ -48,5 +69,61 @@
         android:name="com.asim.jhbatteryapp.presentation.settings.LanguageFragment"
         android:label="Languages"
         tools:layout="@layout/fragment_language" />
+
+    <!-- Status Bar Theme Screen Fragment -->
+    <fragment
+        android:id="@+id/statusBarThemeFragment"
+        android:name="com.asim.jhbatteryapp.presentation.theme.StatusBarThemeFragment"
+        android:label="Status Bar Theme"
+        tools:layout="@layout/fragment_status_bar_theme" />
+
+    <!-- Status Bar Animation Screen Fragment -->
+    <fragment
+        android:id="@+id/statusBarAnimationFragment"
+        android:name="com.asim.jhbatteryapp.presentation.animation.StatusBarAnimationFragment"
+        android:label="Status Bar Animation"
+        tools:layout="@layout/fragment_status_bar_animation">
+        <action
+            android:id="@+id/action_statusBarAnimationFragment_to_animationSeeAllFragment"
+            app:destination="@id/animationSeeAllFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+
+    <!-- Animation See All Screen Fragment -->
+    <fragment
+        android:id="@+id/animationSeeAllFragment"
+        android:name="com.asim.jhbatteryapp.presentation.animation.AnimationSeeAllFragment"
+        android:label="Animation Styles"
+        tools:layout="@layout/fragment_animation_see_all" />
+
+    <!-- Status Bar Custom Screen Fragment (linked with Customize bottom bar tab) -->
+    <fragment
+        android:id="@+id/statusBarCustomFragment"
+        android:name="com.asim.jhbatteryapp.presentation.custom.StatusBarCustomFragment"
+        android:label="Status Bar Custom"
+        tools:layout="@layout/fragment_status_bar_custom">
+        <action
+            android:id="@+id/action_statusBarCustomFragment_to_customIconDetailFragment"
+            app:destination="@id/customIconDetailFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+
+    <!-- Custom Icon Detail Screen Fragment -->
+    <fragment
+        android:id="@+id/customIconDetailFragment"
+        android:name="com.asim.jhbatteryapp.presentation.custom.CustomIconDetailFragment"
+        android:label="Custom Icon Detail"
+        tools:layout="@layout/fragment_custom_icon_detail">
+        <argument
+            android:name="iconId"
+            android:defaultValue="airplane"
+            app:argType="string" />
+    </fragment>
 
 </navigation>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Top Accent Gradient -->
+    <item>
+        <shape android:shape="rectangle">
+            <corners
+                android:topLeftRadius="@dimen/_22sdp"
+                android:topRightRadius="@dimen/_22sdp" />
+            <gradient
+                android:angle="0"
+                android:startColor="#B875FC"
+                android:endColor="#F472B6" />
+        </shape>
+    </item>
+    <!-- White Body (2dp inset from top) -->
+    <item android:top="2dp">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/white" />
+            <corners
+                android:topLeftRadius="@dimen/_21sdp"
+                android:topRightRadius="@dimen/_21sdp" />
+        </shape>
+    </item>
+</layer-list>

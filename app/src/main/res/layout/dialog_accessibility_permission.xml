@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_dialog_notify_card"
+    android:paddingHorizontal="@dimen/_16sdp"
+    android:paddingTop="@dimen/_20sdp"
+    android:paddingBottom="@dimen/_18sdp">
+
+    <!-- Top Lavender Squircle Badge with Shield -->
+    <ImageView
+        android:id="@+id/ivAccessShield"
+        android:layout_width="@dimen/_54sdp"
+        android:layout_height="@dimen/_54sdp"
+        android:contentDescription="@null"
+        android:src="@drawable/ic_accessibility_shield"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Dialog Title -->
+    <TextView
+        android:id="@+id/tvAccessTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:text="@string/accessibility_usage_title"
+        android:textColor="#111827"
+        android:textSize="@dimen/_16ssp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivAccessShield"
+        tools:text="Accessibility Service Usage" />
+
+    <!-- Dialog Subtitle -->
+    <TextView
+        android:id="@+id/tvAccessSubtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_3sdp"
+        android:text="@string/accessibility_usage_subtitle"
+        android:textColor="#6B7280"
+        android:textSize="@dimen/_11ssp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvAccessTitle"
+        tools:text="Permission required to continue" />
+
+    <!-- Intro Text -->
+    <TextView
+        android:id="@+id/tvAccessIntro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_14sdp"
+        android:lineSpacingExtra="@dimen/_2sdp"
+        android:text="@string/accessibility_usage_intro"
+        android:textColor="#6B7280"
+        android:textSize="@dimen/_11ssp"
+        app:layout_constraintTop_toBottomOf="@+id/tvAccessSubtitle"
+        tools:text="This app requires the Accessibility Services permission for:" />
+
+    <!-- Bullet 1 Row -->
+    <LinearLayout
+        android:id="@+id/llBullet1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:gravity="top"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/tvAccessIntro">
+
+        <View
+            android:layout_width="6dp"
+            android:layout_height="6dp"
+            android:layout_marginStart="@dimen/_2sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:background="@drawable/bg_bullet_dot_purple" />
+
+        <TextView
+            android:id="@+id/tvBullet1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:lineSpacingExtra="@dimen/_2sdp"
+            android:text="@string/accessibility_usage_bullet_1"
+            android:textColor="#4B5563"
+            android:textSize="@dimen/_11ssp" />
+    </LinearLayout>
+
+    <!-- Bullet 2 Row -->
+    <LinearLayout
+        android:id="@+id/llBullet2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:gravity="top"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/llBullet1">
+
+        <View
+            android:layout_width="6dp"
+            android:layout_height="6dp"
+            android:layout_marginStart="@dimen/_2sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:background="@drawable/bg_bullet_dot_purple" />
+
+        <TextView
+            android:id="@+id/tvBullet2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:lineSpacingExtra="@dimen/_2sdp"
+            android:text="@string/accessibility_usage_bullet_2"
+            android:textColor="#4B5563"
+            android:textSize="@dimen/_11ssp" />
+    </LinearLayout>
+
+    <!-- Notice Box: Commitment Statement -->
+    <FrameLayout
+        android:id="@+id/flNoticeBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:background="@drawable/bg_accessibility_notice"
+        android:paddingHorizontal="@dimen/_10sdp"
+        android:paddingVertical="@dimen/_10sdp"
+        app:layout_constraintTop_toBottomOf="@+id/llBullet2">
+
+        <TextView
+            android:id="@+id/tvNoticeText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:lineSpacingExtra="@dimen/_2sdp"
+            android:text="@string/accessibility_usage_notice"
+            android:textColor="#6B7280"
+            android:textSize="@dimen/_10ssp" />
+    </FrameLayout>
+
+    <!-- Checkbox & Terms Agreement -->
+    <LinearLayout
+        android:id="@+id/llTerms"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/flNoticeBox">
+
+        <CheckBox
+            android:id="@+id/cbTerms"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:buttonTint="#A855F7"
+            android:checked="true" />
+
+        <TextView
+            android:id="@+id/tvTerms"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_4sdp"
+            android:layout_weight="1"
+            android:text="@string/accessibility_usage_terms"
+            android:textColor="#6B7280"
+            android:textSize="@dimen/_10ssp" />
+    </LinearLayout>
+
+    <!-- Action Buttons Row -->
+    <LinearLayout
+        android:id="@+id/llActions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_14sdp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/llTerms">
+
+        <!-- Left Button: Close -->
+        <TextView
+            android:id="@+id/btnAccessClose"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_38sdp"
+            android:layout_marginEnd="@dimen/_7sdp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_btn_not_now"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:text="@string/close"
+            android:textColor="#6B7280"
+            android:textSize="@dimen/_12ssp"
+            android:textStyle="bold" />
+
+        <!-- Right Button: Continue -->
+        <TextView
+            android:id="@+id/btnAccessContinue"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_38sdp"
+            android:layout_marginStart="@dimen/_7sdp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_btn_allow_gradient"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:text="@string/continue_text"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_12ssp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

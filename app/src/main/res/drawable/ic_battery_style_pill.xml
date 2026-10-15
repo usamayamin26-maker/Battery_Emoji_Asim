@@ -1,0 +1,16 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="36dp"
+    android:height="18dp"
+    android:viewportWidth="36"
+    android:viewportHeight="18">
+    <!-- Capsule outer shell -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#7B2CBF"
+        android:strokeWidth="1.8"
+        android:pathData="M 8,2 L 24,2 A 7,7 0 0,1 31,9 L 31,9 A 7,7 0 0,1 24,16 L 8,16 A 7,7 0 0,1 1,9 L 1,9 A 7,7 0 0,1 8,2 Z" />
+    <!-- Filled inner pill -->
+    <path
+        android:fillColor="#7B2CBF"
+        android:pathData="M 8,4.5 L 18,4.5 A 4.5,4.5 0 0,1 22.5,9 A 4.5,4.5 0 0,1 18,13.5 L 8,13.5 A 4.5,4.5 0 0,1 3.5,9 A 4.5,4.5 0 0,1 8,4.5 Z" />
+</vector>

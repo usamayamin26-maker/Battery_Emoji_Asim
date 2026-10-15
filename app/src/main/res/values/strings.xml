@@ -12,6 +12,8 @@
     <string name="onboarding_title_2">Make your\nbattery fun.</string>
     <string name="onboarding_desc_2">Turn your battery icon into cute emojis. A tiny\ndetail. A whole lot of happy.</string>
     <string name="onboarding_title_3">Your battery.\nYour imagination.</string>
+    <string name="help_title">Help us improve</string>
+    <string name="help_desc_3">Please support us by rating and\nrecommending to others on the Google Play</string>
     <string name="onboarding_desc_3">Mix your favorite emojis and colors to create\na battery that feels like you.</string>
     <string name="get_started">Get Started</string>
     <string name="next">Next</string>
@@ -85,4 +87,78 @@
     <string name="feedback_dialog_title">What did you think about it?</string>
     <string name="feedback_dialog_desc">Your feedback is essential in helping us better understand your specific needs.</string>
     <string name="feedback_submitted">Thank you for your feedback!</string>
+    <!-- Status Bar Themes & Animations Screens -->
+    <string name="status_bar_theme_title">Status Bar Theme</string>
+    <string name="gradient_tab">Gradient</string>
+    <string name="background_tab">Background</string>
+    <string name="choose_gradient">Choose a gradient</string>
+    <string name="choose_background">Choose a background</string>
+    <string name="status_bar_animation_title">Status Bar Animation</string>
+    <string name="date_size">Date Size</string>
+    <string name="animation_style">Animation Style</string>
+    <string name="see_all">See all</string>
+    <string name="theme_applied_success">Status bar theme applied successfully!</string>
+    <string name="animation_applied_success">Status bar animation applied successfully!</string>
+    <string name="accessibility_service_desc">Enables JH Battery to draw custom status bar themes and cute animations directly on top of the system status bar.</string>
+    <string name="accessibility_dialog_title">Overlap System Status Bar</string>
+    <string name="accessibility_dialog_desc">To completely overlap and hide your phone\'s system status bar with the custom status bar, please enable JH Battery in Accessibility Services.</string>
+    <string name="enable_accessibility">Enable in Accessibility</string>
+    <string name="keep_standard_overlay">Keep Standard Overlay</string>
+
+    <!-- Status Bar Custom Screen Strings -->
+    <string name="status_bar_custom_title">Status Bar Custom</string>
+    <string name="tab_size">Size</string>
+    <string name="tab_appearance">Appearance</string>
+    <string name="tab_battery">Battery</string>
+    <string name="tab_customize_icon">Customize icon</string>
+    <string name="label_size">Size</string>
+    <string name="label_height">Height</string>
+    <string name="label_left_margin">Left Margin</string>
+    <string name="label_right_margin">Right Margin</string>
+    <string name="label_appearance">Appearance</string>
+    <string name="label_icon">Icon</string>
+    <string name="label_background">Background</string>
+    <string name="label_battery">Battery</string>
+    <string name="label_percentage">Percentage</string>
+    <string name="label_icon_size">Icon Size</string>
+    <string name="label_emoji">Emoji</string>
+    <string name="tab_trending">Trending</string>
+    <string name="tab_halloween">Halloween</string>
+    <string name="tab_wc2">WC 2</string>
+    <string name="apply_custom_success">Custom status bar applied successfully!</string>
+
+    <!-- Notification Permission Dialog -->
+    <string name="notify_permission_title">Notify Permission</string>
+    <string name="notify_permission_desc">The app uses notifications to deliver important updates and essential system information.</string>
+    <string name="not_now">Not Now</string>
+    <string name="allow">Allow</string>
+
+    <!-- Accessibility Service Usage Dialog -->
+    <string name="accessibility_usage_title">Accessibility Service Usage</string>
+    <string name="accessibility_usage_subtitle">Permission required to continue</string>
+    <string name="accessibility_usage_intro">This app requires the Accessibility Services permission for:</string>
+    <string name="accessibility_usage_bullet_1"><![CDATA[<b><font color="#A855F7">Display "Emoji Battery Icon Customize"</font></b> view on mobile screen and detect gestures on the status bar.]]></string>
+    <string name="accessibility_usage_bullet_2"><![CDATA[<b><font color="#A855F7">Start accessibility actions</font></b> action to Home, Back, show Recent screen.]]></string>
+    <string name="accessibility_usage_notice">This application commits not to collect or share\nany user information about this accessibility\nright..</string>
+    <string name="accessibility_usage_terms"><![CDATA[I have read and agree to the <u><font color="#A855F7">Terms of Service</font></u>]]></string>
+    <string name="close">Close</string>
+    <string name="continue_text">Continue</string>
+
+    <!-- Exit Dialog -->
+    <string name="exit_dialog_title">Are you sure you want to exit?</string>
+    <string name="exit_dialog_desc">Your changes haven\'t been saved. Are you sure you want to exit?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+
+    <!-- No Internet Dialog -->
+    <string name="no_internet_title">No Internet Connection</string>
+    <string name="no_internet_desc">Please check your internet connection and try again.</string>
+    <string name="cancel">Cancel</string>
+    <string name="retry">Retry</string>
+
+    <!-- Don't Miss Out Dialog -->
+    <string name="dont_miss_out_title">Don\'t Miss Out!!</string>
+    <string name="dont_miss_out_desc">Turn on notifications to discover new Battery Icons, seasonal themes, and trending styles.</string>
+    <string name="maybe_later">Maybe Later</string>
+    <string name="turn_on_notifications">Turn On Notifications</string>
 </resources>

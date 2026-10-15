@@ -1,0 +1,46 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="26dp"
+    android:height="26dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <!-- Clean rounded gear icon matching screenshot -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeWidth="2"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:pathData="M12,15C13.6569,15 15,13.6569 15,12C15,10.3431 13.6569,9 12,9C10.3431,9 9,10.3431 9,12C9,13.6569 10.3431,15 12,15Z">
+        <aapt:attr name="android:strokeColor">
+            <gradient
+                android:startX="4"
+                android:startY="21"
+                android:endX="21"
+                android:endY="4"
+                android:type="linear">
+                <item android:offset="0.0" android:color="#9241FD"/>
+                <item android:offset="0.5" android:color="#D424AA"/>
+                <item android:offset="1.0" android:color="#F1337B"/>
+            </gradient>
+        </aapt:attr>
+    </path>
+    <path
+        android:fillColor="#00000000"
+        android:strokeWidth="2"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:pathData="M19.4,13.5C19.46,13.01 19.5,12.51 19.5,12C19.5,11.49 19.46,10.99 19.4,10.5L21.54,8.83C21.73,8.68 21.78,8.41 21.66,8.2L19.64,4.7C19.52,4.49 19.26,4.41 19.04,4.49L16.53,5.5C16.01,5.1 15.45,4.77 14.84,4.52L14.46,1.85C14.42,1.61 14.22,1.44 13.97,1.44L9.93,1.44C9.68,1.44 9.48,1.61 9.44,1.85L9.06,4.52C8.45,4.77 7.89,5.1 7.37,5.5L4.86,4.49C4.64,4.41 4.38,4.49 4.26,4.7L2.24,8.2C2.12,8.41 2.17,8.68 2.36,8.83L4.5,10.5C4.44,10.99 4.4,11.49 4.4,12C4.4,12.51 4.44,13.01 4.5,13.5L2.36,15.17C2.17,15.32 2.12,15.59 2.24,15.8L4.26,19.3C4.38,19.51 4.64,19.59 4.86,19.51L7.37,18.5C7.89,18.9 8.45,19.23 9.06,19.48L9.44,22.15C9.48,22.39 9.68,22.56 9.93,22.56L13.97,22.56C14.22,22.56 14.42,22.39 14.46,22.15L14.84,19.48C15.45,19.23 16.01,18.9 16.53,18.5L19.04,19.51C19.26,19.59 19.52,19.51 19.64,19.3L21.66,15.8C21.78,15.59 21.73,15.32 21.54,15.17L19.4,13.5Z">
+        <aapt:attr name="android:strokeColor">
+            <gradient
+                android:startX="4"
+                android:startY="21"
+                android:endX="21"
+                android:endY="4"
+                android:type="linear">
+                <item android:offset="0.0" android:color="#9241FD"/>
+                <item android:offset="0.5" android:color="#D424AA"/>
+                <item android:offset="1.0" android:color="#F1337B"/>
+            </gradient>
+        </aapt:attr>
+    </path>
+</vector>

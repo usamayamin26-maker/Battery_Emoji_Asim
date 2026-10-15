@@ -1,10 +1,15 @@
 package com.asim.jhbatteryapp.presentation.home
 
+import android.Manifest
+import android.content.Intent
+import android.os.Build
 import android.os.Bundle
+import android.provider.Settings
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
@@ -13,7 +18,7 @@ import com.asim.jhbatteryapp.R
 import com.asim.jhbatteryapp.databinding.DialogBatteryPreviewBinding
 import com.asim.jhbatteryapp.databinding.FragmentHomeBinding
 import com.asim.jhbatteryapp.domain.model.BatteryEmojiItem
-import com.asim.jhbatteryapp.presentation.common.ViewModelFactory
+import com.asim.jhbatteryapp.presentation.common.NotificationPermissionDialog
 import com.google.android.material.bottomsheet.BottomSheetDialog
 
 class HomeFragment : Fragment() {
@@ -21,28 +26,117 @@ class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
 
-    private val viewModel: HomeViewModel by activityViewModels {
-        ViewModelFactory(requireContext())
-    }
+    private val viewModel: HomeViewModel by activityViewModels()
 
     private lateinit var emojiAdapter: BatteryEmojiAdapter
     private lateinit var categoryAdapter: CategoryTabAdapter
+
+    private var isPermissionDialogShowing = false
+
+    private val notificationPermissionLauncher = registerForActivityResult(
+        ActivityResultContracts.RequestPermission()
+    ) { isGranted ->
+        isPermissionDialogShowing = false
+        if (isGranted) {
+            Toast.makeText(requireContext(), "Notification permission granted!", Toast.LENGTH_SHORT).show()
+        }
+        checkAccessibilityPermissionOnHome()
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        if (_binding == null) {
+            _binding = FragmentHomeBinding.inflate(inflater, container, false)
+            setupRecyclerViews()
+            setupListeners()
+        } else {
+            (_binding?.root?.parent as? ViewGroup)?.removeView(_binding?.root)
+        }
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        setupRecyclerViews()
-        setupListeners()
         observeViewModel()
+    }
+
+    private fun checkPermissionsOnHome() {
+        if (!isAdded || isPermissionDialogShowing) return
+
+        val needsNotification = !NotificationPermissionDialog.hasNotificationPermission(requireContext())
+        val needsAccessibility = !com.asim.jhbatteryapp.service.StatusBarAccessibilityService.isAccessibilityServiceEnabled(requireContext())
+
+        if (needsNotification) {
+            isPermissionDialogShowing = true
+            com.asim.jhbatteryapp.core.Utils.MyUtils.showDontMissOutDialog(
+                context = requireContext(),
+                onTurnOn = {
+                    isPermissionDialogShowing = false
+                    showNotifyPermissionDialog()
+                },
+                onMaybeLater = {
+                    isPermissionDialogShowing = false
+                    if (needsAccessibility) {
+                        checkAccessibilityPermissionOnHome()
+                    }
+                }
+            )
+        } else if (needsAccessibility) {
+            checkAccessibilityPermissionOnHome()
+        }
+    }
+
+    private fun showNotifyPermissionDialog() {
+        if (!isAdded || isPermissionDialogShowing) return
+        isPermissionDialogShowing = true
+
+        NotificationPermissionDialog.show(
+            context = requireContext(),
+            onAllow = {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                    notificationPermissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
+                } else {
+                    isPermissionDialogShowing = false
+                    try {
+                        val intent = Intent(Settings.ACTION_APP_NOTIFICATION_SETTINGS).apply {
+                            putExtra(Settings.EXTRA_APP_PACKAGE, requireContext().packageName)
+                        }
+                        startActivity(intent)
+                    } catch (_: Exception) {}
+                    checkAccessibilityPermissionOnHome()
+                }
+            },
+            onNotNow = {
+                isPermissionDialogShowing = false
+                checkAccessibilityPermissionOnHome()
+            }
+        )
+    }
+
+    private fun checkAccessibilityPermissionOnHome() {
+        if (!isAdded || isPermissionDialogShowing) return
+        if (com.asim.jhbatteryapp.service.StatusBarAccessibilityService.isAccessibilityServiceEnabled(requireContext())) return
+
+        isPermissionDialogShowing = true
+        com.asim.jhbatteryapp.presentation.common.StatusBarPermissionHelper.showAccessibilityDialog(
+            context = requireContext(),
+            onSettingsOpened = {
+                isPermissionDialogShowing = false
+            },
+            onDismissed = {
+                isPermissionDialogShowing = false
+            }
+        )
+    }
+
+    override fun onResume() {
+        super.onResume()
+        viewModel.refreshEmojiBatteryState()
+        checkPermissionsOnHome()
     }
 
     private fun setupRecyclerViews() {
@@ -50,12 +144,16 @@ class HomeFragment : Fragment() {
         categoryAdapter = CategoryTabAdapter { category ->
             viewModel.selectCategory(category.id)
         }
+        binding.rvCategoryTabs.itemAnimator = null
+        binding.rvCategoryTabs.setHasFixedSize(true)
         binding.rvCategoryTabs.adapter = categoryAdapter
 
         // Main Emoji Grid (3 columns)
         emojiAdapter = BatteryEmojiAdapter { item ->
             showPreviewBottomSheet(item)
         }
+        binding.rvEmojiGrid.itemAnimator = null
+        binding.rvEmojiGrid.setHasFixedSize(true)
         binding.rvEmojiGrid.adapter = emojiAdapter
     }
 
@@ -65,20 +163,41 @@ class HomeFragment : Fragment() {
             findNavController().navigate(R.id.action_homeFragment_to_searchFragment)
         }
 
-        // Banner Start Button
-        binding.btnBannerStart.setOnClickListener {
-            viewModel.toggleEmojiBattery()
+        // Banner Start Button & Entire Card
+        val bannerClickListener = View.OnClickListener {
+            val isCurrentlyActive = viewModel.isEmojiBatteryEnabled.value ?: false
+            if (isCurrentlyActive) {
+                viewModel.toggleEmojiBattery()
+                if (com.asim.jhbatteryapp.service.StatusBarAccessibilityService.isAccessibilityServiceEnabled(requireContext())) {
+                    com.asim.jhbatteryapp.service.StatusBarAccessibilityService.updateCustomSettings()
+                } else {
+                    com.asim.jhbatteryapp.service.StatusBarOverlayService.stop(requireContext())
+                }
+                Toast.makeText(requireContext(), "Emoji battery deactivated", Toast.LENGTH_SHORT).show()
+            } else {
+                if (com.asim.jhbatteryapp.service.StatusBarAccessibilityService.isAccessibilityServiceEnabled(requireContext())) {
+                    viewModel.toggleEmojiBattery()
+                    com.asim.jhbatteryapp.service.StatusBarAccessibilityService.updateCustomSettings()
+                    Toast.makeText(requireContext(), "Emoji battery activated!", Toast.LENGTH_SHORT).show()
+                } else {
+                    com.asim.jhbatteryapp.presentation.common.StatusBarPermissionHelper.showAccessibilityDialog(
+                        context = requireContext()
+                    )
+                }
+            }
         }
+        binding.llEnableBanner.setOnClickListener(bannerClickListener)
+        binding.btnBannerStart.setOnClickListener(bannerClickListener)
 
         // Quick Action Cards
         binding.cardStickerShop.setOnClickListener {
-            Toast.makeText(requireContext(), "Opening Sticker Shop…", Toast.LENGTH_SHORT).show()
+            findNavController().navigate(R.id.action_homeFragment_to_statusBarCustomFragment)
         }
         binding.cardAnimation.setOnClickListener {
-            Toast.makeText(requireContext(), "Opening Animations…", Toast.LENGTH_SHORT).show()
+            findNavController().navigate(R.id.action_homeFragment_to_statusBarAnimationFragment)
         }
         binding.cardThemes.setOnClickListener {
-            Toast.makeText(requireContext(), "Opening Themes…", Toast.LENGTH_SHORT).show()
+            findNavController().navigate(R.id.action_homeFragment_to_statusBarThemeFragment)
         }
     }
 
@@ -114,7 +233,13 @@ class HomeFragment : Fragment() {
         dialogBinding.tvDialogTitle.text = item.title
 
         dialogBinding.btnApplyStyle.setOnButtonClickListener {
-            Toast.makeText(requireContext(), "${item.title} applied to battery bar!", Toast.LENGTH_SHORT).show()
+            val prefRepo = com.asim.jhbatteryapp.data.repository.PreferenceRepositoryImpl()
+            prefRepo.setAppliedBatteryIconRes(item.previewDrawableRes)
+            prefRepo.setBatteryIconTintable(false)
+            if (com.asim.jhbatteryapp.service.StatusBarAccessibilityService.isAccessibilityServiceEnabled(requireContext())) {
+                com.asim.jhbatteryapp.service.StatusBarAccessibilityService.updateBatteryIcon(item.previewDrawableRes, isTintable = false)
+            }
+            Toast.makeText(requireContext(), "${item.title} applied as battery icon!", Toast.LENGTH_SHORT).show()
             dialog.dismiss()
         }
 
@@ -123,6 +248,12 @@ class HomeFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
+        isPermissionDialogShowing = false
+        // Retain _binding cached across fragment transitions so return is instant with zero blink
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
         _binding = null
     }
 }

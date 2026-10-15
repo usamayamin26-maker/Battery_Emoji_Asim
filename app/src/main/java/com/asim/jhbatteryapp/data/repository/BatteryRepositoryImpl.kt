@@ -8,7 +8,7 @@ import com.asim.jhbatteryapp.domain.model.QuickActionItem
 import com.asim.jhbatteryapp.domain.repository.BatteryRepository
 
 class BatteryRepositoryImpl(
-    private val localDataSource: BatteryLocalDataSource
+    private val localDataSource: BatteryLocalDataSource = BatteryLocalDataSource()
 ) : BatteryRepository {
 
     override fun getCategories(): List<CategoryItem> {
@@ -29,5 +29,17 @@ class BatteryRepositoryImpl(
 
     override fun searchEmojis(query: String): List<BatteryEmojiItem> {
         return localDataSource.searchEmojis(query)
+    }
+
+    override fun getStatusBarGradients(): List<com.asim.jhbatteryapp.domain.model.StatusBarThemeItem> {
+        return localDataSource.getStatusBarGradients()
+    }
+
+    override fun getStatusBarBackgrounds(): List<com.asim.jhbatteryapp.domain.model.StatusBarThemeItem> {
+        return localDataSource.getStatusBarBackgrounds()
+    }
+
+    override fun getStatusBarAnimations(): List<BatteryEmojiItem> {
+        return localDataSource.getStatusBarAnimations()
     }
 }

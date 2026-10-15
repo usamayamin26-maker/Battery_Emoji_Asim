@@ -6,14 +6,16 @@
     android:layout_height="match_parent"
     android:background="@drawable/splahs">
 
-    <!-- REUSABLE COMPONENT: Linear Gradient Progress Indicator -->
-    <com.asim.jhbatteryapp.presentation.components.GradientProgressIndicator
+    <com.asim.jhbatteryapp.presentation.components.GradientProgressView
         android:id="@+id/gradientProgressIndicator"
-        android:layout_width="220dp"
-        android:layout_height="8dp"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_6sdp"
+        android:layout_marginHorizontal="@dimen/_36sdp"
         android:layout_marginBottom="@dimen/_34sdp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/_3sdp">
+
+    <!-- Outer selection ring (invisible when unselected to preserve constant bounds) -->
+    <View
+        android:id="@+id/vOuterRing"
+        android:layout_width="@dimen/_34sdp"
+        android:layout_height="@dimen/_34sdp"
+        android:background="@drawable/bg_color_swatch_ring"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Inner Color Circle -->
+    <View
+        android:id="@+id/vColorCircle"
+        android:layout_width="@dimen/_28sdp"
+        android:layout_height="@dimen/_28sdp"
+        android:background="@drawable/bg_circle_swatch"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Center Icon (Checkmark or Eyedropper) -->
+    <ImageView
+        android:id="@+id/ivSwatchIcon"
+        android:layout_width="@dimen/_14sdp"
+        android:layout_height="@dimen/_14sdp"
+        android:contentDescription="@null"
+        android:src="@drawable/ic_check"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/vColorCircle"
+        app:layout_constraintEnd_toEndOf="@+id/vColorCircle"
+        app:layout_constraintStart_toStartOf="@+id/vColorCircle"
+        app:layout_constraintTop_toTopOf="@+id/vColorCircle"
+        app:tint="@color/white" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

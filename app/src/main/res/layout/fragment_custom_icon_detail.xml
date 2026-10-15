@@ -1,0 +1,626 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/clDetailRoot"
+    android:fitsSystemWindows="true"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_home">
+
+    <!-- Top App Bar -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clDetailHeader"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_44sdp"
+        android:paddingHorizontal="@dimen/_14sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/ivDetailBack"
+            android:layout_width="@dimen/_24sdp"
+            android:layout_height="@dimen/_24sdp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:contentDescription="@null"
+            android:focusable="true"
+            android:padding="@dimen/_2sdp"
+            android:src="@drawable/ic_arrow_back"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/text_primary" />
+
+        <TextView
+            android:id="@+id/tvDetailTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:textColor="@color/text_primary"
+            android:textSize="@dimen/_18ssp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/ivDetailBack"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Airplane" />
+
+        <ImageView
+            android:id="@+id/ivDetailSave"
+            android:layout_width="@dimen/_24sdp"
+            android:layout_height="@dimen/_24sdp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:contentDescription="@null"
+            android:focusable="true"
+            android:padding="@dimen/_2sdp"
+            android:src="@drawable/ic_check"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/primary_purple" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- Scrollable Content Area -->
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        android:overScrollMode="never"
+        app:layout_constraintBottom_toTopOf="@+id/clBottomApplyContainer"
+        app:layout_constraintTop_toBottomOf="@+id/clDetailHeader">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="@dimen/_16sdp"
+            android:paddingBottom="@dimen/_24sdp">
+
+            <!-- Live Icon Preview Capsule Card -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clDetailPreviewCard"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_64sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:background="@drawable/bg_custom_panel_card"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <!-- Center Icon Preview -->
+                <ImageView
+                    android:id="@+id/ivDetailIconPreview"
+                    android:layout_width="@dimen/_28sdp"
+                    android:layout_height="@dimen/_28sdp"
+                    android:contentDescription="@null"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_airplane"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:tint="@color/primary_purple" />
+
+                <!-- Date text preview if date & time -->
+                <TextView
+                    android:id="@+id/tvDetailDatePreview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/primary_purple"
+                    android:textSize="@dimen/_12ssp"
+                    android:textStyle="bold"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Wed, Oct 07" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!-- Enable in Status Bar Pill Card -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clDetailEnableCard"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_44sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="@drawable/bg_custom_panel_card"
+                android:paddingHorizontal="@dimen/_14sdp"
+                app:layout_constraintTop_toBottomOf="@+id/clDetailPreviewCard">
+
+                <TextView
+                    android:id="@+id/tvDetailEnableLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Show in Status Bar"
+                    android:textColor="@color/text_primary"
+                    android:textSize="@dimen/_12ssp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/swDetailEnable"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!-- Size Slider Section -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clDetailSizeSection"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_14sdp"
+                app:layout_constraintTop_toBottomOf="@+id/clDetailEnableCard">
+
+                <TextView
+                    android:id="@+id/tvDetailSizeLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text_primary"
+                    android:textSize="@dimen/_11ssp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Airplane Size" />
+
+                <TextView
+                    android:id="@+id/tvDetailSizeValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="@dimen/_11ssp"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/tvDetailSizeLabel"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:text="20dp" />
+
+                <SeekBar
+                    android:id="@+id/sbDetailSize"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:max="36"
+                    android:progress="20"
+                    android:maxHeight="9dp"
+                    android:progressDrawable="@drawable/bg_seekbar_progress"
+                    android:thumb="@drawable/bg_seekbar_thumb"
+                    app:layout_constraintTop_toBottomOf="@+id/tvDetailSizeLabel" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!-- Icon Color Section -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clDetailColorSection"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_16sdp"
+                app:layout_constraintTop_toBottomOf="@+id/clDetailSizeSection">
+
+                <TextView
+                    android:id="@+id/tvDetailColorLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Icon Color"
+                    android:textColor="@color/text_primary"
+                    android:textSize="@dimen/_11ssp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvDetailColorSwatches"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:orientation="horizontal"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintTop_toBottomOf="@+id/tvDetailColorLabel" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!-- ================= EMOTION SPECIFIC: 3 STYLE EMOJIS ================= -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clDetailEmotionSection"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:visibility="gone"
+                app:layout_constraintTop_toBottomOf="@+id/clDetailColorSection">
+
+                <TextView
+                    android:id="@+id/tvDetailEmotionLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Style"
+                    android:textColor="@color/text_primary"
+                    android:textSize="@dimen/_11ssp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/clEmotionPillsRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    app:layout_constraintTop_toBottomOf="@+id/tvDetailEmotionLabel">
+
+                    <!-- Option 1: Heart Eyes -->
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/cardEmotionLove"
+                        android:layout_width="@dimen/_54sdp"
+                        android:layout_height="@dimen/_54sdp"
+                        android:background="@drawable/bg_custom_panel_card"
+                        android:clickable="true"
+                        android:focusable="true"
+                        app:layout_constraintEnd_toStartOf="@+id/cardEmotionSad"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <ImageView
+                            android:layout_width="@dimen/_36sdp"
+                            android:layout_height="@dimen/_36sdp"
+                            android:contentDescription="@null"
+                            android:src="@drawable/ic_reaction_love"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <!-- Option 2: Sad -->
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/cardEmotionSad"
+                        android:layout_width="@dimen/_54sdp"
+                        android:layout_height="@dimen/_54sdp"
+                        android:background="@drawable/bg_custom_panel_card"
+                        android:clickable="true"
+                        android:focusable="true"
+                        app:layout_constraintEnd_toStartOf="@+id/cardEmotionHappy"
+                        app:layout_constraintStart_toEndOf="@+id/cardEmotionLove"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <ImageView
+                            android:layout_width="@dimen/_36sdp"
+                            android:layout_height="@dimen/_36sdp"
+                            android:contentDescription="@null"
+                            android:src="@drawable/ic_reaction_sad"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <!-- Option 3: Happy -->
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/cardEmotionHappy"
+                        android:layout_width="@dimen/_54sdp"
+                        android:layout_height="@dimen/_54sdp"
+                        android:background="@drawable/bg_custom_panel_card"
+                        android:clickable="true"
+                        android:focusable="true"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/cardEmotionSad"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <ImageView
+                            android:layout_width="@dimen/_36sdp"
+                            android:layout_height="@dimen/_36sdp"
+                            android:contentDescription="@null"
+                            android:src="@drawable/ic_reaction_happy"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!-- ================= DATE & TIME SPECIFIC: FORMAT & STYLES ================= -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clDetailDateSection"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:visibility="gone"
+                app:layout_constraintTop_toBottomOf="@+id/clDetailEmotionSection">
+
+                <TextView
+                    android:id="@+id/tvDetailDateFormatLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Date Format"
+                    android:textColor="@color/text_primary"
+                    android:textSize="@dimen/_11ssp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <!-- Date Format Option 1 -->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/clDateFormatOpt1"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:background="@drawable/bg_custom_panel_card"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:paddingHorizontal="@dimen/_14sdp"
+                    app:layout_constraintTop_toBottomOf="@+id/tvDetailDateFormatLabel">
+
+                    <TextView
+                        android:id="@+id/tvDateFormatText1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/text_primary"
+                        android:textSize="@dimen/_11ssp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="Wed, Oct 07" />
+
+                    <ImageView
+                        android:id="@+id/ivRadioDate1"
+                        android:layout_width="@dimen/_16sdp"
+                        android:layout_height="@dimen/_16sdp"
+                        android:contentDescription="@null"
+                        android:src="@drawable/ic_check"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:tint="@color/primary_purple" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <!-- Date Format Option 2 -->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/clDateFormatOpt2"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:background="@drawable/bg_custom_panel_card"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:paddingHorizontal="@dimen/_14sdp"
+                    app:layout_constraintTop_toBottomOf="@+id/clDateFormatOpt1">
+
+                    <TextView
+                        android:id="@+id/tvDateFormatText2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/text_primary"
+                        android:textSize="@dimen/_11ssp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="10/07/2026" />
+
+                    <ImageView
+                        android:id="@+id/ivRadioDate2"
+                        android:layout_width="@dimen/_16sdp"
+                        android:layout_height="@dimen/_16sdp"
+                        android:contentDescription="@null"
+                        android:src="@drawable/ic_check"
+                        android:visibility="gone"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:tint="@color/primary_purple" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <!-- Date Format Option 3 -->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/clDateFormatOpt3"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:background="@drawable/bg_custom_panel_card"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:paddingHorizontal="@dimen/_14sdp"
+                    app:layout_constraintTop_toBottomOf="@+id/clDateFormatOpt2">
+
+                    <TextView
+                        android:id="@+id/tvDateFormatText3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/text_primary"
+                        android:textSize="@dimen/_11ssp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="07 Oct" />
+
+                    <ImageView
+                        android:id="@+id/ivRadioDate3"
+                        android:layout_width="@dimen/_16sdp"
+                        android:layout_height="@dimen/_16sdp"
+                        android:contentDescription="@null"
+                        android:src="@drawable/ic_check"
+                        android:visibility="gone"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:tint="@color/primary_purple" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <!-- Date Style Section Header -->
+                <TextView
+                    android:id="@+id/tvDetailDateStyleLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:text="Date Style"
+                    android:textColor="@color/text_primary"
+                    android:textSize="@dimen/_11ssp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/clDateFormatOpt3" />
+
+                <!-- Date Style Option 1 (Pill outline) -->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/clDateStyleOpt1"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:background="@drawable/bg_custom_panel_card"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:paddingHorizontal="@dimen/_14sdp"
+                    app:layout_constraintTop_toBottomOf="@+id/tvDetailDateStyleLabel">
+
+                    <TextView
+                        android:id="@+id/tvDateStylePreview1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/primary_purple"
+                        android:textSize="@dimen/_11ssp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="Wed, Oct 07" />
+
+                    <ImageView
+                        android:id="@+id/ivRadioStyle1"
+                        android:layout_width="@dimen/_16sdp"
+                        android:layout_height="@dimen/_16sdp"
+                        android:contentDescription="@null"
+                        android:src="@drawable/ic_check"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:tint="@color/primary_purple" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <!-- Date Style Option 2 (Pink pill) -->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/clDateStyleOpt2"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:background="@drawable/bg_tab_pill_container"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:paddingHorizontal="@dimen/_14sdp"
+                    app:layout_constraintTop_toBottomOf="@+id/clDateStyleOpt1">
+
+                    <TextView
+                        android:id="@+id/tvDateStylePreview2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/text_primary"
+                        android:textSize="@dimen/_11ssp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="Wed, Oct 07" />
+
+                    <ImageView
+                        android:id="@+id/ivRadioStyle2"
+                        android:layout_width="@dimen/_16sdp"
+                        android:layout_height="@dimen/_16sdp"
+                        android:contentDescription="@null"
+                        android:src="@drawable/ic_check"
+                        android:visibility="gone"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:tint="@color/primary_purple" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <!-- Date Style Option 3 (Soft purple) -->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/clDateStyleOpt3"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:background="@drawable/bg_tab_pill_container"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:paddingHorizontal="@dimen/_14sdp"
+                    app:layout_constraintTop_toBottomOf="@+id/clDateStyleOpt2">
+
+                    <TextView
+                        android:id="@+id/tvDateStylePreview3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/text_primary"
+                        android:textSize="@dimen/_11ssp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="Wed, Oct 07" />
+
+                    <ImageView
+                        android:id="@+id/ivRadioStyle3"
+                        android:layout_width="@dimen/_16sdp"
+                        android:layout_height="@dimen/_16sdp"
+                        android:contentDescription="@null"
+                        android:src="@drawable/ic_check"
+                        android:visibility="gone"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:tint="@color/primary_purple" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- Bottom Fixed Gradient Apply Button -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clBottomApplyContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/bg_home"
+        android:paddingHorizontal="@dimen/_16sdp"
+        android:paddingTop="@dimen/_8sdp"
+        android:paddingBottom="@dimen/_16sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/btnApplyDetail"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_44sdp"
+            android:background="@drawable/bg_btn_apply"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:text="@string/apply"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_13ssp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

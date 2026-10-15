@@ -11,4 +11,8 @@ interface BatteryRepository {
     fun getQuickActions(): List<QuickActionItem>
     fun getOnboardingPages(): List<OnboardingPageItem>
     fun searchEmojis(query: String): List<BatteryEmojiItem>
+    fun getStatusBarGradients(): List<com.asim.jhbatteryapp.domain.model.StatusBarThemeItem>
+    fun getStatusBarBackgrounds(): List<com.asim.jhbatteryapp.domain.model.StatusBarThemeItem>
+    fun getStatusBarAnimations(): List<BatteryEmojiItem>
 }
+

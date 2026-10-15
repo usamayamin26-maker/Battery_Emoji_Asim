@@ -3,21 +3,17 @@ package com.asim.jhbatteryapp.presentation.home
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.asim.jhbatteryapp.data.repository.BatteryRepositoryImpl
+import com.asim.jhbatteryapp.data.repository.PreferenceRepositoryImpl
 import com.asim.jhbatteryapp.domain.model.BatteryEmojiItem
 import com.asim.jhbatteryapp.domain.model.CategoryItem
 import com.asim.jhbatteryapp.domain.model.QuickActionItem
-import com.asim.jhbatteryapp.domain.usecase.GetBatteryEmojisUseCase
-import com.asim.jhbatteryapp.domain.usecase.GetCategoriesUseCase
-import com.asim.jhbatteryapp.domain.usecase.GetQuickActionsUseCase
-import com.asim.jhbatteryapp.domain.usecase.SearchEmojisUseCase
-import com.asim.jhbatteryapp.domain.usecase.ToggleEmojiBatteryUseCase
+import com.asim.jhbatteryapp.domain.repository.BatteryRepository
+import com.asim.jhbatteryapp.domain.repository.PreferenceRepository
 
 class HomeViewModel(
-    private val getCategoriesUseCase: GetCategoriesUseCase,
-    private val getBatteryEmojisUseCase: GetBatteryEmojisUseCase,
-    private val getQuickActionsUseCase: GetQuickActionsUseCase,
-    private val searchEmojisUseCase: SearchEmojisUseCase,
-    private val toggleEmojiBatteryUseCase: ToggleEmojiBatteryUseCase
+    private val batteryRepository: BatteryRepository = BatteryRepositoryImpl(),
+    private val preferenceRepository: PreferenceRepository = PreferenceRepositoryImpl()
 ) : ViewModel() {
 
     private val _categories = MutableLiveData<List<CategoryItem>>()
@@ -48,11 +44,11 @@ class HomeViewModel(
     }
 
     private fun loadData() {
-        _categories.value = getCategoriesUseCase()
-        _quickActions.value = getQuickActionsUseCase()
-        _isEmojiBatteryEnabled.value = toggleEmojiBatteryUseCase.isEnabled()
+        _categories.value = batteryRepository.getCategories()
+        _quickActions.value = batteryRepository.getQuickActions()
+        _isEmojiBatteryEnabled.value = preferenceRepository.isEmojiBatteryEnabled()
 
-        val all = getBatteryEmojisUseCase()
+        val all = batteryRepository.getBatteryEmojis()
         _emojis.value = all
         _recentEmojis.value = all.filter { it.isRecent }
         _topPickEmojis.value = all.filter { it.isTopPick }
@@ -60,13 +56,20 @@ class HomeViewModel(
 
     fun selectCategory(categoryId: String) {
         currentCategoryId = categoryId
-        _emojis.value = getBatteryEmojisUseCase(categoryId)
+        _emojis.value = batteryRepository.getBatteryEmojis(categoryId)
     }
 
     fun toggleEmojiBattery() {
         val newState = !(_isEmojiBatteryEnabled.value ?: true)
-        toggleEmojiBatteryUseCase(newState)
+        preferenceRepository.setEmojiBatteryEnabled(newState)
         _isEmojiBatteryEnabled.value = newState
+    }
+
+    fun refreshEmojiBatteryState() {
+        val current = preferenceRepository.isEmojiBatteryEnabled()
+        if (_isEmojiBatteryEnabled.value != current) {
+            _isEmojiBatteryEnabled.value = current
+        }
     }
 
     fun setSearchMode(enabled: Boolean) {
@@ -77,7 +80,7 @@ class HomeViewModel(
     }
 
     fun search(query: String) {
-        val results = searchEmojisUseCase(query)
+        val results = batteryRepository.searchEmojis(query)
         _emojis.value = results
         _recentEmojis.value = results.filter { it.isRecent }
         _topPickEmojis.value = results.filter { it.isTopPick }

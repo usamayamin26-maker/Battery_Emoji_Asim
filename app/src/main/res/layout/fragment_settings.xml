@@ -22,7 +22,7 @@
             android:layout_centerVertical="true"
             android:text="@string/settings_title"
             android:textColor="@color/text_primary"
-            android:textSize="@dimen/_20ssp"
+            android:textSize="@dimen/_18ssp"
             android:textStyle="bold" />
     </RelativeLayout>
 
@@ -102,7 +102,7 @@
                 <FrameLayout
                     android:layout_width="@dimen/_36sdp"
                     android:layout_height="@dimen/_36sdp"
-                    android:background="@drawable/bg_chip_selected">
+                    android:background="@drawable/bg_chip_rounded">
 
                     <ImageView
                         android:layout_width="@dimen/_18sdp"
@@ -161,7 +161,7 @@
                 <FrameLayout
                     android:layout_width="@dimen/_36sdp"
                     android:layout_height="@dimen/_36sdp"
-                    android:background="@drawable/bg_chip_selected">
+                    android:background="@drawable/bg_chip_rounded">
 
                     <ImageView
                         android:layout_width="@dimen/_18sdp"
@@ -205,7 +205,7 @@
                 <FrameLayout
                     android:layout_width="@dimen/_36sdp"
                     android:layout_height="@dimen/_36sdp"
-                    android:background="@drawable/bg_chip_selected">
+                    android:background="@drawable/bg_chip_rounded">
 
                     <ImageView
                         android:layout_width="@dimen/_18sdp"
@@ -249,7 +249,7 @@
                 <FrameLayout
                     android:layout_width="@dimen/_36sdp"
                     android:layout_height="@dimen/_36sdp"
-                    android:background="@drawable/bg_chip_selected">
+                    android:background="@drawable/bg_chip_rounded">
 
                     <ImageView
                         android:layout_width="@dimen/_18sdp"
@@ -257,7 +257,7 @@
                         android:layout_gravity="center"
                         android:contentDescription="@null"
                         android:src="@drawable/ic_star_outline"
-                        app:tint="@color/primary_purple" />
+                        app:tint="#8D50D8" />
                 </FrameLayout>
 
                 <TextView

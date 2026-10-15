@@ -1,0 +1,1004 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_home">
+
+    <!-- Header: Back Arrow Button -->
+    <ImageView
+        android:id="@+id/ivCustomBack"
+        android:layout_width="@dimen/_24sdp"
+        android:layout_height="@dimen/_24sdp"
+        android:layout_marginStart="@dimen/_16sdp"
+        android:layout_marginTop="@dimen/_30sdp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:clickable="true"
+        android:contentDescription="@null"
+        android:focusable="true"
+        android:padding="@dimen/_2sdp"
+        android:src="@drawable/ic_arrow_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/text_primary" />
+
+    <!-- Header: Title -->
+    <TextView
+        android:id="@+id/tvCustomHeaderTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_12sdp"
+        android:text="@string/status_bar_custom_title"
+        android:textColor="@color/text_primary"
+        android:textSize="@dimen/_18ssp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/ivCustomBack"
+        app:layout_constraintStart_toEndOf="@+id/ivCustomBack"
+        app:layout_constraintTop_toTopOf="@+id/ivCustomBack" />
+
+    <!-- Top Status Bar Live Preview Capsule -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clStatusBarPreview"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_44sdp"
+        android:layout_marginStart="@dimen/_16sdp"
+        android:layout_marginTop="@dimen/_14sdp"
+        android:layout_marginEnd="@dimen/_16sdp"
+        android:background="@drawable/bg_theme_grad_pink"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivCustomBack">
+
+        <!-- Time Label -->
+        <TextView
+            android:id="@+id/tvPreviewTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_14sdp"
+            android:text="20:05"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_11ssp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Left Mascot Emoji Preview (Next to Time) -->
+        <ImageView
+            android:id="@+id/ivPreviewLeftEmoji"
+            android:layout_width="@dimen/_14sdp"
+            android:layout_height="@dimen/_14sdp"
+            android:layout_marginStart="@dimen/_4sdp"
+            android:contentDescription="@null"
+            android:scaleType="fitCenter"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tvPreviewTime"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/ic_blueprint_bunny_blue"
+            tools:visibility="visible" />
+
+        <!-- Optional Date Badge -->
+        <TextView
+            android:id="@+id/tvPreviewDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_4sdp"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_8ssp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/ivPreviewLeftEmoji"
+            app:layout_goneMarginStart="@dimen/_4sdp"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Wed, Oct 07" />
+
+        <!-- Airplane Preview -->
+        <ImageView
+            android:id="@+id/ivPreviewAirplane"
+            android:layout_width="@dimen/_11sdp"
+            android:layout_height="@dimen/_11sdp"
+            android:layout_marginStart="@dimen/_4sdp"
+            android:contentDescription="@null"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_airplane"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tvPreviewDate"
+            app:layout_goneMarginStart="@dimen/_4sdp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/white" />
+
+        <!-- Ringer Preview -->
+        <ImageView
+            android:id="@+id/ivPreviewRinger"
+            android:layout_width="@dimen/_11sdp"
+            android:layout_height="@dimen/_11sdp"
+            android:layout_marginStart="@dimen/_4sdp"
+            android:contentDescription="@null"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_ringer_silent"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/ivPreviewAirplane"
+            app:layout_goneMarginStart="@dimen/_4sdp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/white" />
+
+        <!-- Hotspot Preview -->
+        <ImageView
+            android:id="@+id/ivPreviewHotspot"
+            android:layout_width="@dimen/_11sdp"
+            android:layout_height="@dimen/_11sdp"
+            android:layout_marginStart="@dimen/_4sdp"
+            android:contentDescription="@null"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_hotspot"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/ivPreviewRinger"
+            app:layout_goneMarginStart="@dimen/_4sdp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/white" />
+
+        <!-- Emotion Preview -->
+        <ImageView
+            android:id="@+id/ivPreviewEmotion"
+            android:layout_width="@dimen/_12sdp"
+            android:layout_height="@dimen/_12sdp"
+            android:layout_marginStart="@dimen/_4sdp"
+            android:contentDescription="@null"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_reaction_love"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/ivPreviewHotspot"
+            app:layout_goneMarginStart="@dimen/_4sdp"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Animation Preview -->
+        <ImageView
+            android:id="@+id/ivPreviewAnimation"
+            android:layout_width="@dimen/_11sdp"
+            android:layout_height="@dimen/_11sdp"
+            android:layout_marginStart="@dimen/_4sdp"
+            android:contentDescription="@null"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_sparkle"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/ivPreviewEmotion"
+            app:layout_goneMarginStart="@dimen/_4sdp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/white" />
+
+        <!-- Data Preview -->
+        <ImageView
+            android:id="@+id/ivPreviewData"
+            android:layout_width="@dimen/_11sdp"
+            android:layout_height="@dimen/_11sdp"
+            android:layout_marginEnd="@dimen/_4sdp"
+            android:contentDescription="@null"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_data_swap"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/ivPreviewSignal"
+            app:layout_goneMarginEnd="@dimen/_4sdp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/white" />
+
+        <!-- Signal Bars -->
+        <ImageView
+            android:id="@+id/ivPreviewSignal"
+            android:layout_width="@dimen/_12sdp"
+            android:layout_height="@dimen/_12sdp"
+            android:layout_marginEnd="@dimen/_4sdp"
+            android:contentDescription="@null"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_status_signal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/ivPreviewWifi"
+            app:layout_goneMarginEnd="@dimen/_4sdp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/white" />
+
+        <!-- Wifi Wave -->
+        <ImageView
+            android:id="@+id/ivPreviewWifi"
+            android:layout_width="@dimen/_12sdp"
+            android:layout_height="@dimen/_12sdp"
+            android:layout_marginEnd="@dimen/_4sdp"
+            android:contentDescription="@null"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_status_wifi"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/tvPreviewBattery"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/white" />
+
+        <!-- Battery Percent -->
+        <TextView
+            android:id="@+id/tvPreviewBattery"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_3sdp"
+            android:text="58%"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_10ssp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/ivPreviewBattery"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Battery Status Icon (Always battery style / battery emoji) -->
+        <ImageView
+            android:id="@+id/ivPreviewBattery"
+            android:layout_width="@dimen/_24sdp"
+            android:layout_height="@dimen/_14sdp"
+            android:layout_marginEnd="@dimen/_2sdp"
+            android:contentDescription="@null"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_status_battery"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/ivPreviewBolt"
+            app:layout_goneMarginEnd="@dimen/_2sdp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/white" />
+
+        <!-- Charging Bolt -->
+        <ImageView
+            android:id="@+id/ivPreviewBolt"
+            android:layout_width="@dimen/_9sdp"
+            android:layout_height="@dimen/_9sdp"
+            android:layout_marginEnd="@dimen/_2sdp"
+            android:contentDescription="@null"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_status_bolt"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/white" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- Horizontal Tabs Row (ConstraintLayout only) -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clCustomTabsRow"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_36sdp"
+        android:layout_marginTop="@dimen/_12sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/clStatusBarPreview">
+
+        <!-- Tab 1: Size -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/tabSize"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_constraintEnd_toStartOf="@+id/tabAppearance"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <TextView
+                android:id="@+id/tvTabSize"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tab_size"
+                android:textColor="@color/primary_purple"
+                android:textSize="@dimen/_11ssp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/vTabSizeIndicator"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/vTabSizeIndicator"
+                android:layout_width="@dimen/_28sdp"
+                android:layout_height="@dimen/_2sdp"
+                android:background="@drawable/bg_tab_underline_active"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!-- Tab 2: Appearance -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/tabAppearance"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_constraintEnd_toStartOf="@+id/tabBattery"
+            app:layout_constraintStart_toEndOf="@+id/tabSize">
+
+            <TextView
+                android:id="@+id/tvTabAppearance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tab_appearance"
+                android:textColor="@color/text_secondary"
+                android:textSize="@dimen/_11ssp"
+                app:layout_constraintBottom_toTopOf="@+id/vTabAppearanceIndicator"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/vTabAppearanceIndicator"
+                android:layout_width="@dimen/_36sdp"
+                android:layout_height="@dimen/_2sdp"
+                android:background="@drawable/bg_tab_underline_active"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!-- Tab 3: Battery -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/tabBattery"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_constraintEnd_toStartOf="@+id/tabCustomizeIcon"
+            app:layout_constraintStart_toEndOf="@+id/tabAppearance">
+
+            <TextView
+                android:id="@+id/tvTabBattery"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tab_battery"
+                android:textColor="@color/text_secondary"
+                android:textSize="@dimen/_11ssp"
+                app:layout_constraintBottom_toTopOf="@+id/vTabBatteryIndicator"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/vTabBatteryIndicator"
+                android:layout_width="@dimen/_28sdp"
+                android:layout_height="@dimen/_2sdp"
+                android:background="@drawable/bg_tab_underline_active"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!-- Tab 4: Customize icon -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/tabCustomizeIcon"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tabBattery">
+
+            <TextView
+                android:id="@+id/tvTabCustomizeIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tab_customize_icon"
+                android:textColor="@color/text_secondary"
+                android:textSize="@dimen/_11ssp"
+                app:layout_constraintBottom_toTopOf="@+id/vTabCustomizeIconIndicator"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/vTabCustomizeIconIndicator"
+                android:layout_width="@dimen/_44sdp"
+                android:layout_height="@dimen/_2sdp"
+                android:background="@drawable/bg_tab_underline_active"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- Scrollable Content Area for the Active Tab -->
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nsvCustomContent"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:clipToPadding="false"
+        android:fillViewport="true"
+        android:paddingBottom="@dimen/_60sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/clCustomTabsRow">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="@dimen/_16sdp"
+            android:paddingTop="@dimen/_8sdp">
+
+            <!-- ================= TAB 1: SIZE PANEL ================= -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clSizePanel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/tvSizeHeader"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_size"
+                    android:textColor="@color/text_primary"
+                    android:textSize="@dimen/_13ssp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <!-- Size Settings Card -->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/clSizeCard"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:background="@drawable/bg_custom_panel_card"
+                    android:padding="@dimen/_14sdp"
+                    app:layout_constraintTop_toBottomOf="@+id/tvSizeHeader">
+
+                    <!-- Height Row -->
+                    <TextView
+                        android:id="@+id/tvLabelHeight"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/label_height"
+                        android:textColor="@color/text_primary"
+                        android:textSize="@dimen/_11ssp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tvHeightValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="@dimen/_11ssp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="50dp" />
+
+                    <SeekBar
+                        android:id="@+id/sbHeight"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_6sdp"
+                        android:max="65"
+                        android:progress="44"
+                        android:maxHeight="9dp"
+                        android:progressDrawable="@drawable/bg_seekbar_progress"
+                        android:thumb="@drawable/bg_seekbar_thumb"
+                        app:layout_constraintTop_toBottomOf="@+id/tvLabelHeight" />
+
+                    <!-- Left Margin Row -->
+                    <TextView
+                        android:id="@+id/tvLabelLeftMargin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_14sdp"
+                        android:text="@string/label_left_margin"
+                        android:textColor="@color/text_primary"
+                        android:textSize="@dimen/_11ssp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/sbHeight" />
+
+                    <TextView
+                        android:id="@+id/tvLeftMarginValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="@dimen/_11ssp"
+                        app:layout_constraintBaseline_toBaselineOf="@+id/tvLabelLeftMargin"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        tools:text="0dp" />
+
+                    <SeekBar
+                        android:id="@+id/sbLeftMargin"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_6sdp"
+                        android:max="35"
+                        android:progress="25"
+                        android:maxHeight="9dp"
+                        android:progressDrawable="@drawable/bg_seekbar_progress"
+                        android:thumb="@drawable/bg_seekbar_thumb"
+                        app:layout_constraintTop_toBottomOf="@+id/tvLabelLeftMargin" />
+
+                    <!-- Right Margin Row -->
+                    <TextView
+                        android:id="@+id/tvLabelRightMargin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_14sdp"
+                        android:text="@string/label_right_margin"
+                        android:textColor="@color/text_primary"
+                        android:textSize="@dimen/_11ssp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/sbLeftMargin" />
+
+                    <TextView
+                        android:id="@+id/tvRightMarginValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="@dimen/_11ssp"
+                        app:layout_constraintBaseline_toBaselineOf="@+id/tvLabelRightMargin"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        tools:text="16dp" />
+
+                    <SeekBar
+                        android:id="@+id/sbRightMargin"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_6sdp"
+                        android:max="35"
+                        android:progress="16"
+                        android:maxHeight="9dp"
+
+                        android:progressDrawable="@drawable/bg_seekbar_progress"
+                        android:thumb="@drawable/bg_seekbar_thumb"
+                        app:layout_constraintTop_toBottomOf="@+id/tvLabelRightMargin" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!-- ================= TAB 2: APPEARANCE PANEL ================= -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clAppearancePanel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/tvAppearanceHeader"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_appearance"
+                    android:textColor="@color/text_primary"
+                    android:textSize="@dimen/_13ssp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <!-- Appearance Card -->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/clAppearanceCard"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:background="@drawable/bg_custom_panel_card"
+                    android:padding="@dimen/_14sdp"
+                    app:layout_constraintTop_toBottomOf="@+id/tvAppearanceHeader">
+
+                    <!-- Sub Tab Segmented Pill: Icon vs Background -->
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/clAppearanceSwitcher"
+                        android:layout_width="@dimen/_180sdp"
+                        android:layout_height="@dimen/_34sdp"
+                        android:padding="@dimen/_2sdp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <TextView
+                            android:id="@+id/btnSubTabIcon"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:background="@drawable/bg_tab_pill_inactive"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:gravity="center"
+                            android:text="@string/label_icon"
+                            android:textColor="@color/primary_purple"
+                            android:textSize="@dimen/_11ssp"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@+id/btnSubTabBackground"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/btnSubTabBackground"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:background="@drawable/bg_tab_pill_active"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:gravity="center"
+                            android:text="@string/label_background"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_11ssp"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/btnSubTabIcon"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <!-- Color Swatches Horizontal RecyclerView -->
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rvColorSwatches"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_14sdp"
+                        android:orientation="horizontal"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        app:layout_constraintTop_toBottomOf="@+id/clAppearanceSwitcher" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!-- ================= TAB 3: BATTERY PANEL ================= -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clBatteryPanel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/tvBatteryHeader"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_battery"
+                    android:textColor="@color/text_primary"
+                    android:textSize="@dimen/_13ssp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <!-- Battery Top Card -->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/clBatteryCard"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:background="@drawable/bg_custom_panel_card"
+                    android:padding="@dimen/_12sdp"
+                    app:layout_constraintTop_toBottomOf="@+id/tvBatteryHeader">
+
+                    <!-- Battery Category Filter Tabs -->
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/clBatteryFilterRow"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <TextView
+                            android:id="@+id/btnBatteryTabTrending"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/tab_trending"
+                            android:textColor="@color/primary_purple"
+                            android:textSize="@dimen/_10ssp"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@+id/btnBatteryTabHalloween"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/btnBatteryTabHalloween"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/tab_halloween"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="@dimen/_10ssp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@+id/btnBatteryTabWC2"
+                            app:layout_constraintStart_toEndOf="@+id/btnBatteryTabTrending"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/btnBatteryTabWC2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/tab_wc2"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="@dimen/_10ssp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/btnBatteryTabHalloween"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <!-- Battery Styles Horizontal RecyclerView -->
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rvBatteryStyles"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:orientation="horizontal"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        app:layout_constraintTop_toBottomOf="@+id/clBatteryFilterRow" />
+
+                    <!-- Percentage Label & Slider -->
+                    <TextView
+                        android:id="@+id/tvLabelPercentage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_14sdp"
+                        android:text="@string/label_percentage"
+                        android:textColor="@color/text_primary"
+                        android:textSize="@dimen/_11ssp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/rvBatteryStyles" />
+
+                    <TextView
+                        android:id="@+id/tvPercentageSizeValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="@dimen/_11ssp"
+                        app:layout_constraintBaseline_toBaselineOf="@+id/tvLabelPercentage"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        tools:text="16dp" />
+
+                    <SeekBar
+                        android:id="@+id/sbPercentageSize"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_6sdp"
+                        android:max="24"
+                        android:progress="12"
+                        android:maxHeight="9dp"
+                        android:progressDrawable="@drawable/bg_seekbar_progress"
+                        android:thumb="@drawable/bg_seekbar_thumb"
+                        app:layout_constraintTop_toBottomOf="@+id/tvLabelPercentage" />
+
+                    <!-- Mini Percentage Live Preview Pill -->
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/clPercentageMiniPreviewPill"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/_24sdp"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:background="@drawable/bg_status_bar_preview"
+                        android:paddingHorizontal="@dimen/_10sdp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/sbPercentageSize">
+
+                        <ImageView
+                            android:id="@+id/ivMiniBatteryIcon"
+                            android:layout_width="@dimen/_20sdp"
+                            android:layout_height="@dimen/_20sdp"
+                            android:layout_marginEnd="@dimen/_3sdp"
+                            android:contentDescription="@null"
+                            android:src="@drawable/ic_status_battery"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@+id/tvPercentageMiniPreview"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            />
+
+                        <TextView
+                            android:id="@+id/tvPercentageMiniPreview"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="58%"
+                            android:textColor="@color/primary_purple"
+                            android:textSize="@dimen/_10ssp"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/ivMiniBatteryIcon"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <!-- Icon Size Label & Slider -->
+                    <TextView
+                        android:id="@+id/tvLabelIconSize"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_12sdp"
+                        android:text="@string/label_icon_size"
+                        android:textColor="@color/text_primary"
+                        android:textSize="@dimen/_11ssp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/clPercentageMiniPreviewPill" />
+
+                    <TextView
+                        android:id="@+id/tvIconSizeValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="@dimen/_11ssp"
+                        app:layout_constraintBaseline_toBaselineOf="@+id/tvLabelIconSize"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        tools:text="20dp" />
+
+                    <SeekBar
+                        android:id="@+id/sbIconSize"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_6sdp"
+                        android:max="36"
+                        android:progress="20"
+                        android:maxHeight="9dp"
+                        android:progressDrawable="@drawable/bg_seekbar_progress"
+                        android:thumb="@drawable/bg_seekbar_thumb"
+                        app:layout_constraintTop_toBottomOf="@+id/tvLabelIconSize" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <!-- Emoji Section Header -->
+                <TextView
+                    android:id="@+id/tvEmojiSectionHeader"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_14sdp"
+                    android:text="@string/label_emoji"
+                    android:textColor="@color/text_primary"
+                    android:textSize="@dimen/_13ssp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/clBatteryCard" />
+
+                <!-- Emoji Grid (3 columns) -->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvBatteryMascots"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_6sdp"
+                    android:nestedScrollingEnabled="false"
+                    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                    app:layout_constraintTop_toBottomOf="@+id/tvEmojiSectionHeader"
+                    app:spanCount="3" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!-- ================= TAB 4: CUSTOMIZE ICON PANEL ================= -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clCustomizeIconPanel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="visible"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/tvCustomIconHeader"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tab_customize_icon"
+                    android:textColor="@color/text_primary"
+                    android:textSize="@dimen/_13ssp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <!-- Custom Icons Card Container -->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/clCustomIconCard"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:background="@drawable/bg_custom_panel_card"
+                    android:padding="@dimen/_10sdp"
+                    app:layout_constraintTop_toBottomOf="@+id/tvCustomIconHeader">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rvCustomizeIcons"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:nestedScrollingEnabled="false"
+                        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:spanCount="4" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <!-- Status Bar Left Emojis Header (Next to Time) -->
+                <TextView
+                    android:id="@+id/tvCustomLeftEmojiHeader"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:text="Status Bar Left Emojis"
+                    android:textColor="@color/text_primary"
+                    android:textSize="@dimen/_13ssp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/clCustomIconCard" />
+
+                <TextView
+                    android:id="@+id/tvCustomLeftEmojiSubtitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:text="Choose an emoji to display on left side with time"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="@dimen/_9ssp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvCustomLeftEmojiHeader" />
+
+                <!-- Left Emojis Card Container -->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/clCustomLeftEmojiCard"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_20sdp"
+                    android:background="@drawable/bg_custom_panel_card"
+                    android:padding="@dimen/_10sdp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvCustomLeftEmojiSubtitle">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rvCustomLeftEmojis"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:nestedScrollingEnabled="false"
+                        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:spanCount="4" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- Bottom Fixed Gradient Apply Button -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clBottomApplyContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/bg_home"
+        android:paddingHorizontal="@dimen/_16sdp"
+        android:paddingTop="@dimen/_8sdp"
+        android:paddingBottom="@dimen/_16sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/btnApplyCustom"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_44sdp"
+            android:background="@drawable/bg_btn_apply"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:text="@string/apply"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_13ssp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

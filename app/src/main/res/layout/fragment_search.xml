@@ -40,7 +40,7 @@
                 android:layout_marginStart="8dp"
                 android:text="@string/search_emojis_title"
                 android:textColor="@color/text_primary"
-                android:textSize="20sp"
+                android:textSize="@dimen/_18ssp"
                 android:textStyle="bold" />
         </LinearLayout>
 

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_dialog_notify_card"
+    android:paddingHorizontal="@dimen/_18sdp"
+    android:paddingTop="@dimen/_22sdp"
+    android:paddingBottom="@dimen/_18sdp">
+
+    <!-- Title -->
+    <TextView
+        android:id="@+id/tvNoInternetTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/no_internet_title"
+        android:textColor="#111827"
+        android:textSize="@dimen/_16ssp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="No Internet Connection" />
+
+    <!-- Description -->
+    <TextView
+        android:id="@+id/tvNoInternetDesc"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:gravity="center"
+        android:lineSpacingExtra="@dimen/_2sdp"
+        android:paddingHorizontal="@dimen/_6sdp"
+        android:text="@string/no_internet_desc"
+        android:textColor="#6B7280"
+        android:textSize="@dimen/_11ssp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvNoInternetTitle"
+        tools:text="Please check your internet connection and try again." />
+
+    <!-- Action Buttons Row -->
+    <LinearLayout
+        android:id="@+id/llNoInternetActions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvNoInternetDesc">
+
+        <!-- Left: Cancel -->
+        <TextView
+            android:id="@+id/btnNoInternetCancel"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_38sdp"
+            android:layout_marginEnd="@dimen/_7sdp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_btn_not_now"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:text="@string/cancel"
+            android:textColor="#8B5CF6"
+            android:textSize="@dimen/_12ssp"
+            android:textStyle="bold" />
+
+        <!-- Right: Retry -->
+        <TextView
+            android:id="@+id/btnNoInternetRetry"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_38sdp"
+            android:layout_marginStart="@dimen/_7sdp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_btn_allow_gradient"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:text="@string/retry"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_12ssp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

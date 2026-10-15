@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_dialog_notify_card"
+    android:paddingHorizontal="@dimen/_18sdp"
+    android:paddingTop="@dimen/_22sdp"
+    android:paddingBottom="@dimen/_18sdp">
+
+    <!-- Top Mascot / Exit Icon (Placeholder: User will replace with custom icon) -->
+    <ImageView
+        android:id="@+id/ivExitIcon"
+        android:layout_width="@dimen/_64sdp"
+        android:layout_height="@dimen/_64sdp"
+        android:contentDescription="@null"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_blueprint_puppy"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Exit Title -->
+    <TextView
+        android:id="@+id/tvExitTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:gravity="center"
+        android:text="@string/exit_dialog_title"
+        android:textColor="#111827"
+        android:textSize="@dimen/_15ssp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivExitIcon"
+        tools:text="Are you sure you want to exit?" />
+
+    <!-- Exit Description -->
+    <TextView
+        android:id="@+id/tvExitDesc"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:gravity="center"
+        android:lineSpacingExtra="@dimen/_2sdp"
+        android:paddingHorizontal="@dimen/_6sdp"
+        android:text="@string/exit_dialog_desc"
+        android:textColor="#6B7280"
+        android:textSize="@dimen/_11ssp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvExitTitle"
+        tools:text="Your changes haven't been saved. Are you sure you want to exit?" />
+
+    <!-- Action Buttons Row -->
+    <LinearLayout
+        android:id="@+id/llExitActions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvExitDesc">
+
+        <!-- Left: Yes -->
+        <TextView
+            android:id="@+id/btnExitYes"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_38sdp"
+            android:layout_marginEnd="@dimen/_7sdp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_btn_not_now"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:text="@string/yes"
+            android:textColor="#8B5CF6"
+            android:textSize="@dimen/_12ssp"
+            android:textStyle="bold" />
+
+        <!-- Right: No -->
+        <TextView
+            android:id="@+id/btnExitNo"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_38sdp"
+            android:layout_marginStart="@dimen/_7sdp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_btn_allow_gradient"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:text="@string/no"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_12ssp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

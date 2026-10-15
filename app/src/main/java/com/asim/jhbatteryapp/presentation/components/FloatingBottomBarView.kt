@@ -3,7 +3,19 @@ package com.asim.jhbatteryapp.presentation.components
 import android.app.Activity
 import android.content.Context
 import android.content.ContextWrapper
+import android.graphics.Bitmap
+import android.graphics.Canvas
 import android.graphics.Color
+import android.graphics.LinearGradient
+import android.graphics.Paint
+import android.graphics.PorterDuff
+import android.graphics.PorterDuffXfermode
+import android.graphics.Shader
+import android.graphics.Typeface
+import android.graphics.drawable.BitmapDrawable
+import android.graphics.drawable.ColorDrawable
+import android.graphics.drawable.Drawable
+import android.os.Build
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
@@ -12,8 +24,10 @@ import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
+import androidx.core.widget.ImageViewCompat
 import com.asim.jhbatteryapp.R
 import eightbitlab.com.blurview.BlurView
 
@@ -94,7 +108,7 @@ class FloatingBottomBarView @JvmOverloads constructor(
      * @param rootView The root ViewGroup whose background is blurred underneath.
      * @param blurRadius The blur radius intensity (default 20f).
      */
-    fun setupBlur(rootView: ViewGroup, blurRadius: Float = 20f) {
+    fun setupBlur(rootView: ViewGroup, blurRadius: Float = 14f) {
         val windowBackground = getActivity()?.window?.decorView?.background
         blurView.setupWith(rootView)
             .setFrameClearDrawable(windowBackground)
@@ -154,45 +168,135 @@ class FloatingBottomBarView @JvmOverloads constructor(
             .start()
     }
 
-    private fun updateTabUi() {
-        val activeColor = ContextCompat.getColor(context, R.color.primary_purple)
-        val boldFont = ResourcesCompat.getFont(context, R.font.outfit_bold)
-        val mediumFont = ResourcesCompat.getFont(context, R.font.outfit_medium)
+    private var gradientCustomizeDrawable: Drawable? = null
+    private var gradientSettingDrawable: Drawable? = null
 
-        // 1. Trending Tab
+    private fun getGradientCustomize(): Drawable {
+        if (gradientCustomizeDrawable == null) {
+            gradientCustomizeDrawable = createGradientIcon(R.drawable.ic_nav_customize)
+        }
+        return gradientCustomizeDrawable!!
+    }
+
+    private fun getGradientSetting(): Drawable {
+        if (gradientSettingDrawable == null) {
+            gradientSettingDrawable = createGradientIcon(R.drawable.ic_nav_setting)
+        }
+        return gradientSettingDrawable!!
+    }
+
+    private fun createGradientIcon(drawableRes: Int): Drawable {
+        val sizePx = try {
+            resources.getDimensionPixelSize(com.intuit.sdp.R.dimen._24sdp)
+        } catch (_: Exception) {
+            (24 * resources.displayMetrics.density).toInt()
+        }.coerceAtLeast(48)
+
+        val drawable = AppCompatResources.getDrawable(context, drawableRes)?.mutate()
+            ?: return ColorDrawable(Color.TRANSPARENT)
+
+        val bitmap = Bitmap.createBitmap(sizePx, sizePx, Bitmap.Config.ARGB_8888)
+        val canvas = Canvas(bitmap)
+
+        drawable.setBounds(0, 0, sizePx, sizePx)
+        drawable.draw(canvas)
+
+        val paint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+            xfermode = PorterDuffXfermode(PorterDuff.Mode.SRC_IN)
+            shader = LinearGradient(
+                0f, 0f, sizePx.toFloat(), sizePx.toFloat(),
+                intArrayOf(
+                    Color.parseColor("#9241FD"),
+                    Color.parseColor("#D424AA"),
+                    Color.parseColor("#F1337B")
+                ),
+                floatArrayOf(0.0f, 0.5f, 1.0f),
+                Shader.TileMode.CLAMP
+            )
+        }
+        canvas.drawRect(0f, 0f, sizePx.toFloat(), sizePx.toFloat(), paint)
+
+        return BitmapDrawable(resources, bitmap)
+    }
+
+    private fun updateTabUi() {
+        // Consistent grey for inactive tabs
+        val inactiveColor = ContextCompat.getColor(context, R.color.text_muted)
+
+        val boldFont = ResourcesCompat.getFont(
+            context,
+            R.font.outfit_bold
+        )
+
+        val mediumFont = ResourcesCompat.getFont(
+            context,
+            R.font.outfit_medium
+        )
+
+        // Trending Tab
         val isTrending = selectedTab == Tab.TRENDING
         if (isTrending) {
+            ImageViewCompat.setImageTintList(ivTrending, null)
             ivTrending.clearColorFilter()
-            tvTrending.setTextColor(activeColor)
-            tvTrending.typeface = boldFont
+            ivTrending.setImageResource(R.drawable.ic_nav_heart)
+            applySelectedTabUi(tvTrending, boldFont)
         } else {
-            ivTrending.setColorFilter(Color.WHITE)
-            tvTrending.setTextColor(Color.WHITE)
-            tvTrending.typeface = mediumFont
+            ImageViewCompat.setImageTintList(ivTrending, null)
+            ivTrending.setImageResource(R.drawable.ic_nav_heart)
+            ivTrending.setColorFilter(inactiveColor)
+            applyInactiveTabUi(tvTrending, inactiveColor, mediumFont)
         }
 
-        // 2. Customize Tab
+        // Customize Tab
         val isCustomize = selectedTab == Tab.CUSTOMIZE
         if (isCustomize) {
-            ivCustomize.setColorFilter(activeColor)
-            tvCustomize.setTextColor(activeColor)
-            tvCustomize.typeface = boldFont
-        } else {
+            ImageViewCompat.setImageTintList(ivCustomize, null)
             ivCustomize.clearColorFilter()
-            tvCustomize.setTextColor(Color.WHITE)
-            tvCustomize.typeface = mediumFont
+            ivCustomize.setImageDrawable(getGradientCustomize())
+            applySelectedTabUi(tvCustomize, boldFont)
+        } else {
+            ImageViewCompat.setImageTintList(ivCustomize, null)
+            ivCustomize.setImageResource(R.drawable.ic_nav_customize)
+            ivCustomize.setColorFilter(inactiveColor)
+            applyInactiveTabUi(tvCustomize, inactiveColor, mediumFont)
         }
 
-        // 3. Setting Tab
+        // Setting Tab
         val isSetting = selectedTab == Tab.SETTING
         if (isSetting) {
-            ivSetting.setColorFilter(activeColor)
-            tvSetting.setTextColor(activeColor)
-            tvSetting.typeface = boldFont
-        } else {
+            ImageViewCompat.setImageTintList(ivSetting, null)
             ivSetting.clearColorFilter()
-            tvSetting.setTextColor(Color.WHITE)
-            tvSetting.typeface = mediumFont
+            ivSetting.setImageDrawable(getGradientSetting())
+            applySelectedTabUi(tvSetting, boldFont)
+        } else {
+            ImageViewCompat.setImageTintList(ivSetting, null)
+            ivSetting.setImageResource(R.drawable.ic_nav_setting)
+            ivSetting.setColorFilter(inactiveColor)
+            applyInactiveTabUi(tvSetting, inactiveColor, mediumFont)
         }
+    }
+
+    private fun applySelectedTabUi(textView: TextView, typeface: Typeface?) {
+        textView.typeface = typeface
+        textView.setTextColor(Color.parseColor("#7200FF"))
+        val paint = textView.paint
+        val text = textView.text.toString()
+        val textWidth = paint.measureText(text)
+        if (textWidth > 0f) {
+            paint.shader = LinearGradient(
+                0f, 0f, textWidth, 0f,
+                intArrayOf(Color.parseColor("#7200FF"), Color.parseColor("#D424AA")),
+                null,
+                Shader.TileMode.CLAMP
+            )
+        }
+        textView.invalidate()
+    }
+
+    private fun applyInactiveTabUi(textView: TextView, inactiveColor: Int, typeface: Typeface?) {
+        textView.typeface = typeface
+        textView.paint.shader = null
+        textView.setTextColor(inactiveColor)
+        textView.invalidate()
     }
 }

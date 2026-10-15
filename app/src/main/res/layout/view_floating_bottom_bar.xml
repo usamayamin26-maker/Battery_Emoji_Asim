@@ -1,132 +1,138 @@
 <?xml version="1.0" encoding="utf-8"?>
-<eightbitlab.com.blurview.BlurView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/blurView"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/_56sdp"
-    android:background="@drawable/bg_liquid_glass_bar"
-    android:clipToOutline="true"
-    android:elevation="@dimen/_6sdp"
-    android:outlineProvider="background">
+    android:layout_height="wrap_content"
+    android:clipChildren="false"
+    android:clipToPadding="false">
 
-    <!-- Glass ambient top sheen overlay -->
-    <View
+    <!-- Soft drop shadow layer underneath nav bar (Y-offset shadow) -->
+
+
+    <eightbitlab.com.blurview.BlurView
+        android:id="@+id/blurView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/bg_glass_sheen" />
+        android:layout_height="@dimen/_56sdp"
+        android:background="@drawable/bg_liquid_glass_bar"
+        android:clipToOutline="true"
+        android:elevation="@dimen/_8sdp"
+        android:outlineProvider="background">
 
-    <!-- 3 Tabs: Trending, Customize, Setting -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:orientation="horizontal"
-        android:paddingHorizontal="@dimen/_8sdp">
-
-        <!-- Tab 1: Trending -->
+        <!-- 3 Tabs: Trending, Customize, Setting -->
         <LinearLayout
-            android:id="@+id/llTabTrending"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:clickable="true"
-            android:focusable="true"
             android:gravity="center"
-            android:orientation="vertical">
+            android:orientation="horizontal"
+            android:paddingHorizontal="@dimen/_8sdp">
 
-            <ImageView
-                android:id="@+id/ivTabTrending"
-                android:layout_width="@dimen/_24sdp"
-                android:layout_height="@dimen/_24sdp"
-                android:contentDescription="@string/nav_trending"
-                android:src="@drawable/ic_nav_heart" />
+            <!-- Tab 1: Trending -->
+            <LinearLayout
+                android:id="@+id/llTabTrending"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/tvTabTrending"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_2sdp"
-                android:fontFamily="@font/outfit"
-                android:shadowColor="#26000000"
-                android:shadowDx="0"
-                android:shadowDy="1"
-                android:shadowRadius="2"
-                android:text="@string/nav_trending"
-                android:textColor="@color/primary_purple"
-                android:textSize="@dimen/_11ssp"
-                android:textStyle="bold" />
+                <ImageView
+                    android:id="@+id/ivTabTrending"
+                    android:layout_width="@dimen/_24sdp"
+                    android:layout_height="@dimen/_24sdp"
+                    android:contentDescription="@string/nav_trending"
+                    android:src="@drawable/ic_nav_heart" />
+
+                <TextView
+                    android:id="@+id/tvTabTrending"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:fontFamily="@font/outfit"
+                    android:shadowColor="#26000000"
+                    android:shadowDx="0"
+                    android:shadowDy="1"
+                    android:shadowRadius="2"
+                    android:text="@string/nav_trending"
+                    android:textColor="@color/primary_purple"
+                    android:textSize="@dimen/_11ssp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!-- Tab 2: Customize -->
+            <LinearLayout
+                android:id="@+id/llTabCustomize"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/ivTabCustomize"
+                    android:layout_width="@dimen/_24sdp"
+                    android:layout_height="@dimen/_24sdp"
+                    android:contentDescription="@string/nav_customize"
+                    android:src="@drawable/ic_nav_customize" />
+
+                <TextView
+                    android:id="@+id/tvTabCustomize"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:fontFamily="@font/outfit"
+                    android:shadowColor="#26000000"
+                    android:shadowDx="0"
+                    android:shadowDy="1"
+                    android:shadowRadius="2"
+                    android:text="@string/nav_customize"
+                    android:textColor="#CECECE"
+                    android:textSize="@dimen/_11ssp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!-- Tab 3: Setting -->
+            <LinearLayout
+                android:id="@+id/llTabSetting"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/ivTabSetting"
+                    android:layout_width="@dimen/_24sdp"
+                    android:layout_height="@dimen/_24sdp"
+                    android:contentDescription="@string/nav_setting"
+                    android:src="@drawable/ic_nav_setting" />
+
+                <TextView
+                    android:id="@+id/tvTabSetting"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:fontFamily="@font/outfit"
+                    android:shadowColor="#26000000"
+                    android:shadowDx="0"
+                    android:shadowDy="1"
+                    android:shadowRadius="2"
+                    android:text="@string/nav_setting"
+                    android:textColor="#CECECEFF"
+                    android:textSize="@dimen/_11ssp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
         </LinearLayout>
 
-        <!-- Tab 2: Customize -->
-        <LinearLayout
-            android:id="@+id/llTabCustomize"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:clickable="true"
-            android:focusable="true"
-            android:gravity="center"
-            android:orientation="vertical">
+    </eightbitlab.com.blurview.BlurView>
 
-            <ImageView
-                android:id="@+id/ivTabCustomize"
-                android:layout_width="@dimen/_24sdp"
-                android:layout_height="@dimen/_24sdp"
-                android:contentDescription="@string/nav_customize"
-                android:src="@drawable/ic_nav_customize" />
-
-            <TextView
-                android:id="@+id/tvTabCustomize"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_2sdp"
-                android:fontFamily="@font/outfit"
-                android:shadowColor="#26000000"
-                android:shadowDx="0"
-                android:shadowDy="1"
-                android:shadowRadius="2"
-                android:text="@string/nav_customize"
-                android:textColor="#FFFFFF"
-                android:textSize="@dimen/_11ssp"
-                android:textStyle="bold" />
-        </LinearLayout>
-
-        <!-- Tab 3: Setting -->
-        <LinearLayout
-            android:id="@+id/llTabSetting"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:clickable="true"
-            android:focusable="true"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <ImageView
-                android:id="@+id/ivTabSetting"
-                android:layout_width="@dimen/_24sdp"
-                android:layout_height="@dimen/_24sdp"
-                android:contentDescription="@string/nav_setting"
-                android:src="@drawable/ic_nav_setting" />
-
-            <TextView
-                android:id="@+id/tvTabSetting"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_2sdp"
-                android:fontFamily="@font/outfit"
-                android:shadowColor="#26000000"
-                android:shadowDx="0"
-                android:shadowDy="1"
-                android:shadowRadius="2"
-                android:text="@string/nav_setting"
-                android:textColor="#FFFFFF"
-                android:textSize="@dimen/_11ssp"
-                android:textStyle="bold" />
-        </LinearLayout>
-
-    </LinearLayout>
-
-</eightbitlab.com.blurview.BlurView>
+</FrameLayout>

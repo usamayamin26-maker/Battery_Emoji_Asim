@@ -12,14 +12,13 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import com.asim.jhbatteryapp.R
 import com.asim.jhbatteryapp.databinding.ActivityMainBinding
-import com.asim.jhbatteryapp.presentation.common.ViewModelFactory
 import com.asim.jhbatteryapp.presentation.components.FloatingBottomBarView
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var navController: NavController
-    private val viewModel: HomeViewModel by viewModels { ViewModelFactory(this) }
+    private val viewModel: HomeViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,6 +37,26 @@ class MainActivity : AppCompatActivity() {
 
         setupNavigation()
         setupBottomNav()
+        setupBackPressHandler()
+    }
+
+    private fun setupBackPressHandler() {
+        onBackPressedDispatcher.addCallback(this, object : androidx.activity.OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                if (navController.currentDestination?.id == R.id.homeFragment) {
+                    com.asim.jhbatteryapp.core.Utils.MyUtils.showExitBottomSheet(
+                        context = this@MainActivity,
+                        onExit = {
+                            finish()
+                        }
+                    )
+                } else {
+                    isEnabled = false
+                    onBackPressedDispatcher.onBackPressed()
+                    isEnabled = true
+                }
+            }
+        })
     }
 
     private fun setupNavigation() {
@@ -49,20 +68,46 @@ class MainActivity : AppCompatActivity() {
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
                 R.id.homeFragment -> {
-                    binding.floatingBottomNav.visibility = View.VISIBLE
-                    binding.floatingBottomNav.selectTabSilently(FloatingBottomBarView.Tab.TRENDING)
+                    showBottomNav(FloatingBottomBarView.Tab.TRENDING)
                 }
                 R.id.settingsFragment -> {
-                    binding.floatingBottomNav.visibility = View.VISIBLE
-                    binding.floatingBottomNav.selectTabSilently(FloatingBottomBarView.Tab.SETTING)
-                }
-                R.id.searchFragment, R.id.languageFragment -> {
-                    binding.floatingBottomNav.visibility = View.GONE
+                    showBottomNav(FloatingBottomBarView.Tab.SETTING)
                 }
                 else -> {
-                    binding.floatingBottomNav.visibility = View.VISIBLE
+                    hideBottomNav()
                 }
             }
+        }
+    }
+
+    private fun showBottomNav(tab: FloatingBottomBarView.Tab) {
+        binding.floatingBottomNav.selectTabSilently(tab)
+        if (binding.floatingBottomNav.visibility != View.VISIBLE) {
+            binding.floatingBottomNav.animate().cancel()
+            val height = binding.floatingBottomNav.height.toFloat().takeIf { it > 0 } ?: 250f
+            binding.floatingBottomNav.translationY = height + 40f
+            binding.floatingBottomNav.alpha = 1f
+            binding.floatingBottomNav.visibility = View.VISIBLE
+            binding.floatingBottomNav.animate()
+                .translationY(0f)
+                .setDuration(220)
+                .setInterpolator(android.view.animation.DecelerateInterpolator())
+                .start()
+        }
+    }
+
+    private fun hideBottomNav() {
+        if (binding.floatingBottomNav.visibility == View.VISIBLE) {
+            binding.floatingBottomNav.animate().cancel()
+            val height = binding.floatingBottomNav.height.toFloat().takeIf { it > 0 } ?: 250f
+            binding.floatingBottomNav.animate()
+                .translationY(height + 40f)
+                .setDuration(180)
+                .setInterpolator(android.view.animation.AccelerateInterpolator())
+                .withEndAction {
+                    binding.floatingBottomNav.visibility = View.GONE
+                }
+                .start()
         }
     }
 
@@ -79,7 +124,9 @@ class MainActivity : AppCompatActivity() {
                     viewModel.selectCategory("hot")
                 }
                 FloatingBottomBarView.Tab.CUSTOMIZE -> {
-                    Toast.makeText(this, "Customize Section", Toast.LENGTH_SHORT).show()
+                    if (navController.currentDestination?.id != R.id.statusBarCustomFragment) {
+                        navController.navigate(R.id.statusBarCustomFragment)
+                    }
                 }
                 FloatingBottomBarView.Tab.SETTING -> {
                     if (navController.currentDestination?.id != R.id.settingsFragment) {

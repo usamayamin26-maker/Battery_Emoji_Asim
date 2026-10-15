@@ -9,6 +9,7 @@
     <color name="primary_gradient_start">#A855F7</color>
     <color name="primary_gradient_end">#EC4899</color>
     <color name="primary_purple">#9333EA</color>
+    <color name="primary_blue">#955FDC</color>
     <color name="primary_pink">#F43F5E</color>
     <color name="accent_gold">#FBBF24</color>
 
@@ -16,7 +17,7 @@
     <color name="bg_splash_top">#B5A8F8</color>
     <color name="bg_splash_mid">#F5BFD7</color>
     <color name="bg_splash_bottom">#FDE2D0</color>
-    <color name="bg_home">#FDFBFD</color>
+    <color name="bg_home">#FFFAF6</color>
     <color name="bg_surface_card">#FFFFFF</color>
     <color name="bg_surface_soft">#F8F6FD</color>
 

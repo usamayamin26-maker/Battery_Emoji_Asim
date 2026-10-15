@@ -5,6 +5,7 @@ import com.asim.jhbatteryapp.domain.model.BatteryEmojiItem
 import com.asim.jhbatteryapp.domain.model.CategoryItem
 import com.asim.jhbatteryapp.domain.model.OnboardingPageItem
 import com.asim.jhbatteryapp.domain.model.QuickActionItem
+import com.asim.jhbatteryapp.domain.model.StatusBarThemeItem
 
 class BatteryLocalDataSource {
 
@@ -75,7 +76,7 @@ class BatteryLocalDataSource {
                 id = "3",
                 title = "Scholar Cat",
                 category = "hot",
-                previewDrawableRes = R.drawable.ic_blueprint_cat_gray,
+                previewDrawableRes = R.drawable.battery_pupy,
                 backgroundColorRes = R.color.card_bg_gray,
                 batteryPercentage = 60,
                 batteryColorRes = R.color.battery_gray,
@@ -285,5 +286,158 @@ class BatteryLocalDataSource {
                     item.category.lowercase().contains(trimmed) ||
                     item.tags.any { it.contains(trimmed) }
         }
+    }
+
+    fun getStatusBarGradients(): List<StatusBarThemeItem> {
+        return listOf(
+            StatusBarThemeItem(
+                id = "grad_pink",
+                title = "Hot Pink",
+                isGradient = true,
+                drawableRes = R.drawable.bg_theme_grad_pink,
+                isSelected = true
+            ),
+            StatusBarThemeItem(
+                id = "grad_lavender",
+                title = "Soft Lavender",
+                isGradient = true,
+                drawableRes = R.drawable.bg_theme_grad_lavender,
+                isSelected = false
+            ),
+            StatusBarThemeItem(
+                id = "grad_cyan",
+                title = "Ocean Cyan",
+                isGradient = true,
+                drawableRes = R.drawable.bg_theme_grad_cyan,
+                isSelected = false
+            ),
+            StatusBarThemeItem(
+                id = "grad_orange",
+                title = "Sunset Orange",
+                isGradient = true,
+                drawableRes = R.drawable.bg_theme_grad_orange,
+                isSelected = false
+            ),
+            StatusBarThemeItem(
+                id = "grad_peach",
+                title = "Peach Gold",
+                isGradient = true,
+                drawableRes = R.drawable.bg_theme_grad_peach,
+                isSelected = false
+            ),
+            StatusBarThemeItem(
+                id = "grad_plum",
+                title = "Plum Velvet",
+                isGradient = true,
+                drawableRes = R.drawable.bg_theme_grad_plum,
+                isSelected = false
+            )
+        )
+    }
+
+    fun getStatusBarBackgrounds(): List<StatusBarThemeItem> {
+        return listOf(
+            StatusBarThemeItem(
+                id = "bg_pink",
+                title = "Cute Pink",
+                isGradient = false,
+                drawableRes = R.drawable.status_bar,
+                isSelected = true
+            ),
+            StatusBarThemeItem(
+                id = "bg_cream",
+                title = "Soft Cream",
+                isGradient = false,
+                drawableRes = R.drawable.status_bar2,
+                isSelected = false
+            ),
+            StatusBarThemeItem(
+                id = "bg_green",
+                title = "Meadow Frog",
+                isGradient = false,
+                drawableRes = R.drawable.status_bar,
+                isSelected = false
+            ),
+            StatusBarThemeItem(
+                id = "bg_checkered",
+                title = "Blue Gingham",
+                isGradient = false,
+                drawableRes = R.drawable.status_bar2,
+                isSelected = false
+            ),
+            StatusBarThemeItem(
+                id = "bg_yellow",
+                title = "Sunny Pastel",
+                isGradient = false,
+                drawableRes = R.drawable.status_bar,
+                isSelected = false
+            ),
+            StatusBarThemeItem(
+                id = "bg_stripes",
+                title = "Blue Stripes",
+                isGradient = false,
+                drawableRes = R.drawable.status_bar2,
+                isSelected = false
+            )
+        )
+    }
+
+    fun getStatusBarAnimations(): List<BatteryEmojiItem> {
+        return listOf(
+            BatteryEmojiItem(
+                id = "anim_bunny",
+                title = "Cloud Bunny",
+                category = "cute",
+                previewDrawableRes = R.drawable.ic_blueprint_bunny_blue,
+                backgroundColorRes = R.color.card_bg_blue,
+                batteryPercentage = 100,
+                batteryColorRes = R.color.battery_blue
+            ),
+            BatteryEmojiItem(
+                id = "anim_girl",
+                title = "Pink Blossom",
+                category = "anime",
+                previewDrawableRes = R.drawable.ic_blueprint_girl_pink,
+                backgroundColorRes = R.color.card_bg_pink,
+                batteryPercentage = 85,
+                batteryColorRes = R.color.battery_pink
+            ),
+            BatteryEmojiItem(
+                id = "anim_cat",
+                title = "Scholar Cat",
+                category = "cat",
+                previewDrawableRes = R.drawable.ic_blueprint_cat_gray,
+                backgroundColorRes = R.color.card_bg_gray,
+                batteryPercentage = 60,
+                batteryColorRes = R.color.battery_gray
+            ),
+            BatteryEmojiItem(
+                id = "anim_frog",
+                title = "Lucky Frog",
+                category = "nature",
+                previewDrawableRes = R.drawable.ic_blueprint_frog_green,
+                backgroundColorRes = R.color.card_bg_green,
+                batteryPercentage = 95,
+                batteryColorRes = R.color.battery_green
+            ),
+            BatteryEmojiItem(
+                id = "anim_stitch",
+                title = "Starry Buddy",
+                category = "anime",
+                previewDrawableRes = R.drawable.ic_blueprint_stitch_yellow,
+                backgroundColorRes = R.color.card_bg_yellow,
+                batteryPercentage = 75,
+                batteryColorRes = R.color.battery_yellow
+            ),
+            BatteryEmojiItem(
+                id = "anim_melody",
+                title = "Lilac Melody",
+                category = "sanrio",
+                previewDrawableRes = R.drawable.ic_blueprint_melody_purple,
+                backgroundColorRes = R.color.card_bg_purple,
+                batteryPercentage = 90,
+                batteryColorRes = R.color.battery_purple
+            )
+        )
     }
 }
