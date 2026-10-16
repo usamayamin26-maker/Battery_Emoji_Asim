@@ -467,10 +467,11 @@ class StatusBarAccessibilityService : AccessibilityService() {
 
         fun updateLeftEmoji(emojiRes: Int) {
             val inst = instance ?: return
-            inst.preferenceRepository.setLeftStatusEmojiRes(emojiRes)
-            inst.preferenceRepository.setAppliedMascotDrawableRes(emojiRes)
-            inst.preferenceRepository.setLastAppliedThemeMode("custom")
-            inst.applyCustomSettings()
+            // inst.preferenceRepository.setLeftStatusEmojiRes(emojiRes)
+            // inst.preferenceRepository.setAppliedMascotDrawableRes(emojiRes)
+            // inst.preferenceRepository.setLastAppliedThemeMode("custom")
+            // inst.applyCustomSettings()
+            // Logic moved to ViewModel and Fragment "Apply" button to prevent immediate mode flips
         }
 
         // Floating Sticker Controls (Accessibility Overlay Layer)

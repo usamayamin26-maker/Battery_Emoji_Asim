@@ -28,7 +28,7 @@
         android:id="@+id/ivOverlayLeftEmoji"
         android:layout_width="@dimen/_13sdp"
         android:layout_height="@dimen/_13sdp"
-        android:layout_marginStart="@dimen/_3sdp"
+        android:layout_marginStart="@dimen/_5sdp"
         android:contentDescription="@null"
         android:scaleType="fitCenter"
         android:visibility="gone"

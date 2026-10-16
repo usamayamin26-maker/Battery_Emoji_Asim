@@ -341,42 +341,42 @@ class BatteryLocalDataSource {
                 id = "bg_pink",
                 title = "Cute Pink",
                 isGradient = false,
-                drawableRes = R.drawable.status_bar,
+                drawableRes = R.drawable.status_png1,
                 isSelected = true
             ),
             StatusBarThemeItem(
                 id = "bg_cream",
                 title = "Soft Cream",
                 isGradient = false,
-                drawableRes = R.drawable.status_bar2,
+                drawableRes = R.drawable.status_png2,
                 isSelected = false
             ),
             StatusBarThemeItem(
                 id = "bg_green",
                 title = "Meadow Frog",
                 isGradient = false,
-                drawableRes = R.drawable.status_bar,
+                drawableRes = R.drawable.status_png3,
                 isSelected = false
             ),
             StatusBarThemeItem(
                 id = "bg_checkered",
                 title = "Blue Gingham",
                 isGradient = false,
-                drawableRes = R.drawable.status_bar2,
+                drawableRes = R.drawable.status_png4,
                 isSelected = false
             ),
             StatusBarThemeItem(
                 id = "bg_yellow",
                 title = "Sunny Pastel",
                 isGradient = false,
-                drawableRes = R.drawable.status_bar,
+                drawableRes = R.drawable.status_png5,
                 isSelected = false
             ),
             StatusBarThemeItem(
                 id = "bg_stripes",
                 title = "Blue Stripes",
                 isGradient = false,
-                drawableRes = R.drawable.status_bar2,
+                drawableRes = R.drawable.status_png6,
                 isSelected = false
             )
         )
@@ -384,69 +384,17 @@ class BatteryLocalDataSource {
 
     fun getStatusBarAnimations(): List<BatteryEmojiItem> {
         return listOf(
-            BatteryEmojiItem(
-                id = "anim_bunny",
-                title = "Cloud Bunny",
-                category = "cute",
-                previewDrawableRes = R.drawable.ic_blueprint_bunny_blue,
-                backgroundColorRes = R.color.card_bg_blue,
-                batteryPercentage = 100,
-                batteryColorRes = R.color.battery_blue
-            ),
-            BatteryEmojiItem(
-                id = "anim_bunny",
-                title = "Cloud Bunny",
-                category = "cute",
-                previewDrawableRes = R.drawable.ic_blueprint_bunny_blue,
-                backgroundColorRes = R.color.card_bg_blue,
-                batteryPercentage = 100,
-                batteryColorRes = R.color.battery_blue
-            ),
-            BatteryEmojiItem(
-                id = "anim_girl",
-                title = "Pink Blossom",
-                category = "anime",
-                previewDrawableRes = R.drawable.ic_blueprint_girl_pink,
-                backgroundColorRes = R.color.card_bg_pink,
-                batteryPercentage = 85,
-                batteryColorRes = R.color.battery_pink
-            ),
-            BatteryEmojiItem(
-                id = "anim_cat",
-                title = "Scholar Cat",
-                category = "cat",
-                previewDrawableRes = R.drawable.ic_blueprint_cat_gray,
-                backgroundColorRes = R.color.card_bg_gray,
-                batteryPercentage = 60,
-                batteryColorRes = R.color.battery_gray
-            ),
-            BatteryEmojiItem(
-                id = "anim_frog",
-                title = "Lucky Frog",
-                category = "nature",
-                previewDrawableRes = R.drawable.ic_blueprint_frog_green,
-                backgroundColorRes = R.color.card_bg_green,
-                batteryPercentage = 95,
-                batteryColorRes = R.color.battery_green
-            ),
-            BatteryEmojiItem(
-                id = "anim_stitch",
-                title = "Starry Buddy",
-                category = "anime",
-                previewDrawableRes = R.drawable.ic_blueprint_stitch_yellow,
-                backgroundColorRes = R.color.card_bg_yellow,
-                batteryPercentage = 75,
-                batteryColorRes = R.color.battery_yellow
-            ),
-            BatteryEmojiItem(
-                id = "anim_melody",
-                title = "Lilac Melody",
-                category = "sanrio",
-                previewDrawableRes = R.drawable.ic_blueprint_melody_purple,
-                backgroundColorRes = R.color.card_bg_purple,
-                batteryPercentage = 90,
-                batteryColorRes = R.color.battery_purple
-            )
+//            BatteryEmojiItem(
+//                id = "anim_lottie_battery",
+//                title = "Lottie Battery",
+//                category = "lottie",
+//                previewDrawableRes = R.drawable.ic_status_battery,
+//                backgroundColorRes = R.color.card_bg_blue,
+//                batteryPercentage = 100,
+//                batteryColorRes = R.color.battery_blue,
+//                isLottie = true,
+//                lottieRes = R.raw.battery
+//            ),
         )
     }
 

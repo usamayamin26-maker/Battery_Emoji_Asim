@@ -29,6 +29,15 @@ class StatusBarCustomViewModel(
     private val _appearanceSubTab = MutableLiveData(AppearanceSubTab.BACKGROUND)
     val appearanceSubTab: LiveData<AppearanceSubTab> = _appearanceSubTab
 
+    private val _lastAppliedThemeMode = MutableLiveData(preferenceRepository.getLastAppliedThemeMode())
+    val lastAppliedThemeMode: LiveData<String> = _lastAppliedThemeMode
+
+    private val _appliedThemeDrawableRes = MutableLiveData(preferenceRepository.getAppliedThemeDrawableRes())
+    val appliedThemeDrawableRes: LiveData<Int> = _appliedThemeDrawableRes
+
+    private val _isAppliedThemeGradient = MutableLiveData(preferenceRepository.isAppliedThemeGradient())
+    val isAppliedThemeGradient: LiveData<Boolean> = _isAppliedThemeGradient
+
     private val _heightDp = MutableLiveData(preferenceRepository.getCustomStatusBarHeight())
     val heightDp: LiveData<Int> = _heightDp
 
@@ -178,6 +187,7 @@ class StatusBarCustomViewModel(
             // Default bright gradient color
             if (_appearanceSubTab.value == AppearanceSubTab.BACKGROUND) {
                 _backgroundColor.value = Color.parseColor("#F72585")
+                _lastAppliedThemeMode.value = "custom"
             } else {
                 _iconColor.value = Color.WHITE
             }
@@ -186,6 +196,7 @@ class StatusBarCustomViewModel(
 
         if (_appearanceSubTab.value == AppearanceSubTab.BACKGROUND) {
             _backgroundColor.value = swatch.colorInt
+            _lastAppliedThemeMode.value = "custom"
         } else {
             _iconColor.value = swatch.colorInt
         }
@@ -218,8 +229,7 @@ class StatusBarCustomViewModel(
     fun selectLeftEmoji(emojiItem: CustomStatusEmojiItem) {
         val res = if (emojiItem.isNone) 0 else emojiItem.drawableRes
         _selectedLeftEmojiRes.value = res
-        preferenceRepository.setLeftStatusEmojiRes(res)
-        preferenceRepository.setAppliedMascotDrawableRes(res)
+        // Removed immediate repository saves to allow "Apply" button logic
     }
 
     fun refreshEnabledCustomIcons() {
@@ -231,10 +241,8 @@ class StatusBarCustomViewModel(
         val current = _enabledCustomIcons.value?.toMutableSet() ?: mutableSetOf()
         if (current.contains(iconId)) {
             current.remove(iconId)
-            preferenceRepository.setCustomIconEnabled(iconId, false)
         } else {
             current.add(iconId)
-            preferenceRepository.setCustomIconEnabled(iconId, true)
         }
         _enabledCustomIcons.value = current
     }
@@ -242,6 +250,7 @@ class StatusBarCustomViewModel(
     fun applyCustomizations() {
         val currentSettings = preferenceRepository.getStatusBarSettings()
         val leftEmoji = _selectedLeftEmojiRes.value ?: currentSettings.leftStatusEmojiRes
+        val mode = _lastAppliedThemeMode.value ?: "custom"
         val updated = currentSettings.copy(
             heightDp = _heightDp.value ?: currentSettings.heightDp,
             leftMarginDp = _leftMarginDp.value ?: currentSettings.leftMarginDp,
@@ -256,11 +265,11 @@ class StatusBarCustomViewModel(
             isBatteryIconTintable = _isBatteryIconTintable.value ?: currentSettings.isBatteryIconTintable,
             enabledCustomIcons = _enabledCustomIcons.value ?: currentSettings.enabledCustomIcons,
             leftStatusEmojiRes = leftEmoji,
-            lastAppliedThemeMode = "custom"
+            lastAppliedThemeMode = mode
         )
         preferenceRepository.updateStatusBarSettings(updated)
         preferenceRepository.setLeftStatusEmojiRes(leftEmoji)
         preferenceRepository.setAppliedMascotDrawableRes(leftEmoji)
-        preferenceRepository.setLastAppliedThemeMode("custom")
+        preferenceRepository.setLastAppliedThemeMode(mode)
     }
 }

@@ -86,21 +86,14 @@ class StatusBarCustomFragment : Fragment() {
         binding.rvBatteryMascots.adapter = mascotAdapter
 
         customIconAdapter = CustomStatusIconAdapter { iconItem ->
-            val bundle = Bundle().apply {
-                putString("iconId", iconItem.id)
-            }
-            findNavController().navigate(
-                R.id.action_statusBarCustomFragment_to_customIconDetailFragment,
-                bundle
-            )
+            viewModel.toggleCustomIcon(iconItem.id)
         }
         binding.rvCustomizeIcons.adapter = customIconAdapter
 
         // Emojis below custom icons (shows on left side with time in status bar)
         customLeftEmojiAdapter = CustomStatusEmojiAdapter { emojiItem ->
             viewModel.selectLeftEmoji(emojiItem)
-            val res = if (emojiItem.isNone) 0 else emojiItem.drawableRes
-            StatusBarAccessibilityService.updateLeftEmoji(res)
+            // Removed immediate service update to prevent mode flipping
         }
         binding.rvCustomLeftEmojis.adapter = customLeftEmojiAdapter
     }
@@ -228,6 +221,9 @@ class StatusBarCustomFragment : Fragment() {
         val lmPx = (lm * density).toInt()
         val rmPx = (rm * density).toInt()
         binding.clStatusBarPreview.setPadding(lmPx, 0, rmPx, 0)
+        
+        // Ensure preview background stays correct during padding changes
+        updatePreviewAppearance()
     }
 
     private fun setupApplyButton() {
@@ -241,6 +237,10 @@ class StatusBarCustomFragment : Fragment() {
 
             viewModel.applyCustomizations()
             StatusBarAccessibilityService.updateCustomSettings()
+            
+            // Immediately sync left emoji as well
+            val res = viewModel.selectedLeftEmojiRes.value ?: 0
+            StatusBarAccessibilityService.updateMascot(res)
 
             Toast.makeText(
                 requireContext(),
@@ -281,6 +281,9 @@ class StatusBarCustomFragment : Fragment() {
             val previewParams = binding.clStatusBarPreview.layoutParams
             previewParams.height = (h * density).toInt()
             binding.clStatusBarPreview.layoutParams = previewParams
+            
+            // Re-apply preview background after layout changes
+            updatePreviewAppearance()
         }
 
         // Left Margin Live Update
@@ -301,26 +304,13 @@ class StatusBarCustomFragment : Fragment() {
             updatePreviewMargins()
         }
 
-        // Background Color Live Update
-        viewModel.backgroundColor.observe(viewLifecycleOwner) { color ->
-            binding.clStatusBarPreview.background = ColorDrawable(color)
-        }
-
-        // Icon & Content Color Live Update
-        viewModel.iconColor.observe(viewLifecycleOwner) { color ->
-            binding.tvPreviewTime.setTextColor(color)
-            binding.tvPreviewBattery.setTextColor(color)
-            binding.ivPreviewSignal.imageTintList = ColorStateList.valueOf(color)
-            binding.ivPreviewWifi.imageTintList = ColorStateList.valueOf(color)
-            binding.ivPreviewBolt.imageTintList = ColorStateList.valueOf(color)
-
-            // Battery icon tint depends on whether it's tintable
-            if (viewModel.isBatteryIconTintable.value == true) {
-                binding.ivPreviewBattery.imageTintList = ColorStateList.valueOf(color)
-            } else {
-                binding.ivPreviewBattery.imageTintList = null
-            }
-        }
+        // Appearance & Background Live Update
+        viewModel.backgroundColor.observe(viewLifecycleOwner) { updatePreviewAppearance() }
+        viewModel.iconColor.observe(viewLifecycleOwner) { updatePreviewAppearance() }
+        viewModel.lastAppliedThemeMode.observe(viewLifecycleOwner) { updatePreviewAppearance() }
+        viewModel.appliedThemeDrawableRes.observe(viewLifecycleOwner) { updatePreviewAppearance() }
+        viewModel.isAppliedThemeGradient.observe(viewLifecycleOwner) { updatePreviewAppearance() }
+        viewModel.isBatteryIconTintable.observe(viewLifecycleOwner) { updatePreviewAppearance() }
 
         // Battery Percentage Size Live Update
         viewModel.batteryPercentageSizeSp.observe(viewLifecycleOwner) { sp ->
@@ -348,20 +338,11 @@ class StatusBarCustomFragment : Fragment() {
             binding.ivPreviewBattery.layoutParams = pParams
         }
 
-//        // Dynamic Battery Icon Live Update (Shape, Custom Icon, or Mascot Emoji)
-//        viewModel.selectedBatteryIconRes.observe(viewLifecycleOwner) { res ->
-//            binding.ivPreviewBattery.setImageResource(res)
-//            binding.ivMiniBatteryIcon.setImageResource(res)
-//        }
-
-//        viewModel.isBatteryIconTintable.observe(viewLifecycleOwner) { isTintable ->
-//            val color = viewModel.iconColor.value ?: Color.WHITE
-//            if (isTintable) {
-//                binding.ivPreviewBattery.imageTintList = ColorStateList.valueOf(color)
-//            } else {
-//                binding.ivPreviewBattery.imageTintList = null
-//            }
-//        }
+        // Dynamic Battery Icon Live Update (Shape, Custom Icon, or Mascot Emoji)
+        viewModel.selectedBatteryIconRes.observe(viewLifecycleOwner) { res ->
+            binding.ivPreviewBattery.setImageResource(res)
+            // binding.ivMiniBatteryIcon.setImageResource(res)
+        }
 
         // Color Swatches
         viewModel.colorSwatches.observe(viewLifecycleOwner) { swatches ->
@@ -387,7 +368,7 @@ class StatusBarCustomFragment : Fragment() {
         // Multi-select custom status bar icons Live Update
         viewModel.enabledCustomIcons.observe(viewLifecycleOwner) { enabledSet ->
             customIconAdapter.setEnabledIds(enabledSet)
-            updatePreviewCustomIcons(enabledSet)
+            updatePreviewAppearance()
         }
 
         // Left Status Emojis list
@@ -414,7 +395,40 @@ class StatusBarCustomFragment : Fragment() {
         viewModel.refreshEnabledCustomIcons()
     }
 
-    private fun updatePreviewCustomIcons(enabledSet: Set<String>) {
+    private fun updatePreviewAppearance() {
+        if (_binding == null) return
+        val mode = viewModel.lastAppliedThemeMode.value ?: "theme"
+        val customIconColor = viewModel.iconColor.value ?: Color.WHITE
+        val isBatteryTintable = viewModel.isBatteryIconTintable.value ?: true
+
+        val effectiveColor: Int
+        if (mode == "theme") {
+            val themeRes = viewModel.appliedThemeDrawableRes.value ?: R.drawable.bg_theme_grad_pink
+            val isGradient = viewModel.isAppliedThemeGradient.value ?: true
+
+            val rectRes = StatusBarAccessibilityService.getOverlayRectDrawable(themeRes)
+            binding.clStatusBarPreview.setBackgroundResource(rectRes)
+
+            effectiveColor = if (isGradient) Color.WHITE else customIconColor
+        } else {
+            val bgColor = viewModel.backgroundColor.value ?: Color.parseColor("#F72585")
+            binding.clStatusBarPreview.background = ColorDrawable(bgColor)
+            effectiveColor = customIconColor
+        }
+
+        binding.tvPreviewTime.setTextColor(effectiveColor)
+        binding.tvPreviewBattery.setTextColor(effectiveColor)
+
+        if (isBatteryTintable) {
+            binding.ivPreviewBattery.imageTintList = ColorStateList.valueOf(effectiveColor)
+        } else {
+            binding.ivPreviewBattery.imageTintList = null
+        }
+
+        updatePreviewCustomIcons(viewModel.enabledCustomIcons.value ?: emptySet(), effectiveColor)
+    }
+
+    private fun updatePreviewCustomIcons(enabledSet: Set<String>, effectiveColor: Int) {
         val density = resources.displayMetrics.density
 
         // Date
@@ -511,7 +525,7 @@ class StatusBarCustomFragment : Fragment() {
         val signalColor = if (isSimEnabled) {
             viewModel.preferenceRepository.getCustomIconColor("signal")
         } else {
-            (viewModel.iconColor.value ?: Color.WHITE)
+            effectiveColor
         }
         binding.ivPreviewSignal.imageTintList = ColorStateList.valueOf(signalColor)
         binding.ivPreviewSignal.visibility = View.VISIBLE
@@ -522,7 +536,7 @@ class StatusBarCustomFragment : Fragment() {
         }
 
         // Wifi
-        val wifiColor = if (enabledSet.contains("wifi")) viewModel.preferenceRepository.getCustomIconColor("wifi") else (viewModel.iconColor.value ?: Color.WHITE)
+        val wifiColor = if (enabledSet.contains("wifi")) viewModel.preferenceRepository.getCustomIconColor("wifi") else effectiveColor
         binding.ivPreviewWifi.imageTintList = ColorStateList.valueOf(wifiColor)
         if (enabledSet.contains("wifi")) {
             val s = (viewModel.preferenceRepository.getCustomIconSize("wifi") * density).toInt()
@@ -531,7 +545,7 @@ class StatusBarCustomFragment : Fragment() {
         }
 
         // Charge Bolt
-        val chargeColor = if (enabledSet.contains("charge")) viewModel.preferenceRepository.getCustomIconColor("charge") else (viewModel.iconColor.value ?: Color.WHITE)
+        val chargeColor = if (enabledSet.contains("charge")) viewModel.preferenceRepository.getCustomIconColor("charge") else effectiveColor
         binding.ivPreviewBolt.imageTintList = ColorStateList.valueOf(chargeColor)
         if (enabledSet.contains("charge")) {
             binding.ivPreviewBolt.visibility = View.VISIBLE

@@ -62,4 +62,5 @@ dependencies {
     implementation("com.intuit.ssp:ssp-android:1.1.1")
     implementation("com.intuit.sdp:sdp-android:1.1.1")
     implementation("com.github.Dimezis:BlurView:version-2.0.6")
+    implementation("com.airbnb.android:lottie:6.7.1")
 }

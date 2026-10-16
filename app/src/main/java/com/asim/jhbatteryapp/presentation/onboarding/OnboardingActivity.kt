@@ -43,11 +43,6 @@ class OnboardingActivity : AppCompatActivity() {
                 title = getString(R.string.onboarding_title_3),
                 subtitle = getString(R.string.onboarding_desc_3)
             ),
-            OnboardingSlide(
-                imageRes = R.drawable.help_improve, // Replace with your drawable
-                title = getString(R.string.help_title),
-                subtitle = getString(R.string.help_desc_3)
-            )
 
         )
     }
@@ -79,7 +74,7 @@ class OnboardingActivity : AppCompatActivity() {
 
                 // Update button text on last slide
                 if (position == onboardingSlides.size - 1) {
-                    binding.llPageIndicators.visibility = ViewGroup.GONE
+                   // binding.llPageIndicators.visibility = ViewGroup.GONE
                     binding.btnGetStarted.setText(getString(R.string.get_started))
                 } else {
 

@@ -366,6 +366,15 @@ object StatusBarPermissionHelper {
                 binding.cbTerms.isChecked = !binding.cbTerms.isChecked
             }
 
+            // Set initial state for Continue button based on checkbox
+            binding.btnAccessContinue.isEnabled = binding.cbTerms.isChecked
+            binding.btnAccessContinue.alpha = if (binding.cbTerms.isChecked) 1.0f else 0.5f
+
+            binding.cbTerms.setOnCheckedChangeListener { _, isChecked ->
+                binding.btnAccessContinue.isEnabled = isChecked
+                binding.btnAccessContinue.alpha = if (isChecked) 1.0f else 0.5f
+            }
+
             var actionInvoked = false
             dialog.setOnCancelListener {
                 if (!actionInvoked) {

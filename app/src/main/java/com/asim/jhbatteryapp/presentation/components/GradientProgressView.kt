@@ -38,32 +38,57 @@ class GradientProgressView @JvmOverloads constructor(
 
         val w = width.toFloat()
         val h = height.toFloat()
+
         if (w <= 0f || h <= 0f) return
 
         val radius = h / 2f
 
-        // Track
+        // Rounded background track
+        val trackRect = RectF(0f, 0f, w, h)
+
         canvas.drawRoundRect(
-            0f, 0f, w, h, radius, radius, trackPaint
+            trackRect,
+            radius,
+            radius,
+            trackPaint
         )
 
-        // Smoothly blended gradient
+        // Gradient colors
         gradientPaint.shader = LinearGradient(
             0f, 0f, w, 0f,
-            colors, null, Shader.TileMode.CLAMP
+            colors,
+            null,
+            Shader.TileMode.CLAMP
         )
 
-        // Moving progress segment
+        // Moving gradient segment
         val segmentWidth = w * 0.38f
         val left = offset * (w + segmentWidth) - segmentWidth
         val right = left + segmentWidth
 
+        val segmentRect = RectF(left, 0f, right, h)
+
+        // Clip gradient inside rounded track
+        val trackPath = android.graphics.Path().apply {
+            addRoundRect(
+                trackRect,
+                radius,
+                radius,
+                android.graphics.Path.Direction.CW
+            )
+        }
+
         canvas.save()
-        canvas.clipRect(0f, 0f, w, h)
+        canvas.clipPath(trackPath)
+
+        // Rounded moving segment
         canvas.drawRoundRect(
-            RectF(left, 0f, right, h),
-            radius, radius, gradientPaint
+            segmentRect,
+            radius,
+            radius,
+            gradientPaint
         )
+
         canvas.restore()
 
         gradientPaint.shader = null
