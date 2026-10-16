@@ -44,6 +44,12 @@
             android:exported="false"
             android:theme="@style/Theme.JHBatteryApp" />
 
+        <!-- Welcome Activity -->
+        <activity
+            android:name=".presentation.welcome.WelcomeActivity"
+            android:exported="false"
+            android:theme="@style/Theme.JHBatteryApp.Fullscreen" />
+
         <!-- 4. Status Bar Overlay Foreground Service -->
         <service
             android:name=".service.StatusBarOverlayService"

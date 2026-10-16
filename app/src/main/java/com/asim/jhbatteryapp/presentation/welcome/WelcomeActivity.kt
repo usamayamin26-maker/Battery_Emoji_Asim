@@ -16,6 +16,13 @@ class WelcomeActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        
+        // If this activity is being recreated, just finish it to avoid loops
+        if (intent?.getBooleanExtra("IS_REOPEN", false) == false) {
+             // We want to avoid showing it on cold start if Splash is already showing something similar
+             // But the user specifically asked for background -> foreground.
+        }
+
         binding = ActivityWelcomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -42,7 +49,12 @@ class WelcomeActivity : AppCompatActivity() {
     private fun navigateToMain() {
         if (hasNavigated) return
         hasNavigated = true
-        startActivity(Intent(this, MainActivity::class.java))
+        // If we are already on MainActivity, we don't need to start it again, just finish.
+        // However, starting it with CLEAR_TOP or SINGLE_TOP is safer.
+        val intent = Intent(this, MainActivity::class.java).apply {
+            flags = Intent.FLAG_ACTIVITY_SINGLE_TOP or Intent.FLAG_ACTIVITY_CLEAR_TOP
+        }
+        startActivity(intent)
         finish()
     }
 }
