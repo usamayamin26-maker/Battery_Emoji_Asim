@@ -14,5 +14,6 @@ interface BatteryRepository {
     fun getStatusBarGradients(): List<com.asim.jhbatteryapp.domain.model.StatusBarThemeItem>
     fun getStatusBarBackgrounds(): List<com.asim.jhbatteryapp.domain.model.StatusBarThemeItem>
     fun getStatusBarAnimations(): List<BatteryEmojiItem>
+    fun getStickers(category: String? = null): List<com.asim.jhbatteryapp.domain.model.StickerItem>
 }
 

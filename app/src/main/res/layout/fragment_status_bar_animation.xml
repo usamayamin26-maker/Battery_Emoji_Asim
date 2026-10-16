@@ -4,7 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bg_home">
+    android:background="@color/bg_home"
+    android:descendantFocusability="beforeDescendants"
+
+    android:focusableInTouchMode="true">
 
     <!-- Header: Back Arrow Button -->
     <ImageView
@@ -28,7 +31,7 @@
         android:id="@+id/tvAnimTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginStart="@dimen/_12sdp"
         android:text="@string/status_bar_animation_title"
         android:textColor="@color/text_primary"
         android:textSize="@dimen/_18ssp"
@@ -160,7 +163,7 @@
         android:layout_marginTop="@dimen/_4sdp"
         android:layout_marginEnd="@dimen/_12sdp"
         android:max="100"
-        android:maxHeight="9dp"
+        android:maxHeight="@dimen/_9sdp"
         android:progress="50"
         android:progressDrawable="@drawable/bg_seekbar_progress"
         android:splitTrack="false"

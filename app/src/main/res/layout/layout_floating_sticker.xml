@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/flFloatingStickerRoot"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:clickable="true"
+    android:clipChildren="false"
+    android:clipToPadding="false"
+    android:focusable="false"
+    android:padding="@dimen/_6sdp">
+
+    <!-- The Floating Screen Sticker -->
+    <ImageView
+        android:id="@+id/ivFloatingSticker"
+        android:layout_width="@dimen/_54sdp"
+        android:layout_height="@dimen/_54sdp"
+        android:contentDescription="@null"
+        android:scaleType="fitCenter"
+        tools:src="@drawable/ic_sticker_player_blue" />
+
+</FrameLayout>

@@ -6,29 +6,29 @@
     android:background="@drawable/bg_floating_bottom_bar"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    android:padding="24dp">
+    android:padding="@dimen/_20sdp">
 
     <!-- Handle Bar -->
     <View
-        android:layout_width="40dp"
-        android:layout_height="4dp"
-        android:layout_marginBottom="16dp"
+        android:layout_width="@dimen/_40sdp"
+        android:layout_height="@dimen/_4sdp"
+        android:layout_marginBottom="@dimen/_14sdp"
         android:background="#D1D5DB" />
 
     <!-- Preview Mascot in Large Cute Container -->
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/cvPreviewContainer"
-        android:layout_width="160dp"
-        android:layout_height="140dp"
+        android:layout_width="@dimen/_150sdp"
+        android:layout_height="@dimen/_130sdp"
         app:cardBackgroundColor="@color/card_bg_pink"
-        app:cardCornerRadius="30dp"
+        app:cardCornerRadius="@dimen/_26sdp"
         app:cardElevation="0dp">
 
         <ImageView
             android:id="@+id/ivDialogMascot"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="16dp"
+            android:padding="@dimen/_16sdp"
             android:scaleType="fitCenter"
             android:src="@drawable/ic_blueprint_girl_pink" />
     </com.google.android.material.card.MaterialCardView>
@@ -37,28 +37,28 @@
         android:id="@+id/tvDialogTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="@dimen/_14sdp"
         android:text="Pink Blossom"
         android:textColor="@color/text_primary"
-        android:textSize="20sp"
+        android:textSize="@dimen/_18ssp"
         android:textStyle="bold" />
 
     <TextView
         android:id="@+id/tvDialogSubtitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="@dimen/_4sdp"
         android:text="Status: Active and cuddling on your battery"
         android:textColor="@color/text_secondary"
-        android:textSize="13sp" />
+        android:textSize="@dimen/_12ssp" />
 
     <!-- REUSABLE COMPONENT: GradientButton for Applying Style -->
     <com.asim.jhbatteryapp.presentation.components.GradientButton
         android:id="@+id/btnApplyStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        app:btnCornerRadius="26dp"
+        android:layout_marginTop="@dimen/_18sdp"
+        app:btnCornerRadius="@dimen/_24sdp"
         app:btnGradientEndColor="@color/primary_gradient_end"
         app:btnGradientStartColor="@color/primary_gradient_start"
         app:btnText="@string/apply_battery_style"

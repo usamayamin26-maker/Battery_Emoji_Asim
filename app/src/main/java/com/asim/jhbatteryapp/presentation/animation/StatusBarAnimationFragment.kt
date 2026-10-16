@@ -55,6 +55,7 @@ class StatusBarAnimationFragment : Fragment() {
 
         binding.btnAnimBannerStart.setOnClickListener {
             viewModel.toggleBatteryActive()
+            applyCurrentAnimation()
         }
 
         binding.tvSeeAll.setOnClickListener {
@@ -79,16 +80,7 @@ class StatusBarAnimationFragment : Fragment() {
         })
 
         binding.btnApplyAnimation.setOnClickListener {
-            if (com.asim.jhbatteryapp.service.StatusBarAccessibilityService.isAccessibilityServiceEnabled(requireContext())) {
-                applyCurrentAnimation()
-            } else {
-                com.asim.jhbatteryapp.presentation.common.StatusBarPermissionHelper.showAccessibilityDialog(
-                    context = requireContext(),
-                    onSettingsOpened = {
-                        isAwaitingPermission = true
-                    }
-                )
-            }
+            applyCurrentAnimation()
         }
     }
 
@@ -96,34 +88,47 @@ class StatusBarAnimationFragment : Fragment() {
 
     private fun applyCurrentAnimation() {
         val selected = viewModel.selectedAnimation.value ?: return
+        val size = viewModel.dateSize.value ?: 50
         viewModel.applyAnimation(selected)
 
-        com.asim.jhbatteryapp.service.StatusBarAccessibilityService.updateMascot(
-            mascotRes = selected.previewDrawableRes
-        )
-        Toast.makeText(
-            requireContext(),
-            getString(R.string.animation_applied_success),
-            Toast.LENGTH_SHORT
-        ).show()
+        val prefRepo = com.asim.jhbatteryapp.data.repository.PreferenceRepositoryImpl()
+        prefRepo.setAppliedMascotDrawableRes(selected.previewDrawableRes)
+        prefRepo.setMascotSize(size)
+        prefRepo.setAppliedBatteryIconRes(selected.previewDrawableRes)
+        prefRepo.setBatteryIconTintable(false)
+        prefRepo.setEmojiBatteryEnabled(true)
+
+        val isAccessibilityEnabled = com.asim.jhbatteryapp.service.StatusBarAccessibilityService.isAccessibilityServiceEnabled(requireContext())
+        val hasOverlay = com.asim.jhbatteryapp.presentation.common.StatusBarPermissionHelper.hasOverlayPermission(requireContext())
+
+        if (isAccessibilityEnabled) {
+            com.asim.jhbatteryapp.service.StatusBarAccessibilityService.updateMascot(
+                mascotRes = selected.previewDrawableRes
+            )
+            com.asim.jhbatteryapp.service.StatusBarAccessibilityService.updateCustomSettings()
+            Toast.makeText(
+                requireContext(),
+                getString(R.string.animation_applied_success),
+                Toast.LENGTH_SHORT
+            ).show()
+        } else {
+            com.asim.jhbatteryapp.presentation.common.StatusBarPermissionHelper.showAccessibilityDialog(
+                context = requireContext(),
+                onSettingsOpened = {
+                    isAwaitingPermission = true
+                }
+            )
+        }
     }
 
     override fun onResume() {
         super.onResume()
-        if (com.asim.jhbatteryapp.service.StatusBarAccessibilityService.isAccessibilityServiceEnabled(requireContext())) {
-            val selected = viewModel.selectedAnimation.value
-            if (selected != null) {
-                com.asim.jhbatteryapp.service.StatusBarAccessibilityService.updateMascot(
-                    mascotRes = selected.previewDrawableRes
-                )
-                if (isAwaitingPermission) {
-                    isAwaitingPermission = false
-                    Toast.makeText(
-                        requireContext(),
-                        getString(R.string.animation_applied_success),
-                        Toast.LENGTH_SHORT
-                    ).show()
-                }
+        val selected = viewModel.selectedAnimation.value
+        if (selected != null && isAwaitingPermission) {
+            val isAccessibility = com.asim.jhbatteryapp.service.StatusBarAccessibilityService.isAccessibilityServiceEnabled(requireContext())
+            if (isAccessibility) {
+                isAwaitingPermission = false
+                applyCurrentAnimation()
             }
         }
     }

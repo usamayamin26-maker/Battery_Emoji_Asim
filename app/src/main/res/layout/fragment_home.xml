@@ -12,10 +12,12 @@
     <RelativeLayout
         android:id="@+id/headerHome"
         android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:layout_marginTop="28dp"
+        android:layout_height="@dimen/_45sdp"
+        android:layout_marginTop="@dimen/_28sdp"
         android:focusableInTouchMode="true"
-        android:paddingHorizontal="20dp"
+        android:paddingHorizontal="@dimen/_16sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
@@ -32,15 +34,15 @@
         <!-- Search Icon Button (Navigates to SearchFragment) -->
         <ImageView
             android:id="@+id/btnOpenSearch"
-            android:layout_width="38dp"
-            android:layout_height="38dp"
+            android:layout_width="@dimen/_36sdp"
+            android:layout_height="@dimen/_36sdp"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:clickable="true"
             android:contentDescription="@string/search_emojis_title"
             android:focusable="true"
-            android:padding="7dp"
+            android:padding="@dimen/_7sdp"
             android:src="@drawable/ic_search" />
     </RelativeLayout>
 
@@ -52,7 +54,7 @@
         android:clipToPadding="false"
         android:descendantFocusability="beforeDescendants"
         android:focusableInTouchMode="true"
-        android:paddingBottom="90dp"
+        android:paddingBottom="@dimen/_90sdp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/headerHome">
 
@@ -62,30 +64,30 @@
             android:descendantFocusability="beforeDescendants"
             android:focusableInTouchMode="true"
             android:orientation="vertical"
-            android:paddingHorizontal="16dp">
+            android:paddingHorizontal="@dimen/_16sdp">
 
             <!-- Enable Emoji Battery Banner Card -->
             <LinearLayout
                 android:id="@+id/llEnableBanner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="@dimen/_12sdp"
                 android:background="@drawable/bg_banner_gradient"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
-                android:paddingHorizontal="16dp"
-                android:paddingVertical="12dp">
+                android:paddingHorizontal="@dimen/_16sdp"
+                android:paddingVertical="@dimen/_12sdp">
 
                 <ImageView
-                    android:layout_width="22dp"
-                    android:layout_height="22dp"
+                    android:layout_width="@dimen/_22sdp"
+                    android:layout_height="@dimen/_22sdp"
                     android:src="@drawable/ic_sparkle" />
 
                 <TextView
                     android:id="@+id/tvBannerText"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
+                    android:layout_marginStart="@dimen/_10sdp"
                     android:layout_weight="1"
                     android:text="@string/enable_emoji_battery_banner"
                     android:textColor="@color/primary_purple"
@@ -99,8 +101,8 @@
                     android:background="@drawable/bg_pill_start_button"
                     android:clickable="true"
                     android:focusable="true"
-                    android:paddingHorizontal="18dp"
-                    android:paddingVertical="6dp"
+                    android:paddingHorizontal="@dimen/_18sdp"
+                    android:paddingVertical="@dimen/_6sdp"
                     android:text="@string/start"
                     android:textColor="@color/primary_pink"
                     android:textSize="@dimen/_10ssp"
@@ -112,7 +114,7 @@
                 android:id="@+id/llQuickActionCards"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_106sdp"
-                android:layout_marginTop="14dp"
+                android:layout_marginTop="@dimen/_14sdp"
                 android:orientation="horizontal">
 
                 <!-- Left Large Card: Sticker Shop -->
@@ -155,7 +157,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="@string/sticker_shop"
                                 android:textColor="@color/white"
-                                android:textSize="15sp"
+                                android:textSize="18sp"
                                 android:textStyle="bold" />
 
                             <ImageView
@@ -215,8 +217,8 @@
                                 android:textStyle="bold" />
 
                             <ImageView
-                                android:layout_width="18dp"
-                                android:layout_height="18dp"
+                                android:layout_width="@dimen/_18sdp"
+                                android:layout_height="@dimen/_18sdp"
                                 android:layout_alignParentEnd="true"
                                 android:layout_centerVertical="true"
                                 android:src="@drawable/arrow_forword" />
@@ -228,11 +230,11 @@
                         android:id="@+id/cardThemes"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
-                        android:layout_marginTop="6dp"
+                        android:layout_marginTop="@dimen/_6sdp"
                         android:layout_weight="1"
                         android:clickable="true"
                         android:focusable="true"
-                        app:cardCornerRadius="20dp"
+                        app:cardCornerRadius="@dimen/_20sdp"
                         app:cardElevation="0dp"
                         app:strokeWidth="0dp">
 
@@ -240,7 +242,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:background="@drawable/bg_quick_themes"
-                            android:paddingHorizontal="14dp">
+                            android:paddingHorizontal="@dimen/_10sdp">
 
                             <ImageView
                                 android:id="@+id/ivThemesIcon"
@@ -263,8 +265,8 @@
                                 android:textStyle="bold" />
 
                             <ImageView
-                                android:layout_width="18dp"
-                                android:layout_height="18dp"
+                                android:layout_width="@dimen/_18sdp"
+                                android:layout_height="@dimen/_18sdp"
                                 android:layout_alignParentEnd="true"
                                 android:layout_centerVertical="true"
                                 android:src="@drawable/arrow_forword" />
@@ -279,7 +281,7 @@
                 android:id="@+id/rvCategoryTabs"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="@dimen/_16sdp"
                 android:orientation="horizontal"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
@@ -288,7 +290,7 @@
                 android:id="@+id/rvEmojiGrid"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="@dimen/_8sdp"
                 android:nestedScrollingEnabled="false"
                 app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
                 app:spanCount="3" />

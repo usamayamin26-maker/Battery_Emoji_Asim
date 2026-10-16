@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:paddingHorizontal="@dimen/_4sdp">
+
+    <!-- Container Box -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clMyStickerContainer"
+        android:layout_width="@dimen/_48sdp"
+        android:layout_height="@dimen/_48sdp"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <!-- Dashed Selection Border (Visible when active) -->
+        <View
+            android:id="@+id/viewDashedBorder"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/bg_sticker_dashed_border"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Thumbnail Image -->
+        <ImageView
+            android:id="@+id/ivMyStickerThumb"
+            android:layout_width="@dimen/_34sdp"
+            android:layout_height="@dimen/_34sdp"
+            android:contentDescription="@null"
+            android:scaleType="fitCenter"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/ic_sticker_player_blue" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- Top Right Circular Minus Badge to Remove -->
+    <ImageView
+        android:id="@+id/btnRemoveSticker"
+        android:layout_width="@dimen/_16sdp"
+        android:layout_height="@dimen/_16sdp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:clickable="true"
+        android:contentDescription="@null"
+        android:focusable="true"
+        android:src="@drawable/ic_badge_minus"
+        app:layout_constraintCircle="@+id/clMyStickerContainer"
+        app:layout_constraintCircleAngle="45"
+        app:layout_constraintCircleRadius="@dimen/_24sdp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

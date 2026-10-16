@@ -4,15 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="6dp">
+    android:padding="@dimen/_5sdp">
 
     <!-- Reusable Component: EmojiBatteryCardView -->
     <com.asim.jhbatteryapp.presentation.components.EmojiBatteryCardView
         android:id="@+id/cardEmojiBattery"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="@dimen/_96sdp"
         app:cardBackgroundColor="@color/card_bg_blue"
-        app:cardCornerRadius="24dp"
+        app:cardCornerRadius="@dimen/_20sdp"
         app:emojiImage="@drawable/ic_blueprint_bunny_blue" />
 
 </FrameLayout>

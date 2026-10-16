@@ -28,7 +28,7 @@
         android:id="@+id/tvSeeAllTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginStart="@dimen/_12sdp"
         android:text="@string/status_bar_animation_title"
         android:textColor="@color/text_primary"
         android:textSize="@dimen/_18ssp"

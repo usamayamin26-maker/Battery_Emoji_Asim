@@ -39,6 +39,13 @@
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_homeFragment_to_stickerDisplayFragment"
+            app:destination="@id/stickerDisplayFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
 
     <!-- Search Screen Fragment -->
@@ -125,5 +132,12 @@
             android:defaultValue="airplane"
             app:argType="string" />
     </fragment>
+
+    <!-- Sticker For Display Screen Fragment -->
+    <fragment
+        android:id="@+id/stickerDisplayFragment"
+        android:name="com.asim.jhbatteryapp.presentation.sticker.StickerDisplayFragment"
+        android:label="Sticker For Display Screen"
+        tools:layout="@layout/fragment_sticker_display" />
 
 </navigation>

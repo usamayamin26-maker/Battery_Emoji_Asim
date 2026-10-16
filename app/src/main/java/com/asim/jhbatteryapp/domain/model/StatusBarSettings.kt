@@ -28,6 +28,7 @@ data class StatusBarSettings(
     val appliedThemeDrawableRes: Int = R.drawable.bg_theme_grad_pink,
     val isAppliedThemeGradient: Boolean = true,
     val appliedMascotDrawableRes: Int = R.drawable.ic_blueprint_girl_pink,
+    val mascotSizeDp: Int = 20,
     val isEmojiBatteryEnabled: Boolean = true,
     val leftStatusEmojiRes: Int = 0
 ) {

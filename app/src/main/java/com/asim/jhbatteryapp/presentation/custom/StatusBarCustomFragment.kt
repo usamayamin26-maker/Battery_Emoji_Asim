@@ -99,12 +99,14 @@ class StatusBarCustomFragment : Fragment() {
         // Emojis below custom icons (shows on left side with time in status bar)
         customLeftEmojiAdapter = CustomStatusEmojiAdapter { emojiItem ->
             viewModel.selectLeftEmoji(emojiItem)
+            val res = if (emojiItem.isNone) 0 else emojiItem.drawableRes
+            StatusBarAccessibilityService.updateLeftEmoji(res)
         }
         binding.rvCustomLeftEmojis.adapter = customLeftEmojiAdapter
     }
 
     private fun setupTabListeners() {
-        binding.ivCustomBack.setOnClickListener {
+        binding.ivDetailBack.setOnClickListener {
             findNavController().navigateUp()
         }
 
@@ -231,22 +233,14 @@ class StatusBarCustomFragment : Fragment() {
     private fun setupApplyButton() {
         binding.btnApplyCustom.setOnClickListener {
             val hasAccessibility = StatusBarAccessibilityService.isAccessibilityServiceEnabled(requireContext())
-            val hasOverlay = StatusBarPermissionHelper.hasOverlayPermission(requireContext())
 
-            if (!hasAccessibility && !hasOverlay) {
+            if (!hasAccessibility) {
                 StatusBarPermissionHelper.showAccessibilityDialog(requireContext())
                 return@setOnClickListener
             }
 
             viewModel.applyCustomizations()
-
-            if (StatusBarAccessibilityService.instance != null) {
-                StatusBarAccessibilityService.updateCustomSettings()
-            } else if (hasAccessibility) {
-                StatusBarAccessibilityService.updateCustomSettings()
-            } else {
-                StatusBarOverlayService.start(requireContext())
-            }
+            StatusBarAccessibilityService.updateCustomSettings()
 
             Toast.makeText(
                 requireContext(),
@@ -408,6 +402,7 @@ class StatusBarCustomFragment : Fragment() {
             if (emojiRes != 0) {
                 binding.ivPreviewLeftEmoji.visibility = View.VISIBLE
                 binding.ivPreviewLeftEmoji.setImageResource(emojiRes)
+                binding.ivPreviewLeftEmoji.imageTintList = null
             } else {
                 binding.ivPreviewLeftEmoji.visibility = View.GONE
             }

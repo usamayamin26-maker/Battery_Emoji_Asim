@@ -99,10 +99,11 @@
     <string name="see_all">See all</string>
     <string name="theme_applied_success">Status bar theme applied successfully!</string>
     <string name="animation_applied_success">Status bar animation applied successfully!</string>
-    <string name="accessibility_service_desc">Enables JH Battery to draw custom status bar themes and cute animations directly on top of the system status bar.</string>
-    <string name="accessibility_dialog_title">Overlap System Status Bar</string>
-    <string name="accessibility_dialog_desc">To completely overlap and hide your phone\'s system status bar with the custom status bar, please enable JH Battery in Accessibility Services.</string>
-    <string name="enable_accessibility">Enable in Accessibility</string>
+    <string name="accessibility_service_label">Emoji Battery Icon</string>
+    <string name="accessibility_service_desc">Display emoji stickers on status bar and customize appearance. No data collected.</string>
+    <string name="accessibility_dialog_title">Emoji Battery Icon Permission</string>
+    <string name="accessibility_dialog_desc">To display your custom battery emoji, animations, and screen stickers, please enable Emoji Battery Icon in Accessibility Services.</string>
+    <string name="enable_accessibility">Enable Emoji Battery Icon</string>
     <string name="keep_standard_overlay">Keep Standard Overlay</string>
 
     <!-- Status Bar Custom Screen Strings -->
@@ -161,4 +162,14 @@
     <string name="dont_miss_out_desc">Turn on notifications to discover new Battery Icons, seasonal themes, and trending styles.</string>
     <string name="maybe_later">Maybe Later</string>
     <string name="turn_on_notifications">Turn On Notifications</string>
+
+    <!-- Sticker For Display Screen Strings -->
+    <string name="sticker_for_display_title">Sticker For Display Screen</string>
+    <string name="my_sticker">My Sticker</string>
+    <string name="save">Save</string>
+    <string name="adjustment">Adjustment</string>
+    <string name="size">Size</string>
+    <string name="rotate">Rotate</string>
+    <string name="sticker_saved_success">Stickers saved successfully!</string>
+    <string name="sticker_limit_reached">Maximum 5 stickers allowed</string>
 </resources>

@@ -47,22 +47,32 @@ class StatusBarOverlayService : Service() {
         startForegroundServiceWithNotification()
 
         hardwareObserver.startObserving(this) { hardwareState ->
-            renderOverlay(hardwareState)
+            if (!StatusBarAccessibilityService.isRunning) {
+                renderOverlay(hardwareState)
+            }
         }
 
-        if (StatusBarPermissionHelper.hasOverlayPermission(this)) {
+        if (!StatusBarAccessibilityService.isRunning && StatusBarPermissionHelper.hasOverlayPermission(this)) {
             initOverlayView()
         }
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
-        if (!isViewAttached) {
-            initOverlayView()
+        // If accessibility service is handling the overlays, remove any duplicate overlay view,
+        // but KEEP this Foreground Service running to protect the process from being killed!
+        if (StatusBarAccessibilityService.isRunning) {
+            if (isViewAttached && binding != null) {
+                try {
+                    windowManager?.removeView(binding?.root)
+                } catch (_: Exception) {}
+                binding = null
+                isViewAttached = false
+            }
+            return START_STICKY
         }
 
-        if (!isViewAttached) {
-            stopSelf()
-            return START_NOT_STICKY
+        if (!isViewAttached && StatusBarPermissionHelper.hasOverlayPermission(this)) {
+            initOverlayView()
         }
 
         val themeRes = intent?.getIntExtra(EXTRA_THEME_RES, -1)?.takeIf { it != -1 }
@@ -76,13 +86,15 @@ class StatusBarOverlayService : Service() {
 
         val isEmojiBatteryActive = preferenceRepository.isEmojiBatteryEnabled()
 
-        applyOverlayTheme(themeRes, isGradient, mascotRes, isEmojiBatteryActive)
+        if (isViewAttached) {
+            applyOverlayTheme(themeRes, isGradient, mascotRes, isEmojiBatteryActive)
+        }
 
         return START_STICKY
     }
 
     private fun initOverlayView() {
-        if (isViewAttached) return
+        if (isViewAttached || StatusBarAccessibilityService.isRunning) return
 
         try {
             windowManager = getSystemService(Context.WINDOW_SERVICE) as? WindowManager
@@ -126,7 +138,7 @@ class StatusBarOverlayService : Service() {
         } catch (e: SecurityException) {
             e.printStackTrace()
             isViewAttached = false
-            stopSelf()
+            // Keep Foreground Service running to prevent process kill
         } catch (e: Exception) {
             e.printStackTrace()
             isViewAttached = false
@@ -204,21 +216,35 @@ class StatusBarOverlayService : Service() {
         )
 
         val notification: Notification = NotificationCompat.Builder(this, channelId)
-            .setContentTitle("JH Status Bar Theme")
-            .setContentText("Status bar theme & emoji battery active")
+            .setContentTitle("Emoji Battery Icon")
+            .setContentText("Emoji battery & status bar active")
             .setSmallIcon(R.drawable.ic_status_bolt)
             .setContentIntent(pendingIntent)
             .setOngoing(true)
             .setPriority(NotificationCompat.PRIORITY_LOW)
             .build()
 
-        startForeground(NOTIFICATION_ID, notification)
+        try {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
+                startForeground(
+                    NOTIFICATION_ID,
+                    notification,
+                    android.content.pm.ServiceInfo.FOREGROUND_SERVICE_TYPE_SPECIAL_USE
+                )
+            } else {
+                startForeground(NOTIFICATION_ID, notification)
+            }
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
     }
 
     override fun onTaskRemoved(rootIntent: Intent?) {
         super.onTaskRemoved(rootIntent)
-        if (!isViewAttached || binding == null) {
-            initOverlayView()
+        if (!StatusBarAccessibilityService.isRunning && StatusBarPermissionHelper.hasOverlayPermission(this)) {
+            if (!isViewAttached || binding == null) {
+                initOverlayView()
+            }
         }
     }
 

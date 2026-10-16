@@ -1,0 +1,47 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="48dp"
+    android:height="48dp"
+    android:viewportWidth="48"
+    android:viewportHeight="48">
+    <!-- Head/Skin -->
+    <path
+        android:fillColor="#F6C6A2"
+        android:pathData="M24,7 A7.5,7.5 0 1,0 24,22 A7.5,7.5 0 1,0 24,7" />
+    <!-- Hair -->
+    <path
+        android:fillColor="#2D2522"
+        android:pathData="M17,13 C17,8 20,6 24,6 C28,6 31,8 31,13 C30,11 27,10 24,10 C20,10 18,11 17,13 Z" />
+    <!-- Happy Eyes ^ ^ -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#1A1817"
+        android:strokeWidth="1.2"
+        android:strokeLineCap="round"
+        android:pathData="M19.5,15 Q21,13.5 22.5,15 M25.5,15 Q27,13.5 28.5,15" />
+    <!-- Big Smile -->
+    <path
+        android:fillColor="#EF4444"
+        android:strokeColor="#C26D4D"
+        android:strokeWidth="1"
+        android:pathData="M21.5,17 Q24,20.5 26.5,17 Z" />
+    <!-- Jersey Body (Red & Green) -->
+    <path
+        android:fillColor="#EF4444"
+        android:pathData="M18,22 L30,22 L32,32 L16,32 Z" />
+    <!-- Arms raised up high celebrating -->
+    <path
+        android:fillColor="#F6C6A2"
+        android:pathData="M18,22 L14,14 L11,16 L16,25 Z M30,22 L34,14 L37,16 L32,25 Z" />
+    <!-- Shorts (White) -->
+    <path
+        android:fillColor="#F8FAFC"
+        android:pathData="M17,32 L31,32 L31,37 L25,37 L25,34 L23,34 L23,37 L17,37 Z" />
+    <!-- Legs -->
+    <path
+        android:fillColor="#F6C6A2"
+        android:pathData="M18,37 L22,37 L22,41 L18,41 Z M26,37 L30,37 L30,41 L26,41 Z" />
+    <!-- Shoes -->
+    <path
+        android:fillColor="#DC2626"
+        android:pathData="M17,41 L22.5,41 L22.5,43 L16,43 Z M25.5,41 L31,41 L32,43 L25.5,43 Z" />
+</vector>

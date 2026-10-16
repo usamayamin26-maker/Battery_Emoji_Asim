@@ -394,6 +394,15 @@ class BatteryLocalDataSource {
                 batteryColorRes = R.color.battery_blue
             ),
             BatteryEmojiItem(
+                id = "anim_bunny",
+                title = "Cloud Bunny",
+                category = "cute",
+                previewDrawableRes = R.drawable.ic_blueprint_bunny_blue,
+                backgroundColorRes = R.color.card_bg_blue,
+                batteryPercentage = 100,
+                batteryColorRes = R.color.battery_blue
+            ),
+            BatteryEmojiItem(
                 id = "anim_girl",
                 title = "Pink Blossom",
                 category = "anime",
@@ -439,5 +448,87 @@ class BatteryLocalDataSource {
                 batteryColorRes = R.color.battery_purple
             )
         )
+    }
+
+    fun getStickers(category: String? = null): List<com.asim.jhbatteryapp.domain.model.StickerItem> {
+        val allStickers = listOf(
+            com.asim.jhbatteryapp.domain.model.StickerItem(
+                id = "stk_player_blue",
+                title = "Blue Striker",
+                category = "hot",
+                drawableRes = R.drawable.ic_sticker_player_blue
+            ),
+            com.asim.jhbatteryapp.domain.model.StickerItem(
+                id = "stk_player_red",
+                title = "Red Striker",
+                category = "hot",
+                drawableRes = R.drawable.ic_sticker_player_red
+            ),
+            com.asim.jhbatteryapp.domain.model.StickerItem(
+                id = "stk_player_trophy",
+                title = "Champion Gold",
+                category = "hot",
+                drawableRes = R.drawable.ic_sticker_player_trophy
+            ),
+            com.asim.jhbatteryapp.domain.model.StickerItem(
+                id = "stk_player_celebrate",
+                title = "Victory Cheers",
+                category = "hot",
+                drawableRes = R.drawable.ic_sticker_player_celebrate
+            ),
+            com.asim.jhbatteryapp.domain.model.StickerItem(
+                id = "stk_puppy",
+                title = "Puppy Friend",
+                category = "sanrio",
+                drawableRes = R.drawable.ic_blueprint_puppy
+            ),
+            com.asim.jhbatteryapp.domain.model.StickerItem(
+                id = "stk_girl",
+                title = "Pink Blossom",
+                category = "anime",
+                drawableRes = R.drawable.ic_blueprint_girl_pink
+            ),
+            com.asim.jhbatteryapp.domain.model.StickerItem(
+                id = "stk_cat",
+                title = "Smart Scholar",
+                category = "anime",
+                drawableRes = R.drawable.ic_blueprint_cat_gray
+            ),
+            com.asim.jhbatteryapp.domain.model.StickerItem(
+                id = "stk_frog",
+                title = "Lucky Frog",
+                category = "pokemon",
+                drawableRes = R.drawable.ic_blueprint_frog_green
+            ),
+            com.asim.jhbatteryapp.domain.model.StickerItem(
+                id = "stk_stitch",
+                title = "Starry Stitch",
+                category = "pokemon",
+                drawableRes = R.drawable.ic_blueprint_stitch_yellow
+            ),
+            com.asim.jhbatteryapp.domain.model.StickerItem(
+                id = "stk_melody",
+                title = "Purple Melody",
+                category = "sanrio",
+                drawableRes = R.drawable.ic_blueprint_melody_purple
+            ),
+            com.asim.jhbatteryapp.domain.model.StickerItem(
+                id = "stk_poke",
+                title = "Electric Mouse",
+                category = "pokemon",
+                drawableRes = R.drawable.poke
+            ),
+            com.asim.jhbatteryapp.domain.model.StickerItem(
+                id = "stk_bunny",
+                title = "Cloud Bunny",
+                category = "sanrio",
+                drawableRes = R.drawable.ic_blueprint_bunny_blue
+            )
+        )
+        return if (category.isNullOrEmpty() || category.equals("hot", ignoreCase = true)) {
+            allStickers
+        } else {
+            allStickers.filter { it.category.equals(category, ignoreCase = true) }
+        }
     }
 }

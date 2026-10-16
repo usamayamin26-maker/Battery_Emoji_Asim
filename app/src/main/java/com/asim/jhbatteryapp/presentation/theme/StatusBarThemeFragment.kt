@@ -87,10 +87,15 @@ class StatusBarThemeFragment : Fragment() {
         val selected = viewModel.selectedTheme.value ?: return
         viewModel.applyTheme(selected)
 
-        com.asim.jhbatteryapp.service.StatusBarAccessibilityService.updateTheme(
-            themeRes = selected.drawableRes,
-            isGradient = selected.isGradient
-        )
+        val isAccessibilityEnabled = com.asim.jhbatteryapp.service.StatusBarAccessibilityService.isAccessibilityServiceEnabled(requireContext())
+        if (isAccessibilityEnabled) {
+            com.asim.jhbatteryapp.service.StatusBarAccessibilityService.updateTheme(
+                themeRes = selected.drawableRes,
+                isGradient = selected.isGradient
+            )
+        } else if (com.asim.jhbatteryapp.presentation.common.StatusBarPermissionHelper.hasOverlayPermission(requireContext())) {
+            com.asim.jhbatteryapp.service.StatusBarOverlayService.start(requireContext())
+        }
         Toast.makeText(
             requireContext(),
             getString(R.string.theme_applied_success),

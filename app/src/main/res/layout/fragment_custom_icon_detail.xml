@@ -3,7 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/clDetailRoot"
-    android:fitsSystemWindows="true"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/bg_home">
@@ -12,8 +11,9 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/clDetailHeader"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_44sdp"
-        android:paddingHorizontal="@dimen/_14sdp"
+        android:layout_height="@dimen/_45sdp"
+        android:layout_marginTop="@dimen/_28sdp"
+        android:paddingHorizontal="@dimen/_16sdp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -37,7 +37,7 @@
             android:id="@+id/tvDetailTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginStart="@dimen/_12sdp"
             android:textColor="@color/text_primary"
             android:textSize="@dimen/_18ssp"
             android:textStyle="bold"
@@ -186,7 +186,7 @@
                     android:layout_marginTop="@dimen/_8sdp"
                     android:max="36"
                     android:progress="20"
-                    android:maxHeight="9dp"
+                    android:maxHeight="@dimen/_9sdp"
                     android:progressDrawable="@drawable/bg_seekbar_progress"
                     android:thumb="@drawable/bg_seekbar_thumb"
                     app:layout_constraintTop_toBottomOf="@+id/tvDetailSizeLabel" />

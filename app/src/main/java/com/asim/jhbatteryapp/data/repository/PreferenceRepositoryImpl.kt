@@ -63,6 +63,7 @@ class PreferenceRepositoryImpl(
             appliedThemeDrawableRes = preferenceLocalDataSource.getAppliedThemeDrawableRes(),
             isAppliedThemeGradient = preferenceLocalDataSource.isAppliedThemeGradient(),
             appliedMascotDrawableRes = preferenceLocalDataSource.getAppliedMascotDrawableRes(),
+            mascotSizeDp = preferenceLocalDataSource.getMascotSize(),
             isEmojiBatteryEnabled = preferenceLocalDataSource.isEmojiBatteryEnabled(),
             leftStatusEmojiRes = preferenceLocalDataSource.getLeftStatusEmojiRes()
         )
@@ -315,5 +316,62 @@ class PreferenceRepositoryImpl(
     override fun setLeftStatusEmojiRes(res: Int) {
         preferenceLocalDataSource.setLeftStatusEmojiRes(res)
         notifySettingsChanged()
+    }
+
+    override fun getMascotSize(): Int {
+        return preferenceLocalDataSource.getMascotSize()
+    }
+
+    override fun setMascotSize(sizeDp: Int) {
+        preferenceLocalDataSource.setMascotSize(sizeDp)
+        notifySettingsChanged()
+    }
+
+    override fun isFloatingStickerEnabled(): Boolean {
+        return preferenceLocalDataSource.isFloatingStickerEnabled()
+    }
+
+    override fun setFloatingStickerEnabled(enabled: Boolean) {
+        preferenceLocalDataSource.setFloatingStickerEnabled(enabled)
+    }
+
+    override fun getFloatingStickerDrawableRes(): Int {
+        return preferenceLocalDataSource.getFloatingStickerDrawableRes()
+    }
+
+    override fun setFloatingStickerDrawableRes(res: Int) {
+        preferenceLocalDataSource.setFloatingStickerDrawableRes(res)
+    }
+
+    override fun getFloatingStickerX(): Int {
+        return preferenceLocalDataSource.getFloatingStickerX()
+    }
+
+    override fun setFloatingStickerX(x: Int) {
+        preferenceLocalDataSource.setFloatingStickerX(x)
+    }
+
+    override fun getFloatingStickerY(): Int {
+        return preferenceLocalDataSource.getFloatingStickerY()
+    }
+
+    override fun setFloatingStickerY(y: Int) {
+        preferenceLocalDataSource.setFloatingStickerY(y)
+    }
+
+    override fun getFloatingStickerSize(): Int {
+        return preferenceLocalDataSource.getFloatingStickerSize()
+    }
+
+    override fun setFloatingStickerSize(sizeDp: Int) {
+        preferenceLocalDataSource.setFloatingStickerSize(sizeDp)
+    }
+
+    override fun getFloatingStickerRotation(): Float {
+        return preferenceLocalDataSource.getFloatingStickerRotation()
+    }
+
+    override fun setFloatingStickerRotation(rotDeg: Float) {
+        preferenceLocalDataSource.setFloatingStickerRotation(rotDeg)
     }
 }

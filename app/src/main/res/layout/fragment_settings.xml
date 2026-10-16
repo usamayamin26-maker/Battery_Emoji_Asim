@@ -10,8 +10,8 @@
     <RelativeLayout
         android:id="@+id/headerSettings"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_48sdp"
-        android:layout_marginTop="@dimen/_24sdp"
+        android:layout_height="@dimen/_45sdp"
+        android:layout_marginTop="@dimen/_28sdp"
         android:paddingHorizontal="@dimen/_16sdp"
         app:layout_constraintTop_toTopOf="parent">
 

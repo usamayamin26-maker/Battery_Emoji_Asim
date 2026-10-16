@@ -38,6 +38,20 @@ class MainActivity : AppCompatActivity() {
         setupNavigation()
         setupBottomNav()
         setupBackPressHandler()
+
+        // Restore floating screen sticker & foreground service if previously enabled
+        val prefRepo = com.asim.jhbatteryapp.data.repository.PreferenceRepositoryImpl()
+        val hasOverlay = com.asim.jhbatteryapp.presentation.common.StatusBarPermissionHelper.hasOverlayPermission(this)
+        val isAccessibilityEnabled = com.asim.jhbatteryapp.service.StatusBarAccessibilityService.isAccessibilityServiceEnabled(this)
+
+        if (prefRepo.isFloatingStickerEnabled() && (hasOverlay || isAccessibilityEnabled)) {
+            com.asim.jhbatteryapp.service.FloatingStickerService.start(this)
+        }
+
+        // Only start fallback overlay foreground service if accessibility service is NOT enabled
+        if (!isAccessibilityEnabled && hasOverlay && (prefRepo.isEmojiBatteryEnabled() || prefRepo.isFloatingStickerEnabled())) {
+            com.asim.jhbatteryapp.service.StatusBarOverlayService.start(this)
+        }
     }
 
     private fun setupBackPressHandler() {

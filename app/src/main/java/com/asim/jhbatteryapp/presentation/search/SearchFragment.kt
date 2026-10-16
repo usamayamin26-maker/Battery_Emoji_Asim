@@ -149,12 +149,17 @@ class SearchFragment : Fragment() {
         dialogBinding.tvDialogTitle.text = item.title
 
         dialogBinding.btnApplyStyle.setOnButtonClickListener {
+            val hasAccessibility = com.asim.jhbatteryapp.service.StatusBarAccessibilityService.isAccessibilityServiceEnabled(requireContext())
+            if (!hasAccessibility) {
+                dialog.dismiss()
+                com.asim.jhbatteryapp.presentation.common.StatusBarPermissionHelper.showAccessibilityDialog(requireContext())
+                return@setOnButtonClickListener
+            }
             val prefRepo = com.asim.jhbatteryapp.data.repository.PreferenceRepositoryImpl()
             prefRepo.setAppliedBatteryIconRes(item.previewDrawableRes)
             prefRepo.setBatteryIconTintable(false)
-            if (com.asim.jhbatteryapp.service.StatusBarAccessibilityService.isAccessibilityServiceEnabled(requireContext())) {
-                com.asim.jhbatteryapp.service.StatusBarAccessibilityService.updateBatteryIcon(item.previewDrawableRes, isTintable = false)
-            }
+            prefRepo.setEmojiBatteryEnabled(true)
+            com.asim.jhbatteryapp.service.StatusBarAccessibilityService.updateBatteryIcon(item.previewDrawableRes, isTintable = false)
             Toast.makeText(requireContext(), "${item.title} applied as battery icon!", Toast.LENGTH_SHORT).show()
             dialog.dismiss()
         }

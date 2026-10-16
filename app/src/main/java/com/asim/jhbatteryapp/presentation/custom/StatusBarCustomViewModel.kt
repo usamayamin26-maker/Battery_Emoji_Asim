@@ -219,6 +219,7 @@ class StatusBarCustomViewModel(
         val res = if (emojiItem.isNone) 0 else emojiItem.drawableRes
         _selectedLeftEmojiRes.value = res
         preferenceRepository.setLeftStatusEmojiRes(res)
+        preferenceRepository.setAppliedMascotDrawableRes(res)
     }
 
     fun refreshEnabledCustomIcons() {
@@ -240,6 +241,7 @@ class StatusBarCustomViewModel(
 
     fun applyCustomizations() {
         val currentSettings = preferenceRepository.getStatusBarSettings()
+        val leftEmoji = _selectedLeftEmojiRes.value ?: currentSettings.leftStatusEmojiRes
         val updated = currentSettings.copy(
             heightDp = _heightDp.value ?: currentSettings.heightDp,
             leftMarginDp = _leftMarginDp.value ?: currentSettings.leftMarginDp,
@@ -249,13 +251,16 @@ class StatusBarCustomViewModel(
             batteryTextSizeSp = _batteryPercentageSizeSp.value ?: currentSettings.batteryTextSizeSp,
             batteryIconSizeDp = _batteryIconSizeDp.value ?: currentSettings.batteryIconSizeDp,
             batteryStyle = _selectedBatteryStyle.value ?: currentSettings.batteryStyle,
-            appliedMascotDrawableRes = _selectedMascotRes.value ?: currentSettings.appliedMascotDrawableRes,
+            appliedMascotDrawableRes = leftEmoji,
             appliedBatteryIconRes = _selectedBatteryIconRes.value ?: currentSettings.appliedBatteryIconRes,
             isBatteryIconTintable = _isBatteryIconTintable.value ?: currentSettings.isBatteryIconTintable,
             enabledCustomIcons = _enabledCustomIcons.value ?: currentSettings.enabledCustomIcons,
-            leftStatusEmojiRes = _selectedLeftEmojiRes.value ?: currentSettings.leftStatusEmojiRes,
+            leftStatusEmojiRes = leftEmoji,
             lastAppliedThemeMode = "custom"
         )
         preferenceRepository.updateStatusBarSettings(updated)
+        preferenceRepository.setLeftStatusEmojiRes(leftEmoji)
+        preferenceRepository.setAppliedMascotDrawableRes(leftEmoji)
+        preferenceRepository.setLastAppliedThemeMode("custom")
     }
 }

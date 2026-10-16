@@ -211,6 +211,62 @@ class PreferenceLocalDataSource(
         prefs.edit().putInt(KEY_LEFT_STATUS_EMOJI_RES, res).apply()
     }
 
+    fun getMascotSize(): Int {
+        return prefs.getInt(KEY_MASCOT_SIZE_DP, 20)
+    }
+
+    fun setMascotSize(sizeDp: Int) {
+        prefs.edit().putInt(KEY_MASCOT_SIZE_DP, sizeDp).apply()
+    }
+
+    fun isFloatingStickerEnabled(): Boolean {
+        return prefs.getBoolean(KEY_FLOATING_STICKER_ENABLED, false)
+    }
+
+    fun setFloatingStickerEnabled(enabled: Boolean) {
+        prefs.edit().putBoolean(KEY_FLOATING_STICKER_ENABLED, enabled).apply()
+    }
+
+    fun getFloatingStickerDrawableRes(): Int {
+        return prefs.getInt(KEY_FLOATING_STICKER_RES, R.drawable.ic_sticker_player_blue)
+    }
+
+    fun setFloatingStickerDrawableRes(res: Int) {
+        prefs.edit().putInt(KEY_FLOATING_STICKER_RES, res).apply()
+    }
+
+    fun getFloatingStickerX(): Int {
+        return prefs.getInt(KEY_FLOATING_STICKER_X, -1)
+    }
+
+    fun setFloatingStickerX(x: Int) {
+        prefs.edit().putInt(KEY_FLOATING_STICKER_X, x).apply()
+    }
+
+    fun getFloatingStickerY(): Int {
+        return prefs.getInt(KEY_FLOATING_STICKER_Y, -1)
+    }
+
+    fun setFloatingStickerY(y: Int) {
+        prefs.edit().putInt(KEY_FLOATING_STICKER_Y, y).apply()
+    }
+
+    fun getFloatingStickerSize(): Int {
+        return prefs.getInt(KEY_FLOATING_STICKER_SIZE, 60)
+    }
+
+    fun setFloatingStickerSize(sizeDp: Int) {
+        prefs.edit().putInt(KEY_FLOATING_STICKER_SIZE, sizeDp).apply()
+    }
+
+    fun getFloatingStickerRotation(): Float {
+        return prefs.getFloat(KEY_FLOATING_STICKER_ROTATION, 0f)
+    }
+
+    fun setFloatingStickerRotation(rotDeg: Float) {
+        prefs.edit().putFloat(KEY_FLOATING_STICKER_ROTATION, rotDeg).apply()
+    }
+
     companion object {
         private const val PREFS_NAME = "jh_battery_prefs"
         private const val KEY_ONBOARDING_COMPLETED = "key_onboarding_completed"
@@ -218,6 +274,14 @@ class PreferenceLocalDataSource(
         private const val KEY_APPLIED_THEME_RES = "key_applied_theme_res"
         private const val KEY_APPLIED_THEME_IS_GRADIENT = "key_applied_theme_is_gradient"
         private const val KEY_APPLIED_MASCOT_RES = "key_applied_mascot_res"
+        private const val KEY_MASCOT_SIZE_DP = "key_mascot_size_dp"
+
+        private const val KEY_FLOATING_STICKER_ENABLED = "key_floating_sticker_enabled"
+        private const val KEY_FLOATING_STICKER_RES = "key_floating_sticker_res"
+        private const val KEY_FLOATING_STICKER_X = "key_floating_sticker_x"
+        private const val KEY_FLOATING_STICKER_Y = "key_floating_sticker_y"
+        private const val KEY_FLOATING_STICKER_SIZE = "key_floating_sticker_size"
+        private const val KEY_FLOATING_STICKER_ROTATION = "key_floating_sticker_rotation"
 
         private const val KEY_CUSTOM_STATUS_BAR_HEIGHT = "key_custom_status_bar_height"
         private const val KEY_CUSTOM_LEFT_MARGIN = "key_custom_left_margin"

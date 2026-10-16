@@ -32,15 +32,20 @@ class HomeFragment : Fragment() {
     private lateinit var categoryAdapter: CategoryTabAdapter
 
     private var isPermissionDialogShowing = false
+    private var hasPromptedNotificationInSession = false
+    private var hasPromptedAccessibilityInSession = false
 
     private val notificationPermissionLauncher = registerForActivityResult(
         ActivityResultContracts.RequestPermission()
     ) { isGranted ->
         isPermissionDialogShowing = false
+        hasPromptedNotificationInSession = true
         if (isGranted) {
             Toast.makeText(requireContext(), "Notification permission granted!", Toast.LENGTH_SHORT).show()
         }
-        checkAccessibilityPermissionOnHome()
+        if (!com.asim.jhbatteryapp.service.StatusBarAccessibilityService.isAccessibilityServiceEnabled(requireContext()) && !hasPromptedAccessibilityInSession) {
+            checkAccessibilityPermissionOnHome()
+        }
     }
 
     override fun onCreateView(
@@ -67,10 +72,18 @@ class HomeFragment : Fragment() {
     private fun checkPermissionsOnHome() {
         if (!isAdded || isPermissionDialogShowing) return
 
-        val needsNotification = !NotificationPermissionDialog.hasNotificationPermission(requireContext())
-        val needsAccessibility = !com.asim.jhbatteryapp.service.StatusBarAccessibilityService.isAccessibilityServiceEnabled(requireContext())
+        val hasAccessibility = com.asim.jhbatteryapp.service.StatusBarAccessibilityService.isAccessibilityServiceEnabled(requireContext())
 
-        if (needsNotification) {
+        // 1. Accessibility is required for the status bar & emoji battery: If OFF, show dialog again!
+        if (!hasAccessibility) {
+            checkAccessibilityPermissionOnHome()
+            return
+        }
+
+        // 2. Notification prompt (once per session when accessibility is enabled)
+        val hasNotification = NotificationPermissionDialog.hasNotificationPermission(requireContext())
+        if (!hasNotification && !hasPromptedNotificationInSession) {
+            hasPromptedNotificationInSession = true
             isPermissionDialogShowing = true
             com.asim.jhbatteryapp.core.Utils.MyUtils.showDontMissOutDialog(
                 context = requireContext(),
@@ -80,13 +93,8 @@ class HomeFragment : Fragment() {
                 },
                 onMaybeLater = {
                     isPermissionDialogShowing = false
-                    if (needsAccessibility) {
-                        checkAccessibilityPermissionOnHome()
-                    }
                 }
             )
-        } else if (needsAccessibility) {
-            checkAccessibilityPermissionOnHome()
         }
     }
 
@@ -101,25 +109,27 @@ class HomeFragment : Fragment() {
                     notificationPermissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
                 } else {
                     isPermissionDialogShowing = false
+                    hasPromptedNotificationInSession = true
                     try {
                         val intent = Intent(Settings.ACTION_APP_NOTIFICATION_SETTINGS).apply {
                             putExtra(Settings.EXTRA_APP_PACKAGE, requireContext().packageName)
                         }
                         startActivity(intent)
                     } catch (_: Exception) {}
-                    checkAccessibilityPermissionOnHome()
                 }
             },
             onNotNow = {
                 isPermissionDialogShowing = false
-                checkAccessibilityPermissionOnHome()
+                hasPromptedNotificationInSession = true
             }
         )
     }
 
     private fun checkAccessibilityPermissionOnHome() {
         if (!isAdded || isPermissionDialogShowing) return
-        if (com.asim.jhbatteryapp.service.StatusBarAccessibilityService.isAccessibilityServiceEnabled(requireContext())) return
+        if (com.asim.jhbatteryapp.service.StatusBarAccessibilityService.isAccessibilityServiceEnabled(requireContext())) {
+            return
+        }
 
         isPermissionDialogShowing = true
         com.asim.jhbatteryapp.presentation.common.StatusBarPermissionHelper.showAccessibilityDialog(
@@ -191,7 +201,7 @@ class HomeFragment : Fragment() {
 
         // Quick Action Cards
         binding.cardStickerShop.setOnClickListener {
-            findNavController().navigate(R.id.action_homeFragment_to_statusBarCustomFragment)
+            findNavController().navigate(R.id.action_homeFragment_to_stickerDisplayFragment)
         }
         binding.cardAnimation.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_statusBarAnimationFragment)
@@ -233,12 +243,17 @@ class HomeFragment : Fragment() {
         dialogBinding.tvDialogTitle.text = item.title
 
         dialogBinding.btnApplyStyle.setOnButtonClickListener {
+            val hasAccessibility = com.asim.jhbatteryapp.service.StatusBarAccessibilityService.isAccessibilityServiceEnabled(requireContext())
+            if (!hasAccessibility) {
+                dialog.dismiss()
+                checkAccessibilityPermissionOnHome()
+                return@setOnButtonClickListener
+            }
             val prefRepo = com.asim.jhbatteryapp.data.repository.PreferenceRepositoryImpl()
             prefRepo.setAppliedBatteryIconRes(item.previewDrawableRes)
             prefRepo.setBatteryIconTintable(false)
-            if (com.asim.jhbatteryapp.service.StatusBarAccessibilityService.isAccessibilityServiceEnabled(requireContext())) {
-                com.asim.jhbatteryapp.service.StatusBarAccessibilityService.updateBatteryIcon(item.previewDrawableRes, isTintable = false)
-            }
+            prefRepo.setEmojiBatteryEnabled(true)
+            com.asim.jhbatteryapp.service.StatusBarAccessibilityService.updateBatteryIcon(item.previewDrawableRes, isTintable = false)
             Toast.makeText(requireContext(), "${item.title} applied as battery icon!", Toast.LENGTH_SHORT).show()
             dialog.dismiss()
         }

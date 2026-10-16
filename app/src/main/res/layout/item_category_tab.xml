@@ -7,23 +7,23 @@
     android:focusable="true"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    android:paddingHorizontal="16dp"
-    android:paddingVertical="8dp">
+    android:paddingHorizontal="@dimen/_14sdp"
+    android:paddingVertical="@dimen/_7sdp">
 
     <TextView
         android:id="@+id/tvTabTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/tab_indicator_purple"
-        android:textSize="15sp"
+        android:textSize="@dimen/_14ssp"
         android:textStyle="bold"
         tools:text="🔥 HOT" />
 
     <View
         android:id="@+id/vTabIndicator"
-        android:layout_width="32dp"
-        android:layout_height="3.5dp"
-        android:layout_marginTop="6dp"
+        android:layout_width="@dimen/_28sdp"
+        android:layout_height="@dimen/_3sdp"
+        android:layout_marginTop="@dimen/_5sdp"
         android:background="@drawable/bg_tab_indicator_line"
         android:visibility="visible" />
 

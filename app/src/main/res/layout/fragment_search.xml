@@ -11,33 +11,34 @@
         android:id="@+id/headerSearch"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="@dimen/_28sdp"
         android:orientation="vertical"
-        android:paddingHorizontal="20dp"
+        android:paddingHorizontal="@dimen/_16sdp"
         app:layout_constraintTop_toTopOf="parent">
 
         <!-- Back Button & Title -->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="44dp"
+            android:layout_height="@dimen/_45sdp"
             android:gravity="center_vertical"
             android:orientation="horizontal">
 
             <ImageView
                 android:id="@+id/btnCloseSearch"
-                android:layout_width="36dp"
-                android:layout_height="36dp"
+                android:layout_width="@dimen/_24sdp"
+                android:layout_height="@dimen/_24sdp"
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:clickable="true"
                 android:contentDescription="Back"
                 android:focusable="true"
-                android:padding="6dp"
-                android:src="@drawable/ic_arrow_back" />
+                android:padding="@dimen/_2sdp"
+                android:src="@drawable/ic_arrow_back"
+                app:tint="@color/text_primary" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
+                android:layout_marginStart="@dimen/_12sdp"
                 android:text="@string/search_emojis_title"
                 android:textColor="@color/text_primary"
                 android:textSize="@dimen/_18ssp"
@@ -47,16 +48,16 @@
         <!-- Search Input Bar -->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:layout_marginTop="8dp"
+            android:layout_height="@dimen/_44sdp"
+            android:layout_marginTop="@dimen/_8sdp"
             android:background="@drawable/bg_search_input"
             android:gravity="center_vertical"
             android:orientation="horizontal"
-            android:paddingHorizontal="16dp">
+            android:paddingHorizontal="@dimen/_14sdp">
 
             <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
                 android:src="@drawable/ic_search"
                 app:tint="@color/text_muted" />
 
@@ -64,7 +65,7 @@
                 android:id="@+id/etSearchQuery"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="@dimen/_10sdp"
                 android:layout_weight="1"
                 android:background="@null"
                 android:hint="@string/search_placeholder"
@@ -73,17 +74,17 @@
                 android:maxLines="1"
                 android:textColor="@color/text_primary"
                 android:textColorHint="@color/text_muted"
-                android:textSize="14sp" />
+                android:textSize="@dimen/_13ssp" />
 
             <ImageView
                 android:id="@+id/btnClearSearch"
-                android:layout_width="22dp"
-                android:layout_height="22dp"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:clickable="true"
                 android:contentDescription="Clear"
                 android:focusable="true"
-                android:padding="2dp"
+                android:padding="@dimen/_2sdp"
                 android:src="@drawable/ic_clear"
                 android:visibility="gone"
                 tools:visibility="visible" />
@@ -93,7 +94,7 @@
         <HorizontalScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="@dimen/_10sdp"
             android:scrollbars="none">
 
             <LinearLayout
@@ -106,61 +107,61 @@
                     android:id="@+id/chipAll"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
+                    android:layout_marginEnd="@dimen/_8sdp"
                     android:background="@drawable/bg_chip_selected"
-                    android:paddingHorizontal="14dp"
-                    android:paddingVertical="6dp"
+                    android:paddingHorizontal="@dimen/_12sdp"
+                    android:paddingVertical="@dimen/_6sdp"
                     android:text="@string/chip_all"
                     android:textColor="@color/tab_indicator_purple"
-                    android:textSize="13sp"
+                    android:textSize="@dimen/_12ssp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/chipHeart"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
+                    android:layout_marginEnd="@dimen/_8sdp"
                     android:background="@drawable/bg_chip_unselected"
-                    android:paddingHorizontal="14dp"
-                    android:paddingVertical="6dp"
+                    android:paddingHorizontal="@dimen/_12sdp"
+                    android:paddingVertical="@dimen/_6sdp"
                     android:text="@string/chip_heart"
                     android:textColor="@color/text_secondary"
-                    android:textSize="13sp" />
+                    android:textSize="@dimen/_12ssp" />
 
                 <TextView
                     android:id="@+id/chipCuteEmoji"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
+                    android:layout_marginEnd="@dimen/_8sdp"
                     android:background="@drawable/bg_chip_unselected"
-                    android:paddingHorizontal="14dp"
-                    android:paddingVertical="6dp"
+                    android:paddingHorizontal="@dimen/_12sdp"
+                    android:paddingVertical="@dimen/_6sdp"
                     android:text="@string/chip_cute_emoji"
                     android:textColor="@color/text_secondary"
-                    android:textSize="13sp" />
+                    android:textSize="@dimen/_12ssp" />
 
                 <TextView
                     android:id="@+id/chipAnimations"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
+                    android:layout_marginEnd="@dimen/_8sdp"
                     android:background="@drawable/bg_chip_unselected"
-                    android:paddingHorizontal="14dp"
-                    android:paddingVertical="6dp"
+                    android:paddingHorizontal="@dimen/_12sdp"
+                    android:paddingVertical="@dimen/_6sdp"
                     android:text="@string/chip_animations"
                     android:textColor="@color/text_secondary"
-                    android:textSize="13sp" />
+                    android:textSize="@dimen/_12ssp" />
 
                 <TextView
                     android:id="@+id/chipAnime"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/bg_chip_unselected"
-                    android:paddingHorizontal="14dp"
-                    android:paddingVertical="6dp"
+                    android:paddingHorizontal="@dimen/_12sdp"
+                    android:paddingVertical="@dimen/_6sdp"
                     android:text="@string/tab_anime"
                     android:textColor="@color/text_secondary"
-                    android:textSize="13sp" />
+                    android:textSize="@dimen/_12ssp" />
             </LinearLayout>
         </HorizontalScrollView>
     </LinearLayout>
@@ -170,7 +171,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:clipToPadding="false"
-        android:paddingBottom="24dp"
+        android:paddingBottom="@dimen/_24sdp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/headerSearch">
 
@@ -178,17 +179,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingHorizontal="16dp">
+            android:paddingHorizontal="@dimen/_16sdp">
 
             <!-- Subheading: Recent -->
             <TextView
                 android:id="@+id/tvRecentHeader"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="@dimen/_16sdp"
                 android:text="@string/section_recent"
                 android:textColor="@color/text_primary"
-                android:textSize="17sp"
+                android:textSize="@dimen/_16ssp"
                 android:textStyle="bold" />
 
             <!-- Recent Emojis Grid (3 columns) -->
@@ -196,7 +197,7 @@
                 android:id="@+id/rvRecentGrid"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="@dimen/_8sdp"
                 android:nestedScrollingEnabled="false"
                 app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
                 app:spanCount="3" />
@@ -206,10 +207,10 @@
                 android:id="@+id/tvTopPicksHeader"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="@dimen/_18sdp"
                 android:text="@string/section_top_picks"
                 android:textColor="@color/text_primary"
-                android:textSize="17sp"
+                android:textSize="@dimen/_16ssp"
                 android:textStyle="bold" />
 
             <!-- Top Picks Grid (3 columns) -->
@@ -217,7 +218,7 @@
                 android:id="@+id/rvTopPicksGrid"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="@dimen/_8sdp"
                 android:nestedScrollingEnabled="false"
                 app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
                 app:spanCount="3" />

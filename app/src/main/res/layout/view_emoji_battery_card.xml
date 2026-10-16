@@ -11,8 +11,8 @@
         android:layout_height="wrap_content"
         android:clickable="true"
         android:focusable="true"
-        android:minHeight="104dp"
-        app:cardCornerRadius="24dp"
+        android:minHeight="@dimen/_96sdp"
+        app:cardCornerRadius="@dimen/_20sdp"
         app:cardElevation="0dp"
         app:strokeWidth="0dp"
         xmlns:app="http://schemas.android.com/apk/res-auto">
@@ -22,12 +22,12 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:padding="10dp">
+            android:padding="@dimen/_10sdp">
 
             <ImageView
                 android:id="@+id/ivEmojiMascot"
-                android:layout_width=" match_parent"
-                android:layout_height="80dp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_76sdp"
                 android:layout_centerInParent="true"
                 android:contentDescription="@null"
                 android:scaleType="fitCenter"
@@ -40,7 +40,7 @@
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentEnd="true"
                 android:textColor="@color/text_secondary"
-                android:textSize="10sp"
+                android:textSize="@dimen/_10ssp"
                 android:textStyle="bold"
                 android:visibility="gone"
                 tools:text="100%" />

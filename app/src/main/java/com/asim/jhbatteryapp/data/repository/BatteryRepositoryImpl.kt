@@ -42,4 +42,8 @@ class BatteryRepositoryImpl(
     override fun getStatusBarAnimations(): List<BatteryEmojiItem> {
         return localDataSource.getStatusBarAnimations()
     }
+
+    override fun getStickers(category: String?): List<com.asim.jhbatteryapp.domain.model.StickerItem> {
+        return localDataSource.getStickers(category)
+    }
 }

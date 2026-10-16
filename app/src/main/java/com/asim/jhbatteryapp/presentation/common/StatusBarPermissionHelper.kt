@@ -221,6 +221,52 @@ object StatusBarPermissionHelper {
         }
     }
 
+    fun openAutostartSettings(context: Context): Boolean {
+        val intents = arrayOf(
+            Intent().apply {
+                component = android.content.ComponentName(
+                    "com.miui.securitycenter",
+                    "com.miui.permcenter.autostart.AutoStartManagementActivity"
+                )
+            },
+            Intent().apply {
+                component = android.content.ComponentName(
+                    "com.letv.android.letvsafe",
+                    "com.letv.android.letvsafe.AutobootManageActivity"
+                )
+            },
+            Intent().apply {
+                component = android.content.ComponentName(
+                    "com.huawei.systemmanager",
+                    "com.huawei.systemmanager.optimize.process.ProtectActivity"
+                )
+            },
+            Intent().apply {
+                component = android.content.ComponentName(
+                    "com.coloros.safecenter",
+                    "com.coloros.safecenter.permission.startup.StartupAppListActivity"
+                )
+            },
+            Intent().apply {
+                component = android.content.ComponentName(
+                    "com.vivo.permissionmanager",
+                    "com.vivo.permissionmanager.activity.BgStartUpManagerActivity"
+                )
+            }
+        )
+
+        for (intent in intents) {
+            try {
+                if (context !is android.app.Activity) {
+                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+                }
+                context.startActivity(intent)
+                return true
+            } catch (_: Exception) {}
+        }
+        return false
+    }
+
     fun openPopUpWindowsSettings(context: Context) {
         if (!openXiaomiPermissionScreen(context)) {
             try {

@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_sheet_rounded_top"
+    android:paddingBottom="@dimen/_20sdp">
+
+    <!-- Header: Title "My Sticker" -->
+    <TextView
+        android:id="@+id/tvAdjustmentHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_18sdp"
+        android:layout_marginTop="@dimen/_16sdp"
+        android:text="@string/my_sticker"
+        android:textColor="@color/text_primary"
+        android:textSize="@dimen/_14ssp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Header: Close "✕" Button -->
+    <ImageView
+        android:id="@+id/btnCloseAdjustment"
+        android:layout_width="@dimen/_24sdp"
+        android:layout_height="@dimen/_24sdp"
+        android:layout_marginEnd="@dimen/_18sdp"
+        android:background="@drawable/bg_close_circle"
+        android:clickable="true"
+        android:contentDescription="@null"
+        android:focusable="true"
+        android:padding="@dimen/_4sdp"
+        android:src="@drawable/ic_close_purple"
+        app:layout_constraintBottom_toBottomOf="@+id/tvAdjustmentHeader"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvAdjustmentHeader" />
+
+    <!-- Preview Box with Dashed Border -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clAdjustmentPreviewCard"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_114sdp"
+        android:layout_marginStart="@dimen/_18sdp"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:layout_marginEnd="@dimen/_18sdp"
+        android:background="@drawable/bg_anim_preview_box"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvAdjustmentHeader">
+
+        <!-- Dashed Box Frame -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clAdjustmentDashedBox"
+            android:layout_width="@dimen/_68sdp"
+            android:layout_height="@dimen/_68sdp"
+            android:background="@drawable/bg_sticker_dashed_border"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/ivAdjustmentSticker"
+                android:layout_width="@dimen/_48sdp"
+                android:layout_height="@dimen/_48sdp"
+                android:contentDescription="@null"
+                android:scaleType="fitCenter"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@drawable/ic_sticker_player_blue" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- Adjustment Section Label -->
+    <TextView
+        android:id="@+id/tvAdjustmentLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_18sdp"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:text="@string/adjustment"
+        android:textColor="@color/text_primary"
+        android:textSize="@dimen/_11ssp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/clAdjustmentPreviewCard" />
+
+    <!-- D-Pad Directional Controls Layout (ConstraintLayout) -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clDpadContainer"
+        android:layout_width="@dimen/_86sdp"
+        android:layout_height="@dimen/_86sdp"
+        android:layout_marginTop="@dimen/_8sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvAdjustmentLabel">
+
+        <!-- Up Arrow -->
+        <ImageView
+            android:id="@+id/btnDpadUp"
+            android:layout_width="@dimen/_28sdp"
+            android:layout_height="@dimen/_28sdp"
+            android:background="@drawable/bg_dpad_button"
+            android:clickable="true"
+            android:contentDescription="@null"
+            android:focusable="true"
+            android:padding="@dimen/_5sdp"
+            android:src="@drawable/ic_dpad_up"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Down Arrow -->
+        <ImageView
+            android:id="@+id/btnDpadDown"
+            android:layout_width="@dimen/_28sdp"
+            android:layout_height="@dimen/_28sdp"
+            android:background="@drawable/bg_dpad_button"
+            android:clickable="true"
+            android:contentDescription="@null"
+            android:focusable="true"
+            android:padding="@dimen/_5sdp"
+            android:src="@drawable/ic_dpad_down"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <!-- Left Arrow -->
+        <ImageView
+            android:id="@+id/btnDpadLeft"
+            android:layout_width="@dimen/_28sdp"
+            android:layout_height="@dimen/_28sdp"
+            android:background="@drawable/bg_dpad_button"
+            android:clickable="true"
+            android:contentDescription="@null"
+            android:focusable="true"
+            android:padding="@dimen/_5sdp"
+            android:src="@drawable/ic_dpad_left"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Right Arrow -->
+        <ImageView
+            android:id="@+id/btnDpadRight"
+            android:layout_width="@dimen/_28sdp"
+            android:layout_height="@dimen/_28sdp"
+            android:background="@drawable/bg_dpad_button"
+            android:clickable="true"
+            android:contentDescription="@null"
+            android:focusable="true"
+            android:padding="@dimen/_5sdp"
+            android:src="@drawable/ic_dpad_right"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- Size Section -->
+    <TextView
+        android:id="@+id/tvSizeLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_18sdp"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:text="@string/size"
+        android:textColor="@color/text_secondary"
+        android:textSize="@dimen/_10ssp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/clDpadContainer" />
+
+    <TextView
+        android:id="@+id/tvSizeValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/_18sdp"
+        android:text="50dp"
+        android:textColor="@color/text_secondary"
+        android:textSize="@dimen/_10ssp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/tvSizeLabel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvSizeLabel" />
+
+    <SeekBar
+        android:id="@+id/sbAdjustmentSize"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_12sdp"
+        android:layout_marginTop="@dimen/_2sdp"
+        android:layout_marginEnd="@dimen/_12sdp"
+        android:max="100"
+        android:maxHeight="@dimen/_9sdp"
+        android:progress="50"
+        android:progressDrawable="@drawable/bg_seekbar_progress"
+        android:splitTrack="false"
+        android:thumb="@drawable/bg_seekbar_thumb"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvSizeLabel" />
+
+    <!-- Rotate Section -->
+    <TextView
+        android:id="@+id/tvRotateLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_18sdp"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:text="@string/rotate"
+        android:textColor="@color/text_secondary"
+        android:textSize="@dimen/_10ssp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sbAdjustmentSize" />
+
+    <TextView
+        android:id="@+id/tvRotateValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/_18sdp"
+        android:text="50dp"
+        android:textColor="@color/text_secondary"
+        android:textSize="@dimen/_10ssp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/tvRotateLabel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvRotateLabel" />
+
+    <SeekBar
+        android:id="@+id/sbAdjustmentRotate"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_12sdp"
+        android:layout_marginTop="@dimen/_2sdp"
+        android:layout_marginEnd="@dimen/_12sdp"
+        android:max="100"
+        android:maxHeight="@dimen/_9sdp"
+        android:progress="50"
+        android:progressDrawable="@drawable/bg_seekbar_progress"
+        android:splitTrack="false"
+        android:thumb="@drawable/bg_seekbar_thumb"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvRotateLabel" />
+
+    <!-- Apply Button -->
+    <TextView
+        android:id="@+id/btnAdjustmentApply"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_42sdp"
+        android:layout_marginStart="@dimen/_18sdp"
+        android:layout_marginTop="@dimen/_16sdp"
+        android:layout_marginEnd="@dimen/_18sdp"
+        android:background="@drawable/bg_btn_apply"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center"
+        android:text="@string/apply"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_13ssp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sbAdjustmentRotate" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

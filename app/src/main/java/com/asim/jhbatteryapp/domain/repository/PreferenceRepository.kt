@@ -54,6 +54,22 @@ interface PreferenceRepository {
     fun getLeftStatusEmojiRes(): Int
     fun setLeftStatusEmojiRes(res: Int)
 
+    fun getMascotSize(): Int
+    fun setMascotSize(sizeDp: Int)
+
+    fun isFloatingStickerEnabled(): Boolean
+    fun setFloatingStickerEnabled(enabled: Boolean)
+    fun getFloatingStickerDrawableRes(): Int
+    fun setFloatingStickerDrawableRes(res: Int)
+    fun getFloatingStickerX(): Int
+    fun setFloatingStickerX(x: Int)
+    fun getFloatingStickerY(): Int
+    fun setFloatingStickerY(y: Int)
+    fun getFloatingStickerSize(): Int
+    fun setFloatingStickerSize(sizeDp: Int)
+    fun getFloatingStickerRotation(): Float
+    fun setFloatingStickerRotation(rotDeg: Float)
+
     // Centralized Settings & Observable Stream
     fun getStatusBarSettings(): com.asim.jhbatteryapp.domain.model.StatusBarSettings
     fun updateStatusBarSettings(settings: com.asim.jhbatteryapp.domain.model.StatusBarSettings)

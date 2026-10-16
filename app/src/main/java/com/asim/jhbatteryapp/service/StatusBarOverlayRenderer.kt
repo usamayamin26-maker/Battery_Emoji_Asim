@@ -90,10 +90,28 @@ class StatusBarOverlayRenderer {
         // 5. Multi-Select Custom Icons (Only visible if corresponding system function is active)
         val enabledIcons = settings.enabledCustomIcons
 
-        // Left: Emoji Mascot (beside time)
-        if (settings.leftStatusEmojiRes != 0) {
+        // Left: Emoji Mascot / Animation / Left Status Emoji (beside time)
+        val mascotToDisplay = when {
+            settings.lastAppliedThemeMode == "custom" -> {
+                settings.leftStatusEmojiRes
+            }
+            settings.leftStatusEmojiRes != 0 -> {
+                settings.leftStatusEmojiRes
+            }
+            settings.appliedMascotDrawableRes != 0 -> {
+                settings.appliedMascotDrawableRes
+            }
+            else -> 0
+        }
+        if (mascotToDisplay != 0) {
             binding.ivOverlayLeftEmoji.visibility = View.VISIBLE
-            binding.ivOverlayLeftEmoji.setImageResource(settings.leftStatusEmojiRes)
+            binding.ivOverlayLeftEmoji.setImageResource(mascotToDisplay)
+            binding.ivOverlayLeftEmoji.imageTintList = null
+            val mascotSize = (settings.mascotSizeDp * density).toInt().coerceIn((12 * density).toInt(), (36 * density).toInt())
+            val params = binding.ivOverlayLeftEmoji.layoutParams
+            params.width = (mascotSize * 1.35f).toInt()
+            params.height = mascotSize
+            binding.ivOverlayLeftEmoji.layoutParams = params
         } else {
             binding.ivOverlayLeftEmoji.visibility = View.GONE
         }

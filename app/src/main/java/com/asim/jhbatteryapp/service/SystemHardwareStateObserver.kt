@@ -45,7 +45,12 @@ class SystemHardwareStateObserver {
                 addAction("android.net.wifi.WIFI_AP_STATE_CHANGED")
                 addAction(WifiManager.WIFI_STATE_CHANGED_ACTION)
             }
-            context.registerReceiver(systemReceiver, filter)
+            androidx.core.content.ContextCompat.registerReceiver(
+                context,
+                systemReceiver,
+                filter,
+                androidx.core.content.ContextCompat.RECEIVER_EXPORTED
+            )
         } catch (e: Exception) {
             e.printStackTrace()
         }
@@ -69,7 +74,12 @@ class SystemHardwareStateObserver {
         var actualIntent = intent
         if (actualIntent == null) {
             try {
-                actualIntent = context.registerReceiver(null, IntentFilter(Intent.ACTION_BATTERY_CHANGED))
+                actualIntent = androidx.core.content.ContextCompat.registerReceiver(
+                    context,
+                    null,
+                    IntentFilter(Intent.ACTION_BATTERY_CHANGED),
+                    androidx.core.content.ContextCompat.RECEIVER_EXPORTED
+                )
             } catch (_: Exception) {}
         }
 
