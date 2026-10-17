@@ -50,6 +50,12 @@
             android:exported="false"
             android:theme="@style/Theme.JHBatteryApp.Fullscreen" />
 
+        <!-- How To Use / Accessibility Guide Activity -->
+        <activity
+            android:name=".presentation.guide.HowToUseActivity"
+            android:exported="false"
+            android:theme="@style/Theme.JHBatteryApp" />
+
         <!-- 4. Status Bar Overlay Foreground Service -->
         <service
             android:name=".service.StatusBarOverlayService"

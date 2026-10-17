@@ -42,6 +42,11 @@ class PreferenceRepositoryImpl(
             colors[id] = preferenceLocalDataSource.getCustomIconColor(id)
             sizes[id] = preferenceLocalDataSource.getCustomIconSize(id)
         }
+        val mascotSize = preferenceLocalDataSource.getMascotSize()
+        val customAnimSize = sizes["animation"] ?: 16
+        val effectiveAnimSize = if (customAnimSize in 10..80 && customAnimSize != 16) customAnimSize else if (mascotSize in 10..80) mascotSize else 30
+        sizes["animation"] = effectiveAnimSize
+
         return StatusBarSettings(
             heightDp = preferenceLocalDataSource.getCustomStatusBarHeight(),
             leftMarginDp = preferenceLocalDataSource.getCustomLeftMargin(),
@@ -63,9 +68,11 @@ class PreferenceRepositoryImpl(
             appliedThemeDrawableRes = preferenceLocalDataSource.getAppliedThemeDrawableRes(),
             isAppliedThemeGradient = preferenceLocalDataSource.isAppliedThemeGradient(),
             appliedMascotDrawableRes = preferenceLocalDataSource.getAppliedMascotDrawableRes(),
-            mascotSizeDp = preferenceLocalDataSource.getMascotSize(),
+            mascotSizeDp = effectiveAnimSize,
             isEmojiBatteryEnabled = preferenceLocalDataSource.isEmojiBatteryEnabled(),
-            leftStatusEmojiRes = preferenceLocalDataSource.getLeftStatusEmojiRes()
+            leftStatusEmojiRes = preferenceLocalDataSource.getLeftStatusEmojiRes(),
+            appliedAnimationRawRes = preferenceLocalDataSource.getAppliedAnimationRawRes(),
+            isAppliedAnimationLottie = preferenceLocalDataSource.isAppliedAnimationLottie()
         )
     }
 
@@ -91,6 +98,8 @@ class PreferenceRepositoryImpl(
         settings.iconSizes.forEach { (id, size) ->
             preferenceLocalDataSource.setCustomIconSize(id, size)
         }
+        val animMascotSize = settings.iconSizes["animation"] ?: settings.mascotSizeDp
+        preferenceLocalDataSource.setMascotSize(animMascotSize)
         preferenceLocalDataSource.setEmotionStyle(settings.emotionStyle)
         preferenceLocalDataSource.setDateFormat(settings.dateFormat)
         preferenceLocalDataSource.setDateStyle(settings.dateStyle)
@@ -100,6 +109,8 @@ class PreferenceRepositoryImpl(
         preferenceLocalDataSource.setAppliedMascotDrawableRes(settings.appliedMascotDrawableRes)
         preferenceLocalDataSource.setEmojiBatteryEnabled(settings.isEmojiBatteryEnabled)
         preferenceLocalDataSource.setLeftStatusEmojiRes(settings.leftStatusEmojiRes)
+        preferenceLocalDataSource.setAppliedAnimationRawRes(settings.appliedAnimationRawRes)
+        preferenceLocalDataSource.setAppliedAnimationLottie(settings.isAppliedAnimationLottie)
         notifySettingsChanged()
     }
 
@@ -315,6 +326,24 @@ class PreferenceRepositoryImpl(
 
     override fun setLeftStatusEmojiRes(res: Int) {
         preferenceLocalDataSource.setLeftStatusEmojiRes(res)
+        notifySettingsChanged()
+    }
+
+    override fun getAppliedAnimationRawRes(): Int {
+        return preferenceLocalDataSource.getAppliedAnimationRawRes()
+    }
+
+    override fun setAppliedAnimationRawRes(res: Int) {
+        preferenceLocalDataSource.setAppliedAnimationRawRes(res)
+        notifySettingsChanged()
+    }
+
+    override fun isAppliedAnimationLottie(): Boolean {
+        return preferenceLocalDataSource.isAppliedAnimationLottie()
+    }
+
+    override fun setAppliedAnimationLottie(isLottie: Boolean) {
+        preferenceLocalDataSource.setAppliedAnimationLottie(isLottie)
         notifySettingsChanged()
     }
 

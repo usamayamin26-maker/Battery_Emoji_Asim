@@ -17,6 +17,16 @@
 
     <style name="Theme.JHBatteryApp" parent="Base.Theme.JHBatteryApp" />
 
+    <style name="Style_Rounded_Bottom_Sheet" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/BottomSheetDialogTheme</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+    </style>
+
+    <style name="BottomSheetDialogTheme" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/bottom_sheet_shap</item>
+    </style>
     <!-- Fullscreen Theme for Splash and Onboarding -->
     <style name="Theme.JHBatteryApp.Fullscreen" parent="Theme.JHBatteryApp">
         <item name="android:windowTranslucentStatus">false</item>
@@ -43,6 +53,6 @@
     </style>
 
     <style name="CustomBottomSheetStyle" parent="Widget.Design.BottomSheet.Modal">
-        <item name="android:background">@android:color/transparent</item>
+        <item name="android:background">@drawable/bottom_sheet_shap</item>
     </style>
 </resources>

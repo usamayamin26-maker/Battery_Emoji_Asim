@@ -30,7 +30,9 @@ data class StatusBarSettings(
     val appliedMascotDrawableRes: Int = R.drawable.ic_blueprint_girl_pink,
     val mascotSizeDp: Int = 20,
     val isEmojiBatteryEnabled: Boolean = true,
-    val leftStatusEmojiRes: Int = 0
+    val leftStatusEmojiRes: Int = 0,
+    val appliedAnimationRawRes: Int = 0,
+    val isAppliedAnimationLottie: Boolean = false
 ) {
     fun getEffectiveIconColor(iconId: String): Int {
         if (iconId == "sim" || iconId == "signal") {

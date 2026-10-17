@@ -211,6 +211,22 @@ class PreferenceLocalDataSource(
         prefs.edit().putInt(KEY_LEFT_STATUS_EMOJI_RES, res).apply()
     }
 
+    fun getAppliedAnimationRawRes(): Int {
+        return prefs.getInt(KEY_APPLIED_ANIMATION_RAW_RES, 0)
+    }
+
+    fun setAppliedAnimationRawRes(res: Int) {
+        prefs.edit().putInt(KEY_APPLIED_ANIMATION_RAW_RES, res).apply()
+    }
+
+    fun isAppliedAnimationLottie(): Boolean {
+        return prefs.getBoolean(KEY_IS_APPLIED_ANIMATION_LOTTIE, false)
+    }
+
+    fun setAppliedAnimationLottie(isLottie: Boolean) {
+        prefs.edit().putBoolean(KEY_IS_APPLIED_ANIMATION_LOTTIE, isLottie).apply()
+    }
+
     fun getMascotSize(): Int {
         return prefs.getInt(KEY_MASCOT_SIZE_DP, 20)
     }
@@ -301,5 +317,7 @@ class PreferenceLocalDataSource(
         private const val KEY_DATE_STYLE = "key_date_style"
         private const val KEY_LAST_APPLIED_THEME_MODE = "key_last_applied_theme_mode"
         private const val KEY_LEFT_STATUS_EMOJI_RES = "key_left_status_emoji_res"
+        private const val KEY_APPLIED_ANIMATION_RAW_RES = "key_applied_animation_raw_res"
+        private const val KEY_IS_APPLIED_ANIMATION_LOTTIE = "key_is_applied_animation_lottie"
     }
 }

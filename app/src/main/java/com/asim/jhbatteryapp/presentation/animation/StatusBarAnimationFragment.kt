@@ -73,6 +73,8 @@ class StatusBarAnimationFragment : Fragment() {
                 val scale = 0.6f + (clampedProgress / 100f) * 0.7f
                 binding.ivPreviewMascot.scaleX = scale
                 binding.ivPreviewMascot.scaleY = scale
+                binding.lottiePreviewMascot.scaleX = scale
+                binding.lottiePreviewMascot.scaleY = scale
             }
 
             override fun onStartTrackingTouch(seekBar: SeekBar?) {}
@@ -91,19 +93,15 @@ class StatusBarAnimationFragment : Fragment() {
         val size = viewModel.dateSize.value ?: 50
         viewModel.applyAnimation(selected)
 
-        val prefRepo = com.asim.jhbatteryapp.data.repository.PreferenceRepositoryImpl()
-        prefRepo.setAppliedMascotDrawableRes(selected.previewDrawableRes)
-        prefRepo.setMascotSize(size)
-        prefRepo.setAppliedBatteryIconRes(selected.previewDrawableRes)
-        prefRepo.setBatteryIconTintable(false)
-        prefRepo.setEmojiBatteryEnabled(true)
-
         val isAccessibilityEnabled = com.asim.jhbatteryapp.service.StatusBarAccessibilityService.isAccessibilityServiceEnabled(requireContext())
         val hasOverlay = com.asim.jhbatteryapp.presentation.common.StatusBarPermissionHelper.hasOverlayPermission(requireContext())
 
         if (isAccessibilityEnabled) {
-            com.asim.jhbatteryapp.service.StatusBarAccessibilityService.updateMascot(
-                mascotRes = selected.previewDrawableRes
+            com.asim.jhbatteryapp.service.StatusBarAccessibilityService.updateAnimation(
+                animationRawRes = if (selected.isLottie) selected.lottieRawRes else 0,
+                isLottie = selected.isLottie,
+                fallbackDrawableRes = selected.previewDrawableRes,
+                sizeDp = size
             )
             com.asim.jhbatteryapp.service.StatusBarAccessibilityService.updateCustomSettings()
             Toast.makeText(
@@ -141,7 +139,17 @@ class StatusBarAnimationFragment : Fragment() {
 
         viewModel.selectedAnimation.observe(viewLifecycleOwner) { mascot ->
             if (mascot != null) {
-                binding.ivPreviewMascot.setImageResource(mascot.previewDrawableRes)
+                if (mascot.isLottie && mascot.lottieRawRes != 0) {
+                    binding.ivPreviewMascot.visibility = View.GONE
+                    binding.lottiePreviewMascot.visibility = View.VISIBLE
+                    binding.lottiePreviewMascot.setAnimation(mascot.lottieRawRes)
+                    binding.lottiePreviewMascot.playAnimation()
+                } else {
+                    binding.lottiePreviewMascot.visibility = View.GONE
+                    binding.lottiePreviewMascot.cancelAnimation()
+                    binding.ivPreviewMascot.visibility = View.VISIBLE
+                    binding.ivPreviewMascot.setImageResource(mascot.previewDrawableRes)
+                }
                 animationAdapter.setSelectedId(mascot.id)
             }
         }
@@ -152,6 +160,8 @@ class StatusBarAnimationFragment : Fragment() {
             val scale = 0.6f + (size / 100f) * 0.7f
             binding.ivPreviewMascot.scaleX = scale
             binding.ivPreviewMascot.scaleY = scale
+            binding.lottiePreviewMascot.scaleX = scale
+            binding.lottiePreviewMascot.scaleY = scale
         }
 
         viewModel.isBatteryActive.observe(viewLifecycleOwner) { isActive ->
@@ -166,8 +176,15 @@ class StatusBarAnimationFragment : Fragment() {
     }
 
     private fun pulsePreviewMascot() {
-        val scaleUpX = ObjectAnimator.ofFloat(binding.ivPreviewMascot, View.SCALE_X, 1.15f, 1.0f)
-        val scaleUpY = ObjectAnimator.ofFloat(binding.ivPreviewMascot, View.SCALE_Y, 1.15f, 1.0f)
+        val targetView = if (binding.lottiePreviewMascot.visibility == View.VISIBLE) {
+            binding.lottiePreviewMascot
+        } else {
+            binding.ivPreviewMascot
+        }
+        val currentScaleX = targetView.scaleX
+        val currentScaleY = targetView.scaleY
+        val scaleUpX = ObjectAnimator.ofFloat(targetView, View.SCALE_X, currentScaleX * 1.15f, currentScaleX)
+        val scaleUpY = ObjectAnimator.ofFloat(targetView, View.SCALE_Y, currentScaleY * 1.15f, currentScaleY)
         AnimatorSet().apply {
             playTogether(scaleUpX, scaleUpY)
             duration = 300
@@ -176,6 +193,7 @@ class StatusBarAnimationFragment : Fragment() {
     }
 
     override fun onDestroyView() {
+        binding.lottiePreviewMascot.cancelAnimation()
         super.onDestroyView()
         _binding = null
     }

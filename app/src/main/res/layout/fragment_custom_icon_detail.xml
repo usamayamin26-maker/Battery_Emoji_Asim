@@ -101,6 +101,20 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:tint="@color/primary_purple" />
 
+                <!-- Center Lottie Animation Preview (for Animation) -->
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/lottieDetailAnimationPreview"
+                    android:layout_width="@dimen/_36sdp"
+                    android:layout_height="@dimen/_36sdp"
+                    android:contentDescription="@null"
+                    android:visibility="gone"
+                    app:lottie_autoPlay="true"
+                    app:lottie_loop="true"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
                 <!-- Date text preview if date & time -->
                 <TextView
                     android:id="@+id/tvDetailDatePreview"

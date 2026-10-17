@@ -28,12 +28,13 @@
         android:id="@+id/ivOverlayLeftEmoji"
         android:layout_width="@dimen/_13sdp"
         android:layout_height="@dimen/_13sdp"
-        android:layout_marginStart="@dimen/_5sdp"
         android:contentDescription="@null"
         android:scaleType="fitCenter"
         android:visibility="gone"
+        android:layout_marginStart="@dimen/_4sdp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/tcOverlayTime"
+        app:layout_goneMarginStart="@dimen/_4sdp"
         app:layout_constraintTop_toTopOf="parent"
         tools:src="@drawable/ic_blueprint_bunny_blue"
         tools:visibility="visible" />
@@ -106,7 +107,6 @@
         android:id="@+id/ivOverlayEmotion"
         android:layout_width="@dimen/_12sdp"
         android:layout_height="@dimen/_12sdp"
-        android:layout_marginStart="@dimen/_4sdp"
         android:contentDescription="@null"
         android:scaleType="fitCenter"
         android:src="@drawable/ic_reaction_love"
@@ -116,21 +116,31 @@
         app:layout_goneMarginStart="@dimen/_4sdp"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- Animation Sparkle Custom Icon -->
-    <ImageView
-        android:id="@+id/ivOverlayAnimation"
-        android:layout_width="@dimen/_11sdp"
-        android:layout_height="@dimen/_11sdp"
-        android:layout_marginStart="@dimen/_4sdp"
+    <!-- Left Status Bar Lottie Animation (Towards Center Notch) -->
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lottieOverlayLeftAnimation"
+        android:layout_width="@dimen/_20sdp"
+        android:layout_height="@dimen/_20sdp"
         android:contentDescription="@null"
-        android:scaleType="fitCenter"
-        android:src="@drawable/ic_sparkle"
         android:visibility="gone"
+        android:layout_marginStart="@dimen/_4sdp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/ivOverlayEmotion"
         app:layout_goneMarginStart="@dimen/_4sdp"
         app:layout_constraintTop_toTopOf="parent"
-        app:tint="@color/white" />
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        tools:visibility="visible" />
+
+    <!-- Animation Sparkle Custom Icon (hidden legacy widget) -->
+    <ImageView
+        android:id="@+id/ivOverlayAnimation"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        app:layout_constraintStart_toEndOf="@+id/lottieOverlayLeftAnimation"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="gone" />
 
     <!-- Data Swap Icon -->
     <ImageView

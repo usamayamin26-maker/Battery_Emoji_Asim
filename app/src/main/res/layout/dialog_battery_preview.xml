@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/bg_floating_bottom_bar"
+    android:background="@drawable/bottom_sheet_shap"
     android:gravity="center_horizontal"
     android:orientation="vertical"
     android:padding="@dimen/_20sdp">
@@ -52,16 +52,20 @@
         android:textColor="@color/text_secondary"
         android:textSize="@dimen/_12ssp" />
 
-    <!-- REUSABLE COMPONENT: GradientButton for Applying Style -->
-    <com.asim.jhbatteryapp.presentation.components.GradientButton
+    <!-- Apply Button -->
+    <TextView
         android:id="@+id/btnApplyStyle"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/_44sdp"
         android:layout_marginTop="@dimen/_18sdp"
-        app:btnCornerRadius="@dimen/_24sdp"
-        app:btnGradientEndColor="@color/primary_gradient_end"
-        app:btnGradientStartColor="@color/primary_gradient_start"
-        app:btnText="@string/apply_battery_style"
-        app:btnTextColor="@color/white" />
+        android:background="@drawable/bg_btn_apply"
+        android:clickable="true"
+        android:elevation="@dimen/_2sdp"
+        android:focusable="true"
+        android:gravity="center"
+        android:text="@string/apply_battery_style"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_13ssp"
+        android:textStyle="bold" />
 
 </LinearLayout>

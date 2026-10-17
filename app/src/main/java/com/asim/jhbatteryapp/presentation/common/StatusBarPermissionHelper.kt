@@ -400,7 +400,7 @@ object StatusBarPermissionHelper {
                     actionInvoked = true
                     dialog.dismiss()
                     onSettingsOpened?.invoke()
-                    com.asim.jhbatteryapp.service.StatusBarAccessibilityService.openAccessibilitySettings(context)
+                    com.asim.jhbatteryapp.presentation.guide.HowToUseActivity.start(context)
                 }
             }
         }

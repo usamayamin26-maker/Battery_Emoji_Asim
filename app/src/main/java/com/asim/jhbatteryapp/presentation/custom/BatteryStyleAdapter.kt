@@ -11,7 +11,8 @@ import com.asim.jhbatteryapp.databinding.ItemCustomBatteryStyleBinding
 data class BatteryStyleItem(
     val id: String,
     val drawableRes: Int,
-    val isSelected: Boolean = false
+    val isSelected: Boolean = false,
+    val isTintable: Boolean = true
 )
 
 class BatteryStyleAdapter(
@@ -63,6 +64,11 @@ class BatteryStyleAdapter(
             }
             binding.clBatteryStyleCard.setBackgroundResource(bgRes)
             binding.ivBatteryStyleIcon.setImageResource(item.drawableRes)
+            if (item.isTintable) {
+                binding.ivBatteryStyleIcon.imageTintList = ContextCompat.getColorStateList(binding.root.context, R.color.primary_blue)
+            } else {
+                binding.ivBatteryStyleIcon.imageTintList = null
+            }
             binding.ivBatteryStyleCheck.visibility = if (isSelected) View.VISIBLE else View.GONE
 
             binding.clBatteryStyleCard.setOnClickListener {

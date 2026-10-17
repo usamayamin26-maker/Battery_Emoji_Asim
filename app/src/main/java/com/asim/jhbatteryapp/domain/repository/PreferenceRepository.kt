@@ -53,6 +53,10 @@ interface PreferenceRepository {
     fun setLastAppliedThemeMode(mode: String)
     fun getLeftStatusEmojiRes(): Int
     fun setLeftStatusEmojiRes(res: Int)
+    fun getAppliedAnimationRawRes(): Int
+    fun setAppliedAnimationRawRes(res: Int)
+    fun isAppliedAnimationLottie(): Boolean
+    fun setAppliedAnimationLottie(isLottie: Boolean)
 
     fun getMascotSize(): Int
     fun setMascotSize(sizeDp: Int)

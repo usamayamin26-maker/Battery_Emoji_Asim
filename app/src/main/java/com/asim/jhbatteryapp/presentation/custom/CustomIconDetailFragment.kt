@@ -66,13 +66,15 @@ class CustomIconDetailFragment : Fragment() {
         val currentlyEnabled = preferenceRepository.isCustomIconEnabled(iconId) ||
                 (iconId == "signal" && preferenceRepository.isCustomIconEnabled("sim")) ||
                 (iconId == "sim" && preferenceRepository.isCustomIconEnabled("signal"))
-        isEnabled = if (preferenceRepository.getEnabledCustomIcons().contains(iconId)) {
-            currentlyEnabled
+        isEnabled = currentlyEnabled
+        if (iconId == "animation") {
+            val mSize = preferenceRepository.getMascotSize()
+            val cSize = preferenceRepository.getCustomIconSize("animation")
+            selectedSizeDp = if (cSize in 10..80 && cSize != 16) cSize else if (mSize in 10..80) mSize else 30
         } else {
-            true
+            selectedSizeDp = preferenceRepository.getCustomIconSize(iconId)
+            if (selectedSizeDp < 10) selectedSizeDp = 20
         }
-        selectedSizeDp = preferenceRepository.getCustomIconSize(iconId)
-        if (selectedSizeDp < 10) selectedSizeDp = 20
         val purpleColor = ContextCompat.getColor(requireContext(), R.color.primary_purple)
         val savedColor = preferenceRepository.getCustomIconColor(iconId)
         selectedColor = if (savedColor == 0 || savedColor == Color.WHITE) {
@@ -122,7 +124,7 @@ class CustomIconDetailFragment : Fragment() {
     }
 
     private fun setupSizeSlider() {
-        binding.sbDetailSize.max = 36
+        binding.sbDetailSize.max = if (iconId == "animation") 70 else 36
         binding.sbDetailSize.progress = selectedSizeDp
         binding.tvDetailSizeValue.text = "${selectedSizeDp}dp"
 
@@ -239,6 +241,12 @@ class CustomIconDetailFragment : Fragment() {
         } else {
             binding.clDetailDateSection.visibility = View.GONE
         }
+
+        if (iconId == "animation") {
+            binding.clDetailColorSection.visibility = View.GONE
+        } else {
+            binding.clDetailColorSection.visibility = View.VISIBLE
+        }
     }
 
     private fun highlightSelectedEmotion(emotion: String) {
@@ -268,6 +276,7 @@ class CustomIconDetailFragment : Fragment() {
 
         if (iconId == "calendar") {
             binding.ivDetailIconPreview.visibility = View.GONE
+            binding.lottieDetailAnimationPreview.visibility = View.GONE
             binding.tvDetailDatePreview.visibility = View.VISIBLE
             try {
                 val sdf = SimpleDateFormat(selectedDateFormat, Locale.getDefault())
@@ -280,6 +289,45 @@ class CustomIconDetailFragment : Fragment() {
             return
         }
 
+        if (iconId == "animation") {
+            binding.tvDetailDatePreview.visibility = View.GONE
+            val isLottie = preferenceRepository.isAppliedAnimationLottie()
+            val animRes = preferenceRepository.getAppliedAnimationRawRes()
+            val effectiveAnimRes = if (animRes != 0) animRes else R.raw.cakerun
+
+            if (isLottie || animRes != 0) {
+                binding.ivDetailIconPreview.visibility = View.GONE
+                binding.lottieDetailAnimationPreview.visibility = View.VISIBLE
+                val p = binding.lottieDetailAnimationPreview.layoutParams
+                p.width = (sizePx * 1.35f).toInt()
+                p.height = sizePx
+                binding.lottieDetailAnimationPreview.layoutParams = p
+
+                val currentRes = binding.lottieDetailAnimationPreview.tag as? Int
+                if (currentRes != effectiveAnimRes) {
+                    binding.lottieDetailAnimationPreview.tag = effectiveAnimRes
+                    binding.lottieDetailAnimationPreview.setAnimation(effectiveAnimRes)
+                    binding.lottieDetailAnimationPreview.playAnimation()
+                } else if (!binding.lottieDetailAnimationPreview.isAnimating) {
+                    binding.lottieDetailAnimationPreview.playAnimation()
+                }
+            } else {
+                binding.lottieDetailAnimationPreview.visibility = View.GONE
+                binding.ivDetailIconPreview.visibility = View.VISIBLE
+                val mascotRes = preferenceRepository.getAppliedMascotDrawableRes().let {
+                    if (it != 0) it else R.drawable.ic_blueprint_girl_pink
+                }
+                val p = binding.ivDetailIconPreview.layoutParams
+                p.width = (sizePx * 1.35f).toInt()
+                p.height = sizePx
+                binding.ivDetailIconPreview.layoutParams = p
+                binding.ivDetailIconPreview.setImageResource(mascotRes)
+                binding.ivDetailIconPreview.imageTintList = null
+            }
+            return
+        }
+
+        binding.lottieDetailAnimationPreview.visibility = View.GONE
         binding.tvDetailDatePreview.visibility = View.GONE
         binding.ivDetailIconPreview.visibility = View.VISIBLE
 
@@ -304,7 +352,6 @@ class CustomIconDetailFragment : Fragment() {
                 "wifi" -> R.drawable.ic_status_wifi
                 "signal", "sim" -> R.drawable.ic_status_signal
                 "data" -> R.drawable.ic_data_swap
-                "animation" -> R.drawable.ic_sparkle
                 "charge" -> R.drawable.ic_status_bolt
                 else -> R.drawable.ic_airplane
             }
@@ -328,10 +375,18 @@ class CustomIconDetailFragment : Fragment() {
             targets.forEach { put(it, selectedSizeDp) }
         }
 
+        if (iconId == "animation") {
+            preferenceRepository.setMascotSize(selectedSizeDp)
+            preferenceRepository.setCustomIconSize("animation", selectedSizeDp)
+            preferenceRepository.setEmojiBatteryEnabled(isEnabled)
+        }
+
         val updated = current.copy(
             enabledCustomIcons = newEnabled,
             iconColors = newColors,
             iconSizes = newSizes,
+            mascotSizeDp = if (iconId == "animation") selectedSizeDp else current.mascotSizeDp,
+            isEmojiBatteryEnabled = if (iconId == "animation") isEnabled else current.isEmojiBatteryEnabled,
             emotionStyle = if (iconId == "emotion") selectedEmotion else current.emotionStyle,
             dateFormat = if (iconId == "calendar") selectedDateFormat else current.dateFormat,
             dateStyle = if (iconId == "calendar") selectedDateStyle else current.dateStyle

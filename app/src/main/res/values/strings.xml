@@ -99,7 +99,7 @@
     <string name="see_all">See all</string>
     <string name="theme_applied_success">Status bar theme applied successfully!</string>
     <string name="animation_applied_success">Status bar animation applied successfully!</string>
-    <string name="accessibility_service_label">Emoji Battery Icon</string>
+    <string name="accessibility_service_label">Emoji Battery Icon Customize</string>
     <string name="accessibility_service_desc">Display emoji stickers on status bar and customize appearance. No data collected.</string>
     <string name="accessibility_dialog_title">Emoji Battery Icon Permission</string>
     <string name="accessibility_dialog_desc">To display your custom battery emoji, animations, and screen stickers, please enable Emoji Battery Icon in Accessibility Services.</string>
@@ -143,6 +143,14 @@
     <string name="accessibility_usage_notice">This application commits not to collect or share\nany user information about this accessibility\nright..</string>
     <string name="accessibility_usage_terms"><![CDATA[I have read and agree to the <u><font color="#A855F7">Terms of Service</font></u>]]></string>
     <string name="close">Close</string>
+
+    <!-- How To Use Screen -->
+    <string name="how_to_use_title">How to use</string>
+    <string name="how_to_use_step_1"><![CDATA[1. Downloaded apps, select <font color="#9333EA"><b>Emoji Battery Icon Customize.</b></font>]]></string>
+    <string name="how_to_use_step_2"><![CDATA[2. Select <font color="#9333EA"><b>Emoji Battery Icon Customize.</b></font>]]></string>
+    <string name="how_to_use_step_3"><![CDATA[3. Turn On.]]></string>
+    <string name="how_to_use_step_4"><![CDATA[4. Click <font color="#9333EA"><b>Allow.</b></font>]]></string>
+    <string name="go_to_settings">Go to Settings</string>
     <string name="continue_text">Continue</string>
 
     <!-- Exit Dialog -->

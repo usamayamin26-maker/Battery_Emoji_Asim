@@ -68,19 +68,22 @@
             android:background="@drawable/bg_indicator_inactive" />
     </LinearLayout>
 
-    <!-- REUSABLE COMPONENT: GradientButton for Onboarding (Using sdp and ssp) -->
-    <com.asim.jhbatteryapp.presentation.components.GradientButton
+    <!-- Get Started Button -->
+    <TextView
         android:id="@+id/btnGetStarted"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/_44sdp"
         android:layout_marginHorizontal="@dimen/_20sdp"
         android:layout_marginBottom="@dimen/_28sdp"
-        app:btnCornerRadius="@dimen/_14sdp"
-        app:btnGradientEndColor="@color/primary_gradient_end"
-        app:btnGradientStartColor="@color/primary_gradient_start"
-        app:btnText="@string/get_started"
-        app:btnTextColor="@color/white"
-        app:btnTextSize="@dimen/_14ssp"
+        android:background="@drawable/bg_btn_apply"
+        android:clickable="true"
+        android:elevation="@dimen/_2sdp"
+        android:focusable="true"
+        android:gravity="center"
+        android:text="@string/get_started"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_14ssp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

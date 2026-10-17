@@ -85,9 +85,20 @@ class StatusBarCustomFragment : Fragment() {
         }
         binding.rvBatteryMascots.adapter = mascotAdapter
 
-        customIconAdapter = CustomStatusIconAdapter { iconItem ->
-            viewModel.toggleCustomIcon(iconItem.id)
-        }
+        customIconAdapter = CustomStatusIconAdapter(
+            onIconClicked = { iconItem ->
+                val bundle = Bundle().apply {
+                    putString("iconId", iconItem.id)
+                }
+                findNavController().navigate(
+                    R.id.action_statusBarCustomFragment_to_customIconDetailFragment,
+                    bundle
+                )
+            },
+            onCheckClicked = { iconItem ->
+                viewModel.toggleCustomIcon(iconItem.id)
+            }
+        )
         binding.rvCustomizeIcons.adapter = customIconAdapter
 
         // Emojis below custom icons (shows on left side with time in status bar)
@@ -380,13 +391,7 @@ class StatusBarCustomFragment : Fragment() {
         // Left Status Emoji selection Live Update (shows on left side with time)
         viewModel.selectedLeftEmojiRes.observe(viewLifecycleOwner) { emojiRes ->
             customLeftEmojiAdapter.setSelectedRes(emojiRes)
-            if (emojiRes != 0) {
-                binding.ivPreviewLeftEmoji.visibility = View.VISIBLE
-                binding.ivPreviewLeftEmoji.setImageResource(emojiRes)
-                binding.ivPreviewLeftEmoji.imageTintList = null
-            } else {
-                binding.ivPreviewLeftEmoji.visibility = View.GONE
-            }
+            updatePreviewAppearance()
         }
     }
 
@@ -430,6 +435,29 @@ class StatusBarCustomFragment : Fragment() {
 
     private fun updatePreviewCustomIcons(enabledSet: Set<String>, effectiveColor: Int) {
         val density = resources.displayMetrics.density
+
+        // Left Mascot Emoji (Beside time on left side)
+        val leftEmojiRes = viewModel.selectedLeftEmojiRes.value.let {
+            if (it != null && it != 0) it
+            else viewModel.preferenceRepository.getLeftStatusEmojiRes().let { saved ->
+                if (saved != 0) saved
+                else if (viewModel.lastAppliedThemeMode.value != "custom" && !viewModel.preferenceRepository.isAppliedAnimationLottie()) {
+                    viewModel.preferenceRepository.getAppliedMascotDrawableRes()
+                } else 0
+            }
+        }
+        if (leftEmojiRes != 0) {
+            binding.ivPreviewLeftEmoji.visibility = View.VISIBLE
+            binding.ivPreviewLeftEmoji.setImageResource(leftEmojiRes)
+            binding.ivPreviewLeftEmoji.imageTintList = null
+            val emojiSize = (16 * density).toInt()
+            val lp = binding.ivPreviewLeftEmoji.layoutParams
+            lp.width = (emojiSize * 1.35f).toInt()
+            lp.height = emojiSize
+            binding.ivPreviewLeftEmoji.layoutParams = lp
+        } else {
+            binding.ivPreviewLeftEmoji.visibility = View.GONE
+        }
 
         // Date
         if (enabledSet.contains("calendar")) {
@@ -498,15 +526,37 @@ class StatusBarCustomFragment : Fragment() {
             binding.ivPreviewEmotion.visibility = View.GONE
         }
 
-        // Animation Sparkle
-        if (enabledSet.contains("animation")) {
-            binding.ivPreviewAnimation.visibility = View.VISIBLE
-            binding.ivPreviewAnimation.imageTintList = ColorStateList.valueOf(viewModel.preferenceRepository.getCustomIconColor("animation"))
-            val s = (viewModel.preferenceRepository.getCustomIconSize("animation") * density).toInt()
-            binding.ivPreviewAnimation.layoutParams.width = s
-            binding.ivPreviewAnimation.layoutParams.height = s
+        // Animation Sparkle - Do not show redundant sparkle icon
+        binding.ivPreviewAnimation.visibility = View.GONE
+
+        // Left Animation Preview (Sub se last on left side, towards center notch)
+        val isAnimEnabled = viewModel.preferenceRepository.isEmojiBatteryEnabled() &&
+                (!viewModel.preferenceRepository.getStatusBarSettings().iconSizes.containsKey("animation") || enabledSet.contains("animation"))
+        val animSize = viewModel.preferenceRepository.getCustomIconSize("animation").let {
+            if (it in 10..80 && it != 16) it else viewModel.preferenceRepository.getMascotSize()
+        }
+        val animSizePx = (animSize * density).toInt().coerceIn((12 * density).toInt(), (60 * density).toInt())
+        val appliedAnimRes = viewModel.preferenceRepository.getAppliedAnimationRawRes()
+        val isAppliedLottie = viewModel.preferenceRepository.isAppliedAnimationLottie()
+
+        if (isAnimEnabled && isAppliedLottie && appliedAnimRes != 0) {
+            binding.lottiePreviewLeftAnimation.visibility = View.VISIBLE
+            val lp = binding.lottiePreviewLeftAnimation.layoutParams
+            lp.width = (animSizePx * 1.35f).toInt()
+            lp.height = animSizePx
+            binding.lottiePreviewLeftAnimation.layoutParams = lp
+            val cur = binding.lottiePreviewLeftAnimation.tag as? Int
+            if (cur != appliedAnimRes) {
+                binding.lottiePreviewLeftAnimation.tag = appliedAnimRes
+                binding.lottiePreviewLeftAnimation.setAnimation(appliedAnimRes)
+                binding.lottiePreviewLeftAnimation.playAnimation()
+            } else if (!binding.lottiePreviewLeftAnimation.isAnimating) {
+                binding.lottiePreviewLeftAnimation.playAnimation()
+            }
         } else {
-            binding.ivPreviewAnimation.visibility = View.GONE
+            binding.lottiePreviewLeftAnimation.visibility = View.GONE
+            binding.lottiePreviewLeftAnimation.cancelAnimation()
+            binding.lottiePreviewLeftAnimation.tag = null
         }
 
         // Data
@@ -601,6 +651,7 @@ class StatusBarCustomFragment : Fragment() {
     }
 
     override fun onDestroyView() {
+        binding.lottiePreviewLeftAnimation.cancelAnimation()
         super.onDestroyView()
         _binding = null
     }

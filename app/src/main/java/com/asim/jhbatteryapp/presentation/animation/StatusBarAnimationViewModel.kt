@@ -35,8 +35,11 @@ class StatusBarAnimationViewModel(
         _animations.value = anims
         _isBatteryActive.value = preferenceRepository.isEmojiBatteryEnabled()
 
-        // Default to Pink Blossom (anim_girl) or first mascot as seen in screenshot
-        val defaultItem = anims.find { it.id == "anim_girl" } ?: anims.firstOrNull()
+        // Default to Cake Run or first item
+        val currentAppliedAnimRes = preferenceRepository.getAppliedAnimationRawRes()
+        val defaultItem = if (currentAppliedAnimRes != 0) {
+            anims.find { it.lottieRawRes == currentAppliedAnimRes }
+        } else null ?: anims.find { it.id == "anim_cakerun" } ?: anims.firstOrNull()
         defaultItem?.let { _selectedAnimation.value = it }
     }
 
@@ -61,7 +64,19 @@ class StatusBarAnimationViewModel(
     }
 
     fun applyAnimation(mascot: BatteryEmojiItem) {
+        val size = _dateSize.value ?: 50
+        if (mascot.isLottie && mascot.lottieRawRes != 0) {
+            preferenceRepository.setAppliedAnimationRawRes(mascot.lottieRawRes)
+            preferenceRepository.setAppliedAnimationLottie(true)
+        } else {
+            preferenceRepository.setAppliedAnimationRawRes(0)
+            preferenceRepository.setAppliedAnimationLottie(false)
+        }
         preferenceRepository.setAppliedMascotDrawableRes(mascot.previewDrawableRes)
+        preferenceRepository.setLeftStatusEmojiRes(0)
+        preferenceRepository.setMascotSize(size)
+        preferenceRepository.setCustomIconSize("animation", size)
+        preferenceRepository.setCustomIconEnabled("animation", true)
         preferenceRepository.setEmojiBatteryEnabled(true)
         _isBatteryActive.value = true
     }

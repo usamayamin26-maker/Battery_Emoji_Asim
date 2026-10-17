@@ -56,8 +56,8 @@ class LanguageFragment : Fragment() {
             findNavController().navigateUp()
         }
 
-        // Apply Button (Reusable GradientButton)
-        binding.btnApplyLanguage.setOnButtonClickListener {
+        // Apply Button
+        binding.btnApplyLanguage.setOnClickListener {
             val selected = adapter.getSelectedLanguage()
             Toast.makeText(requireContext(), "Language changed to ${selected.name}", Toast.LENGTH_SHORT).show()
             findNavController().navigateUp()

@@ -21,26 +21,7 @@ object AppDialogs {
      * Show Share Emoji App Dialog matching the screenshot
      */
     fun showShareDialog(context: Context) {
-        val dialog = Dialog(context)
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
-        val binding = DialogShareAppBinding.inflate(LayoutInflater.from(context))
-        dialog.setContentView(binding.root)
-        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-
-        // Copy Link Action
-        binding.btnCopyLink.setOnClickListener {
-            val clipboard = context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
-            val clip = ClipData.newPlainText("Share Link", binding.tvShareUrl.text.toString())
-            clipboard.setPrimaryClip(clip)
-            Toast.makeText(context, context.getString(R.string.link_copied), Toast.LENGTH_SHORT).show()
-        }
-
-        // Reusable GradientButton Done Action
-        binding.btnShareDone.setOnButtonClickListener {
-            dialog.dismiss()
-        }
-
-        dialog.show()
+        com.asim.jhbatteryapp.core.Utils.MyUtils.showShareDialog(context)
     }
 
     /**
@@ -73,8 +54,8 @@ object AppDialogs {
             }
         }
 
-        // Reusable GradientButton Done Action
-        binding.btnRatingDone.setOnButtonClickListener {
+        // Done Action
+        binding.btnRatingDone.setOnClickListener {
             Toast.makeText(context, context.getString(R.string.feedback_submitted), Toast.LENGTH_SHORT).show()
             dialog.dismiss()
             onFeedbackSubmitted?.invoke()
@@ -119,8 +100,8 @@ object AppDialogs {
             selectEmoji(R.drawable.ic_reaction_love, binding.ivEmojiLove)
         }
 
-        // Reusable GradientButton Done Action
-        binding.btnFeedbackDone.setOnButtonClickListener {
+        // Done Action
+        binding.btnFeedbackDone.setOnClickListener {
             Toast.makeText(context, context.getString(R.string.feedback_submitted), Toast.LENGTH_SHORT).show()
             dialog.dismiss()
         }

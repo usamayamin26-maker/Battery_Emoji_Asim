@@ -11,4 +11,13 @@
         <item name="fontFamily">@font/outfit</item>
         <item name="android:fontFamily">@font/outfit</item>
     </style>
+    <style name="Style_Rounded_Bottom_Sheet" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/BottomSheetDialogTheme</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+    </style>
+    <style name="BottomSheetDialogTheme" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/bottom_sheet_shap</item>
+    </style>
 </resources>

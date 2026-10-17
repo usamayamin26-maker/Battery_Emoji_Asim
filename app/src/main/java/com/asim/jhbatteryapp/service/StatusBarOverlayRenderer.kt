@@ -90,27 +90,21 @@ class StatusBarOverlayRenderer {
         // 5. Multi-Select Custom Icons (Only visible if corresponding system function is active)
         val enabledIcons = settings.enabledCustomIcons
 
-        // Left: Emoji Mascot / Animation / Left Status Emoji (beside time)
+        // Left: Emoji Mascot (beside time on left side)
         val mascotToDisplay = when {
-            settings.lastAppliedThemeMode == "custom" -> {
-                settings.leftStatusEmojiRes
-            }
-            settings.leftStatusEmojiRes != 0 -> {
-                settings.leftStatusEmojiRes
-            }
-            settings.appliedMascotDrawableRes != 0 -> {
-                settings.appliedMascotDrawableRes
-            }
+            settings.leftStatusEmojiRes != 0 -> settings.leftStatusEmojiRes
+            settings.lastAppliedThemeMode == "custom" -> settings.leftStatusEmojiRes
+            settings.appliedMascotDrawableRes != 0 && !settings.isAppliedAnimationLottie -> settings.appliedMascotDrawableRes
             else -> 0
         }
         if (mascotToDisplay != 0) {
             binding.ivOverlayLeftEmoji.visibility = View.VISIBLE
             binding.ivOverlayLeftEmoji.setImageResource(mascotToDisplay)
             binding.ivOverlayLeftEmoji.imageTintList = null
-            val mascotSize = (settings.mascotSizeDp * density).toInt().coerceIn((12 * density).toInt(), (36 * density).toInt())
+            val emojiSize = (16 * density).toInt().coerceIn((12 * density).toInt(), (26 * density).toInt())
             val params = binding.ivOverlayLeftEmoji.layoutParams
-            params.width = (mascotSize * 1.35f).toInt()
-            params.height = mascotSize
+            params.width = (emojiSize * 1.35f).toInt()
+            params.height = emojiSize
             binding.ivOverlayLeftEmoji.layoutParams = params
         } else {
             binding.ivOverlayLeftEmoji.visibility = View.GONE
@@ -181,31 +175,63 @@ class StatusBarOverlayRenderer {
             binding.ivOverlayEmotion.visibility = View.GONE
         }
 
-        // Left: Animation Sparkle (Decorative)
-        if (enabledIcons.contains("animation")) {
-            binding.ivOverlayAnimation.visibility = View.VISIBLE
-            binding.ivOverlayAnimation.imageTintList = ColorStateList.valueOf(settings.getEffectiveIconColor("animation"))
-            val s = (settings.getEffectiveIconSize("animation") * density).toInt()
-            binding.ivOverlayAnimation.layoutParams.width = s
-            binding.ivOverlayAnimation.layoutParams.height = s
+        // Left: Lottie Animation (Sub se last on left side, towards center notch)
+        val isAnimEnabled = settings.isEmojiBatteryEnabled &&
+                (!settings.iconSizes.containsKey("animation") || settings.enabledCustomIcons.contains("animation"))
+        val animMascotSizeDp = settings.iconSizes["animation"] ?: settings.mascotSizeDp
+        val mascotSize = (animMascotSizeDp * density).toInt().coerceIn((12 * density).toInt(), (60 * density).toInt())
+
+        if (isAnimEnabled && settings.isAppliedAnimationLottie && settings.appliedAnimationRawRes != 0) {
+            binding.lottieOverlayLeftAnimation.visibility = View.VISIBLE
+            val params = binding.lottieOverlayLeftAnimation.layoutParams
+            params.width = (mascotSize * 1.35f).toInt()
+            params.height = mascotSize
+            binding.lottieOverlayLeftAnimation.layoutParams = params
+
+            val currentRes = binding.lottieOverlayLeftAnimation.tag as? Int
+            if (currentRes != settings.appliedAnimationRawRes) {
+                binding.lottieOverlayLeftAnimation.tag = settings.appliedAnimationRawRes
+                binding.lottieOverlayLeftAnimation.setAnimation(settings.appliedAnimationRawRes)
+                binding.lottieOverlayLeftAnimation.playAnimation()
+            } else if (!binding.lottieOverlayLeftAnimation.isAnimating) {
+                binding.lottieOverlayLeftAnimation.playAnimation()
+            }
         } else {
-            binding.ivOverlayAnimation.visibility = View.GONE
+            binding.lottieOverlayLeftAnimation.visibility = View.GONE
+            binding.lottieOverlayLeftAnimation.cancelAnimation()
+            binding.lottieOverlayLeftAnimation.tag = null
         }
+
+        // Left: Animation Sparkle (Deprecated redundant widget; replaced by left status bar animation)
+        binding.ivOverlayAnimation.visibility = View.GONE
 
         // Right: Data (Shows if enabled in customization OR if mobile data is active)
         val isDataEnabled = enabledIcons.contains("data")
-        val showData = isDataEnabled || hardwareState.isMobileDataConnected
+        val showData = hardwareState.isMobileDataConnected
+
         if (showData) {
             binding.ivOverlayData.visibility = View.VISIBLE
-            val dataColor = if (isDataEnabled) settings.getEffectiveIconColor("data") else effectiveContentColor
-            binding.ivOverlayData.imageTintList = ColorStateList.valueOf(dataColor)
+
+            val dataColor = if (isDataEnabled) {
+                settings.getEffectiveIconColor("data")
+            } else {
+                effectiveContentColor
+            }
+
+            binding.ivOverlayData.imageTintList =
+                ColorStateList.valueOf(dataColor)
+
             val s = if (isDataEnabled) {
                 (settings.getEffectiveIconSize("data") * density).toInt()
             } else {
                 (14 * density).toInt()
             }
-            binding.ivOverlayData.layoutParams.width = s
-            binding.ivOverlayData.layoutParams.height = s
+
+            binding.ivOverlayData.layoutParams =
+                binding.ivOverlayData.layoutParams.apply {
+                    width = s
+                    height = s
+                }
         } else {
             binding.ivOverlayData.visibility = View.GONE
         }

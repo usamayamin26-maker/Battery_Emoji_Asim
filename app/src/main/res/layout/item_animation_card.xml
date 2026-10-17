@@ -32,6 +32,20 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:src="@drawable/ic_blueprint_bunny_blue" />
 
+        <!-- Lottie Animation View -->
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lottieAnimCard"
+            android:layout_width="@dimen/_58sdp"
+            android:layout_height="@dimen/_58sdp"
+            android:contentDescription="@null"
+            android:visibility="gone"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <!-- Selection Halo/Border -->
         <View
             android:id="@+id/viewAnimSelectionBorder"

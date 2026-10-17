@@ -53,19 +53,25 @@
         app:layout_constraintTop_toBottomOf="@+id/headerLanguages"
         tools:listitem="@layout/item_language" />
 
-    <!-- Reusable GradientButton for "Apply" -->
-    <com.asim.jhbatteryapp.presentation.components.GradientButton
+    <!-- Apply Button -->
+    <TextView
         android:id="@+id/btnApplyLanguage"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/_20sdp"
-        android:layout_marginBottom="@dimen/_24sdp"
-        app:btnCornerRadius="@dimen/_22sdp"
-        app:btnGradientEndColor="@color/primary_gradient_end"
-        app:btnGradientStartColor="@color/primary_gradient_start"
-        app:btnText="@string/apply"
-        app:btnTextColor="@color/white"
-        app:btnTextSize="@dimen/_13ssp"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_44sdp"
+        android:layout_marginStart="@dimen/_18sdp"
+        android:layout_marginEnd="@dimen/_18sdp"
+        android:layout_marginBottom="@dimen/_18sdp"
+        android:background="@drawable/bg_btn_apply"
+        android:clickable="true"
+        android:elevation="@dimen/_2sdp"
+        android:focusable="true"
+        android:gravity="center"
+        android:text="@string/apply"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_13ssp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

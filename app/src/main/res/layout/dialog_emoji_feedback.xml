@@ -119,18 +119,21 @@
 
             </LinearLayout>
 
-            <!-- Reusable GradientButton for "Done" -->
-            <com.asim.jhbatteryapp.presentation.components.GradientButton
+            <!-- Done Button -->
+            <TextView
                 android:id="@+id/btnFeedbackDone"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/_44sdp"
                 android:layout_marginTop="@dimen/_20sdp"
-                app:btnCornerRadius="@dimen/_20sdp"
-                app:btnGradientEndColor="@color/primary_gradient_end"
-                app:btnGradientStartColor="@color/primary_gradient_start"
-                app:btnText="@string/done"
-                app:btnTextColor="@color/white"
-                app:btnTextSize="@dimen/_13ssp" />
+                android:background="@drawable/bg_btn_apply"
+                android:clickable="true"
+                android:elevation="@dimen/_2sdp"
+                android:focusable="true"
+                android:gravity="center"
+                android:text="@string/done"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_13ssp"
+                android:textStyle="bold" />
 
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>

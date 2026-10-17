@@ -75,10 +75,9 @@ class OnboardingActivity : AppCompatActivity() {
                 // Update button text on last slide
                 if (position == onboardingSlides.size - 1) {
                    // binding.llPageIndicators.visibility = ViewGroup.GONE
-                    binding.btnGetStarted.setText(getString(R.string.get_started))
+                    binding.btnGetStarted.text = getString(R.string.get_started)
                 } else {
-
-                    binding.btnGetStarted.setText(getString(R.string.next))
+                    binding.btnGetStarted.text = getString(R.string.next)
                 }
             }
         })
@@ -90,8 +89,7 @@ class OnboardingActivity : AppCompatActivity() {
             navigateToHome()
         }
 
-        // Reusable GradientButton
-        binding.btnGetStarted.setOnButtonClickListener {
+        binding.btnGetStarted.setOnClickListener {
             val currentItem = binding.vpOnboarding.currentItem
             if (currentItem < onboardingSlides.size - 1) {
                 binding.vpOnboarding.setCurrentItem(currentItem + 1, true)

@@ -138,33 +138,34 @@ class SearchFragment : Fragment() {
     }
 
     private fun showPreviewBottomSheet(item: BatteryEmojiItem) {
-        val dialog = BottomSheetDialog(requireContext())
-        val dialogBinding = DialogBatteryPreviewBinding.inflate(layoutInflater)
-        dialog.setContentView(dialogBinding.root)
+        com.asim.jhbatteryapp.core.Utils.MyUtils.genBottomSheetDialog(
+            context = requireContext(),
+            isCancelable = true,
+            style = R.style.Style_Rounded_Bottom_Sheet,
+            bindingInflater = DialogBatteryPreviewBinding::inflate
+        ) { dialogBinding ->
+            dialogBinding.cvPreviewContainer.setCardBackgroundColor(
+                ContextCompat.getColor(requireContext(), item.backgroundColorRes)
+            )
+            dialogBinding.ivDialogMascot.setImageResource(item.previewDrawableRes)
+            dialogBinding.tvDialogTitle.text = item.title
 
-        dialogBinding.cvPreviewContainer.setCardBackgroundColor(
-            ContextCompat.getColor(requireContext(), item.backgroundColorRes)
-        )
-        dialogBinding.ivDialogMascot.setImageResource(item.previewDrawableRes)
-        dialogBinding.tvDialogTitle.text = item.title
-
-        dialogBinding.btnApplyStyle.setOnButtonClickListener {
-            val hasAccessibility = com.asim.jhbatteryapp.service.StatusBarAccessibilityService.isAccessibilityServiceEnabled(requireContext())
-            if (!hasAccessibility) {
-                dialog.dismiss()
-                com.asim.jhbatteryapp.presentation.common.StatusBarPermissionHelper.showAccessibilityDialog(requireContext())
-                return@setOnButtonClickListener
+            dialogBinding.btnApplyStyle.setOnClickListener {
+                val hasAccessibility = com.asim.jhbatteryapp.service.StatusBarAccessibilityService.isAccessibilityServiceEnabled(requireContext())
+                if (!hasAccessibility) {
+                    dismiss()
+                    com.asim.jhbatteryapp.presentation.common.StatusBarPermissionHelper.showAccessibilityDialog(requireContext())
+                    return@setOnClickListener
+                }
+                val prefRepo = com.asim.jhbatteryapp.data.repository.PreferenceRepositoryImpl()
+                prefRepo.setAppliedBatteryIconRes(item.previewDrawableRes)
+                prefRepo.setBatteryIconTintable(false)
+                prefRepo.setEmojiBatteryEnabled(true)
+                com.asim.jhbatteryapp.service.StatusBarAccessibilityService.updateBatteryIcon(item.previewDrawableRes, isTintable = false)
+                Toast.makeText(requireContext(), "${item.title} applied as battery icon!", Toast.LENGTH_SHORT).show()
+                dismiss()
             }
-            val prefRepo = com.asim.jhbatteryapp.data.repository.PreferenceRepositoryImpl()
-            prefRepo.setAppliedBatteryIconRes(item.previewDrawableRes)
-            prefRepo.setBatteryIconTintable(false)
-            prefRepo.setEmojiBatteryEnabled(true)
-            com.asim.jhbatteryapp.service.StatusBarAccessibilityService.updateBatteryIcon(item.previewDrawableRes, isTintable = false)
-            Toast.makeText(requireContext(), "${item.title} applied as battery icon!", Toast.LENGTH_SHORT).show()
-            dialog.dismiss()
         }
-
-        dialog.show()
     }
 
     override fun onDestroyView() {

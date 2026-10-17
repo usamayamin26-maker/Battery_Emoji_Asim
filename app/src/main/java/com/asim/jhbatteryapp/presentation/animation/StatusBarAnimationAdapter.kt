@@ -53,7 +53,25 @@ class StatusBarAnimationAdapter(
         fun bind(item: BatteryEmojiItem, isSelected: Boolean) {
             val color = ContextCompat.getColor(binding.root.context, item.backgroundColorRes)
             binding.clAnimCard.backgroundTintList = ColorStateList.valueOf(color)
-            binding.ivAnimMascot.setImageResource(item.previewDrawableRes)
+
+            if (item.isLottie && item.lottieRawRes != 0) {
+                binding.ivAnimMascot.visibility = View.GONE
+                binding.lottieAnimCard.visibility = View.VISIBLE
+                val currentRes = binding.lottieAnimCard.tag as? Int
+                if (currentRes != item.lottieRawRes) {
+                    binding.lottieAnimCard.tag = item.lottieRawRes
+                    binding.lottieAnimCard.setAnimation(item.lottieRawRes)
+                    binding.lottieAnimCard.playAnimation()
+                } else if (!binding.lottieAnimCard.isAnimating) {
+                    binding.lottieAnimCard.playAnimation()
+                }
+            } else {
+                binding.lottieAnimCard.visibility = View.GONE
+                binding.lottieAnimCard.cancelAnimation()
+                binding.lottieAnimCard.tag = null
+                binding.ivAnimMascot.visibility = View.VISIBLE
+                binding.ivAnimMascot.setImageResource(item.previewDrawableRes)
+            }
 
             binding.viewAnimSelectionBorder.visibility = if (isSelected) View.VISIBLE else View.GONE
 

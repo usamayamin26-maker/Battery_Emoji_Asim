@@ -1,6 +1,8 @@
 package com.asim.jhbatteryapp.core.Utils
 
 import android.app.Dialog
+import android.content.ClipData
+import android.content.ClipboardManager
 import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
@@ -19,6 +21,7 @@ import com.asim.jhbatteryapp.databinding.BottomSheetExitBinding
 import com.asim.jhbatteryapp.databinding.DialogDontMissOutBinding
 import com.asim.jhbatteryapp.databinding.DialogExitBinding
 import com.asim.jhbatteryapp.databinding.DialogNoInternetBinding
+import com.asim.jhbatteryapp.databinding.DialogShareAppBinding
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 
@@ -49,7 +52,7 @@ object MyUtils {
      */
     inline fun <T : ViewBinding> genBottomSheetDialog(
         context: Context,
-        @StyleRes style: Int = R.style.Theme_JHBatteryApp_BottomSheetDialog,
+        @StyleRes style: Int = R.style.Style_Rounded_Bottom_Sheet,
         isCancelable: Boolean = false,
         crossinline bindingInflater: (LayoutInflater) -> T,
         crossinline action: BottomSheetDialog.(T) -> Unit
@@ -64,7 +67,7 @@ object MyUtils {
             behavior.state = BottomSheetBehavior.STATE_EXPANDED
             behavior.skipCollapsed = true
             it.layoutParams.height = ViewGroup.LayoutParams.WRAP_CONTENT
-            it.background = ColorDrawable(Color.TRANSPARENT)
+            it.setBackgroundResource(R.drawable.bottom_sheet_shap)
         }
 
         dialog.setCancelable(isCancelable)
@@ -194,13 +197,10 @@ object MyUtils {
     ) {
         genBottomSheetDialog(
             context = context,
-            style = R.style.Theme_JHBatteryApp_BottomSheetDialog,
+            style = R.style.Style_Rounded_Bottom_Sheet,
             isCancelable = true,
             bindingInflater = BottomSheetExitBinding::inflate
         ) { binding ->
-            val bottomSheet = delegate.findViewById<View>(com.google.android.material.R.id.design_bottom_sheet) as? FrameLayout
-            bottomSheet?.background = ColorDrawable(Color.TRANSPARENT)
-
             binding.btnExitYes.setOnClickListener {
                 dismiss()
                 onExit.invoke()
@@ -258,6 +258,39 @@ object MyUtils {
                     dialog.dismiss()
                     onTurnOn.invoke()
                 }
+            }
+        }
+    }
+
+    /**
+     * Displays the "Share Emoji app" dialog using createDialogWithBinding.
+     */
+    fun showShareDialog(context: Context) {
+        createDialogWithBinding(
+            bindingInflater = DialogShareAppBinding::inflate,
+            isCancelable = true,
+            context = context
+        ) { dialog, binding ->
+            dialog.window?.apply {
+                setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+                setLayout(
+                    (context.resources.displayMetrics.widthPixels * 0.90).toInt().coerceAtMost(
+                        (420 * context.resources.displayMetrics.density).toInt()
+                    ),
+                    ViewGroup.LayoutParams.WRAP_CONTENT
+                )
+            }
+
+            // Copy Link Action
+            binding.btnCopyLink.setOnClickListener {
+                val clipboard = context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+                val clip = ClipData.newPlainText("Share Link", binding.tvShareUrl.text.toString())
+                clipboard.setPrimaryClip(clip)
+                Toast.makeText(context, context.getString(R.string.link_copied), Toast.LENGTH_SHORT).show()
+            }
+
+            binding.btnShareDone.setOnClickListener {
+                dialog.dismiss()
             }
         }
     }

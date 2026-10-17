@@ -23,10 +23,6 @@ class BatteryRepositoryImpl(
         return localDataSource.getQuickActions()
     }
 
-    override fun getOnboardingPages(): List<OnboardingPageItem> {
-        return localDataSource.getOnboardingPages()
-    }
-
     override fun searchEmojis(query: String): List<BatteryEmojiItem> {
         return localDataSource.searchEmojis(query)
     }

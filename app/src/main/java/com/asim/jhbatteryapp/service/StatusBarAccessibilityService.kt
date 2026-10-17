@@ -462,6 +462,28 @@ class StatusBarAccessibilityService : AccessibilityService() {
         fun updateMascot(mascotRes: Int) {
             val inst = instance ?: return
             inst.preferenceRepository.setAppliedMascotDrawableRes(mascotRes)
+            if (mascotRes != 0) {
+                inst.preferenceRepository.setAppliedAnimationRawRes(0)
+                inst.preferenceRepository.setAppliedAnimationLottie(false)
+            }
+            inst.applyCustomSettings()
+        }
+
+        fun updateAnimation(
+            animationRawRes: Int,
+            isLottie: Boolean,
+            fallbackDrawableRes: Int,
+            sizeDp: Int = 50
+        ) {
+            val inst = instance ?: return
+            inst.preferenceRepository.setAppliedAnimationRawRes(animationRawRes)
+            inst.preferenceRepository.setAppliedAnimationLottie(isLottie)
+            inst.preferenceRepository.setAppliedMascotDrawableRes(fallbackDrawableRes)
+            inst.preferenceRepository.setLeftStatusEmojiRes(0)
+            inst.preferenceRepository.setMascotSize(sizeDp)
+            inst.preferenceRepository.setCustomIconSize("animation", sizeDp)
+            inst.preferenceRepository.setCustomIconEnabled("animation", true)
+            inst.preferenceRepository.setEmojiBatteryEnabled(true)
             inst.applyCustomSettings()
         }
 

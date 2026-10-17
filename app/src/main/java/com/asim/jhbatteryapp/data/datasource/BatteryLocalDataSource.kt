@@ -241,6 +241,118 @@ class BatteryLocalDataSource {
                 isRecent = false,
                 isTopPick = false,
                 tags = listOf("cat", "gray")
+            ),
+            BatteryEmojiItem(
+                id = "emojie1",
+                title = "Emoji 1",
+                category = "hot",
+                previewDrawableRes = R.drawable.emojie1,
+                isHot = true,
+                isRecent = true
+            ),
+            BatteryEmojiItem(
+                id = "emojie2",
+                title = "Emoji 2",
+                category = "hot",
+                previewDrawableRes = R.drawable.emojie2,
+                isHot = true,
+                isRecent = true
+            ),
+            BatteryEmojiItem(
+                id = "emojie3",
+                title = "Emoji 3",
+                category = "hot",
+                previewDrawableRes = R.drawable.emojie3,
+                isHot = true,
+                isRecent = true
+            ),
+            BatteryEmojiItem(
+                id = "emojie4",
+                title = "Emoji 4",
+                category = "hot",
+                previewDrawableRes = R.drawable.emojie4,
+                isHot = true,
+                isRecent = true
+            ),
+            BatteryEmojiItem(
+                id = "emojie6",
+                title = "Emoji 6",
+                category = "hot",
+                previewDrawableRes = R.drawable.emojie6,
+                isHot = true,
+                isRecent = true
+            ),
+            BatteryEmojiItem(
+                id = "emojie7",
+                title = "Emoji 7",
+                category = "hot",
+                previewDrawableRes = R.drawable.emojie7,
+                isHot = true,
+                isRecent = true
+            ),
+            BatteryEmojiItem(
+                id = "emojie8",
+                title = "Emoji 8",
+                category = "hot",
+                previewDrawableRes = R.drawable.emojie8,
+                isHot = true,
+                isRecent = true
+            ),
+            BatteryEmojiItem(
+                id = "emojie9",
+                title = "Emoji 9",
+                category = "hot",
+                previewDrawableRes = R.drawable.emojie9,
+                isHot = true,
+                isRecent = true
+            ),
+            BatteryEmojiItem(
+                id = "battery1",
+                title = "Battery 1",
+                category = "hot",
+                previewDrawableRes = R.drawable.battery1,
+                isHot = true,
+                isRecent = true
+            ),
+            BatteryEmojiItem(
+                id = "battery2",
+                title = "Battery 2",
+                category = "hot",
+                previewDrawableRes = R.drawable.battery2,
+                isHot = true,
+                isRecent = true
+            ),
+            BatteryEmojiItem(
+                id = "battery3",
+                title = "Battery 3",
+                category = "hot",
+                previewDrawableRes = R.drawable.battery3,
+                isHot = true,
+                isRecent = true
+            ),
+            BatteryEmojiItem(
+                id = "battery4",
+                title = "Battery 4",
+                category = "hot",
+                previewDrawableRes = R.drawable.battery4,
+                isHot = true,
+                isRecent = true
+            ),
+            BatteryEmojiItem(
+                id = "battery5",
+                title = "Battery 5",
+                category = "hot",
+                previewDrawableRes = R.drawable.battery5,
+                isHot = true,
+                isRecent = true
+            ),
+            BatteryEmojiItem(
+                id = "battery6",
+                title = "Battery 6",
+                category = "hot",
+                previewDrawableRes = R.drawable.battery6,
+                isHot = true,
+                isRecent = true
             )
         )
 
@@ -251,31 +363,6 @@ class BatteryLocalDataSource {
         }
     }
 
-    fun getOnboardingPages(): List<OnboardingPageItem> {
-        return listOf(
-            OnboardingPageItem(
-                id = 1,
-                title = "A little cuter.\nA little more you.",
-                subtitle = "Give your phone a playful personal touch,\nand take a little joy everywhere.",
-                puppyMascotRes = R.drawable.ic_blueprint_puppy,
-                previewBearRes = R.drawable.ic_blueprint_bear_sleeping
-            ),
-            OnboardingPageItem(
-                id = 2,
-                title = "Live Battery Emojis.\nRight on Your Screen.",
-                subtitle = "Watch cute animals cuddle, play, and chill\naccording to your battery status.",
-                puppyMascotRes = R.drawable.ic_blueprint_puppy,
-                previewBearRes = R.drawable.ic_blueprint_bunny_blue
-            ),
-            OnboardingPageItem(
-                id = 3,
-                title = "Custom Animations\n& Endless Themes.",
-                subtitle = "Unlock exclusive Sanrio, Pokemon & Anime packs\nwith vibrant interactive styles.",
-                puppyMascotRes = R.drawable.ic_blueprint_puppy,
-                previewBearRes = R.drawable.ic_blueprint_girl_pink
-            )
-        )
-    }
 
     fun searchEmojis(query: String): List<BatteryEmojiItem> {
         val trimmed = query.trim().lowercase()
@@ -384,17 +471,50 @@ class BatteryLocalDataSource {
 
     fun getStatusBarAnimations(): List<BatteryEmojiItem> {
         return listOf(
-//            BatteryEmojiItem(
-//                id = "anim_lottie_battery",
-//                title = "Lottie Battery",
-//                category = "lottie",
-//                previewDrawableRes = R.drawable.ic_status_battery,
-//                backgroundColorRes = R.color.card_bg_blue,
-//                batteryPercentage = 100,
-//                batteryColorRes = R.color.battery_blue,
-//                isLottie = true,
-//                lottieRes = R.raw.battery
-//            ),
+            BatteryEmojiItem(
+                id = "anim_cakerun",
+                title = "Cake Run",
+                category = "animation",
+                isLottie = true,
+                lottieRawRes = R.raw.cakerun
+            ),
+            BatteryEmojiItem(
+                id = "anim_bird_pair",
+                title = "Bird Pair",
+                category = "animation",
+                isLottie = true,
+                lottieRawRes = R.raw.bird_pair
+            ),
+            BatteryEmojiItem(
+                id = "anim_cat",
+                title = "Cat",
+                category = "animation",
+                isLottie = true,
+                lottieRawRes = R.raw.cat
+            ),
+            BatteryEmojiItem(
+                id = "anim_cartoon",
+                title = "Cartoon",
+                category = "animation",
+                isLottie = true,
+                lottieRawRes = R.raw.cartoon
+            ),
+            BatteryEmojiItem(
+                id = "anim_heart",
+                title = "Heart",
+                category = "animation",
+                isLottie = true,
+                lottieRawRes = R.raw.red_heart
+            ),
+            BatteryEmojiItem(
+                id = "anim_doraemon",
+                title = "Doraemon",
+                category = "animation",
+                isLottie = true,
+                lottieRawRes = R.raw.doraemon
+            )
+
+
         )
     }
 

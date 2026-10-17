@@ -76,6 +76,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <!-- Left Mascot Lottie Animation Preview (Next to Time) -->
         <!-- Left Mascot Emoji Preview (Next to Time) -->
         <ImageView
             android:id="@+id/ivPreviewLeftEmoji"
@@ -85,6 +86,7 @@
             android:contentDescription="@null"
             android:scaleType="fitCenter"
             android:visibility="gone"
+            app:layout_goneMarginStart="@dimen/_4sdp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/tvPreviewTime"
             app:layout_constraintTop_toTopOf="parent"
@@ -169,21 +171,31 @@
             app:layout_goneMarginStart="@dimen/_4sdp"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <!-- Animation Preview -->
-        <ImageView
-            android:id="@+id/ivPreviewAnimation"
-            android:layout_width="@dimen/_11sdp"
-            android:layout_height="@dimen/_11sdp"
+        <!-- Left Animation Preview (Towards Center Notch) -->
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lottiePreviewLeftAnimation"
+            android:layout_width="@dimen/_18sdp"
+            android:layout_height="@dimen/_18sdp"
             android:layout_marginStart="@dimen/_4sdp"
             android:contentDescription="@null"
-            android:scaleType="fitCenter"
-            android:src="@drawable/ic_sparkle"
             android:visibility="gone"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/ivPreviewEmotion"
             app:layout_goneMarginStart="@dimen/_4sdp"
             app:layout_constraintTop_toTopOf="parent"
-            app:tint="@color/white" />
+            tools:visibility="visible" />
+
+        <!-- Animation Preview (hidden legacy widget) -->
+        <ImageView
+            android:id="@+id/ivPreviewAnimation"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="gone"
+            app:layout_constraintStart_toEndOf="@+id/lottiePreviewLeftAnimation"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="gone" />
 
         <!-- Data Preview -->
         <ImageView

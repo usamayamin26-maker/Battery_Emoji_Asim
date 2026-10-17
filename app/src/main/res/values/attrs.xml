@@ -1,18 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Custom Attributes for Reusable GradientButton Component -->
-    <declare-styleable name="GradientButton">
-        <attr name="btnText" format="string" />
-        <attr name="btnTextColor" format="color" />
-        <attr name="btnTextSize" format="dimension" />
-        <attr name="btnGradientStartColor" format="color" />
-        <attr name="btnGradientEndColor" format="color" />
-        <attr name="btnCornerRadius" format="dimension" />
-        <attr name="btnElevation" format="dimension" />
-        <attr name="btnIsLoading" format="boolean" />
-        <attr name="btnIcon" format="reference" />
-    </declare-styleable>
-
     <!-- Custom Attributes for BatteryEmojiCardView Component -->
     <declare-styleable name="EmojiBatteryCardView">
         <attr name="cardBackgroundColor" format="color" />

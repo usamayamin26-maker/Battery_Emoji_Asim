@@ -16,7 +16,8 @@ data class CustomStatusIconItem(
 )
 
 class CustomStatusIconAdapter(
-    private val onIconClicked: (CustomStatusIconItem) -> Unit
+    private val onIconClicked: (CustomStatusIconItem) -> Unit,
+    private val onCheckClicked: ((CustomStatusIconItem) -> Unit)? = null
 ) : RecyclerView.Adapter<CustomStatusIconAdapter.IconViewHolder>() {
 
     private val items = mutableListOf<CustomStatusIconItem>()
@@ -74,7 +75,19 @@ class CustomStatusIconAdapter(
             }
             binding.ivCustomStatusIcon.setColorFilter(tintColor)
 
+            binding.ivIconCardCheck.setOnClickListener {
+                if (onCheckClicked != null) {
+                    onCheckClicked.invoke(item)
+                } else {
+                    onIconClicked(item)
+                }
+            }
+
             binding.clIconCard.setOnClickListener {
+                onIconClicked(item)
+            }
+
+            binding.root.setOnClickListener {
                 onIconClicked(item)
             }
         }

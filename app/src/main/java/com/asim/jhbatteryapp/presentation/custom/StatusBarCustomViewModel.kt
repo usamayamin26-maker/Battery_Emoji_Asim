@@ -117,11 +117,17 @@ class StatusBarCustomViewModel(
 
         // Battery Styles
         _batteryStyles.value = listOf(
-            BatteryStyleItem("bolt", R.drawable.ic_battery_style_bolt),
-            BatteryStyleItem("pill", R.drawable.ic_battery_style_pill),
-            BatteryStyleItem("outline", R.drawable.ic_battery_style_outline),
-            BatteryStyleItem("circle", R.drawable.ic_battery_style_circle),
-            BatteryStyleItem("standard", R.drawable.ic_status_battery)
+            BatteryStyleItem("bolt", R.drawable.ic_battery_style_bolt, isTintable = true),
+            BatteryStyleItem("pill", R.drawable.ic_battery_style_pill, isTintable = true),
+            BatteryStyleItem("outline", R.drawable.ic_battery_style_outline, isTintable = true),
+            BatteryStyleItem("circle", R.drawable.ic_battery_style_circle, isTintable = true),
+            BatteryStyleItem("standard", R.drawable.ic_status_battery, isTintable = true),
+            BatteryStyleItem("battery1", R.drawable.battery1, isTintable = false),
+            BatteryStyleItem("battery2", R.drawable.battery2, isTintable = false),
+            BatteryStyleItem("battery3", R.drawable.battery3, isTintable = false),
+            BatteryStyleItem("battery4", R.drawable.battery4, isTintable = false),
+            BatteryStyleItem("battery5", R.drawable.battery5, isTintable = false),
+            BatteryStyleItem("battery6", R.drawable.battery6, isTintable = false)
         )
 
         // 10 Status Bar Icons from snippet
@@ -141,6 +147,14 @@ class StatusBarCustomViewModel(
         // Left Status Emojis (shows beside time on the left side of status bar)
         _leftStatusEmojis.value = listOf(
             CustomStatusEmojiItem("none", "None", 0, isNone = true),
+            CustomStatusEmojiItem("emojie1", "Emoji 1", R.drawable.emojie1),
+            CustomStatusEmojiItem("emojie2", "Emoji 2", R.drawable.emojie2),
+            CustomStatusEmojiItem("emojie3", "Emoji 3", R.drawable.emojie3),
+            CustomStatusEmojiItem("emojie4", "Emoji 4", R.drawable.emojie4),
+            CustomStatusEmojiItem("emojie6", "Emoji 6", R.drawable.emojie6),
+            CustomStatusEmojiItem("emojie7", "Emoji 7", R.drawable.emojie7),
+            CustomStatusEmojiItem("emojie8", "Emoji 8", R.drawable.emojie8),
+            CustomStatusEmojiItem("emojie9", "Emoji 9", R.drawable.emojie9),
             CustomStatusEmojiItem("bunny", "Bunny", R.drawable.ic_blueprint_bunny_blue),
             CustomStatusEmojiItem("girl", "Blossom", R.drawable.ic_blueprint_girl_pink),
             CustomStatusEmojiItem("cat", "Cat", R.drawable.ic_blueprint_cat_gray),
@@ -217,7 +231,7 @@ class StatusBarCustomViewModel(
 
     fun selectBatteryStyle(styleItem: BatteryStyleItem) {
         _selectedBatteryStyle.value = styleItem.id
-        selectBatteryIcon(styleItem.drawableRes, isTintable = true)
+        selectBatteryIcon(styleItem.drawableRes, isTintable = styleItem.isTintable)
     }
 
     fun selectMascot(mascot: BatteryEmojiItem) {
@@ -260,7 +274,7 @@ class StatusBarCustomViewModel(
             batteryTextSizeSp = _batteryPercentageSizeSp.value ?: currentSettings.batteryTextSizeSp,
             batteryIconSizeDp = _batteryIconSizeDp.value ?: currentSettings.batteryIconSizeDp,
             batteryStyle = _selectedBatteryStyle.value ?: currentSettings.batteryStyle,
-            appliedMascotDrawableRes = leftEmoji,
+            appliedMascotDrawableRes = if (leftEmoji != 0) leftEmoji else currentSettings.appliedMascotDrawableRes,
             appliedBatteryIconRes = _selectedBatteryIconRes.value ?: currentSettings.appliedBatteryIconRes,
             isBatteryIconTintable = _isBatteryIconTintable.value ?: currentSettings.isBatteryIconTintable,
             enabledCustomIcons = _enabledCustomIcons.value ?: currentSettings.enabledCustomIcons,
@@ -269,7 +283,9 @@ class StatusBarCustomViewModel(
         )
         preferenceRepository.updateStatusBarSettings(updated)
         preferenceRepository.setLeftStatusEmojiRes(leftEmoji)
-        preferenceRepository.setAppliedMascotDrawableRes(leftEmoji)
+        if (leftEmoji != 0) {
+            preferenceRepository.setAppliedMascotDrawableRes(leftEmoji)
+        }
         preferenceRepository.setLastAppliedThemeMode(mode)
     }
 }
