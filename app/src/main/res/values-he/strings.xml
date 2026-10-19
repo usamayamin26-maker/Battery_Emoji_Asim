@@ -1,0 +1,245 @@
+<resources>
+    <string name="app_name">JH Battery</string>
+
+    <!-- Splash Screen -->
+    <string name="splash_title">סוללת אימוג\'י</string>
+    <string name="splash_loading">טוען את חברי הסוללה החמודים שלך…</string>
+
+    <!-- Onboarding Screen -->
+    <string name="skip">דילוג</string>
+    <string name="onboarding_title_1">התאם אישית כל\nפרט עם.</string>
+    <string name="onboarding_desc_1">אימוג\'ים, חיות מחמד, סגנונות סוללה, שורות מצב ורקעים יפים.</string>
+    <string name="onboarding_title_2">הפוך את הסוללה\nשלך למהנה.</string>
+    <string name="onboarding_desc_2">הפוך את סמל הסוללה שלך לאימוג\'ים חמודים. פרט קטן.\nהמון שמחה.</string>
+    <string name="onboarding_title_3">הסוללה שלך.\nהדמיון שלך.</string>
+    <string name="help_title">עזור לנו להשתפר</string>
+    <string name="help_desc_3">אנא תמוך בנו על ידי דירוג ו-\nהמלצה לאחרים ב-Google Play</string>
+    <string name="onboarding_desc_3">שלב את האימוג\'ים והצבעים האהובים עליך כדי ליצור\nסוללה שמרגישה בדיוק כמוך.</string>
+    <string name="get_started">בוא נתחיל</string>
+    <string name="next">הבא</string>
+
+    <!-- Home Screen -->
+    <string name="battery_icon_title">סמל סוללה</string>
+    <string name="search_emojis_title">חיפוש אימוג\'ים</string>
+    <string name="search_placeholder">חפש אימוג\'י או ערכת נושא…</string>
+    <string name="enable_emoji_battery_banner">הפעל סוללת אימוג\'י כדי להתחיל</string>
+    <string name="start">התחל</string>
+    <string name="sticker_shop">חנות מדבקות</string>
+    <string name="animation">אנימציה</string>
+    <string name="themes">ערכות נושא</string>
+
+    <!-- Category Tabs -->
+    <string name="tab_hot">🔥 לוהט</string>
+    <string name="tab_pokemon">פוקימון</string>
+    <string name="tab_sanrio">סנריו</string>
+    <string name="tab_anime">אנימה</string>
+
+    <!-- Filter Chips -->
+    <string name="chip_all">הכל</string>
+    <string name="chip_heart">לב</string>
+    <string name="chip_cute_emoji">אימוג\'י חמוד</string>
+    <string name="chip_animations">אנימציות</string>
+
+    <!-- Home Sections -->
+    <string name="section_recent">אחרונים</string>
+    <string name="section_top_picks">הנבחרים ביותר</string>
+
+    <!-- Bottom Navigation -->
+    <string name="nav_trending">פופולרי</string>
+    <string name="nav_customize">התאמה אישית</string>
+    <string name="nav_setting">הגדרות</string>
+
+    <!-- Dialogs & Actions -->
+    <string name="apply_battery_style">החל סגנון סוללה</string>
+    <string name="applied_successfully">הסגנון הוחל בהצלחה!</string>
+    <string name="preview">תצוגה מקדימה</string>
+    <string name="battery_level">רמת סוללה: %1$d%%</string>
+
+    <!-- Settings Screen -->
+    <string name="settings_title">הגדרות</string>
+    <string name="setting_language">שפה</string>
+    <string name="setting_language_current">עברית</string>
+    <string name="setting_privacy_policy">מדיניות פרטיות</string>
+    <string name="setting_share_app">שתף אפליקציה</string>
+    <string name="setting_rate_us">דרג אותנו</string>
+
+    <!-- Languages Screen -->
+    <string name="languages_title">שפות</string>
+    <string name="lang_arabic">ערבית</string>
+    <string name="lang_arabic_native">العربية</string>
+    <string name="lang_german">גרמנית</string>
+    <string name="lang_german_native">Deutsch</string>
+    <string name="lang_assamese">אסאמית</string>
+    <string name="lang_assamese_native">অসমীয়া</string>
+    <string name="lang_persian">פרסית</string>
+    <string name="lang_persian_native">فارسی</string>
+    <string name="lang_french">צרפתית</string>
+    <string name="lang_french_native">Français</string>
+    <string name="lang_hindi">הינדי</string>
+    <string name="lang_hindi_native">हिन्दी</string>
+    <string name="lang_indonesian">אינדונזית</string>
+    <string name="lang_indonesian_native">Bahasa Indonesia</string>
+    <string name="lang_hebrew">עברית</string>
+    <string name="lang_hebrew_native">עברית</string>
+    <string name="lang_japanese">יפנית</string>
+    <string name="lang_japanese_native">日本語</string>
+    <string name="lang_korean">קוריאנית</string>
+    <string name="lang_korean_native">한국어</string>
+    <string name="lang_malay">מלאית</string>
+    <string name="lang_malay_native">Bahasa Melayu</string>
+    <string name="lang_portuguese">פורטוגזית</string>
+    <string name="lang_portuguese_native">Português</string>
+    <string name="lang_russian">רוסית</string>
+    <string name="lang_russian_native">Русский</string>
+    <string name="lang_turkish">טורקית</string>
+    <string name="lang_turkish_native">Türkçe</string>
+    <string name="lang_urdu">אורדו</string>
+    <string name="lang_urdu_native">اردו</string>
+    <string name="lang_vietnamese">וייטנאמית</string>
+    <string name="lang_vietnamese_native">Tiếng Việt</string>
+    <string name="lang_chinese">סינית</string>
+    <string name="lang_chinese_native">中文</string>
+    <string name="lang_english">אנגלית</string>
+    <string name="lang_english_native">English</string>
+    <string name="lang_dutch">הולנדית</string>
+    <string name="lang_dutch_native">Nederlands</string>
+    <string name="apply">החל</string>
+
+    <!-- Dialogs -->
+    <string name="share_dialog_title">שתף את אפליקציית האימוג\'י</string>
+    <string name="share_dialog_desc">הזמן חברים להוסיף אימוג\'י לסקירת הנייד שלך.</string>
+    <string name="share_link_url">https://velo.app/get</string>
+    <string name="copy">העתק</string>
+    <string name="link_copied">הקישור הועתק ללוח!</string>
+    <string name="done">סיום</string>
+    <string name="feedback_dialog_title">מה דעתך על זה?</string>
+    <string name="feedback_dialog_desc">המשוב שלך חיוני ועוזר לנו להבין טוב יותר את הצרכים שלך.</string>
+    <string name="feedback_submitted">תודה על המשוב שלך!</string>
+
+    <!-- Status Bar Themes & Animations Screens -->
+    <string name="status_bar_theme_title">ערכת נושא לשורת המצב</string>
+    <string name="gradient_tab">מעבר צבעים</string>
+    <string name="background_tab">רקע</string>
+    <string name="choose_gradient">בחר מעבר צבעים</string>
+    <string name="choose_background">בחר רקע</string>
+    <string name="status_bar_animation_title">אנימציית שורת המצב</string>
+    <string name="date_size">גודל תאריך</string>
+    <string name="animation_style">סגנון אנימציה</string>
+    <string name="see_all">הצג הכל</string>
+    <string name="theme_applied_success">ערכת הנושא לשורת המצב הוחלה בהצלחה!</string>
+    <string name="animation_applied_success">אנימציית שורת המצב הוחלה בהצלחה!</string>
+    <string name="accessibility_service_label">התאמת סמל סוללת אימוג\'י</string>
+    <string name="accessibility_service_desc">הצג מדבקות אימוג\'י בשורת המצב והתאם אישית את המראה. לא נאסף מידע.</string>
+    <string name="accessibility_dialog_title">הרשאת סמל סוללת אימוג\'י</string>
+    <string name="accessibility_dialog_desc">כדי להציג את אימוג\'י הסוללה המותאם אישית שלך, אנימציות ומדבקות מסך, אנא הפעל את סמל סוללת אימוג\'י בשירותי הנגישות.</string>
+    <string name="enable_accessibility">הפעל סמל סוללת אימוג\'י</string>
+    <string name="keep_standard_overlay">שמור שכבת-על סטנדרטית</string>
+
+    <!-- Status Bar Custom Screen Strings -->
+    <string name="status_bar_custom_title">התאמת שורת המצב</string>
+    <string name="tab_size">גודל</string>
+    <string name="tab_appearance">מראה</string>
+    <string name="tab_battery">סוללה</string>
+    <string name="tab_customize_icon">התאמת סמל</string>
+    <string name="label_size">גודל</string>
+    <string name="label_height">גובה</string>
+    <string name="label_left_margin">שוליים שמאליים</string>
+    <string name="label_right_margin">שוליים ימניים</string>
+    <string name="label_appearance">מראה</string>
+    <string name="label_icon">סמל</string>
+    <string name="label_background">רקע</string>
+    <string name="label_battery">סוללה</string>
+    <string name="label_percentage">אחוזים</string>
+    <string name="label_icon_size">גודל סמל</string>
+    <string name="label_emoji">אימוג\'י</string>
+    <string name="tab_trending">פופולרי</string>
+    <string name="tab_halloween">ליל כל הקדושים</string>
+    <string name="tab_wc2">WC 2</string>
+    <string name="apply_custom_success">שורת המצב המותאמת אישית הוחלה בהצלחה!</string>
+
+    <!-- Notification Permission Dialog -->
+    <string name="notify_permission_title">הרשאת התראות</string>
+    <string name="notify_permission_desc">האפליקציה משתמשת בהתראות כדי לספק עדכונים חשובים ומידע מערכת חיוני.</string>
+    <string name="not_now">לא עכשיו</string>
+    <string name="allow">אפשר</string>
+
+    <!-- Accessibility Service Usage Dialog -->
+    <string name="accessibility_usage_title">שימוש בשירותי נגישות</string>
+    <string name="accessibility_usage_subtitle">נדרשת הרשאה כדי להמשיך</string>
+    <string name="accessibility_usage_intro">אפליקציה זו דורשת הרשאת שירותי נגישות עבור:</string>
+    <string name="accessibility_usage_bullet_1"><![CDATA[<b><font color="#A855F7">הצגת תצוגת "התאמת סמל סוללת אימוג\'י"</font></b> על מסך הנייד וזיהוי מחוות בשורת המצב.]]></string>
+    <string name="accessibility_usage_bullet_2"><![CDATA[<b><font color="#A855F7">הפעלת פעולות נגישות</font></b> פעולה לבית, חזרה והצגת מסך יישומים אחרונים.]]></string>
+    <string name="accessibility_usage_notice">אפליקציה זו מתחייבת לא לאסוף או לשתף\nשום מידע משתמש לגבי זכות נגישות\nזו..</string>
+    <string name="accessibility_usage_terms"><![CDATA[קראתי ואני מסכים ל<u><font color="#A855F7">תנאי השירות</font></u>]]></string>
+    <string name="close">סגור</string>
+
+    <!-- How To Use Screen -->
+    <string name="how_to_use_title">איך להשתמש</string>
+    <string name="how_to_use_step_1"><![CDATA[1. באפליקציות שהורדו, בחר <font color="#9333EA"><b>התאמת סמל סוללת אימוג\'י.</b></font>]]></string>
+    <string name="how_to_use_step_2"><![CDATA[2. בחר <font color="#9333EA"><b>התאמת סמל סוללת אימוג\'י.</b></font>]]></string>
+    <string name="how_to_use_step_3"><![CDATA[3. הפעל.]]></string>
+    <string name="how_to_use_step_4"><![CDATA[4. לחץ <font color="#9333EA"><b>אפשר.</b></font>]]></string>
+    <string name="go_to_settings">עבור להגדרות</string>
+    <string name="continue_text">המשך</string>
+
+    <!-- Exit Dialog -->
+    <string name="exit_dialog_title">האם אתה בטוח שברצונך לצאת?</string>
+    <string name="exit_dialog_desc">השינויים שלך לא נשמרו. האם אתה בטוח שברצונך לצאת?</string>
+    <string name="yes">כן</string>
+    <string name="no">לא</string>
+
+    <!-- No Internet Dialog -->
+    <string name="no_internet_title">אין חיבור לאינטרנט</string>
+    <string name="no_internet_desc">אנא בדוק את החיבור לאינטרנט ונסה שוב.</string>
+    <string name="cancel">ביטול</string>
+    <string name="retry">נסה שוב</string>
+
+    <!-- Don't Miss Out Dialog -->
+    <string name="dont_miss_out_title">אל תפספס!!</string>
+    <string name="dont_miss_out_desc">הפעל התראות כדי לגלות סמלי סוללה חדשים, ערכות נושא עונתיות וסגנונות מובילים.</string>
+    <string name="maybe_later">אולי מאוחר יותר</string>
+    <string name="turn_on_notifications">הפעל התראות</string>
+
+    <!-- Sticker For Display Screen Strings -->
+    <string name="sticker_for_display_title">מדבקה למסך התצוגה</string>
+    <string name="my_sticker">המדבקה שלי</string>
+    <string name="save">שמור</string>
+    <string name="adjustment">התאמה</string>
+    <string name="size">גודל</string>
+    <string name="rotate">סובב</string>
+    <string name="welcome_back">ברוך שובך!</string>
+    <string name="sticker_saved_success">המדבקות נשמרו בהצלחה!</string>
+    <string name="sticker_limit_reached">מותר לכל היותר 5 מדבקות</string>
+
+    <!-- Shifted Layout & Code Strings -->
+    <string name="default_preview_title">פריחה ורודה</string>
+    <string name="default_preview_subtitle">סטטוס: פעיל ומתכרבל על הסוללה שלך</string>
+    <string name="status_bar_permissions_title">הרשאות שורת המצב</string>
+    <string name="overlay_perm_desc">אנא אפשר את שתי ההרשאות כדי שערכת הנושא של שורת המצב תוכל להופיע בטלפון שלך:</string>
+    <string name="overlay_perm_step1">1. אפשר \'הצגה מעל אפליקציות אחרות\'</string>
+    <string name="overlay_perm_step2">2. אפשר \'הצגת חלונות קופצים\'</string>
+    <string name="btn_apply_status_bar_theme">החל ערכת נושא לשורת המצב</string>
+    <string name="overlay_perm_step1_allowed">1. \'הצגה מעל אפליקציות אחרות\' מותר ✓</string>
+    <string name="please_agree_terms">אנא אשר את תנאי השירות</string>
+    <string name="show_in_status_bar">הצג בשורת המצב</string>
+    <string name="icon_color">צבע סמל</string>
+    <string name="style_label">סגנון</string>
+    <string name="date_format">פורמט תאריך</string>
+    <string name="date_style">סגנון תאריך</string>
+    <string name="status_bar_left_emojis">אימוג\'ים שמאליים בשורת המצב</string>
+    <string name="choose_emoji_left_desc">בחר אימוג\'י להצגה בצד שמאל יחד עם השעה</string>
+    <string name="emoji_battery_is_active">סוללת אימוג\'י פעילה</string>
+    <string name="status_active">פעיל</string>
+    <string name="item_customized_format">%1$s הותאם אישית!</string>
+    <string name="item_applied_battery_format">%1$s הוחל כסמל סוללה!</string>
+    <string name="item_size_format">גודל %1$s</string>
+    <string name="emoji_battery_deactivated">סוללת אימוג\'י הושבתה</string>
+    <string name="emoji_battery_activated">סוללת אימוג\'י הופעלה!</string>
+    <string name="notification_permission_granted">הרשאת התראות הוענקה!</string>
+    <string name="opening_privacy_policy">פותח מדיניות פרטיות…</string>
+    <string name="please_select_sticker">אנא בחר מדבקה תחילה</string>
+    <string name="language_changed_to">השפה שונתה ל-%1$s</string>
+    <string name="no_connection_msg">אין חיבור. אנא בדוק את האינטרנט ונסה שוב.</string>
+    <string name="cd_back">חזרה</string>
+    <string name="cd_clear">נקה</string>
+</resources>

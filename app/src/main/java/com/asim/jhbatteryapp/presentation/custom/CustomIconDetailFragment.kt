@@ -103,7 +103,7 @@ class CustomIconDetailFragment : Fragment() {
         }
 
         binding.tvDetailTitle.text = title
-        binding.tvDetailSizeLabel.text = "$title Size"
+        binding.tvDetailSizeLabel.text = getString(R.string.item_size_format, title)
 
         binding.ivDetailBack.setOnClickListener {
             findNavController().popBackStack()
@@ -396,7 +396,7 @@ class CustomIconDetailFragment : Fragment() {
         // Trigger real-time status bar overlay update if service is running
         StatusBarAccessibilityService.updateCustomSettings()
 
-        Toast.makeText(requireContext(), "${binding.tvDetailTitle.text} customized!", Toast.LENGTH_SHORT).show()
+        Toast.makeText(requireContext(), getString(R.string.item_customized_format, binding.tvDetailTitle.text), Toast.LENGTH_SHORT).show()
         findNavController().popBackStack()
     }
 

@@ -1,0 +1,245 @@
+<resources>
+    <string name="app_name">JH Battery</string>
+
+    <!-- Splash Screen -->
+    <string name="splash_title">ইমোজী বেটাৰী</string>
+    <string name="splash_loading">আপোনাৰ মৰমলগা বেটাৰী বন্ধুবোৰ লোড হৈ আছে…</string>
+
+    <!-- Onboarding Screen -->
+    <string name="skip">এৰাই চলক</string>
+    <string name="onboarding_title_1">প্ৰতিটো বিৱৰণ\nব্যক্তিগত কৰক।</string>
+    <string name="onboarding_desc_1">ইমোজী, পোহনীয়া জীৱ, বেটাৰী শৈলী, স্থিতি দণ্ড আৰু সুন্দৰ পটভূমি।</string>
+    <string name="onboarding_title_2">আপোনাৰ বেটাৰী\nআনন্দদায়ক কৰক।</string>
+    <string name="onboarding_desc_2">আপোনাৰ বেটাৰী আইকনক মৰমলগা ইমোজীলৈ পৰিৱৰ্তন কৰক। এক সৰু বিৱৰণ, বহুত সুখ।</string>
+    <string name="onboarding_title_3">আপোনাৰ বেটাৰী।\nআপোনাৰ কল্পনা।</string>
+    <string name="help_title">উন্নতি কৰাত সহায় কৰক</string>
+    <string name="help_desc_3">অনুগ্ৰহ কৰি Google Play-ত ৰেটিং দি আৰু আনক পৰামৰ্শ দি আমাক সমৰ্থন কৰক</string>
+    <string name="onboarding_desc_3">আপোনাৰ প্ৰিয় ইমোজী আৰু ৰং মিহলাই আপোনাৰ মনপচন্দ বেটাৰী তৈয়াৰ কৰক।</string>
+    <string name="get_started">আৰম্ভ কৰক</string>
+    <string name="next">পৰৱৰ্তী</string>
+
+    <!-- Home Screen -->
+    <string name="battery_icon_title">বেটাৰী আইকন</string>
+    <string name="search_emojis_title">ইমোজী সন্ধান কৰক</string>
+    <string name="search_placeholder">এটা ইমোজী বা থিম সন্ধান কৰক…</string>
+    <string name="enable_emoji_battery_banner">আৰম্ভ কৰিবলৈ ইমোজী বেটাৰী সক্ষম কৰক</string>
+    <string name="start">আৰম্ভ</string>
+    <string name="sticker_shop">ষ্টিকাৰ দোকান</string>
+    <string name="animation">এনিমেচন</string>
+    <string name="themes">থিমসমূহ</string>
+
+    <!-- Category Tabs -->
+    <string name="tab_hot">🔥 জনপ্ৰিয়</string>
+    <string name="tab_pokemon">পোকেমন</string>
+    <string name="tab_sanrio">চানৰিঅ\'</string>
+    <string name="tab_anime">এনিমে</string>
+
+    <!-- Filter Chips -->
+    <string name="chip_all">সকলো</string>
+    <string name="chip_heart">হৃদয়</string>
+    <string name="chip_cute_emoji">মৰমলগা ইমোজী</string>
+    <string name="chip_animations">এনিমেচনসমূহ</string>
+
+    <!-- Home Sections -->
+    <string name="section_recent">শেহতীয়া</string>
+    <string name="section_top_picks">শীৰ্ষ নিৰ্বাচন</string>
+
+    <!-- Bottom Navigation -->
+    <string name="nav_trending">ট্ৰেণ্ডিং</string>
+    <string name="nav_customize">কষ্টমাইজ</string>
+    <string name="nav_setting">ছেটিংছ</string>
+
+    <!-- Dialogs & Actions -->
+    <string name="apply_battery_style">বেটাৰী শৈলী প্ৰয়োগ কৰক</string>
+    <string name="applied_successfully">শৈলী সফলতাৰে প্ৰয়োগ কৰা হ\'ল!</string>
+    <string name="preview">পূৰ্বদৰ্শন</string>
+    <string name="battery_level">বেটাৰী স্তৰ: %1$d%%</string>
+
+    <!-- Settings Screen -->
+    <string name="settings_title">ছেটিংছ</string>
+    <string name="setting_language">ভাষা</string>
+    <string name="setting_language_current">অসমীয়া</string>
+    <string name="setting_privacy_policy">গোপনীয়তা নীতি</string>
+    <string name="setting_share_app">এপ শ্বেয়াৰ কৰক</string>
+    <string name="setting_rate_us">ৰেটিং দিয়ক</string>
+
+    <!-- Languages Screen -->
+    <string name="languages_title">ভাষাসমূহ</string>
+    <string name="lang_arabic">আৰবী</string>
+    <string name="lang_arabic_native">العربية</string>
+    <string name="lang_german">জাৰ্মান</string>
+    <string name="lang_german_native">Deutsch</string>
+    <string name="lang_assamese">অসমীয়া</string>
+    <string name="lang_assamese_native">অসমীয়া</string>
+    <string name="lang_persian">ফাৰ্চী</string>
+    <string name="lang_persian_native">فارسی</string>
+    <string name="lang_french">ফ্ৰাঞ্চীছ</string>
+    <string name="lang_french_native">Français</string>
+    <string name="lang_hindi">হিন্দী</string>
+    <string name="lang_hindi_native">हिन्दी</string>
+    <string name="lang_indonesian">ইণ্ডোনেছিয়ান</string>
+    <string name="lang_indonesian_native">Bahasa Indonesia</string>
+    <string name="lang_hebrew">হিব্ৰু</string>
+    <string name="lang_hebrew_native">עברית</string>
+    <string name="lang_japanese">জাপানী</string>
+    <string name="lang_japanese_native">日本語</string>
+    <string name="lang_korean">কোৰিয়ান</string>
+    <string name="lang_korean_native">한국어</string>
+    <string name="lang_malay">মালয়</string>
+    <string name="lang_malay_native">Bahasa Melayu</string>
+    <string name="lang_portuguese">পৰ্তুগীজ</string>
+    <string name="lang_portuguese_native">Português</string>
+    <string name="lang_russian">ৰাছিয়ান</string>
+    <string name="lang_russian_native">Русский</string>
+    <string name="lang_turkish">তুৰ্কী</string>
+    <string name="lang_turkish_native">Türkçe</string>
+    <string name="lang_urdu">উৰ্দু</string>
+    <string name="lang_urdu_native">اردو</string>
+    <string name="lang_vietnamese">ভিয়েটনামী</string>
+    <string name="lang_vietnamese_native">Tiếng Việt</string>
+    <string name="lang_chinese">চীনা</string>
+    <string name="lang_chinese_native">中文</string>
+    <string name="lang_english">ইংৰাজী</string>
+    <string name="lang_english_native">English</string>
+    <string name="lang_dutch">ডাচ</string>
+    <string name="lang_dutch_native">Nederlands</string>
+    <string name="apply">প্ৰয়োগ কৰক</string>
+
+    <!-- Dialogs -->
+    <string name="share_dialog_title">ইমোজী এপ শ্বেয়াৰ কৰক</string>
+    <string name="share_dialog_desc">ম\'বাইল ৰিভিউত ইমোজী যোগ কৰিবলৈ বন্ধুবোৰক আমন্ত্ৰণ জনাওক।</string>
+    <string name="share_link_url">https://velo.app/get</string>
+    <string name="copy">কপি কৰক</string>
+    <string name="link_copied">লিংক ক্লিপবৰ্ডত কপি কৰা হ\'ল!</string>
+    <string name="done">সম্পন্ন</string>
+    <string name="feedback_dialog_title">আপোনাৰ কেনে লাগিল?</string>
+    <string name="feedback_dialog_desc">আপোনাৰ মতামত আমাৰ বাবে অতি গুৰুত্বপূৰ্ণ।</string>
+    <string name="feedback_submitted">আপোনাৰ মতামতৰ বাবে ধন্যবাদ!</string>
+
+    <!-- Status Bar Themes & Animations Screens -->
+    <string name="status_bar_theme_title">স্থিতি দণ্ড থিম</string>
+    <string name="gradient_tab">গ্ৰেডিয়েণ্ট</string>
+    <string name="background_tab">পটভূমি</string>
+    <string name="choose_gradient">এটা গ্ৰেডিয়েণ্ট বাছক</string>
+    <string name="choose_background">এটা পটভূমি বাছক</string>
+    <string name="status_bar_animation_title">স্থিতি দণ্ড এনিমেচন</string>
+    <string name="date_size">তাৰিখৰ আকাৰ</string>
+    <string name="animation_style">এনিমেচন শৈলী</string>
+    <string name="see_all">সকলো চাওক</string>
+    <string name="theme_applied_success">স্থিতি দণ্ড থিম সফলতাৰে প্ৰয়োগ কৰা হ\'ল!</string>
+    <string name="animation_applied_success">স্থিতি দণ্ড এনিমেচন সফলতাৰে প্ৰয়োগ কৰা হ\'ল!</string>
+    <string name="accessibility_service_label">ইমোজী বেটাৰী আইকন কষ্টমাইজ</string>
+    <string name="accessibility_service_desc">স্থিতি দণ্ডত ইমোজী ষ্টিকাৰ প্ৰদৰ্শন কৰক আৰু ৰূপ কষ্টমাইজ কৰক। কোনো তথ্য সংগ্ৰহ কৰা নহয়।</string>
+    <string name="accessibility_dialog_title">ইমোজী বেটাৰী আইকন অনুমতি</string>
+    <string name="accessibility_dialog_desc">আপোনাৰ কষ্টম বেটাৰী ইমোজী, এনিমেচন আৰু স্ক্ৰীণ ষ্টিকাৰ প্ৰদৰ্শন কৰিবলৈ, অনুগ্ৰহ কৰি এক্সেছিবিলিটি সেৱাত ইমোজী বেটাৰী আইকন সক্ষম কৰক।</string>
+    <string name="enable_accessibility">ইমোজী বেটাৰী আইকন সক্ষম কৰক</string>
+    <string name="keep_standard_overlay">মানক অভাৰলে\' ৰাখক</string>
+
+    <!-- Status Bar Custom Screen Strings -->
+    <string name="status_bar_custom_title">স্থিতি দণ্ড কষ্টম</string>
+    <string name="tab_size">আকাৰ</string>
+    <string name="tab_appearance">ৰূপ</string>
+    <string name="tab_battery">বেটাৰী</string>
+    <string name="tab_customize_icon">আইকন কষ্টমাইজ কৰক</string>
+    <string name="label_size">আকাৰ</string>
+    <string name="label_height">উচ্চতা</string>
+    <string name="label_left_margin">বাওঁ মাৰ্জিন</string>
+    <string name="label_right_margin">সোঁ মাৰ্জিন</string>
+    <string name="label_appearance">ৰূপ</string>
+    <string name="label_icon">আইকন</string>
+    <string name="label_background">পটভূমি</string>
+    <string name="label_battery">বেটাৰী</string>
+    <string name="label_percentage">শতাংশ</string>
+    <string name="label_icon_size">আইকন আকাৰ</string>
+    <string name="label_emoji">ইমোজী</string>
+    <string name="tab_trending">ট্ৰেণ্ডিং</string>
+    <string name="tab_halloween">হেলোৱিন</string>
+    <string name="tab_wc2">WC 2</string>
+    <string name="apply_custom_success">কষ্টম স্থিতি দণ্ড সফলতাৰে প্ৰয়োগ কৰা হ\'ল!</string>
+
+    <!-- Notification Permission Dialog -->
+    <string name="notify_permission_title">জাননীৰ অনুমতি</string>
+    <string name="notify_permission_desc">গুৰুত্বপূৰ্ণ আপডেট আৰু ব্যৱস্থা তথ্য প্ৰদান কৰিবলৈ এপে জাননী ব্যৱহাৰ কৰে।</string>
+    <string name="not_now">এতিয়া নহয়</string>
+    <string name="allow">অনুমতি দিয়ক</string>
+
+    <!-- Accessibility Service Usage Dialog -->
+    <string name="accessibility_usage_title">এক্সেছিবিলিটি সেৱাৰ ব্যৱহাৰ</string>
+    <string name="accessibility_usage_subtitle">আগবাঢ়িবলৈ অনুমতিৰ প্ৰয়োজন</string>
+    <string name="accessibility_usage_intro">এই এপক নিম্নোক্ত কামৰ বাবে এক্সেছিবিলিটি সেৱাৰ অনুমতি প্ৰয়োজন:</string>
+    <string name="accessibility_usage_bullet_1"><![CDATA[স্ক্ৰীণত <b><font color="#A855F7">"ইমোজী বেটাৰী আইকন কষ্টমাইজ"</font></b> দৃশ্য প্ৰদৰ্শন কৰা আৰু স্থিতি দণ্ডৰ ইংগিত চিনাক্ত কৰা।]]></string>
+    <string name="accessibility_usage_bullet_2"><![CDATA[হোম, বেক আৰু শেহতীয়া স্ক্ৰীণৰ বাবে <b><font color="#A855F7">এক্সেছিবিলিটি কাৰ্য্য</font></b> আৰম্ভ কৰা।]]></string>
+    <string name="accessibility_usage_notice">এই এপিকেচনে এই অধিকাৰ সম্পৰ্কীয় কোনো ব্যৱহাৰকাৰীৰ তথ্য সংগ্ৰহ বা শ্বেয়াৰ নকৰাৰ প্ৰতিশ্ৰুতি দিয়ে।</string>
+    <string name="accessibility_usage_terms"><![CDATA[মই <u><font color="#A855F7">সেৱাৰ চৰ্তাৱলী</font></u> পঢ়িছোঁ আৰু সন্মত হৈছোঁ]]></string>
+    <string name="close">বন্ধ কৰক</string>
+
+    <!-- How To Use Screen -->
+    <string name="how_to_use_title">ব্যৱহাৰৰ নিয়ম</string>
+    <string name="how_to_use_step_1"><![CDATA[১. ডাউনল\'ড কৰা এপত <font color="#9333EA"><b>ইমোজী বেটাৰী আইকন কষ্টমাইজ</b></font> নিৰ্বাচন কৰক।]]></string>
+    <string name="how_to_use_step_2"><![CDATA[২. <font color="#9333EA"><b>ইমোজী বেটাৰী আইকন কষ্টমাইজ</b></font> নিৰ্বাচন কৰক।]]></string>
+    <string name="how_to_use_step_3"><![CDATA[৩. অন কৰক।]]></string>
+    <string name="how_to_use_step_4"><![CDATA[৪. <font color="#9333EA"><b>অনুমতি দিয়ক</b></font> ক্লিক কৰক।]]></string>
+    <string name="go_to_settings">ছেটিংছলৈ যাওক</string>
+    <string name="continue_text">অব্যাহত ৰাখক</string>
+
+    <!-- Exit Dialog -->
+    <string name="exit_dialog_title">আপুনি নিশ্চিতভাৱে প্ৰস্থান কৰিব বিচাৰেনে?</string>
+    <string name="exit_dialog_desc">আপোনাৰ পৰিৱৰ্তনসমূহ সংৰক্ষণ কৰা হোৱা নাই। ওলাই যাব বিচাৰেনে?</string>
+    <string name="yes">হয়</string>
+    <string name="no">নহয়</string>
+
+    <!-- No Internet Dialog -->
+    <string name="no_internet_title">ইণ্টাৰনেট সংযোগ নাই</string>
+    <string name="no_internet_desc">অনুগ্ৰহ কৰি ইণ্টাৰনেট সংযোগ পৰীক্ষা কৰক আৰু পুনৰ চেষ্টা কৰক।</string>
+    <string name="cancel">বাতিল</string>
+    <string name="retry">পুনৰ চেষ্টা কৰক</string>
+
+    <!-- Don't Miss Out Dialog -->
+    <string name="dont_miss_out_title">সুযোগ নেহেৰুৱাব!!</string>
+    <string name="dont_miss_out_desc">নতুন বেটাৰী আইকন, ঋতুভিত্তিক থিম আৰু জনপ্ৰিয় শৈলী আৱিষ্কাৰ কৰিবলৈ জাননী অন কৰক।</string>
+    <string name="maybe_later">পাছত হ\'ব</string>
+    <string name="turn_on_notifications">জাননী অন কৰক</string>
+
+    <!-- Sticker For Display Screen Strings -->
+    <string name="sticker_for_display_title">প্ৰদৰ্শন স্ক্ৰীণৰ বাবে ষ্টিকাৰ</string>
+    <string name="my_sticker">মোৰ ষ্টিকাৰ</string>
+    <string name="save">সংৰক্ষণ</string>
+    <string name="adjustment">সমন্বয়</string>
+    <string name="size">আকাৰ</string>
+    <string name="rotate">ঘূৰাওক</string>
+    <string name="welcome_back">স্বাগতম!</string>
+    <string name="sticker_saved_success">ষ্টিকাৰ সফলতাৰে সংৰক্ষণ কৰা হ\'ল!</string>
+    <string name="sticker_limit_reached">সৰ্বাধিক ৫টা ষ্টিকাৰ অনুমোদিত</string>
+
+    <!-- Shifted Layout & Code Strings -->
+    <string name="default_preview_title">গোলাপী ফুল</string>
+    <string name="default_preview_subtitle">স্থিতি: বেটাৰীত সক্ৰিয় আৰু মৰমলগা</string>
+    <string name="status_bar_permissions_title">স্থিতি দণ্ডৰ অনুমতিসমূহ</string>
+    <string name="overlay_perm_desc">অনুগ্ৰহ কৰি দুয়োটা অনুমতি দিয়ক যাতে স্থিতি দণ্ড সমগ্ৰ ফোনত প্ৰদৰ্শিত হ\'ব পাৰে:</string>
+    <string name="overlay_perm_step1">১. \'অন্য এপৰ ওপৰত প্ৰদৰ্শন\' অনুমতি দিয়ক</string>
+    <string name="overlay_perm_step2">২. \'পপ-আপ উইণ্ডো প্ৰদৰ্শন\' অনুমতি দিয়ক</string>
+    <string name="btn_apply_status_bar_theme">স্থিতি দণ্ড থিম প্ৰয়োগ কৰক</string>
+    <string name="overlay_perm_step1_allowed">১. \'অন্য এপৰ ওপৰত প্ৰদৰ্শন\' অনুমোদিত ✓</string>
+    <string name="please_agree_terms">অনুগ্ৰহ কৰি সেৱাৰ চৰ্তসমূহত সন্মত হওক</string>
+    <string name="show_in_status_bar">স্থিতি দণ্ডত দেখুৱাওক</string>
+    <string name="icon_color">আইকনৰ ৰং</string>
+    <string name="style_label">শৈলী</string>
+    <string name="date_format">তাৰিখৰ ফৰ্মেট</string>
+    <string name="date_style">তাৰিখ শৈলী</string>
+    <string name="status_bar_left_emojis">স্থিতি দণ্ড বাওঁ ইমোজী</string>
+    <string name="choose_emoji_left_desc">সময়ৰ সৈতে বাওঁফালে প্ৰদৰ্শন কৰিবলৈ এটা ইমোজী বাছক</string>
+    <string name="emoji_battery_is_active">ইমোজী বেটাৰী সক্ৰিয় হৈ আছে</string>
+    <string name="status_active">সক্ৰিয়</string>
+    <string name="item_customized_format">%1$s কষ্টমাইজ কৰা হ\'ল!</string>
+    <string name="item_applied_battery_format">%1$s বেটাৰী আইকন হিচাপে প্ৰয়োগ কৰা হ\'ল!</string>
+    <string name="item_size_format">%1$s আকাৰ</string>
+    <string name="emoji_battery_deactivated">ইমোজী বেটাৰী নিষ্ক্ৰিয় কৰা হ\'ল</string>
+    <string name="emoji_battery_activated">ইমোজী বেটাৰী সক্ৰিয় কৰা হ\'ল!</string>
+    <string name="notification_permission_granted">জাননীৰ অনুমতি প্ৰদান কৰা হ\'ল!</string>
+    <string name="opening_privacy_policy">গোপনীয়তা নীতি খোলা হৈছে…</string>
+    <string name="please_select_sticker">অনুগ্ৰহ কৰি প্ৰথমে এটা ষ্টিকাৰ বাছক</string>
+    <string name="language_changed_to">ভাষা %1$s লৈ পৰিৱৰ্তন কৰা হ\'ল</string>
+    <string name="no_connection_msg">কোনো সংযোগ নাই। অনুগ্ৰহ কৰি ইণ্টাৰনেট পৰীক্ষা কৰক আৰু পুনৰ চেষ্টা কৰক।</string>
+    <string name="cd_back">পিছলৈ</string>
+    <string name="cd_clear">মচি পেলাওক</string>
+</resources>

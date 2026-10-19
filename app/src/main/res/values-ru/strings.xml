@@ -1,0 +1,245 @@
+<resources>
+    <string name="app_name">JH Battery</string>
+
+    <!-- Splash Screen -->
+    <string name="splash_title">Эмодзи Батарея</string>
+    <string name="splash_loading">Загрузка милых друзей батареи…</string>
+
+    <!-- Onboarding Screen -->
+    <string name="skip">Пропустить</string>
+    <string name="onboarding_title_1">Настройте каждую\nдеталь с помощью.</string>
+    <string name="onboarding_desc_1">эмодзи, питомцев, стилей батареи, строк состояния и красивых фонов.</string>
+    <string name="onboarding_title_2">Сделайте вашу\nбатарею веселой.</string>
+    <string name="onboarding_desc_2">Превратите иконку батареи в милые эмодзи. Маленькая деталь, много радости.</string>
+    <string name="onboarding_title_3">Ваша батарея.\nВаша фантазия.</string>
+    <string name="help_title">Помогите нам стать лучше</string>
+    <string name="help_desc_3">Пожалуйста, поддержите нас оценкой и рекомендацией в Google Play</string>
+    <string name="onboarding_desc_3">Сочетайте любимые эмодзи и цвета, создавая батарею под ваш вкус.</string>
+    <string name="get_started">Начать</string>
+    <string name="next">Далее</string>
+
+    <!-- Home Screen -->
+    <string name="battery_icon_title">Иконка батареи</string>
+    <string name="search_emojis_title">Поиск эмодзи</string>
+    <string name="search_placeholder">Поиск эмодзи или темы…</string>
+    <string name="enable_emoji_battery_banner">Включите эмодзи батарею для начала</string>
+    <string name="start">Старт</string>
+    <string name="sticker_shop">Магазин стикеров</string>
+    <string name="animation">Анимация</string>
+    <string name="themes">Темы</string>
+
+    <!-- Category Tabs -->
+    <string name="tab_hot">🔥 Популярное</string>
+    <string name="tab_pokemon">Покемон</string>
+    <string name="tab_sanrio">Санрио</string>
+    <string name="tab_anime">Аниме</string>
+
+    <!-- Filter Chips -->
+    <string name="chip_all">Все</string>
+    <string name="chip_heart">Сердце</string>
+    <string name="chip_cute_emoji">Милый эмодзи</string>
+    <string name="chip_animations">Анимации</string>
+
+    <!-- Home Sections -->
+    <string name="section_recent">Недавние</string>
+    <string name="section_top_picks">Лучший выбор</string>
+
+    <!-- Bottom Navigation -->
+    <string name="nav_trending">Тренды</string>
+    <string name="nav_customize">Настройка</string>
+    <string name="nav_setting">Настройки</string>
+
+    <!-- Dialogs & Actions -->
+    <string name="apply_battery_style">Применить стиль батареи</string>
+    <string name="applied_successfully">Стиль успешно применен!</string>
+    <string name="preview">Предпросмотр</string>
+    <string name="battery_level">Уровень батареи: %1$d%%</string>
+
+    <!-- Settings Screen -->
+    <string name="settings_title">Настройки</string>
+    <string name="setting_language">Язык</string>
+    <string name="setting_language_current">Русский</string>
+    <string name="setting_privacy_policy">Политика конфиденциальности</string>
+    <string name="setting_share_app">Поделиться приложением</string>
+    <string name="setting_rate_us">Оценить нас</string>
+
+    <!-- Languages Screen -->
+    <string name="languages_title">Языки</string>
+    <string name="lang_arabic">Арабский</string>
+    <string name="lang_arabic_native">العربية</string>
+    <string name="lang_german">Немецкий</string>
+    <string name="lang_german_native">Deutsch</string>
+    <string name="lang_assamese">Ассамский</string>
+    <string name="lang_assamese_native">অসমীয়া</string>
+    <string name="lang_persian">Персидский</string>
+    <string name="lang_persian_native">فارسی</string>
+    <string name="lang_french">Французский</string>
+    <string name="lang_french_native">Français</string>
+    <string name="lang_hindi">Хинди</string>
+    <string name="lang_hindi_native">हिन्दी</string>
+    <string name="lang_indonesian">Индонезийский</string>
+    <string name="lang_indonesian_native">Bahasa Indonesia</string>
+    <string name="lang_hebrew">Иврит</string>
+    <string name="lang_hebrew_native">עברית</string>
+    <string name="lang_japanese">Японский</string>
+    <string name="lang_japanese_native">日本語</string>
+    <string name="lang_korean">Корейский</string>
+    <string name="lang_korean_native">한국어</string>
+    <string name="lang_malay">Малайский</string>
+    <string name="lang_malay_native">Bahasa Melayu</string>
+    <string name="lang_portuguese">Португальский</string>
+    <string name="lang_portuguese_native">Português</string>
+    <string name="lang_russian">Русский</string>
+    <string name="lang_russian_native">Русский</string>
+    <string name="lang_turkish">Турецкий</string>
+    <string name="lang_turkish_native">Türkçe</string>
+    <string name="lang_urdu">Урду</string>
+    <string name="lang_urdu_native">اردو</string>
+    <string name="lang_vietnamese">Вьетнамский</string>
+    <string name="lang_vietnamese_native">Tiếng Việt</string>
+    <string name="lang_chinese">Китайский</string>
+    <string name="lang_chinese_native">中文</string>
+    <string name="lang_english">Английский</string>
+    <string name="lang_english_native">English</string>
+    <string name="lang_dutch">Нидерландский</string>
+    <string name="lang_dutch_native">Nederlands</string>
+    <string name="apply">Применить</string>
+
+    <!-- Dialogs -->
+    <string name="share_dialog_title">Поделиться приложением</string>
+    <string name="share_dialog_desc">Пригласите друзей добавить эмодзи на свой телефон.</string>
+    <string name="share_link_url">https://velo.app/get</string>
+    <string name="copy">Копировать</string>
+    <string name="link_copied">Ссылка скопирована в буфер обмена!</string>
+    <string name="done">Готово</string>
+    <string name="feedback_dialog_title">Что вы думаете о приложении?</string>
+    <string name="feedback_dialog_desc">Ваш отзыв очень важен для нас и помогает улучшить приложение.</string>
+    <string name="feedback_submitted">Спасибо за ваш отзыв!</string>
+
+    <!-- Status Bar Themes & Animations Screens -->
+    <string name="status_bar_theme_title">Тема строки состояния</string>
+    <string name="gradient_tab">Градиент</string>
+    <string name="background_tab">Фон</string>
+    <string name="choose_gradient">Выберите градиент</string>
+    <string name="choose_background">Выберите фон</string>
+    <string name="status_bar_animation_title">Анимация строки состояния</string>
+    <string name="date_size">Размер даты</string>
+    <string name="animation_style">Стиль анимации</string>
+    <string name="see_all">Показать все</string>
+    <string name="theme_applied_success">Тема строки состояния успешно применена!</string>
+    <string name="animation_applied_success">Анимация строки состояния успешно применена!</string>
+    <string name="accessibility_service_label">Настройка иконки батареи эмодзи</string>
+    <string name="accessibility_service_desc">Отображение стикеров эмодзи в строке состояния. Данные не собираются.</string>
+    <string name="accessibility_dialog_title">Разрешение для иконки эмодзи</string>
+    <string name="accessibility_dialog_desc">Чтобы отображать эмодзи батареи, анимации и стикеры, включите службу специальных возможностей.</string>
+    <string name="enable_accessibility">Включить иконку батареи эмодзи</string>
+    <string name="keep_standard_overlay">Оставить стандартное наложение</string>
+
+    <!-- Status Bar Custom Screen Strings -->
+    <string name="status_bar_custom_title">Настройка строки состояния</string>
+    <string name="tab_size">Размер</string>
+    <string name="tab_appearance">Вид</string>
+    <string name="tab_battery">Батарея</string>
+    <string name="tab_customize_icon">Настроить иконку</string>
+    <string name="label_size">Размер</string>
+    <string name="label_height">Высота</string>
+    <string name="label_left_margin">Левый отступ</string>
+    <string name="label_right_margin">Правый отступ</string>
+    <string name="label_appearance">Вид</string>
+    <string name="label_icon">Иконка</string>
+    <string name="label_background">Фон</string>
+    <string name="label_battery">Батарея</string>
+    <string name="label_percentage">Процент</string>
+    <string name="label_icon_size">Размер иконки</string>
+    <string name="label_emoji">Эмодзи</string>
+    <string name="tab_trending">Тренды</string>
+    <string name="tab_halloween">Хэллоуин</string>
+    <string name="tab_wc2">WC 2</string>
+    <string name="apply_custom_success">Пользовательская строка состояния применена!</string>
+
+    <!-- Notification Permission Dialog -->
+    <string name="notify_permission_title">Разрешение на уведомления</string>
+    <string name="notify_permission_desc">Приложение использует уведомления для отправки важных обновлений и системной информации.</string>
+    <string name="not_now">Не сейчас</string>
+    <string name="allow">Разрешить</string>
+
+    <!-- Accessibility Service Usage Dialog -->
+    <string name="accessibility_usage_title">Использование спец. возможностей</string>
+    <string name="accessibility_usage_subtitle">Для продолжения требуется разрешение</string>
+    <string name="accessibility_usage_intro">Приложению требуется разрешение специальных возможностей для:</string>
+    <string name="accessibility_usage_bullet_1"><![CDATA[Отображения <b><font color="#A855F7">"Настройка иконки батареи эмодзи"</font></b> на экране и распознавания жестов.]]></string>
+    <string name="accessibility_usage_bullet_2"><![CDATA[Выполнения <b><font color="#A855F7">действий доступности</font></b> Домой, Назад и Недавние приложения.]]></string>
+    <string name="accessibility_usage_notice">Приложение обязуется не собирать и не передавать личные данные пользователей.</string>
+    <string name="accessibility_usage_terms"><![CDATA[Я прочитал(-а) и принимаю <u><font color="#A855F7">Условия обслуживания</font></u>]]></string>
+    <string name="close">Закрыть</string>
+
+    <!-- How To Use Screen -->
+    <string name="how_to_use_title">Инструкция</string>
+    <string name="how_to_use_step_1"><![CDATA[1. В загруженных приложениях выберите <font color="#9333EA"><b>Настройка иконки батареи эмодзи.</b></font>]]></string>
+    <string name="how_to_use_step_2"><![CDATA[2. Выберите <font color="#9333EA"><b>Настройка иконки батареи эмодзи.</b></font>]]></string>
+    <string name="how_to_use_step_3"><![CDATA[3. Включите.]]></string>
+    <string name="how_to_use_step_4"><![CDATA[4. Нажмите <font color="#9333EA"><b>Разрешить.</b></font>]]></string>
+    <string name="go_to_settings">Перейти в настройки</string>
+    <string name="continue_text">Продолжить</string>
+
+    <!-- Exit Dialog -->
+    <string name="exit_dialog_title">Вы уверены, что хотите выйти?</string>
+    <string name="exit_dialog_desc">Изменения не сохранены. Вы действительно хотите выйти?</string>
+    <string name="yes">Да</string>
+    <string name="no">Нет</string>
+
+    <!-- No Internet Dialog -->
+    <string name="no_internet_title">Нет подключения к интернету</string>
+    <string name="no_internet_desc">Пожалуйста, проверьте подключение к интернету и повторите попытку.</string>
+    <string name="cancel">Отмена</string>
+    <string name="retry">Повторить</string>
+
+    <!-- Don't Miss Out Dialog -->
+    <string name="dont_miss_out_title">Не пропустите!!</string>
+    <string name="dont_miss_out_desc">Включите уведомления, чтобы узнавать о новых иконках батареи, сезонных темах и трендовых стилях.</string>
+    <string name="maybe_later">Возможно позже</string>
+    <string name="turn_on_notifications">Включить уведомления</string>
+
+    <!-- Sticker For Display Screen Strings -->
+    <string name="sticker_for_display_title">Стикер для экрана</string>
+    <string name="my_sticker">Мои стикеры</string>
+    <string name="save">Сохранить</string>
+    <string name="adjustment">Настройка</string>
+    <string name="size">Размер</string>
+    <string name="rotate">Поворот</string>
+    <string name="welcome_back">С возвращением!</string>
+    <string name="sticker_saved_success">Стикеры успешно сохранены!</string>
+    <string name="sticker_limit_reached">Разрешено максимум 5 стикеров</string>
+
+    <!-- Shifted Layout & Code Strings -->
+    <string name="default_preview_title">Розовый цветок</string>
+    <string name="default_preview_subtitle">Статус: Активен на вашей батарее</string>
+    <string name="status_bar_permissions_title">Разрешения строки состояния</string>
+    <string name="overlay_perm_desc">Пожалуйста, предоставьте оба разрешения для отображения темы на телефоне:</string>
+    <string name="overlay_perm_step1">1. Разрешить \'Поверх других приложений\'</string>
+    <string name="overlay_perm_step2">2. Разрешить \'Всплывающие окна\'</string>
+    <string name="btn_apply_status_bar_theme">Применить тему строки состояния</string>
+    <string name="overlay_perm_step1_allowed">1. \'Поверх других приложений\' разрешено ✓</string>
+    <string name="please_agree_terms">Пожалуйста, примите Условия обслуживания</string>
+    <string name="show_in_status_bar">Показывать в строке состояния</string>
+    <string name="icon_color">Цвет иконки</string>
+    <string name="style_label">Стиль</string>
+    <string name="date_format">Формат даты</string>
+    <string name="date_style">Стиль даты</string>
+    <string name="status_bar_left_emojis">Эмодзи слева в строке состояния</string>
+    <string name="choose_emoji_left_desc">Выберите эмодзи для отображения слева рядом со временем</string>
+    <string name="emoji_battery_is_active">Эмодзи батарея активна</string>
+    <string name="status_active">Активно</string>
+    <string name="item_customized_format">%1$s настроен!</string>
+    <string name="item_applied_battery_format">%1$s применен как иконка батареи!</string>
+    <string name="item_size_format">Размер %1$s</string>
+    <string name="emoji_battery_deactivated">Эмодзи батарея отключена</string>
+    <string name="emoji_battery_activated">Эмодзи батарея активирована!</string>
+    <string name="notification_permission_granted">Разрешение на уведомления предоставлено!</string>
+    <string name="opening_privacy_policy">Открытие политики конфиденциальности…</string>
+    <string name="please_select_sticker">Сначала выберите стикер</string>
+    <string name="language_changed_to">Язык изменен на %1$s</string>
+    <string name="no_connection_msg">Нет связи. Проверьте подключение к сети и повторите попытку.</string>
+    <string name="cd_back">Назад</string>
+    <string name="cd_clear">Очистить</string>
+</resources>

@@ -1,0 +1,245 @@
+<resources>
+    <string name="app_name">JH Battery</string>
+
+    <!-- Splash Screen -->
+    <string name="splash_title">表情电池</string>
+    <string name="splash_loading">正在加载可爱的电池伙伴…</string>
+
+    <!-- Onboarding Screen -->
+    <string name="skip">跳过</string>
+    <string name="onboarding_title_1">个性化定制\n每一个细节。</string>
+    <string name="onboarding_desc_1">表情、宠物、电池样式、状态栏和精美背景。</string>
+    <string name="onboarding_title_2">让你的电池\n更有趣。</string>
+    <string name="onboarding_desc_2">将电池图标变成可爱的表情。小小细节，满满幸福。</string>
+    <string name="onboarding_title_3">你的电池。\n你的无限想象。</string>
+    <string name="help_title">帮助我们改进</string>
+    <string name="help_desc_3">请在 Google Play 上为我们评分并推荐给朋友，感谢支持！</string>
+    <string name="onboarding_desc_3">混合搭配喜爱的表情和颜色，打造专属于你的个性电池。</string>
+    <string name="get_started">立即开始</string>
+    <string name="next">下一步</string>
+
+    <!-- Home Screen -->
+    <string name="battery_icon_title">电池图标</string>
+    <string name="search_emojis_title">搜索表情</string>
+    <string name="search_placeholder">搜索表情或主题…</string>
+    <string name="enable_emoji_battery_banner">开启表情电池以开始体验</string>
+    <string name="start">开始</string>
+    <string name="sticker_shop">贴纸商店</string>
+    <string name="animation">动画</string>
+    <string name="themes">主题</string>
+
+    <!-- Category Tabs -->
+    <string name="tab_hot">🔥 热门</string>
+    <string name="tab_pokemon">宝可梦</string>
+    <string name="tab_sanrio">三丽鸥</string>
+    <string name="tab_anime">动漫</string>
+
+    <!-- Filter Chips -->
+    <string name="chip_all">全部</string>
+    <string name="chip_heart">爱心</string>
+    <string name="chip_cute_emoji">可爱表情</string>
+    <string name="chip_animations">动态动画</string>
+
+    <!-- Home Sections -->
+    <string name="section_recent">最近使用</string>
+    <string name="section_top_picks">精选推荐</string>
+
+    <!-- Bottom Navigation -->
+    <string name="nav_trending">热门</string>
+    <string name="nav_customize">自定义</string>
+    <string name="nav_setting">设置</string>
+
+    <!-- Dialogs & Actions -->
+    <string name="apply_battery_style">应用电池样式</string>
+    <string name="applied_successfully">样式应用成功！</string>
+    <string name="preview">预览</string>
+    <string name="battery_level">电量: %1$d%%</string>
+
+    <!-- Settings Screen -->
+    <string name="settings_title">设置</string>
+    <string name="setting_language">语言</string>
+    <string name="setting_language_current">中文</string>
+    <string name="setting_privacy_policy">隐私政策</string>
+    <string name="setting_share_app">分享应用</string>
+    <string name="setting_rate_us">为我们评分</string>
+
+    <!-- Languages Screen -->
+    <string name="languages_title">语言选择</string>
+    <string name="lang_arabic">阿拉伯语</string>
+    <string name="lang_arabic_native">العربية</string>
+    <string name="lang_german">德语</string>
+    <string name="lang_german_native">Deutsch</string>
+    <string name="lang_assamese">阿萨姆语</string>
+    <string name="lang_assamese_native">অসমীয়া</string>
+    <string name="lang_persian">波斯语</string>
+    <string name="lang_persian_native">فارسی</string>
+    <string name="lang_french">法语</string>
+    <string name="lang_french_native">Français</string>
+    <string name="lang_hindi">印地语</string>
+    <string name="lang_hindi_native">हिन्दी</string>
+    <string name="lang_indonesian">印尼语</string>
+    <string name="lang_indonesian_native">Bahasa Indonesia</string>
+    <string name="lang_hebrew">希伯来语</string>
+    <string name="lang_hebrew_native">עברית</string>
+    <string name="lang_japanese">日语</string>
+    <string name="lang_japanese_native">日本語</string>
+    <string name="lang_korean">韩语</string>
+    <string name="lang_korean_native">한국어</string>
+    <string name="lang_malay">马来语</string>
+    <string name="lang_malay_native">Bahasa Melayu</string>
+    <string name="lang_portuguese">葡萄牙语</string>
+    <string name="lang_portuguese_native">Português</string>
+    <string name="lang_russian">俄语</string>
+    <string name="lang_russian_native">Русский</string>
+    <string name="lang_turkish">土耳其语</string>
+    <string name="lang_turkish_native">Türkçe</string>
+    <string name="lang_urdu">乌尔都语</string>
+    <string name="lang_urdu_native">اردو</string>
+    <string name="lang_vietnamese">越南语</string>
+    <string name="lang_vietnamese_native">Tiếng Việt</string>
+    <string name="lang_chinese">中文</string>
+    <string name="lang_chinese_native">中文</string>
+    <string name="lang_english">英语</string>
+    <string name="lang_english_native">English</string>
+    <string name="lang_dutch">荷兰语</string>
+    <string name="lang_dutch_native">Nederlands</string>
+    <string name="apply">应用</string>
+
+    <!-- Dialogs -->
+    <string name="share_dialog_title">分享表情应用</string>
+    <string name="share_dialog_desc">邀请好友一起体验手机个性表情电池。</string>
+    <string name="share_link_url">https://velo.app/get</string>
+    <string name="copy">复制</string>
+    <string name="link_copied">链接已复制到剪贴板！</string>
+    <string name="done">完成</string>
+    <string name="feedback_dialog_title">你觉得怎么样？</string>
+    <string name="feedback_dialog_desc">你的宝贵反馈能帮助我们更好地满足你的需求。</string>
+    <string name="feedback_submitted">感谢你的反馈！</string>
+
+    <!-- Status Bar Themes & Animations Screens -->
+    <string name="status_bar_theme_title">状态栏主题</string>
+    <string name="gradient_tab">渐变</string>
+    <string name="background_tab">背景</string>
+    <string name="choose_gradient">选择渐变色</string>
+    <string name="choose_background">选择背景图</string>
+    <string name="status_bar_animation_title">状态栏动画</string>
+    <string name="date_size">日期大小</string>
+    <string name="animation_style">动画样式</string>
+    <string name="see_all">查看全部</string>
+    <string name="theme_applied_success">状态栏主题应用成功！</string>
+    <string name="animation_applied_success">状态栏动画应用成功！</string>
+    <string name="accessibility_service_label">表情电池图标自定义</string>
+    <string name="accessibility_service_desc">在状态栏上显示表情贴纸并自定义外观。不会收集任何个人数据。</string>
+    <string name="accessibility_dialog_title">表情电池图标权限</string>
+    <string name="accessibility_dialog_desc">为了在屏幕上显示自定义电池表情、动画和贴纸，请在无障碍服务中开启表情电池图标。</string>
+    <string name="enable_accessibility">开启表情电池图标</string>
+    <string name="keep_standard_overlay">保持标准悬浮窗</string>
+
+    <!-- Status Bar Custom Screen Strings -->
+    <string name="status_bar_custom_title">自定义状态栏</string>
+    <string name="tab_size">尺寸</string>
+    <string name="tab_appearance">外观</string>
+    <string name="tab_battery">电池</string>
+    <string name="tab_customize_icon">自定义图标</string>
+    <string name="label_size">尺寸</string>
+    <string name="label_height">高度</string>
+    <string name="label_left_margin">左边距</string>
+    <string name="label_right_margin">右边距</string>
+    <string name="label_appearance">外观</string>
+    <string name="label_icon">图标</string>
+    <string name="label_background">背景</string>
+    <string name="label_battery">电池</string>
+    <string name="label_percentage">百分比</string>
+    <string name="label_icon_size">图标尺寸</string>
+    <string name="label_emoji">表情</string>
+    <string name="tab_trending">热门</string>
+    <string name="tab_halloween">万圣节</string>
+    <string name="tab_wc2">WC 2</string>
+    <string name="apply_custom_success">自定义状态栏已成功应用！</string>
+
+    <!-- Notification Permission Dialog -->
+    <string name="notify_permission_title">通知权限</string>
+    <string name="notify_permission_desc">应用需要使用通知来提供重要更新和关键系统信息。</string>
+    <string name="not_now">以后再说</string>
+    <string name="allow">允许</string>
+
+    <!-- Accessibility Service Usage Dialog -->
+    <string name="accessibility_usage_title">无障碍服务使用说明</string>
+    <string name="accessibility_usage_subtitle">需要权限才能继续</string>
+    <string name="accessibility_usage_intro">本应用需要无障碍服务权限以实现：</string>
+    <string name="accessibility_usage_bullet_1"><![CDATA[在屏幕上显示<b><font color="#A855F7">“表情电池图标自定义”</font></b>视图并检测状态栏手势。]]></string>
+    <string name="accessibility_usage_bullet_2"><![CDATA[触发<b><font color="#A855F7">无障碍操作</font></b>（返回桌面、返回键和显示最近任务）。]]></string>
+    <string name="accessibility_usage_notice">本应用承诺不会收集或分享任何与此权限相关的用户个人信息。</string>
+    <string name="accessibility_usage_terms"><![CDATA[我已阅读并同意<u><font color="#A855F7">服务条款</font></u>]]></string>
+    <string name="close">关闭</string>
+
+    <!-- How To Use Screen -->
+    <string name="how_to_use_title">使用指南</string>
+    <string name="how_to_use_step_1"><![CDATA[1. 在已下载应用中，选择<font color="#9333EA"><b>表情电池图标自定义。</b></font>]]></string>
+    <string name="how_to_use_step_2"><![CDATA[2. 选择<font color="#9333EA"><b>表情电池图标自定义。</b></font>]]></string>
+    <string name="how_to_use_step_3"><![CDATA[3. 开启服务。]]></string>
+    <string name="how_to_use_step_4"><![CDATA[4. 点击<font color="#9333EA"><b>允许。</b></font>]]></string>
+    <string name="go_to_settings">前往系统设置</string>
+    <string name="continue_text">继续</string>
+
+    <!-- Exit Dialog -->
+    <string name="exit_dialog_title">确定要退出吗？</string>
+    <string name="exit_dialog_desc">您的更改尚未保存。确定要退出应用吗？</string>
+    <string name="yes">确定</string>
+    <string name="no">取消</string>
+
+    <!-- No Internet Dialog -->
+    <string name="no_internet_title">无网络连接</string>
+    <string name="no_internet_desc">请检查您的网络连接后重试。</string>
+    <string name="cancel">取消</string>
+    <string name="retry">重试</string>
+
+    <!-- Don't Miss Out Dialog -->
+    <string name="dont_miss_out_title">别错过精彩更新！</string>
+    <string name="dont_miss_out_desc">开启通知即可及时发现全新电池图标、节日限定主题和热门风格。</string>
+    <string name="maybe_later">稍后再说</string>
+    <string name="turn_on_notifications">开启通知</string>
+
+    <!-- Sticker For Display Screen Strings -->
+    <string name="sticker_for_display_title">屏幕显示贴纸</string>
+    <string name="my_sticker">我的贴纸</string>
+    <string name="save">保存</string>
+    <string name="adjustment">微调</string>
+    <string name="size">尺寸</string>
+    <string name="rotate">旋转</string>
+    <string name="welcome_back">欢迎回来！</string>
+    <string name="sticker_saved_success">贴纸保存成功！</string>
+    <string name="sticker_limit_reached">最多允许添加 5 个贴纸</string>
+
+    <!-- Shifted Layout & Code Strings -->
+    <string name="default_preview_title">粉色樱花</string>
+    <string name="default_preview_subtitle">状态：活跃在你的电池上</string>
+    <string name="status_bar_permissions_title">状态栏权限</string>
+    <string name="overlay_perm_desc">请允许以下两项权限，以便状态栏主题能够在整个手机界面正常显示：</string>
+    <string name="overlay_perm_step1">1. 允许“显示在其他应用的上层”</string>
+    <string name="overlay_perm_step2">2. 允许“后台弹出界面/悬浮窗”</string>
+    <string name="btn_apply_status_bar_theme">应用状态栏主题</string>
+    <string name="overlay_perm_step1_allowed">1. 已允许“显示在其他应用上层” ✓</string>
+    <string name="please_agree_terms">请先同意服务条款</string>
+    <string name="show_in_status_bar">在状态栏显示</string>
+    <string name="icon_color">图标颜色</string>
+    <string name="style_label">样式</string>
+    <string name="date_format">日期格式</string>
+    <string name="date_style">日期样式</string>
+    <string name="status_bar_left_emojis">状态栏左侧表情</string>
+    <string name="choose_emoji_left_desc">选择一个表情与时间一起显示在左侧</string>
+    <string name="emoji_battery_is_active">表情电池已启用</string>
+    <string name="status_active">已激活</string>
+    <string name="item_customized_format">%1$s 自定义完成！</string>
+    <string name="item_applied_battery_format">%1$s 已应用为电池图标！</string>
+    <string name="item_size_format">%1$s 尺寸</string>
+    <string name="emoji_battery_deactivated">表情电池已停用</string>
+    <string name="emoji_battery_activated">表情电池已启用！</string>
+    <string name="notification_permission_granted">已授予通知权限！</string>
+    <string name="opening_privacy_policy">正在打开隐私政策…</string>
+    <string name="please_select_sticker">请先选择一个贴纸</string>
+    <string name="language_changed_to">语言已更改为 %1$s</string>
+    <string name="no_connection_msg">无网络连接，请检查后重试。</string>
+    <string name="cd_back">返回</string>
+    <string name="cd_clear">清除</string>
+</resources>

@@ -32,6 +32,12 @@
             </intent-filter>
         </activity>
 
+        <!-- Language Activity -->
+        <activity
+            android:name=".presentation.settings.LanguageActivity"
+            android:exported="false"
+            android:theme="@style/Theme.JHBatteryApp" />
+
         <!-- 2. Onboarding Activity -->
         <activity
             android:name=".presentation.onboarding.OnboardingActivity"

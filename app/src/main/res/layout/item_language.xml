@@ -41,12 +41,14 @@
     </LinearLayout>
 
     <!-- Country Flag -->
-    <ImageView
+    <com.google.android.material.imageview.ShapeableImageView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/ivLanguageFlag"
         android:layout_width="@dimen/_32sdp"
-        android:layout_height="@dimen/_22sdp"
+        android:layout_height="@dimen/_32sdp"
+        android:src="@drawable/thai_flag"
+        android:scaleType="centerCrop"
         android:contentDescription="@null"
-        android:scaleType="fitCenter"
-        tools:src="@drawable/ic_flag_us" />
+        app:shapeAppearanceOverlay="@style/CircularImageStyle" />
 
 </LinearLayout>

@@ -1,0 +1,251 @@
+<resources>
+    <string name="app_name">JH Battery</string>
+
+    <!-- Splash Screen -->
+    <string name="splash_title">Emoji Батарея</string>
+    <string name="splash_loading">Завантаження ваших милих друзів батареї…</string>
+
+    <!-- Onboarding Screen -->
+    <string name="skip">Пропустити</string>
+    <string name="onboarding_title_1">Персоналізуйте кожну\nдеталь за допомогою.</string>
+    <string name="onboarding_desc_1">емодзі, улюбленці, стилі батареї, панелі сповіщень і красиві фони.</string>
+    <string name="onboarding_title_2">Зробіть вашу\nбатарею веселою.</string>
+    <string name="onboarding_desc_2">Перетворіть значок батареї на милі емодзі. Крихітна деталь. Багато радості.</string>
+    <string name="onboarding_title_3">Ваша батарея.\nВаша уява.</string>
+    <string name="help_title">Допоможіть нам стати кращими</string>
+    <string name="help_desc_3">Будь ласка, підтримайте нас, оцінивши та порекомендувавши іншим у Google Play</string>
+    <string name="onboarding_desc_3">Поєднуйте улюблені емодзі та кольори, щоб створити батарею, яка підходить саме вам.</string>
+    <string name="get_started">Розпочати</string>
+    <string name="next">Далі</string>
+
+    <!-- Home Screen -->
+    <string name="battery_icon_title">Значок батареї</string>
+    <string name="search_emojis_title">Пошук емодзі</string>
+    <string name="search_placeholder">Шукайте емодзі або тему…</string>
+    <string name="enable_emoji_battery_banner">Увімкніть емодзі батарею, щоб почати</string>
+    <string name="start">Почати</string>
+    <string name="sticker_shop">Магазин наліпок</string>
+    <string name="animation">Анімація</string>
+    <string name="themes">Теми</string>
+
+    <!-- Category Tabs -->
+    <string name="tab_hot">🔥 Гаряче</string>
+    <string name="tab_pokemon">Покемон</string>
+    <string name="tab_sanrio">Санріо</string>
+    <string name="tab_anime">Аніме</string>
+
+    <!-- Filter Chips -->
+    <string name="chip_all">Все</string>
+    <string name="chip_heart">Серце</string>
+    <string name="chip_cute_emoji">Милі емодзі</string>
+    <string name="chip_animations">Анімації</string>
+
+    <!-- Home Sections -->
+    <string name="section_recent">Нещодавні</string>
+    <string name="section_top_picks">Найкращі</string>
+
+    <!-- Bottom Navigation -->
+    <string name="nav_trending">Тренди</string>
+    <string name="nav_customize">Налаштувати</string>
+    <string name="nav_setting">Налаштування</string>
+
+    <!-- Dialogs & Actions -->
+    <string name="apply_battery_style">Застосувати стиль батареї</string>
+    <string name="applied_successfully">Стиль успішно застосовано!</string>
+    <string name="preview">Перегляд</string>
+    <string name="battery_level">Рівень батареї: %1$d%%</string>
+
+    <!-- Settings Screen -->
+    <string name="settings_title">Налаштування</string>
+    <string name="setting_language">Мова</string>
+    <string name="setting_language_current">Українська</string>
+    <string name="setting_privacy_policy">Політика конфіденційності</string>
+    <string name="setting_share_app">Поділитися додатком</string>
+    <string name="setting_rate_us">Оцінити нас</string>
+
+    <!-- Languages Screen -->
+    <string name="languages_title">Мови</string>
+    <string name="lang_arabic">Арабська</string>
+    <string name="lang_arabic_native">العربية</string>
+    <string name="lang_german">Німецька</string>
+    <string name="lang_german_native">Deutsch</string>
+    <string name="lang_assamese">Ассамська</string>
+    <string name="lang_assamese_native">অসমীয়া</string>
+    <string name="lang_persian">Перська</string>
+    <string name="lang_persian_native">فارسی</string>
+    <string name="lang_french">Французька</string>
+    <string name="lang_french_native">Français</string>
+    <string name="lang_hindi">Гінді</string>
+    <string name="lang_hindi_native">हिन्दी</string>
+    <string name="lang_indonesian">Індонезійська</string>
+    <string name="lang_indonesian_native">Bahasa Indonesia</string>
+    <string name="lang_hebrew">Іврит</string>
+    <string name="lang_hebrew_native">עברית</string>
+    <string name="lang_japanese">Японська</string>
+    <string name="lang_japanese_native">日本語</string>
+    <string name="lang_korean">Корейська</string>
+    <string name="lang_korean_native">한국어</string>
+    <string name="lang_malay">Малайська</string>
+    <string name="lang_malay_native">Bahasa Melayu</string>
+    <string name="lang_portuguese">Португальська</string>
+    <string name="lang_portuguese_native">Português</string>
+    <string name="lang_russian">Російська</string>
+    <string name="lang_russian_native">Русский</string>
+    <string name="lang_turkish">Турецька</string>
+    <string name="lang_turkish_native">Türkçe</string>
+    <string name="lang_urdu">Урду</string>
+    <string name="lang_urdu_native">اردو</string>
+    <string name="lang_vietnamese">В\'єтнамська</string>
+    <string name="lang_vietnamese_native">Tiếng Việt</string>
+    <string name="lang_chinese">Китайська</string>
+    <string name="lang_chinese_native">中文</string>
+    <string name="lang_english">Англійська</string>
+    <string name="lang_english_native">English</string>
+    <string name="lang_dutch">Нідерландська</string>
+    <string name="lang_dutch_native">Nederlands</string>
+    <string name="lang_spanish">Іспанська</string>
+    <string name="lang_spanish_native">Español</string>
+    <string name="lang_thai">Тайська</string>
+    <string name="lang_thai_native">ไทย</string>
+    <string name="lang_ukrainian">Українська</string>
+    <string name="lang_ukrainian_native">Українська</string>
+    <string name="apply">Застосувати</string>
+
+    <!-- Dialogs -->
+    <string name="share_dialog_title">Поділитися додатком Emoji</string>
+    <string name="share_dialog_desc">Запрошуйте друзів додати емодзі до рядка стану.</string>
+    <string name="share_link_url">https://velo.app/get</string>
+    <string name="copy">Копіювати</string>
+    <string name="link_copied">Посилання скопійовано в буфер обміну!</string>
+    <string name="done">Готово</string>
+    <string name="feedback_dialog_title">Що ви думаєте про це?</string>
+    <string name="feedback_dialog_desc">Ваш відгук має вирішальне значення, допомагаючи нам краще зрозуміти ваші потреби.</string>
+    <string name="feedback_submitted">Дякуємо за ваш відгук!</string>
+
+    <!-- Status Bar Themes & Animations Screens -->
+    <string name="status_bar_theme_title">Тема рядка стану</string>
+    <string name="gradient_tab">Градієнт</string>
+    <string name="background_tab">Фон</string>
+    <string name="choose_gradient">Оберіть градієнт</string>
+    <string name="choose_background">Оберіть фон</string>
+    <string name="status_bar_animation_title">Анімація рядка стану</string>
+    <string name="date_size">Розмір дати</string>
+    <string name="animation_style">Стиль анімації</string>
+    <string name="see_all">Переглянути все</string>
+    <string name="theme_applied_success">Тему рядка стану успішно застосовано!</string>
+    <string name="animation_applied_success">Анімацію рядка стану успішно застосовано!</string>
+    <string name="accessibility_service_label">Налаштування значка батареї емодзі</string>
+    <string name="accessibility_service_desc">Відображайте наліпки емодзі на рядку стану та налаштовуйте зовнішній вигляд. Дані не збираються.</string>
+    <string name="accessibility_dialog_title">Дозвіл для значка батареї емодзі</string>
+    <string name="accessibility_dialog_desc">Щоб відображати власні емодзі батареї, анімації та наліпки, увімкніть значок батареї емодзі в службах доступності.</string>
+    <string name="enable_accessibility">Увімкнути значок батареї емодзі</string>
+    <string name="keep_standard_overlay">Зберегти стандартне накладення</string>
+
+    <!-- Status Bar Custom Screen Strings -->
+    <string name="status_bar_custom_title">Налаштування рядка стану</string>
+    <string name="tab_size">Розмір</string>
+    <string name="tab_appearance">Вигляд</string>
+    <string name="tab_battery">Батарея</string>
+    <string name="tab_customize_icon">Налаштувати значок</string>
+    <string name="label_size">Розмір</string>
+    <string name="label_height">Висота</string>
+    <string name="label_left_margin">Відступ зліва</string>
+    <string name="label_right_margin">Відступ справа</string>
+    <string name="label_appearance">Вигляд</string>
+    <string name="label_icon">Значок</string>
+    <string name="label_background">Фон</string>
+    <string name="label_battery">Батарея</string>
+    <string name="label_percentage">Відсоток</string>
+    <string name="label_icon_size">Розмір значка</string>
+    <string name="label_emoji">Емодзі</string>
+    <string name="tab_trending">Тренди</string>
+    <string name="tab_halloween">Хелловін</string>
+    <string name="tab_wc2">WC 2</string>
+    <string name="apply_custom_success">Власний рядок стану успішно застосовано!</string>
+
+    <!-- Notification Permission Dialog -->
+    <string name="notify_permission_title">Дозвіл на сповіщення</string>
+    <string name="notify_permission_desc">Додаток використовує сповіщення для надсилання важливих оновлень і важливої системної інформації.</string>
+    <string name="not_now">Не зараз</string>
+    <string name="allow">Дозволити</string>
+
+    <!-- Accessibility Service Usage Dialog -->
+    <string name="accessibility_usage_title">Використання служб доступності</string>
+    <string name="accessibility_usage_subtitle">Для продовження потрібен дозвіл</string>
+    <string name="accessibility_usage_intro">Цьому додатку потрібен дозвіл служб доступності для:</string>
+    <string name="accessibility_usage_bullet_1"><![CDATA[<b><font color="#A855F7">Відображення вікна "Налаштування значка батареї емодзі"</font></b> на екрані та виявлення жестів на рядку стану.]]></string>
+    <string name="accessibility_usage_bullet_2"><![CDATA[<b><font color="#A855F7">Запуску дій доступності</font></b> Головна, Назад та екран Нещодавніх.]]></string>
+    <string name="accessibility_usage_notice">Цей додаток зобов\'язується не збирати та не передавати будь-яку інформацію користувача про це право доступності..</string>
+    <string name="accessibility_usage_terms"><![CDATA[Я прочитав(ла) та погоджуюся з <u><font color="#A855F7">Умовами використання</font></u>]]></string>
+    <string name="close">Закрити</string>
+
+    <!-- How To Use Screen -->
+    <string name="how_to_use_title">Як користуватися</string>
+    <string name="how_to_use_step_1"><![CDATA[1. У завантажених додатках виберіть <font color="#9333EA"><b>Налаштування значка батареї емодзі.</b></font>]]></string>
+    <string name="how_to_use_step_2"><![CDATA[2. Виберіть <font color="#9333EA"><b>Налаштування значка батареї емодзі.</b></font>]]></string>
+    <string name="how_to_use_step_3"><![CDATA[3. Увімкніть.]]></string>
+    <string name="how_to_use_step_4"><![CDATA[4. Натисніть <font color="#9333EA"><b>Дозволити.</b></font>]]></string>
+    <string name="go_to_settings">Перейти в налаштування</string>
+    <string name="continue_text">Продовжити</string>
+
+    <!-- Exit Dialog -->
+    <string name="exit_dialog_title">Ви впевнені, що хочете вийти?</string>
+    <string name="exit_dialog_desc">Ваші зміни не збережено. Ви впевнені, що хочете вийти?</string>
+    <string name="yes">Так</string>
+    <string name="no">Ні</string>
+
+    <!-- No Internet Dialog -->
+    <string name="no_internet_title">Немає підключення до Інтернету</string>
+    <string name="no_internet_desc">Перевірте підключення до Інтернету та повторіть спробу.</string>
+    <string name="cancel">Скасувати</string>
+    <string name="retry">Повторити</string>
+
+    <!-- Don't Miss Out Dialog -->
+    <string name="dont_miss_out_title">Не пропустіть!!</string>
+    <string name="dont_miss_out_desc">Увімкніть сповіщення, щоб дізнаватися про нові значки батареї, сезонні теми та популярні стилі.</string>
+    <string name="maybe_later">Можливо пізніше</string>
+    <string name="turn_on_notifications">Увімкнути сповіщення</string>
+
+    <!-- Sticker For Display Screen Strings -->
+    <string name="sticker_for_display_title">Наліпка для екрана</string>
+    <string name="my_sticker">Моя наліпка</string>
+    <string name="save">Зберегти</string>
+    <string name="adjustment">Налаштування</string>
+    <string name="size">Розмір</string>
+    <string name="rotate">Повернути</string>
+    <string name="welcome_back">З поверненням!</string>
+    <string name="sticker_saved_success">Наліпки успішно збережено!</string>
+    <string name="sticker_limit_reached">Дозволено щонайбільше 5 наліпок</string>
+
+    <!-- Shifted Layout & Code Strings -->
+    <string name="default_preview_title">Рожеве цвітіння</string>
+    <string name="default_preview_subtitle">Статус: Активно та обіймає вашу батарею</string>
+    <string name="status_bar_permissions_title">Дозволи рядка стану</string>
+    <string name="overlay_perm_desc">Будь ласка, надайте обидва дозволи, щоб тема рядка стану могла відображатися на телефоні:</string>
+    <string name="overlay_perm_step1">1. Дозволити \'Поверх інших додатків\'</string>
+    <string name="overlay_perm_step2">2. Дозволити \'Спливаючі вікна\'</string>
+    <string name="btn_apply_status_bar_theme">Застосувати тему рядка стану</string>
+    <string name="overlay_perm_step1_allowed">1. \'Поверх інших додатків\' Дозволено ✓</string>
+    <string name="please_agree_terms">Будь ласка, погодьтеся з Умовами використання</string>
+    <string name="show_in_status_bar">Показувати в рядку стану</string>
+    <string name="icon_color">Колір значка</string>
+    <string name="style_label">Стиль</string>
+    <string name="date_format">Формат дати</string>
+    <string name="date_style">Стиль дати</string>
+    <string name="status_bar_left_emojis">Ліві емодзі рядка стану</string>
+    <string name="choose_emoji_left_desc">Виберіть емодзі для відображення ліворуч із часом</string>
+    <string name="emoji_battery_is_active">Емодзі батарея активна</string>
+    <string name="status_active">Активно</string>
+    <string name="item_customized_format">%1$s налаштовано!</string>
+    <string name="item_applied_battery_format">%1$s застосовано як значок батареї!</string>
+    <string name="item_size_format">Розмір %1$s</string>
+    <string name="emoji_battery_deactivated">Емодзі батарею вимкнено</string>
+    <string name="emoji_battery_activated">Емодзі батарею активовано!</string>
+    <string name="notification_permission_granted">Дозвіл на сповіщення надано!</string>
+    <string name="opening_privacy_policy">Відкриття політики конфіденційності…</string>
+    <string name="please_select_sticker">Будь ласка, спершу виберіть наліпку</string>
+    <string name="language_changed_to">Мову змінено на %1$s</string>
+    <string name="no_connection_msg">Немає з\'єднання. Перевірте Інтернет і повторіть спробу.</string>
+    <string name="cd_back">Назад</string>
+    <string name="cd_clear">Очистити</string>
+</resources>

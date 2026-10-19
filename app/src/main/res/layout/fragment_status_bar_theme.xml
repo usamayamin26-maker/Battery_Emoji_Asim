@@ -190,7 +190,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/_16sdp"
         android:layout_marginTop="@dimen/_10sdp"
-        android:text="Choose  a gradient"
+        android:text="@string/choose_gradient"
         android:textColor="@color/text_secondary"
         android:textSize="@dimen/_12ssp"
         android:textStyle="normal"

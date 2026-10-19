@@ -20,6 +20,14 @@ class PreferenceLocalDataSource(
         prefs.edit().putBoolean(KEY_ONBOARDING_COMPLETED, completed).apply()
     }
 
+    fun isLanguageSelected(): Boolean {
+        return prefs.getBoolean(KEY_LANGUAGE_SELECTED, false)
+    }
+
+    fun setLanguageSelected(selected: Boolean) {
+        prefs.edit().putBoolean(KEY_LANGUAGE_SELECTED, selected).apply()
+    }
+
     fun isEmojiBatteryEnabled(): Boolean {
         return prefs.getBoolean(KEY_EMOJI_BATTERY_ENABLED, true)
     }
@@ -286,6 +294,7 @@ class PreferenceLocalDataSource(
     companion object {
         private const val PREFS_NAME = "jh_battery_prefs"
         private const val KEY_ONBOARDING_COMPLETED = "key_onboarding_completed"
+        private const val KEY_LANGUAGE_SELECTED = "key_language_selected"
         private const val KEY_EMOJI_BATTERY_ENABLED = "key_emoji_battery_enabled"
         private const val KEY_APPLIED_THEME_RES = "key_applied_theme_res"
         private const val KEY_APPLIED_THEME_IS_GRADIENT = "key_applied_theme_is_gradient"

@@ -1,0 +1,245 @@
+<resources>
+    <string name="app_name">JH Battery</string>
+
+    <!-- Splash Screen -->
+    <string name="splash_title">بطارية إيموجي</string>
+    <string name="splash_loading">جاري تحميل أصدقاء البطارية اللطيفين…</string>
+
+    <!-- Onboarding Screen -->
+    <string name="skip">تخطي</string>
+    <string name="onboarding_title_1">خصص كل\nتفصيل مع.</string>
+    <string name="onboarding_desc_1">الإيموجي، الحيوانات الأليفة، أنماط البطارية، أشرطة الحالة والخلفيات الجميلة.</string>
+    <string name="onboarding_title_2">اجعل بطاريتك\nممتعة.</string>
+    <string name="onboarding_desc_2">حوّل أيقونة بطاريتك إلى إيموجي لطيف. تفصيل صغير يمنحك الكثير من السعادة.</string>
+    <string name="onboarding_title_3">بطاريتك.\nخيالك.</string>
+    <string name="help_title">ساعدنا على التحسين</string>
+    <string name="help_desc_3">يرجى دعمنا من خلال التقييم والتوصية للآخرين على Google Play</string>
+    <string name="onboarding_desc_3">امزج الإيموجي والألوان المفضلة لديك لإنشاء بطارية تعبر عنك.</string>
+    <string name="get_started">ابدأ الآن</string>
+    <string name="next">التالي</string>
+
+    <!-- Home Screen -->
+    <string name="battery_icon_title">أيقونة البطارية</string>
+    <string name="search_emojis_title">بحث عن إيموجي</string>
+    <string name="search_placeholder">ابحث عن إيموجي أو سمة…</string>
+    <string name="enable_emoji_battery_banner">فعّل بطارية الإيموجي للبدء</string>
+    <string name="start">ابدأ</string>
+    <string name="sticker_shop">متجر الملصقات</string>
+    <string name="animation">رسوم متحركة</string>
+    <string name="themes">السمات</string>
+
+    <!-- Category Tabs -->
+    <string name="tab_hot">🔥 شائع</string>
+    <string name="tab_pokemon">بوكيمون</string>
+    <string name="tab_sanrio">سانريو</string>
+    <string name="tab_anime">أنمي</string>
+
+    <!-- Filter Chips -->
+    <string name="chip_all">الكل</string>
+    <string name="chip_heart">قلب</string>
+    <string name="chip_cute_emoji">إيموجي لطيف</string>
+    <string name="chip_animations">رسوم متحركة</string>
+
+    <!-- Home Sections -->
+    <string name="section_recent">الأخيرة</string>
+    <string name="section_top_picks">أفضل المختارات</string>
+
+    <!-- Bottom Navigation -->
+    <string name="nav_trending">الشائع</string>
+    <string name="nav_customize">تخصيص</string>
+    <string name="nav_setting">الإعدادات</string>
+
+    <!-- Dialogs & Actions -->
+    <string name="apply_battery_style">تطبيق نمط البطارية</string>
+    <string name="applied_successfully">تم تطبيق النمط بنجاح!</string>
+    <string name="preview">معاينة</string>
+    <string name="battery_level">مستوى البطارية: %1$d%%</string>
+
+    <!-- Settings Screen -->
+    <string name="settings_title">الإعدادات</string>
+    <string name="setting_language">اللغة</string>
+    <string name="setting_language_current">العربية</string>
+    <string name="setting_privacy_policy">سياسة الخصوصية</string>
+    <string name="setting_share_app">مشاركة التطبيق</string>
+    <string name="setting_rate_us">قيّمنا</string>
+
+    <!-- Languages Screen -->
+    <string name="languages_title">اللغات</string>
+    <string name="lang_arabic">العربية</string>
+    <string name="lang_arabic_native">العربية</string>
+    <string name="lang_german">الألمانية</string>
+    <string name="lang_german_native">Deutsch</string>
+    <string name="lang_assamese">الآسامية</string>
+    <string name="lang_assamese_native">অসমীয়া</string>
+    <string name="lang_persian">الفارسية</string>
+    <string name="lang_persian_native">فارسی</string>
+    <string name="lang_french">الفرنسية</string>
+    <string name="lang_french_native">Français</string>
+    <string name="lang_hindi">الهندية</string>
+    <string name="lang_hindi_native">हिन्दी</string>
+    <string name="lang_indonesian">الإندونيسية</string>
+    <string name="lang_indonesian_native">Bahasa Indonesia</string>
+    <string name="lang_hebrew">العبرية</string>
+    <string name="lang_hebrew_native">עברית</string>
+    <string name="lang_japanese">اليابانية</string>
+    <string name="lang_japanese_native">日本語</string>
+    <string name="lang_korean">الكورية</string>
+    <string name="lang_korean_native">한국어</string>
+    <string name="lang_malay">الماليزية</string>
+    <string name="lang_malay_native">Bahasa Melayu</string>
+    <string name="lang_portuguese">البرتغالية</string>
+    <string name="lang_portuguese_native">Português</string>
+    <string name="lang_russian">الروسية</string>
+    <string name="lang_russian_native">Русский</string>
+    <string name="lang_turkish">التركية</string>
+    <string name="lang_turkish_native">Türkçe</string>
+    <string name="lang_urdu">الأردية</string>
+    <string name="lang_urdu_native">اردو</string>
+    <string name="lang_vietnamese">الفيتنامية</string>
+    <string name="lang_vietnamese_native">Tiếng Việt</string>
+    <string name="lang_chinese">الصينية</string>
+    <string name="lang_chinese_native">中文</string>
+    <string name="lang_english">الإنجليزية</string>
+    <string name="lang_english_native">English</string>
+    <string name="lang_dutch">الهولندية</string>
+    <string name="lang_dutch_native">Nederlands</string>
+    <string name="apply">تطبيق</string>
+
+    <!-- Dialogs -->
+    <string name="share_dialog_title">مشاركة تطبيق الإيموجي</string>
+    <string name="share_dialog_desc">ادعُ أصدقاءك لإضافة الإيموجي في مراجعة هاتفك.</string>
+    <string name="share_link_url">https://velo.app/get</string>
+    <string name="copy">نسخ</string>
+    <string name="link_copied">تم نسخ الرابط إلى الحافظة!</string>
+    <string name="done">تم</string>
+    <string name="feedback_dialog_title">ما رأيك في التطبيق؟</string>
+    <string name="feedback_dialog_desc">ملاحظاتك مهمة جداً لمساعدتنا في تلبية احتياجاتك بشكل أفضل.</string>
+    <string name="feedback_submitted">شكراً لمشاركتنا رأيك!</string>
+
+    <!-- Status Bar Themes & Animations Screens -->
+    <string name="status_bar_theme_title">سمة شريط الحالة</string>
+    <string name="gradient_tab">تدرج</string>
+    <string name="background_tab">خلفية</string>
+    <string name="choose_gradient">اختر تدرجاً</string>
+    <string name="choose_background">اختر خلفية</string>
+    <string name="status_bar_animation_title">رسوم شريط الحالة المتحركة</string>
+    <string name="date_size">حجم التاريخ</string>
+    <string name="animation_style">نمط الحركة</string>
+    <string name="see_all">عرض الكل</string>
+    <string name="theme_applied_success">تم تطبيق سمة شريط الحالة بنجاح!</string>
+    <string name="animation_applied_success">تم تطبيق حركة شريط الحالة بنجاح!</string>
+    <string name="accessibility_service_label">تخصيص أيقونة بطارية الإيموجي</string>
+    <string name="accessibility_service_desc">عرض ملصقات الإيموجي على شريط الحالة وتخصيص المظهر. لا يتم جمع أي بيانات.</string>
+    <string name="accessibility_dialog_title">إذن أيقونة بطارية الإيموجي</string>
+    <string name="accessibility_dialog_desc">لعرض إيموجي البطارية المخصص والرسوم المتحركة والملصقات، يرجى تمكين أيقونة بطارية الإيموجي في خدمات إمكانية الوصول.</string>
+    <string name="enable_accessibility">تمكين أيقونة بطارية الإيموجي</string>
+    <string name="keep_standard_overlay">الاحتفاظ بالطبقة القياسية</string>
+
+    <!-- Status Bar Custom Screen Strings -->
+    <string name="status_bar_custom_title">تخصيص شريط الحالة</string>
+    <string name="tab_size">الحجم</string>
+    <string name="tab_appearance">المظهر</string>
+    <string name="tab_battery">البطارية</string>
+    <string name="tab_customize_icon">تخصيص الأيقونة</string>
+    <string name="label_size">الحجم</string>
+    <string name="label_height">الارتفاع</string>
+    <string name="label_left_margin">الهامش الأيسر</string>
+    <string name="label_right_margin">الهامش الأيمن</string>
+    <string name="label_appearance">المظهر</string>
+    <string name="label_icon">الأيقونة</string>
+    <string name="label_background">الخلفية</string>
+    <string name="label_battery">البطارية</string>
+    <string name="label_percentage">النسبة المئوية</string>
+    <string name="label_icon_size">حجم الأيقونة</string>
+    <string name="label_emoji">الإيموجي</string>
+    <string name="tab_trending">الشائع</string>
+    <string name="tab_halloween">الهالوين</string>
+    <string name="tab_wc2">WC 2</string>
+    <string name="apply_custom_success">تم تطبيق شريط الحالة المخصص بنجاح!</string>
+
+    <!-- Notification Permission Dialog -->
+    <string name="notify_permission_title">إذن الإشعارات</string>
+    <string name="notify_permission_desc">يستخدم التطبيق الإشعارات لتقديم التحديثات المهمة ومعلومات النظام الأساسية.</string>
+    <string name="not_now">ليس الآن</string>
+    <string name="allow">سماح</string>
+
+    <!-- Accessibility Service Usage Dialog -->
+    <string name="accessibility_usage_title">استخدام خدمة إمكانية الوصول</string>
+    <string name="accessibility_usage_subtitle">الإذن مطلوب للمتابعة</string>
+    <string name="accessibility_usage_intro">يتطلب هذا التطبيق إذن خدمات إمكانية الوصول من أجل:</string>
+    <string name="accessibility_usage_bullet_1"><![CDATA[<b><font color="#A855F7">عرض "تخصيص أيقونة بطارية الإيموجي"</font></b> على الشاشة واكتشاف الإيماءات على شريط الحالة.]]></string>
+    <string name="accessibility_usage_bullet_2"><![CDATA[<b><font color="#A855F7">بدء إجراءات إمكانية الوصول</font></b> مثل الرئيسية، الرجوع، وشاشة التطبيقات الحديثة.]]></string>
+    <string name="accessibility_usage_notice">يلتزم هذا التطبيق بعدم جمع أو مشاركة أي معلومات مستخدم حول حق إمكانية الوصول هذا.</string>
+    <string name="accessibility_usage_terms"><![CDATA[لقد قرأت ووافقت على <u><font color="#A855F7">شروط الخدمة</font></u>]]></string>
+    <string name="close">إغلاق</string>
+
+    <!-- How To Use Screen -->
+    <string name="how_to_use_title">طريقة الاستخدام</string>
+    <string name="how_to_use_step_1"><![CDATA[1. في التطبيقات التي تم تنزيلها، اختر <font color="#9333EA"><b>تخصيص أيقونة بطارية الإيموجي.</b></font>]]></string>
+    <string name="how_to_use_step_2"><![CDATA[2. حدد <font color="#9333EA"><b>تخصيص أيقونة بطارية الإيموجي.</b></font>]]></string>
+    <string name="how_to_use_step_3"><![CDATA[3. تشغيل.]]></string>
+    <string name="how_to_use_step_4"><![CDATA[4. انقر فوق <font color="#9333EA"><b>سماح.</b></font>]]></string>
+    <string name="go_to_settings">الانتقال إلى الإعدادات</string>
+    <string name="continue_text">متابعة</string>
+
+    <!-- Exit Dialog -->
+    <string name="exit_dialog_title">هل أنت متأكد من الخروج؟</string>
+    <string name="exit_dialog_desc">لم يتم حفظ تغييراتك. هل أنت متأكد من رغبتك في الخروج؟</string>
+    <string name="yes">نعم</string>
+    <string name="no">لا</string>
+
+    <!-- No Internet Dialog -->
+    <string name="no_internet_title">لا يوجد اتصال بالإنترنت</string>
+    <string name="no_internet_desc">يرجى التحقق من اتصالك بالإنترنت والمحاولة مرة أخرى.</string>
+    <string name="cancel">إلغاء</string>
+    <string name="retry">إعادة المحاولة</string>
+
+    <!-- Don't Miss Out Dialog -->
+    <string name="dont_miss_out_title">لا تفوت الفرصة!!</string>
+    <string name="dont_miss_out_desc">قم بتشغيل الإشعارات لاكتشاف أيقونات بطارية جديدة وسمات موسمية وأنماط رائجة.</string>
+    <string name="maybe_later">ربما لاحقاً</string>
+    <string name="turn_on_notifications">تشغيل الإشعارات</string>
+
+    <!-- Sticker For Display Screen Strings -->
+    <string name="sticker_for_display_title">ملصق لشاشة العرض</string>
+    <string name="my_sticker">ملصقاتي</string>
+    <string name="save">حفظ</string>
+    <string name="adjustment">تعديل</string>
+    <string name="size">الحجم</string>
+    <string name="rotate">تدوير</string>
+    <string name="welcome_back">مرحباً بعودتك!</string>
+    <string name="sticker_saved_success">تم حفظ الملصقات بنجاح!</string>
+    <string name="sticker_limit_reached">الحد الأقصى المسموح به 5 ملصقات</string>
+
+    <!-- Shifted Layout & Code Strings -->
+    <string name="default_preview_title">الزهر الوردي</string>
+    <string name="default_preview_subtitle">الحالة: نشط على بطاريتك</string>
+    <string name="status_bar_permissions_title">أذونات شريط الحالة</string>
+    <string name="overlay_perm_desc">يرجى السماح بكلا الإذنين حتى تتمكن سمة شريط الحالة من الظهور عبر هاتفك:</string>
+    <string name="overlay_perm_step1">1. السماح بـ \'الظهور فوق التطبيقات الأخرى\'</string>
+    <string name="overlay_perm_step2">2. السماح بـ \'عرض النوافذ المنبثقة\'</string>
+    <string name="btn_apply_status_bar_theme">تطبيق سمة شريط الحالة</string>
+    <string name="overlay_perm_step1_allowed">1. تم السماح بـ \'الظهور فوق التطبيقات الأخرى\' ✓</string>
+    <string name="please_agree_terms">يرجى الموافقة على شروط الخدمة</string>
+    <string name="show_in_status_bar">عرض في شريط الحالة</string>
+    <string name="icon_color">لون الأيقونة</string>
+    <string name="style_label">النمط</string>
+    <string name="date_format">تنسيق التاريخ</string>
+    <string name="date_style">نمط التاريخ</string>
+    <string name="status_bar_left_emojis">إيموجي شريط الحالة الأيسر</string>
+    <string name="choose_emoji_left_desc">اختر إيموجي لعرضه على الجانب الأيسر مع الوقت</string>
+    <string name="emoji_battery_is_active">بطارية الإيموجي نشطة</string>
+    <string name="status_active">نشط</string>
+    <string name="item_customized_format">تم تخصيص %1$s!</string>
+    <string name="item_applied_battery_format">تم تطبيق %1$s كأيقونة بطارية!</string>
+    <string name="item_size_format">حجم %1$s</string>
+    <string name="emoji_battery_deactivated">تم إيقاف بطارية الإيموجي</string>
+    <string name="emoji_battery_activated">تم تفعيل بطارية الإيموجي!</string>
+    <string name="notification_permission_granted">تم منح إذن الإشعارات!</string>
+    <string name="opening_privacy_policy">جاري فتح سياسة الخصوصية…</string>
+    <string name="please_select_sticker">يرجى اختيار ملصق أولاً</string>
+    <string name="language_changed_to">تم تغيير اللغة إلى %1$s</string>
+    <string name="no_connection_msg">لا يوجد اتصال. يرجى التحقق من الإنترنت وإعادة المحاولة.</string>
+    <string name="cd_back">رجوع</string>
+    <string name="cd_clear">مسح</string>
+</resources>

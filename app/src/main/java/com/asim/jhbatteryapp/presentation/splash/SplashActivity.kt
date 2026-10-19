@@ -21,6 +21,7 @@ import com.asim.jhbatteryapp.data.datasource.PreferenceLocalDataSource
 import com.asim.jhbatteryapp.databinding.ActivitySplashBinding
 import com.asim.jhbatteryapp.presentation.home.MainActivity
 import com.asim.jhbatteryapp.presentation.onboarding.OnboardingActivity
+import com.asim.jhbatteryapp.presentation.settings.LanguageActivity
 
 @SuppressLint("CustomSplashScreen")
 class SplashActivity : AppCompatActivity() {
@@ -50,13 +51,19 @@ class SplashActivity : AppCompatActivity() {
             val preferences = PreferenceLocalDataSource(this@SplashActivity)
 
             val targetActivity =
-                if (preferences.isOnboardingCompleted()) {
-                    MainActivity::class.java
-                } else {
+                if (!preferences.isLanguageSelected()) {
+                    LanguageActivity::class.java
+                } else if (!preferences.isOnboardingCompleted()) {
                     OnboardingActivity::class.java
+                } else {
+                    MainActivity::class.java
                 }
 
-            startActivity(Intent(this@SplashActivity, targetActivity))
+            val intent = Intent(this@SplashActivity, targetActivity)
+            if (targetActivity == LanguageActivity::class.java) {
+                intent.putExtra(LanguageActivity.EXTRA_FROM_SPLASH, true)
+            }
+            startActivity(intent)
             finish()
         }, 6000L)
     }

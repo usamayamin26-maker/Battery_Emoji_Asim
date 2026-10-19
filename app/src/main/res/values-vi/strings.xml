@@ -1,0 +1,245 @@
+<resources>
+    <string name="app_name">JH Battery</string>
+
+    <!-- Splash Screen -->
+    <string name="splash_title">Pin Emoji</string>
+    <string name="splash_loading">Đang tải những người bạn pin dễ thương…</string>
+
+    <!-- Onboarding Screen -->
+    <string name="skip">Bỏ qua</string>
+    <string name="onboarding_title_1">Cá nhân hóa từng\nchi tiết với.</string>
+    <string name="onboarding_desc_1">emoji, thú cưng, kiểu pin, thanh trạng thái &amp; hình nền tuyệt đẹp.</string>
+    <string name="onboarding_title_2">Làm cho pin của bạn\nthật thú vị.</string>
+    <string name="onboarding_desc_2">Biến biểu tượng pin thành những emoji đáng yêu. Một chi tiết nhỏ mang lại nhiều niềm vui.</string>
+    <string name="onboarding_title_3">Pin của bạn.\nTrí tưởng tượng của bạn.</string>
+    <string name="help_title">Giúp chúng tôi cải thiện</string>
+    <string name="help_desc_3">Vui lòng ủng hộ chúng tôi bằng cách đánh giá và giới thiệu trên Google Play</string>
+    <string name="onboarding_desc_3">Kết hợp các emoji và màu sắc yêu thích để tạo nên phong cách pin riêng cho bạn.</string>
+    <string name="get_started">Bắt đầu ngay</string>
+    <string name="next">Tiếp theo</string>
+
+    <!-- Home Screen -->
+    <string name="battery_icon_title">Biểu tượng pin</string>
+    <string name="search_emojis_title">Tìm kiếm Emoji</string>
+    <string name="search_placeholder">Tìm kiếm emoji hoặc chủ đề…</string>
+    <string name="enable_emoji_battery_banner">Bật pin emoji để bắt đầu</string>
+    <string name="start">Bắt đầu</string>
+    <string name="sticker_shop">Cửa hàng nhãn dán</string>
+    <string name="animation">Hiệu ứng động</string>
+    <string name="themes">Chủ đề</string>
+
+    <!-- Category Tabs -->
+    <string name="tab_hot">🔥 Thịnh hành</string>
+    <string name="tab_pokemon">Pokemon</string>
+    <string name="tab_sanrio">Sanrio</string>
+    <string name="tab_anime">Anime</string>
+
+    <!-- Filter Chips -->
+    <string name="chip_all">Tất cả</string>
+    <string name="chip_heart">Trái tim</string>
+    <string name="chip_cute_emoji">Emoji dễ thương</string>
+    <string name="chip_animations">Ảnh động</string>
+
+    <!-- Home Sections -->
+    <string name="section_recent">Gần đây</string>
+    <string name="section_top_picks">Gợi ý hàng đầu</string>
+
+    <!-- Bottom Navigation -->
+    <string name="nav_trending">Xu hướng</string>
+    <string name="nav_customize">Tùy chỉnh</string>
+    <string name="nav_setting">Cài đặt</string>
+
+    <!-- Dialogs & Actions -->
+    <string name="apply_battery_style">Áp dụng kiểu pin</string>
+    <string name="applied_successfully">Áp dụng kiểu thành công!</string>
+    <string name="preview">Xem trước</string>
+    <string name="battery_level">Mức pin: %1$d%%</string>
+
+    <!-- Settings Screen -->
+    <string name="settings_title">Cài đặt</string>
+    <string name="setting_language">Ngôn ngữ</string>
+    <string name="setting_language_current">Tiếng Việt</string>
+    <string name="setting_privacy_policy">Chính sách quyền riêng tư</string>
+    <string name="setting_share_app">Chia sẻ ứng dụng</string>
+    <string name="setting_rate_us">Đánh giá chúng tôi</string>
+
+    <!-- Languages Screen -->
+    <string name="languages_title">Ngôn ngữ</string>
+    <string name="lang_arabic">Tiếng Ả Rập</string>
+    <string name="lang_arabic_native">العربية</string>
+    <string name="lang_german">Tiếng Đức</string>
+    <string name="lang_german_native">Deutsch</string>
+    <string name="lang_assamese">Tiếng Assam</string>
+    <string name="lang_assamese_native">অসমীয়া</string>
+    <string name="lang_persian">Tiếng Ba Tư</string>
+    <string name="lang_persian_native">فارسی</string>
+    <string name="lang_french">Tiếng Pháp</string>
+    <string name="lang_french_native">Français</string>
+    <string name="lang_hindi">Tiếng Hindi</string>
+    <string name="lang_hindi_native">हिन्दी</string>
+    <string name="lang_indonesian">Tiếng Indonesia</string>
+    <string name="lang_indonesian_native">Bahasa Indonesia</string>
+    <string name="lang_hebrew">Tiếng Do Thái</string>
+    <string name="lang_hebrew_native">עברית</string>
+    <string name="lang_japanese">Tiếng Nhật</string>
+    <string name="lang_japanese_native">日本語</string>
+    <string name="lang_korean">Tiếng Hàn</string>
+    <string name="lang_korean_native">한국어</string>
+    <string name="lang_malay">Tiếng Mã Lai</string>
+    <string name="lang_malay_native">Bahasa Melayu</string>
+    <string name="lang_portuguese">Tiếng Bồ Đào Nha</string>
+    <string name="lang_portuguese_native">Português</string>
+    <string name="lang_russian">Tiếng Nga</string>
+    <string name="lang_russian_native">Русский</string>
+    <string name="lang_turkish">Tiếng Thổ Nhĩ Kỳ</string>
+    <string name="lang_turkish_native">Türkçe</string>
+    <string name="lang_urdu">Tiếng Urdu</string>
+    <string name="lang_urdu_native">اردو</string>
+    <string name="lang_vietnamese">Tiếng Việt</string>
+    <string name="lang_vietnamese_native">Tiếng Việt</string>
+    <string name="lang_chinese">Tiếng Trung</string>
+    <string name="lang_chinese_native">中文</string>
+    <string name="lang_english">Tiếng Anh</string>
+    <string name="lang_english_native">English</string>
+    <string name="lang_dutch">Tiếng Hà Lan</string>
+    <string name="lang_dutch_native">Nederlands</string>
+    <string name="apply">Áp dụng</string>
+
+    <!-- Dialogs -->
+    <string name="share_dialog_title">Chia sẻ ứng dụng Emoji</string>
+    <string name="share_dialog_desc">Mời bạn bè cùng trải nghiệm emoji độc đáo trên điện thoại.</string>
+    <string name="share_link_url">https://velo.app/get</string>
+    <string name="copy">Sao chép</string>
+    <string name="link_copied">Đã sao chép liên kết vào bộ nhớ tạm!</string>
+    <string name="done">Xong</string>
+    <string name="feedback_dialog_title">Bạn nghĩ gì về ứng dụng?</string>
+    <string name="feedback_dialog_desc">Ý kiến đóng góp của bạn rất quan trọng để giúp chúng tôi hoàn thiện hơn.</string>
+    <string name="feedback_submitted">Cảm ơn bạn đã đóng góp ý kiến!</string>
+
+    <!-- Status Bar Themes & Animations Screens -->
+    <string name="status_bar_theme_title">Chủ đề thanh trạng thái</string>
+    <string name="gradient_tab">Màu chuyển</string>
+    <string name="background_tab">Hình nền</string>
+    <string name="choose_gradient">Chọn màu chuyển sắc</string>
+    <string name="choose_background">Chọn hình nền</string>
+    <string name="status_bar_animation_title">Hiệu ứng thanh trạng thái</string>
+    <string name="date_size">Cỡ chữ ngày</string>
+    <string name="animation_style">Kiểu hiệu ứng</string>
+    <string name="see_all">Xem tất cả</string>
+    <string name="theme_applied_success">Đã áp dụng chủ đề thanh trạng thái thành công!</string>
+    <string name="animation_applied_success">Đã áp dụng hiệu ứng thanh trạng thái thành công!</string>
+    <string name="accessibility_service_label">Tùy chỉnh biểu tượng pin emoji</string>
+    <string name="accessibility_service_desc">Hiển thị nhãn dán emoji trên thanh trạng thái và tùy chỉnh giao diện. Không thu thập dữ liệu.</string>
+    <string name="accessibility_dialog_title">Quyền cho biểu tượng pin emoji</string>
+    <string name="accessibility_dialog_desc">Để hiển thị emoji pin, hiệu ứng và nhãn dán tùy chỉnh, vui lòng bật biểu tượng pin emoji trong Dịch vụ trợ năng.</string>
+    <string name="enable_accessibility">Bật biểu tượng pin emoji</string>
+    <string name="keep_standard_overlay">Giữ lớp phủ tiêu chuẩn</string>
+
+    <!-- Status Bar Custom Screen Strings -->
+    <string name="status_bar_custom_title">Tùy chỉnh thanh trạng thái</string>
+    <string name="tab_size">Kích thước</string>
+    <string name="tab_appearance">Giao diện</string>
+    <string name="tab_battery">Pin</string>
+    <string name="tab_customize_icon">Tùy biến biểu tượng</string>
+    <string name="label_size">Kích thước</string>
+    <string name="label_height">Chiều cao</string>
+    <string name="label_left_margin">Lề trái</string>
+    <string name="label_right_margin">Lề phải</string>
+    <string name="label_appearance">Giao diện</string>
+    <string name="label_icon">Biểu tượng</string>
+    <string name="label_background">Hình nền</string>
+    <string name="label_battery">Pin</string>
+    <string name="label_percentage">Phần trăm</string>
+    <string name="label_icon_size">Cỡ biểu tượng</string>
+    <string name="label_emoji">Emoji</string>
+    <string name="tab_trending">Thịnh hành</string>
+    <string name="tab_halloween">Halloween</string>
+    <string name="tab_wc2">WC 2</string>
+    <string name="apply_custom_success">Đã áp dụng thanh trạng thái tùy chỉnh!</string>
+
+    <!-- Notification Permission Dialog -->
+    <string name="notify_permission_title">Quyền thông báo</string>
+    <string name="notify_permission_desc">Ứng dụng sử dụng thông báo để gửi các cập nhật quan trọng và thông tin hệ thống.</string>
+    <string name="not_now">Để sau</string>
+    <string name="allow">Cho phép</string>
+
+    <!-- Accessibility Service Usage Dialog -->
+    <string name="accessibility_usage_title">Sử dụng dịch vụ trợ năng</string>
+    <string name="accessibility_usage_subtitle">Yêu cầu quyền để tiếp tục</string>
+    <string name="accessibility_usage_intro">Ứng dụng này cần quyền Dịch vụ trợ năng để:</string>
+    <string name="accessibility_usage_bullet_1"><![CDATA[Hiển thị chế độ xem <b><font color="#A855F7">"Tùy chỉnh biểu tượng pin emoji"</font></b> trên màn hình và nhận diện cử chỉ thanh trạng thái.]]></string>
+    <string name="accessibility_usage_bullet_2"><![CDATA[Thực hiện các <b><font color="#A855F7">hành động trợ năng</font></b> về Màn hình chính, Quay lại và Ứng dụng gần đây.]]></string>
+    <string name="accessibility_usage_notice">Ứng dụng này cam kết không thu thập hoặc chia sẻ bất kỳ thông tin cá nhân nào của người dùng.</string>
+    <string name="accessibility_usage_terms"><![CDATA[Tôi đã đọc và đồng ý với <u><font color="#A855F7">Điều khoản dịch vụ</font></u>]]></string>
+    <string name="close">Đóng</string>
+
+    <!-- How To Use Screen -->
+    <string name="how_to_use_title">Hướng dẫn sử dụng</string>
+    <string name="how_to_use_step_1"><![CDATA[1. Trong danh sách ứng dụng đã tải xuống, chọn <font color="#9333EA"><b>Tùy chỉnh biểu tượng pin emoji.</b></font>]]></string>
+    <string name="how_to_use_step_2"><![CDATA[2. Chọn <font color="#9333EA"><b>Tùy chỉnh biểu tượng pin emoji.</b></font>]]></string>
+    <string name="how_to_use_step_3"><![CDATA[3. Bật công tắc.]]></string>
+    <string name="how_to_use_step_4"><![CDATA[4. Nhấn <font color="#9333EA"><b>Cho phép.</b></font>]]></string>
+    <string name="go_to_settings">Đến phần Cài đặt</string>
+    <string name="continue_text">Tiếp tục</string>
+
+    <!-- Exit Dialog -->
+    <string name="exit_dialog_title">Bạn có chắc chắn muốn thoát?</string>
+    <string name="exit_dialog_desc">Các thay đổi của bạn chưa được lưu. Bạn có muốn thoát không?</string>
+    <string name="yes">Có</string>
+    <string name="no">Không</string>
+
+    <!-- No Internet Dialog -->
+    <string name="no_internet_title">Không có kết nối Internet</string>
+    <string name="no_internet_desc">Vui lòng kiểm tra lại kết nối mạng và thử lại.</string>
+    <string name="cancel">Hủy</string>
+    <string name="retry">Thử lại</string>
+
+    <!-- Don't Miss Out Dialog -->
+    <string name="dont_miss_out_title">Đừng bỏ lỡ!!</string>
+    <string name="dont_miss_out_desc">Bật thông báo để khám phá các biểu tượng pin mới, chủ đề theo mùa và phong cách thịnh hành.</string>
+    <string name="maybe_later">Để sau</string>
+    <string name="turn_on_notifications">Bật thông báo</string>
+
+    <!-- Sticker For Display Screen Strings -->
+    <string name="sticker_for_display_title">Nhãn dán cho màn hình</string>
+    <string name="my_sticker">Nhãn dán của tôi</string>
+    <string name="save">Lưu</string>
+    <string name="adjustment">Điều chỉnh</string>
+    <string name="size">Kích thước</string>
+    <string name="rotate">Xoay</string>
+    <string name="welcome_back">Chào mừng trở lại!</string>
+    <string name="sticker_saved_success">Đã lưu nhãn dán thành công!</string>
+    <string name="sticker_limit_reached">Tối đa cho phép 5 nhãn dán</string>
+
+    <!-- Shifted Layout & Code Strings -->
+    <string name="default_preview_title">Hoa hồng đào</string>
+    <string name="default_preview_subtitle">Trạng thái: Hoạt động đáng yêu trên pin của bạn</string>
+    <string name="status_bar_permissions_title">Quyền thanh trạng thái</string>
+    <string name="overlay_perm_desc">Vui lòng cấp cả hai quyền để chủ đề thanh trạng thái có thể hiển thị trên điện thoại:</string>
+    <string name="overlay_perm_step1">1. Cho phép \'Hiển thị trên các ứng dụng khác\'</string>
+    <string name="overlay_perm_step2">2. Cho phép \'Hiển thị cửa sổ bật lên\'</string>
+    <string name="btn_apply_status_bar_theme">Áp dụng chủ đề thanh trạng thái</string>
+    <string name="overlay_perm_step1_allowed">1. Đã cho phép \'Hiển thị trên các ứng dụng khác\' ✓</string>
+    <string name="please_agree_terms">Vui lòng đồng ý với Điều khoản dịch vụ</string>
+    <string name="show_in_status_bar">Hiển thị trên thanh trạng thái</string>
+    <string name="icon_color">Màu biểu tượng</string>
+    <string name="style_label">Kiểu</string>
+    <string name="date_format">Định dạng ngày</string>
+    <string name="date_style">Kiểu hiển thị ngày</string>
+    <string name="status_bar_left_emojis">Emoji bên trái thanh trạng thái</string>
+    <string name="choose_emoji_left_desc">Chọn emoji để hiển thị ở bên trái cạnh giờ</string>
+    <string name="emoji_battery_is_active">Pin emoji đang hoạt động</string>
+    <string name="status_active">Đang bật</string>
+    <string name="item_customized_format">Đã tùy chỉnh %1$s!</string>
+    <string name="item_applied_battery_format">Đã áp dụng %1$s làm biểu tượng pin!</string>
+    <string name="item_size_format">Cỡ %1$s</string>
+    <string name="emoji_battery_deactivated">Đã tắt pin emoji</string>
+    <string name="emoji_battery_activated">Đã kích hoạt pin emoji!</string>
+    <string name="notification_permission_granted">Đã cấp quyền thông báo!</string>
+    <string name="opening_privacy_policy">Đang mở Chính sách quyền riêng tư…</string>
+    <string name="please_select_sticker">Vui lòng chọn một nhãn dán trước</string>
+    <string name="language_changed_to">Đã đổi ngôn ngữ sang %1$s</string>
+    <string name="no_connection_msg">Không có mạng. Vui lòng kiểm tra kết nối và thử lại.</string>
+    <string name="cd_back">Quay lại</string>
+    <string name="cd_clear">Xóa</string>
+</resources>

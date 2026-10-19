@@ -3,6 +3,8 @@ package com.asim.jhbatteryapp.domain.repository
 interface PreferenceRepository {
     fun isOnboardingCompleted(): Boolean
     fun setOnboardingCompleted(completed: Boolean)
+    fun isLanguageSelected(): Boolean
+    fun setLanguageSelected(selected: Boolean)
     fun isEmojiBatteryEnabled(): Boolean
     fun setEmojiBatteryEnabled(enabled: Boolean)
     fun getAppliedThemeDrawableRes(): Int

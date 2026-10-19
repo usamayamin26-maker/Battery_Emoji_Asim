@@ -138,7 +138,7 @@ class StickerDisplayFragment : Fragment() {
         binding.btnSaveStickers.setOnClickListener {
             val active = viewModel.activeSticker.value
             if (active == null) {
-                Toast.makeText(requireContext(), "Please select a sticker first", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), getString(R.string.please_select_sticker), Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 

@@ -52,12 +52,18 @@ class SearchFragment : Fragment() {
         recentAdapter = BatteryEmojiAdapter { item ->
             showPreviewBottomSheet(item)
         }
+        binding.rvRecentGrid.itemAnimator = null
+        binding.rvRecentGrid.setHasFixedSize(true)
+        binding.rvRecentGrid.setItemViewCacheSize(25)
         binding.rvRecentGrid.adapter = recentAdapter
 
         // Top Picks Grid (3 columns)
         topPicksAdapter = BatteryEmojiAdapter { item ->
             showPreviewBottomSheet(item)
         }
+        binding.rvTopPicksGrid.itemAnimator = null
+        binding.rvTopPicksGrid.setHasFixedSize(true)
+        binding.rvTopPicksGrid.setItemViewCacheSize(25)
         binding.rvTopPicksGrid.adapter = topPicksAdapter
     }
 
@@ -109,10 +115,18 @@ class SearchFragment : Fragment() {
     private fun observeViewModel() {
         viewModel.recentEmojis.observe(viewLifecycleOwner) { recentList ->
             recentAdapter.submitList(recentList)
+            com.asim.jhbatteryapp.core.Utils.ImageLoaderUtils.preload(
+                context = requireContext(),
+                drawableResList = recentList.map { it.previewDrawableRes }
+            )
         }
 
         viewModel.topPickEmojis.observe(viewLifecycleOwner) { topPicksList ->
             topPicksAdapter.submitList(topPicksList)
+            com.asim.jhbatteryapp.core.Utils.ImageLoaderUtils.preload(
+                context = requireContext(),
+                drawableResList = topPicksList.map { it.previewDrawableRes }
+            )
         }
     }
 
@@ -147,7 +161,12 @@ class SearchFragment : Fragment() {
             dialogBinding.cvPreviewContainer.setCardBackgroundColor(
                 ContextCompat.getColor(requireContext(), item.backgroundColorRes)
             )
-            dialogBinding.ivDialogMascot.setImageResource(item.previewDrawableRes)
+            com.asim.jhbatteryapp.core.Utils.ImageLoaderUtils.loadOptimizedEmoji(
+                imageView = dialogBinding.ivDialogMascot,
+                drawableRes = item.previewDrawableRes,
+                targetWidthDp = 160,
+                targetHeightDp = 160
+            )
             dialogBinding.tvDialogTitle.text = item.title
 
             dialogBinding.btnApplyStyle.setOnClickListener {
@@ -162,7 +181,7 @@ class SearchFragment : Fragment() {
                 prefRepo.setBatteryIconTintable(false)
                 prefRepo.setEmojiBatteryEnabled(true)
                 com.asim.jhbatteryapp.service.StatusBarAccessibilityService.updateBatteryIcon(item.previewDrawableRes, isTintable = false)
-                Toast.makeText(requireContext(), "${item.title} applied as battery icon!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), getString(R.string.item_applied_battery_format, item.title), Toast.LENGTH_SHORT).show()
                 dismiss()
             }
         }

@@ -39,6 +39,12 @@ class MainActivity : AppCompatActivity() {
         setupBottomNav()
         setupBackPressHandler()
 
+        // Handle specific destination on launch/restart (e.g. after language change)
+        val startDest = intent.getStringExtra("START_DESTINATION")
+        if (startDest == "settingsFragment") {
+            navController.navigate(R.id.settingsFragment)
+        }
+
         // Restore floating screen sticker & foreground service if previously enabled
         val prefRepo = com.asim.jhbatteryapp.data.repository.PreferenceRepositoryImpl()
         val hasOverlay = com.asim.jhbatteryapp.presentation.common.StatusBarPermissionHelper.hasOverlayPermission(this)
@@ -148,6 +154,17 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
             }
+        }
+    }
+
+    override fun recreate() {
+        super.recreate()
+        if (android.os.Build.VERSION.SDK_INT >= 34) {
+            overrideActivityTransition(OVERRIDE_TRANSITION_OPEN, android.R.anim.fade_in, android.R.anim.fade_out)
+            overrideActivityTransition(OVERRIDE_TRANSITION_CLOSE, android.R.anim.fade_in, android.R.anim.fade_out)
+        } else {
+            @Suppress("DEPRECATION")
+            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
         }
     }
 

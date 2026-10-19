@@ -146,7 +146,7 @@ object MyUtils {
                     dialog.dismiss()
                     onRetry?.invoke()
                 } else {
-                    Toast.makeText(context, "No connection. Please check your internet and retry.", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, context.getString(R.string.no_connection_msg), Toast.LENGTH_SHORT).show()
                 }
             }
         }

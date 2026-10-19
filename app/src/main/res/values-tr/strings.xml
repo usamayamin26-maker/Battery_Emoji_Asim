@@ -1,0 +1,245 @@
+<resources>
+    <string name="app_name">JH Battery</string>
+
+    <!-- Splash Screen -->
+    <string name="splash_title">Emoji Pil</string>
+    <string name="splash_loading">Sevimli pil arkadaşlarınız yükleniyor…</string>
+
+    <!-- Onboarding Screen -->
+    <string name="skip">Geç</string>
+    <string name="onboarding_title_1">Her detayı\nözelleştirin.</string>
+    <string name="onboarding_desc_1">emojiler, evcil hayvanlar, pil stilleri, durum çubukları ve harika arka planlar.</string>
+    <string name="onboarding_title_2">Pilinizi eğlenceli\nhale getirin.</string>
+    <string name="onboarding_desc_2">Pil simgenizi sevimli emojilere dönüştürün. Küçük bir detay, büyük bir mutluluk.</string>
+    <string name="onboarding_title_3">Sizin piliniz.\nSizin hayal gücünüz.</string>
+    <string name="help_title">Gelişmemize yardım edin</string>
+    <string name="help_desc_3">Lütfen Google Play\'de değerlendirerek ve önererek bizi destekleyin</string>
+    <string name="onboarding_desc_3">En sevdiğiniz emojileri ve renkleri birleştirerek size özel bir pil oluşturun.</string>
+    <string name="get_started">Başla</string>
+    <string name="next">İleri</string>
+
+    <!-- Home Screen -->
+    <string name="battery_icon_title">Pil Simgesi</string>
+    <string name="search_emojis_title">Emoji Ara</string>
+    <string name="search_placeholder">Bir emoji veya tema arayın…</string>
+    <string name="enable_emoji_battery_banner">Başlamak için emoji pili etkinleştirin</string>
+    <string name="start">Başlat</string>
+    <string name="sticker_shop">Çıkartma Mağazası</string>
+    <string name="animation">Animasyon</string>
+    <string name="themes">Temalar</string>
+
+    <!-- Category Tabs -->
+    <string name="tab_hot">🔥 Popüler</string>
+    <string name="tab_pokemon">Pokemon</string>
+    <string name="tab_sanrio">Sanrio</string>
+    <string name="tab_anime">Anime</string>
+
+    <!-- Filter Chips -->
+    <string name="chip_all">Tümü</string>
+    <string name="chip_heart">Kalp</string>
+    <string name="chip_cute_emoji">Sevimli Emoji</string>
+    <string name="chip_animations">Animasyonlar</string>
+
+    <!-- Home Sections -->
+    <string name="section_recent">Son Kullanılanlar</string>
+    <string name="section_top_picks">En Çok Seçilenler</string>
+
+    <!-- Bottom Navigation -->
+    <string name="nav_trending">Trendler</string>
+    <string name="nav_customize">Özelleştir</string>
+    <string name="nav_setting">Ayarlar</string>
+
+    <!-- Dialogs & Actions -->
+    <string name="apply_battery_style">Pil Stilini Uygula</string>
+    <string name="applied_successfully">Stil başarıyla uygulandı!</string>
+    <string name="preview">Önizleme</string>
+    <string name="battery_level">Pil Seviyesi: %1$d%%</string>
+
+    <!-- Settings Screen -->
+    <string name="settings_title">Ayarlar</string>
+    <string name="setting_language">Dil</string>
+    <string name="setting_language_current">Türkçe</string>
+    <string name="setting_privacy_policy">Gizlilik Politikası</string>
+    <string name="setting_share_app">Uygulamayı Paylaş</string>
+    <string name="setting_rate_us">Bizi Değerlendirin</string>
+
+    <!-- Languages Screen -->
+    <string name="languages_title">Diller</string>
+    <string name="lang_arabic">Arapça</string>
+    <string name="lang_arabic_native">العربية</string>
+    <string name="lang_german">Almanca</string>
+    <string name="lang_german_native">Deutsch</string>
+    <string name="lang_assamese">Assamca</string>
+    <string name="lang_assamese_native">অসমীয়া</string>
+    <string name="lang_persian">Farsça</string>
+    <string name="lang_persian_native">فارسی</string>
+    <string name="lang_french">Fransızca</string>
+    <string name="lang_french_native">Français</string>
+    <string name="lang_hindi">Hintçe</string>
+    <string name="lang_hindi_native">हिन्दी</string>
+    <string name="lang_indonesian">Endonezce</string>
+    <string name="lang_indonesian_native">Bahasa Indonesia</string>
+    <string name="lang_hebrew">İbranice</string>
+    <string name="lang_hebrew_native">עברית</string>
+    <string name="lang_japanese">Japonca</string>
+    <string name="lang_japanese_native">日本語</string>
+    <string name="lang_korean">Korece</string>
+    <string name="lang_korean_native">한국어</string>
+    <string name="lang_malay">Malayca</string>
+    <string name="lang_malay_native">Bahasa Melayu</string>
+    <string name="lang_portuguese">Portekizce</string>
+    <string name="lang_portuguese_native">Português</string>
+    <string name="lang_russian">Rusça</string>
+    <string name="lang_russian_native">Русский</string>
+    <string name="lang_turkish">Türkçe</string>
+    <string name="lang_turkish_native">Türkçe</string>
+    <string name="lang_urdu">Urduca</string>
+    <string name="lang_urdu_native">اردو</string>
+    <string name="lang_vietnamese">Vietnamca</string>
+    <string name="lang_vietnamese_native">Tiếng Việt</string>
+    <string name="lang_chinese">Çince</string>
+    <string name="lang_chinese_native">中文</string>
+    <string name="lang_english">İngilizce</string>
+    <string name="lang_english_native">English</string>
+    <string name="lang_dutch">Felemenkçe</string>
+    <string name="lang_dutch_native">Nederlands</string>
+    <string name="apply">Uygula</string>
+
+    <!-- Dialogs -->
+    <string name="share_dialog_title">Emoji Uygulamasını Paylaş</string>
+    <string name="share_dialog_desc">Arkadaşlarınızı telefonlarına sevimli emojiler eklemeye davet edin.</string>
+    <string name="share_link_url">https://velo.app/get</string>
+    <string name="copy">Kopyala</string>
+    <string name="link_copied">Bağlantı panoya kopyalandı!</string>
+    <string name="done">Bitti</string>
+    <string name="feedback_dialog_title">Nasıl buldunuz?</string>
+    <string name="feedback_dialog_desc">Geri bildiriminiz ihtiyaçlarınızı daha iyi anlamamız için çok önemlidir.</string>
+    <string name="feedback_submitted">Geri bildiriminiz için teşekkürler!</string>
+
+    <!-- Status Bar Themes & Animations Screens -->
+    <string name="status_bar_theme_title">Durum Çubuğu Teması</string>
+    <string name="gradient_tab">Degrade</string>
+    <string name="background_tab">Arka Plan</string>
+    <string name="choose_gradient">Bir degrade seçin</string>
+    <string name="choose_background">Bir arka plan seçin</string>
+    <string name="status_bar_animation_title">Durum Çubuğu Animasyonu</string>
+    <string name="date_size">Tarih Boyutu</string>
+    <string name="animation_style">Animasyon Stili</string>
+    <string name="see_all">Tümünü gör</string>
+    <string name="theme_applied_success">Durum çubuğu teması başarıyla uygulandı!</string>
+    <string name="animation_applied_success">Durum çubuğu animasyonu başarıyla uygulandı!</string>
+    <string name="accessibility_service_label">Emoji Pil Simgesini Özelleştir</string>
+    <string name="accessibility_service_desc">Durum çubuğunda emoji çıkartmalarını görüntüleyin ve görünümü özelleştirin. Veri toplanmaz.</string>
+    <string name="accessibility_dialog_title">Emoji Pil Simgesi İzni</string>
+    <string name="accessibility_dialog_desc">Özel pil emojilerinizi, animasyonlarınızı ve çıkartmalarınızı görüntülemek için lütfen Erişilebilirlik Hizmetlerinde Emoji Pil Simgesini etkinleştirin.</string>
+    <string name="enable_accessibility">Emoji Pil Simgesini Etkinleştir</string>
+    <string name="keep_standard_overlay">Standart Katmanı Koru</string>
+
+    <!-- Status Bar Custom Screen Strings -->
+    <string name="status_bar_custom_title">Özel Durum Çubuğu</string>
+    <string name="tab_size">Boyut</string>
+    <string name="tab_appearance">Görünüm</string>
+    <string name="tab_battery">Pil</string>
+    <string name="tab_customize_icon">Simgeyi özelleştir</string>
+    <string name="label_size">Boyut</string>
+    <string name="label_height">Yükseklik</string>
+    <string name="label_left_margin">Sol Kenar Boşluğu</string>
+    <string name="label_right_margin">Sağ Kenar Boşluğu</string>
+    <string name="label_appearance">Görünüm</string>
+    <string name="label_icon">Simge</string>
+    <string name="label_background">Arka Plan</string>
+    <string name="label_battery">Pil</string>
+    <string name="label_percentage">Yüzde</string>
+    <string name="label_icon_size">Simge Boyutu</string>
+    <string name="label_emoji">Emoji</string>
+    <string name="tab_trending">Trendler</string>
+    <string name="tab_halloween">Cadılar Bayramı</string>
+    <string name="tab_wc2">WC 2</string>
+    <string name="apply_custom_success">Özel durum çubuğu başarıyla uygulandı!</string>
+
+    <!-- Notification Permission Dialog -->
+    <string name="notify_permission_title">Bildirim İzni</string>
+    <string name="notify_permission_desc">Uygulama, önemli güncellemeleri ve temel sistem bilgilerini iletmek için bildirimleri kullanır.</string>
+    <string name="not_now">Şimdi Değil</string>
+    <string name="allow">İzin Ver</string>
+
+    <!-- Accessibility Service Usage Dialog -->
+    <string name="accessibility_usage_title">Erişilebilirlik Hizmeti Kullanımı</string>
+    <string name="accessibility_usage_subtitle">Devam etmek için izin gereklidir</string>
+    <string name="accessibility_usage_intro">Bu uygulama aşağıdaki nedenlerle Erişilebilirlik Hizmetleri iznine ihtiyaç duyar:</string>
+    <string name="accessibility_usage_bullet_1"><![CDATA[Ekranda <b><font color="#A855F7">"Emoji Pil Simgesini Özelleştir"</font></b> görünümünü görüntülemek ve durum çubuğu hareketlerini algılamak.]]></string>
+    <string name="accessibility_usage_bullet_2"><![CDATA[Ana Sayfa, Geri ve Son Uygulamalar için <b><font color="#A855F7">erişilebilirlik eylemlerini</font></b> başlatmak.]]></string>
+    <string name="accessibility_usage_notice">Bu uygulama, bu erişilebilirlik izniyle ilgili hiçbir kullanıcı bilgisini toplamamayı veya paylaşmamayı taahhüt eder.</string>
+    <string name="accessibility_usage_terms"><![CDATA[<u><font color="#A855F7">Hizmet Şartları</font></u>\'nı okudum ve kabul ediyorum]]></string>
+    <string name="close">Kapat</string>
+
+    <!-- How To Use Screen -->
+    <string name="how_to_use_title">Nasıl kullanılır</string>
+    <string name="how_to_use_step_1"><![CDATA[1. İndirilen uygulamalarda <font color="#9333EA"><b>Emoji Pil Simgesini Özelleştir</b></font> seçeneğini belirleyin.]]></string>
+    <string name="how_to_use_step_2"><![CDATA[2. <font color="#9333EA"><b>Emoji Pil Simgesini Özelleştir</b></font> öğesini seçin.]]></string>
+    <string name="how_to_use_step_3"><![CDATA[3. Açın.]]></string>
+    <string name="how_to_use_step_4"><![CDATA[4. <font color="#9333EA"><b>İzin Ver</b></font> seçeneğine tıklayın.]]></string>
+    <string name="go_to_settings">Ayarlara Git</string>
+    <string name="continue_text">Devam Et</string>
+
+    <!-- Exit Dialog -->
+    <string name="exit_dialog_title">Çıkmak istediğinizden emin misiniz?</string>
+    <string name="exit_dialog_desc">Değişiklikleriniz kaydedilmedi. Çıkmak istediğinizden emin misiniz?</string>
+    <string name="yes">Evet</string>
+    <string name="no">Hayır</string>
+
+    <!-- No Internet Dialog -->
+    <string name="no_internet_title">İnternet Bağlantısı Yok</string>
+    <string name="no_internet_desc">Lütfen internet bağlantınızı kontrol edip tekrar deneyin.</string>
+    <string name="cancel">İptal</string>
+    <string name="retry">Tekrar Dene</string>
+
+    <!-- Don't Miss Out Dialog -->
+    <string name="dont_miss_out_title">Fırsatı Kaçırmayın!!</string>
+    <string name="dont_miss_out_desc">Yeni pil simgelerini, mevsimlik temaları ve trend stilleri keşfetmek için bildirimleri açın.</string>
+    <string name="maybe_later">Belki Daha Sonra</string>
+    <string name="turn_on_notifications">Bildirimleri Aç</string>
+
+    <!-- Sticker For Display Screen Strings -->
+    <string name="sticker_for_display_title">Ekran İçin Çıkartma</string>
+    <string name="my_sticker">Çıkartmalarım</string>
+    <string name="save">Kaydet</string>
+    <string name="adjustment">Ayar</string>
+    <string name="size">Boyut</string>
+    <string name="rotate">Döndür</string>
+    <string name="welcome_back">Tekrar hoş geldiniz!</string>
+    <string name="sticker_saved_success">Çıkartmalar başarıyla kaydedildi!</string>
+    <string name="sticker_limit_reached">En fazla 5 çıkartmaya izin verilir</string>
+
+    <!-- Shifted Layout & Code Strings -->
+    <string name="default_preview_title">Pembe Çiçek</string>
+    <string name="default_preview_subtitle">Durum: Pilinizde aktif ve sevimli</string>
+    <string name="status_bar_permissions_title">Durum Çubuğu İzinleri</string>
+    <string name="overlay_perm_desc">Durum çubuğu temasının telefonunuzda görüntülenebilmesi için lütfen her iki izne de izin verin:</string>
+    <string name="overlay_perm_step1">1. \'Diğer uygulamaların üzerinde görüntüle\' izni verin</string>
+    <string name="overlay_perm_step2">2. \'Açılır pencereleri göster\' izni verin</string>
+    <string name="btn_apply_status_bar_theme">Durum Çubuğu Temasını Uygula</string>
+    <string name="overlay_perm_step1_allowed">1. \'Diğer uygulamaların üzerinde görüntüleme\' verildi ✓</string>
+    <string name="please_agree_terms">Lütfen Hizmet Şartlarını kabul edin</string>
+    <string name="show_in_status_bar">Durum Çubuğunda Göster</string>
+    <string name="icon_color">Simge Rengi</string>
+    <string name="style_label">Stil</string>
+    <string name="date_format">Tarih Formatı</string>
+    <string name="date_style">Tarih Stili</string>
+    <string name="status_bar_left_emojis">Durum Çubuğu Sol Emojileri</string>
+    <string name="choose_emoji_left_desc">Saatle birlikte sol tarafta gösterilecek bir emoji seçin</string>
+    <string name="emoji_battery_is_active">Emoji pil aktif</string>
+    <string name="status_active">Aktif</string>
+    <string name="item_customized_format">%1$s özelleştirildi!</string>
+    <string name="item_applied_battery_format">%1$s pil simgesi olarak uygulandı!</string>
+    <string name="item_size_format">%1$s Boyutu</string>
+    <string name="emoji_battery_deactivated">Emoji pil devre dışı bırakıldı</string>
+    <string name="emoji_battery_activated">Emoji pil etkinleştirildi!</string>
+    <string name="notification_permission_granted">Bildirim izni verildi!</string>
+    <string name="opening_privacy_policy">Gizlilik Politikası açılıyor…</string>
+    <string name="please_select_sticker">Lütfen önce bir çıkartma seçin</string>
+    <string name="language_changed_to">Dil %1$s olarak değiştirildi</string>
+    <string name="no_connection_msg">Bağlantı yok. Lütfen internetinizi kontrol edip tekrar deneyin.</string>
+    <string name="cd_back">Geri</string>
+    <string name="cd_clear">Temizle</string>
+</resources>

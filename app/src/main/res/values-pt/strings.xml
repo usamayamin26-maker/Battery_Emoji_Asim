@@ -1,0 +1,245 @@
+<resources>
+    <string name="app_name">JH Battery</string>
+
+    <!-- Splash Screen -->
+    <string name="splash_title">Bateria Emoji</string>
+    <string name="splash_loading">Carregando seus adoráveis amigos da bateria…</string>
+
+    <!-- Onboarding Screen -->
+    <string name="skip">Pular</string>
+    <string name="onboarding_title_1">Personalize cada\ndetalhe com.</string>
+    <string name="onboarding_desc_1">emojis, animais de estimação, estilos de bateria, barras de status e lindos fundos.</string>
+    <string name="onboarding_title_2">Torne sua\nbateria divertida.</string>
+    <string name="onboarding_desc_2">Transforme o ícone da sua bateria em emojis fofos. Um pequeno detalhe, muita felicidade.</string>
+    <string name="onboarding_title_3">Sua bateria.\nSua imaginação.</string>
+    <string name="help_title">Ajude-nos a melhorar</string>
+    <string name="help_desc_3">Por favor, apoie-nos avaliando e recomendando a outras pessoas no Google Play</string>
+    <string name="onboarding_desc_3">Combine seus emojis e cores favoritos para criar uma bateria que é a sua cara.</string>
+    <string name="get_started">Começar</string>
+    <string name="next">Próximo</string>
+
+    <!-- Home Screen -->
+    <string name="battery_icon_title">Ícone da Bateria</string>
+    <string name="search_emojis_title">Pesquisar Emojis</string>
+    <string name="search_placeholder">Pesquise um emoji ou tema…</string>
+    <string name="enable_emoji_battery_banner">Ative a bateria emoji para começar</string>
+    <string name="start">Iniciar</string>
+    <string name="sticker_shop">Loja de Figurinhas</string>
+    <string name="animation">Animação</string>
+    <string name="themes">Temas</string>
+
+    <!-- Category Tabs -->
+    <string name="tab_hot">🔥 Em Alta</string>
+    <string name="tab_pokemon">Pokémon</string>
+    <string name="tab_sanrio">Sanrio</string>
+    <string name="tab_anime">Anime</string>
+
+    <!-- Filter Chips -->
+    <string name="chip_all">Todos</string>
+    <string name="chip_heart">Coração</string>
+    <string name="chip_cute_emoji">Emoji Fofo</string>
+    <string name="chip_animations">Animações</string>
+
+    <!-- Home Sections -->
+    <string name="section_recent">Recentes</string>
+    <string name="section_top_picks">Mais Escolhidos</string>
+
+    <!-- Bottom Navigation -->
+    <string name="nav_trending">Tendências</string>
+    <string name="nav_customize">Personalizar</string>
+    <string name="nav_setting">Configurações</string>
+
+    <!-- Dialogs & Actions -->
+    <string name="apply_battery_style">Aplicar Estilo de Bateria</string>
+    <string name="applied_successfully">Estilo aplicado com sucesso!</string>
+    <string name="preview">Pré-visualização</string>
+    <string name="battery_level">Nível da Bateria: %1$d%%</string>
+
+    <!-- Settings Screen -->
+    <string name="settings_title">Configurações</string>
+    <string name="setting_language">Idioma</string>
+    <string name="setting_language_current">Português</string>
+    <string name="setting_privacy_policy">Política de Privacidade</string>
+    <string name="setting_share_app">Compartilhar Aplicativo</string>
+    <string name="setting_rate_us">Avalie-nos</string>
+
+    <!-- Languages Screen -->
+    <string name="languages_title">Idiomas</string>
+    <string name="lang_arabic">Árabe</string>
+    <string name="lang_arabic_native">العربية</string>
+    <string name="lang_german">Alemão</string>
+    <string name="lang_german_native">Deutsch</string>
+    <string name="lang_assamese">Assamês</string>
+    <string name="lang_assamese_native">অসমীয়া</string>
+    <string name="lang_persian">Persa</string>
+    <string name="lang_persian_native">فارسی</string>
+    <string name="lang_french">Francês</string>
+    <string name="lang_french_native">Français</string>
+    <string name="lang_hindi">Hindi</string>
+    <string name="lang_hindi_native">हिन्दी</string>
+    <string name="lang_indonesian">Indonésio</string>
+    <string name="lang_indonesian_native">Bahasa Indonesia</string>
+    <string name="lang_hebrew">Hebraico</string>
+    <string name="lang_hebrew_native">עברית</string>
+    <string name="lang_japanese">Japonês</string>
+    <string name="lang_japanese_native">日本語</string>
+    <string name="lang_korean">Coreano</string>
+    <string name="lang_korean_native">한국어</string>
+    <string name="lang_malay">Malaio</string>
+    <string name="lang_malay_native">Bahasa Melayu</string>
+    <string name="lang_portuguese">Português</string>
+    <string name="lang_portuguese_native">Português</string>
+    <string name="lang_russian">Russo</string>
+    <string name="lang_russian_native">Русский</string>
+    <string name="lang_turkish">Turco</string>
+    <string name="lang_turkish_native">Türkçe</string>
+    <string name="lang_urdu">Urdu</string>
+    <string name="lang_urdu_native">اردو</string>
+    <string name="lang_vietnamese">Vietnamita</string>
+    <string name="lang_vietnamese_native">Tiếng Việt</string>
+    <string name="lang_chinese">Chinês</string>
+    <string name="lang_chinese_native">中文</string>
+    <string name="lang_english">Inglês</string>
+    <string name="lang_english_native">English</string>
+    <string name="lang_dutch">Holandês</string>
+    <string name="lang_dutch_native">Nederlands</string>
+    <string name="apply">Aplicar</string>
+
+    <!-- Dialogs -->
+    <string name="share_dialog_title">Compartilhar app de Emoji</string>
+    <string name="share_dialog_desc">Convide amigos para adicionar emojis no celular.</string>
+    <string name="share_link_url">https://velo.app/get</string>
+    <string name="copy">Copiar</string>
+    <string name="link_copied">Link copiado para a área de transferência!</string>
+    <string name="done">Concluído</string>
+    <string name="feedback_dialog_title">O que você achou?</string>
+    <string name="feedback_dialog_desc">Sua opinião é fundamental para nos ajudar a melhorar o aplicativo.</string>
+    <string name="feedback_submitted">Obrigado pelo seu feedback!</string>
+
+    <!-- Status Bar Themes & Animations Screens -->
+    <string name="status_bar_theme_title">Tema da Barra de Status</string>
+    <string name="gradient_tab">Gradiente</string>
+    <string name="background_tab">Fundo</string>
+    <string name="choose_gradient">Escolha um gradiente</string>
+    <string name="choose_background">Escolha um fundo</string>
+    <string name="status_bar_animation_title">Animação da Barra de Status</string>
+    <string name="date_size">Tamanho da Data</string>
+    <string name="animation_style">Estilo de Animação</string>
+    <string name="see_all">Ver todos</string>
+    <string name="theme_applied_success">Tema da barra de status aplicado com sucesso!</string>
+    <string name="animation_applied_success">Animação da barra de status aplicada com sucesso!</string>
+    <string name="accessibility_service_label">Personalizar Ícone da Bateria Emoji</string>
+    <string name="accessibility_service_desc">Exibe figurinhas de emoji na barra de status e personaliza a aparência. Nenhum dado é coletado.</string>
+    <string name="accessibility_dialog_title">Permissão do Ícone da Bateria Emoji</string>
+    <string name="accessibility_dialog_desc">Para exibir seus emojis de bateria, animações e figurinhas personalizadas, ative o Ícone da Bateria Emoji nos Serviços de Acessibilidade.</string>
+    <string name="enable_accessibility">Ativar Ícone da Bateria Emoji</string>
+    <string name="keep_standard_overlay">Manter Sobreposição Padrão</string>
+
+    <!-- Status Bar Custom Screen Strings -->
+    <string name="status_bar_custom_title">Barra de Status Personalizada</string>
+    <string name="tab_size">Tamanho</string>
+    <string name="tab_appearance">Aparência</string>
+    <string name="tab_battery">Bateria</string>
+    <string name="tab_customize_icon">Personalizar ícone</string>
+    <string name="label_size">Tamanho</string>
+    <string name="label_height">Altura</string>
+    <string name="label_left_margin">Margem Esquerda</string>
+    <string name="label_right_margin">Margem Direita</string>
+    <string name="label_appearance">Aparência</string>
+    <string name="label_icon">Ícone</string>
+    <string name="label_background">Fundo</string>
+    <string name="label_battery">Bateria</string>
+    <string name="label_percentage">Porcentagem</string>
+    <string name="label_icon_size">Tamanho do Ícone</string>
+    <string name="label_emoji">Emoji</string>
+    <string name="tab_trending">Tendências</string>
+    <string name="tab_halloween">Halloween</string>
+    <string name="tab_wc2">WC 2</string>
+    <string name="apply_custom_success">Barra de status personalizada aplicada com sucesso!</string>
+
+    <!-- Notification Permission Dialog -->
+    <string name="notify_permission_title">Permissão de Notificação</string>
+    <string name="notify_permission_desc">O aplicativo usa notificações para fornecer atualizações importantes e informações essenciais do sistema.</string>
+    <string name="not_now">Agora Não</string>
+    <string name="allow">Permitir</string>
+
+    <!-- Accessibility Service Usage Dialog -->
+    <string name="accessibility_usage_title">Uso do Serviço de Acessibilidade</string>
+    <string name="accessibility_usage_subtitle">Permissão necessária para continuar</string>
+    <string name="accessibility_usage_intro">Este aplicativo requer a permissão dos Serviços de Acessibilidade para:</string>
+    <string name="accessibility_usage_bullet_1"><![CDATA[Exibir a visualização <b><font color="#A855F7">"Personalizar Ícone da Bateria Emoji"</font></b> na tela e detectar gestos na barra de status.]]></string>
+    <string name="accessibility_usage_bullet_2"><![CDATA[Iniciar <b><font color="#A855F7">ações de acessibilidade</font></b> como Início, Voltar e tela de Recentes.]]></string>
+    <string name="accessibility_usage_notice">Este aplicativo se compromete a não coletar nem compartilhar nenhuma informação do usuário sobre este direito de acessibilidade.</string>
+    <string name="accessibility_usage_terms"><![CDATA[Eu li e concordo com os <u><font color="#A855F7">Termos de Serviço</font></u>]]></string>
+    <string name="close">Fechar</string>
+
+    <!-- How To Use Screen -->
+    <string name="how_to_use_title">Como usar</string>
+    <string name="how_to_use_step_1"><![CDATA[1. Em aplicativos baixados, selecione <font color="#9333EA"><b>Personalizar Ícone da Bateria Emoji.</b></font>]]></string>
+    <string name="how_to_use_step_2"><![CDATA[2. Selecione <font color="#9333EA"><b>Personalizar Ícone da Bateria Emoji.</b></font>]]></string>
+    <string name="how_to_use_step_3"><![CDATA[3. Ative.]]></string>
+    <string name="how_to_use_step_4"><![CDATA[4. Clique em <font color="#9333EA"><b>Permitir.</b></font>]]></string>
+    <string name="go_to_settings">Ir para Configurações</string>
+    <string name="continue_text">Continuar</string>
+
+    <!-- Exit Dialog -->
+    <string name="exit_dialog_title">Tem certeza de que deseja sair?</string>
+    <string name="exit_dialog_desc">Suas alterações não foram salvas. Tem certeza de que deseja sair?</string>
+    <string name="yes">Sim</string>
+    <string name="no">Não</string>
+
+    <!-- No Internet Dialog -->
+    <string name="no_internet_title">Sem Conexão com a Internet</string>
+    <string name="no_internet_desc">Por favor, verifique sua conexão com a internet e tente novamente.</string>
+    <string name="cancel">Cancelar</string>
+    <string name="retry">Tentar Novamente</string>
+
+    <!-- Don't Miss Out Dialog -->
+    <string name="dont_miss_out_title">Não perca!!</string>
+    <string name="dont_miss_out_desc">Ative as notificações para descobrir novos ícones de bateria, temas sazonais e estilos em alta.</string>
+    <string name="maybe_later">Talvez Mais Tarde</string>
+    <string name="turn_on_notifications">Ativar Notificações</string>
+
+    <!-- Sticker For Display Screen Strings -->
+    <string name="sticker_for_display_title">Figurinha para Tela de Exibição</string>
+    <string name="my_sticker">Minhas Figurinhas</string>
+    <string name="save">Salvar</string>
+    <string name="adjustment">Ajuste</string>
+    <string name="size">Tamanho</string>
+    <string name="rotate">Girar</string>
+    <string name="welcome_back">Bem-vindo de volta!</string>
+    <string name="sticker_saved_success">Figurinhas salvas com sucesso!</string>
+    <string name="sticker_limit_reached">Máximo de 5 figurinhas permitidas</string>
+
+    <!-- Shifted Layout & Code Strings -->
+    <string name="default_preview_title">Flor Rosa</string>
+    <string name="default_preview_subtitle">Status: Ativo e fofinho na sua bateria</string>
+    <string name="status_bar_permissions_title">Permissões da Barra de Status</string>
+    <string name="overlay_perm_desc">Por favor, conceda ambas as permissões para que o tema da barra de status possa ser exibido no seu celular:</string>
+    <string name="overlay_perm_step1">1. Permitir \'Exibir sobre outros aplicativos\'</string>
+    <string name="overlay_perm_step2">2. Permitir \'Exibir janelas pop-up\'</string>
+    <string name="btn_apply_status_bar_theme">Aplicar Tema da Barra de Status</string>
+    <string name="overlay_perm_step1_allowed">1. \'Exibir sobre outros aplicativos\' permitido ✓</string>
+    <string name="please_agree_terms">Por favor, concorde com os Termos de Serviço</string>
+    <string name="show_in_status_bar">Mostrar na Barra de Status</string>
+    <string name="icon_color">Cor do Ícone</string>
+    <string name="style_label">Estilo</string>
+    <string name="date_format">Formato de Data</string>
+    <string name="date_style">Estilo de Data</string>
+    <string name="status_bar_left_emojis">Emojis da Esquerda da Barra de Status</string>
+    <string name="choose_emoji_left_desc">Escolha um emoji para exibir no lado esquerdo com a hora</string>
+    <string name="emoji_battery_is_active">A bateria emoji está ativa</string>
+    <string name="status_active">Ativo</string>
+    <string name="item_customized_format">%1$s personalizado!</string>
+    <string name="item_applied_battery_format">%1$s aplicado como ícone de bateria!</string>
+    <string name="item_size_format">Tamanho de %1$s</string>
+    <string name="emoji_battery_deactivated">Bateria emoji desativada</string>
+    <string name="emoji_battery_activated">Bateria emoji ativada!</string>
+    <string name="notification_permission_granted">Permissão de notificação concedida!</string>
+    <string name="opening_privacy_policy">Abrindo Política de Privacidade…</string>
+    <string name="please_select_sticker">Selecione uma figurinha primeiro</string>
+    <string name="language_changed_to">Idioma alterado para %1$s</string>
+    <string name="no_connection_msg">Sem conexão. Verifique sua internet e tente novamente.</string>
+    <string name="cd_back">Voltar</string>
+    <string name="cd_clear">Limpar</string>
+</resources>

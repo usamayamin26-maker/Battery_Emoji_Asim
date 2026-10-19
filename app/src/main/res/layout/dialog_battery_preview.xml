@@ -38,7 +38,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_14sdp"
-        android:text="Pink Blossom"
+        android:text="@string/default_preview_title"
         android:textColor="@color/text_primary"
         android:textSize="@dimen/_18ssp"
         android:textStyle="bold" />
@@ -48,7 +48,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_4sdp"
-        android:text="Status: Active and cuddling on your battery"
+        android:text="@string/default_preview_subtitle"
         android:textColor="@color/text_secondary"
         android:textSize="@dimen/_12ssp" />
 

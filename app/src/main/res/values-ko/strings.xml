@@ -1,0 +1,245 @@
+<resources>
+    <string name="app_name">JH Battery</string>
+
+    <!-- Splash Screen -->
+    <string name="splash_title">이모지 배터리</string>
+    <string name="splash_loading">귀여운 배터리 친구들을 불러오는 중…</string>
+
+    <!-- Onboarding Screen -->
+    <string name="skip">건너뛰기</string>
+    <string name="onboarding_title_1">모든 디테일을\n나만의 스타일로.</string>
+    <string name="onboarding_desc_1">이모지, 반려동물, 배터리 스타일, 상태 표시줄 및 예쁜 배경.</string>
+    <string name="onboarding_title_2">배터리를 더욱\n즐겁게.</string>
+    <string name="onboarding_desc_2">배터리 아이콘을 귀여운 이모지로 바꿔보세요. 작은 디테일로 매일이 행복해집니다.</string>
+    <string name="onboarding_title_3">나만의 배터리.\n나만의 상상력.</string>
+    <string name="help_title">개선에 도움을 주세요</string>
+    <string name="help_desc_3">Google Play에서 평가와 추천으로 응원해 주세요</string>
+    <string name="onboarding_desc_3">좋아하는 이모지와 색상을 조합하여 나에게 딱 맞는 배터리를 만드세요.</string>
+    <string name="get_started">시작하기</string>
+    <string name="next">다음</string>
+
+    <!-- Home Screen -->
+    <string name="battery_icon_title">배터리 아이콘</string>
+    <string name="search_emojis_title">이모지 검색</string>
+    <string name="search_placeholder">이모지 또는 테마 검색…</string>
+    <string name="enable_emoji_battery_banner">시작하려면 이모지 배터리를 활성화하세요</string>
+    <string name="start">시작</string>
+    <string name="sticker_shop">스티커 샵</string>
+    <string name="animation">애니메이션</string>
+    <string name="themes">테마</string>
+
+    <!-- Category Tabs -->
+    <string name="tab_hot">🔥 인기</string>
+    <string name="tab_pokemon">포켓몬</string>
+    <string name="tab_sanrio">산리오</string>
+    <string name="tab_anime">애니메이션</string>
+
+    <!-- Filter Chips -->
+    <string name="chip_all">전체</string>
+    <string name="chip_heart">하트</string>
+    <string name="chip_cute_emoji">귀여운 이모지</string>
+    <string name="chip_animations">애니메이션</string>
+
+    <!-- Home Sections -->
+    <string name="section_recent">최근</string>
+    <string name="section_top_picks">추천</string>
+
+    <!-- Bottom Navigation -->
+    <string name="nav_trending">트렌드</string>
+    <string name="nav_customize">커스텀</string>
+    <string name="nav_setting">설정</string>
+
+    <!-- Dialogs & Actions -->
+    <string name="apply_battery_style">배터리 스타일 적용</string>
+    <string name="applied_successfully">스타일이 성공적으로 적용되었습니다!</string>
+    <string name="preview">미리보기</string>
+    <string name="battery_level">배터리 잔량: %1$d%%</string>
+
+    <!-- Settings Screen -->
+    <string name="settings_title">설정</string>
+    <string name="setting_language">언어</string>
+    <string name="setting_language_current">한국어</string>
+    <string name="setting_privacy_policy">개인정보 처리방침</string>
+    <string name="setting_share_app">앱 공유하기</string>
+    <string name="setting_rate_us">평가하기</string>
+
+    <!-- Languages Screen -->
+    <string name="languages_title">언어</string>
+    <string name="lang_arabic">아랍어</string>
+    <string name="lang_arabic_native">العربية</string>
+    <string name="lang_german">독일어</string>
+    <string name="lang_german_native">Deutsch</string>
+    <string name="lang_assamese">아삼어</string>
+    <string name="lang_assamese_native">অসমীয়া</string>
+    <string name="lang_persian">페르시아어</string>
+    <string name="lang_persian_native">فارسی</string>
+    <string name="lang_french">프랑스어</string>
+    <string name="lang_french_native">Français</string>
+    <string name="lang_hindi">힌디어</string>
+    <string name="lang_hindi_native">हिन्दी</string>
+    <string name="lang_indonesian">인도네시아어</string>
+    <string name="lang_indonesian_native">Bahasa Indonesia</string>
+    <string name="lang_hebrew">히브리어</string>
+    <string name="lang_hebrew_native">עברית</string>
+    <string name="lang_japanese">일본어</string>
+    <string name="lang_japanese_native">日本語</string>
+    <string name="lang_korean">한국어</string>
+    <string name="lang_korean_native">한국어</string>
+    <string name="lang_malay">말레이어</string>
+    <string name="lang_malay_native">Bahasa Melayu</string>
+    <string name="lang_portuguese">포르투갈어</string>
+    <string name="lang_portuguese_native">Português</string>
+    <string name="lang_russian">러시아어</string>
+    <string name="lang_russian_native">Русский</string>
+    <string name="lang_turkish">튀르키예어</string>
+    <string name="lang_turkish_native">Türkçe</string>
+    <string name="lang_urdu">우르두어</string>
+    <string name="lang_urdu_native">اردو</string>
+    <string name="lang_vietnamese">베트남어</string>
+    <string name="lang_vietnamese_native">Tiếng Việt</string>
+    <string name="lang_chinese">중국어</string>
+    <string name="lang_chinese_native">中文</string>
+    <string name="lang_english">영어</string>
+    <string name="lang_english_native">English</string>
+    <string name="lang_dutch">네덜란드어</string>
+    <string name="lang_dutch_native">Nederlands</string>
+    <string name="apply">적용</string>
+
+    <!-- Dialogs -->
+    <string name="share_dialog_title">이모지 앱 공유</string>
+    <string name="share_dialog_desc">친구들을 초대해 폰에 귀여운 이모지를 추가해 보세요.</string>
+    <string name="share_link_url">https://velo.app/get</string>
+    <string name="copy">복사</string>
+    <string name="link_copied">링크가 클립보드에 복사되었습니다!</string>
+    <string name="done">완료</string>
+    <string name="feedback_dialog_title">앱이 마음에 드시나요?</string>
+    <string name="feedback_dialog_desc">소중한 피드백은 더 나은 서비스를 만드는 데 큰 도움이 됩니다.</string>
+    <string name="feedback_submitted">피드백을 보내주셔서 감사합니다!</string>
+
+    <!-- Status Bar Themes & Animations Screens -->
+    <string name="status_bar_theme_title">상태 표시줄 테마</string>
+    <string name="gradient_tab">그라디언트</string>
+    <string name="background_tab">배경</string>
+    <string name="choose_gradient">그라디언트 선택</string>
+    <string name="choose_background">배경 선택</string>
+    <string name="status_bar_animation_title">상태 표시줄 애니메이션</string>
+    <string name="date_size">날짜 크기</string>
+    <string name="animation_style">애니메이션 스타일</string>
+    <string name="see_all">모두 보기</string>
+    <string name="theme_applied_success">상태 표시줄 테마가 성공적으로 적용되었습니다!</string>
+    <string name="animation_applied_success">상태 표시줄 애니메이션이 성공적으로 적용되었습니다!</string>
+    <string name="accessibility_service_label">이모지 배터리 아이콘 커스텀</string>
+    <string name="accessibility_service_desc">상태 표시줄에 이모지 스티커를 표시하고 디자인을 변경합니다. 어떠한 데이터도 수집하지 않습니다.</string>
+    <string name="accessibility_dialog_title">이모지 배터리 아이콘 권한</string>
+    <string name="accessibility_dialog_desc">커스텀 배터리 이모지, 애니메이션 및 스티커를 표시하려면 접근성 서비스에서 이모지 배터리 아이콘을 켜주세요.</string>
+    <string name="enable_accessibility">이모지 배터리 아이콘 켜기</string>
+    <string name="keep_standard_overlay">기본 오버레이 유지</string>
+
+    <!-- Status Bar Custom Screen Strings -->
+    <string name="status_bar_custom_title">상태 표시줄 커스텀</string>
+    <string name="tab_size">크기</string>
+    <string name="tab_appearance">외형</string>
+    <string name="tab_battery">배터리</string>
+    <string name="tab_customize_icon">아이콘 커스텀</string>
+    <string name="label_size">크기</string>
+    <string name="label_height">높이</string>
+    <string name="label_left_margin">왼쪽 여백</string>
+    <string name="label_right_margin">오른쪽 여백</string>
+    <string name="label_appearance">외형</string>
+    <string name="label_icon">아이콘</string>
+    <string name="label_background">배경</string>
+    <string name="label_battery">배터리</string>
+    <string name="label_percentage">백분율</string>
+    <string name="label_icon_size">아이콘 크기</string>
+    <string name="label_emoji">이모지</string>
+    <string name="tab_trending">트렌드</string>
+    <string name="tab_halloween">할로윈</string>
+    <string name="tab_wc2">WC 2</string>
+    <string name="apply_custom_success">커스텀 상태 표시줄이 적용되었습니다!</string>
+
+    <!-- Notification Permission Dialog -->
+    <string name="notify_permission_title">알림 권한</string>
+    <string name="notify_permission_desc">앱은 중요한 업데이트 및 필수 시스템 정보를 제공하기 위해 알림을 사용합니다.</string>
+    <string name="not_now">나중에</string>
+    <string name="allow">허용</string>
+
+    <!-- Accessibility Service Usage Dialog -->
+    <string name="accessibility_usage_title">접근성 서비스 사용 안내</string>
+    <string name="accessibility_usage_subtitle">계속하려면 권한이 필요합니다</string>
+    <string name="accessibility_usage_intro">이 앱은 다음 목적을 위해 접근성 서비스 권한이 필요합니다:</string>
+    <string name="accessibility_usage_bullet_1"><![CDATA[화면에 <b><font color="#A855F7">"이모지 배터리 아이콘 커스텀"</font></b> 뷰를 표시하고 상태 표시줄 제스처를 감지합니다.]]></string>
+    <string name="accessibility_usage_bullet_2"><![CDATA[홈, 뒤로 가기, 최근 앱 화면 <b><font color="#A855F7">접근성 동작</font></b>을 실행합니다.]]></string>
+    <string name="accessibility_usage_notice">본 앱은 이 접근성 권한과 관련하여 어떠한 개인정보도 수집하거나 공유하지 않습니다.</string>
+    <string name="accessibility_usage_terms"><![CDATA[<u><font color="#A855F7">서비스 이용약관</font></u>을 읽었으며 이에 동의합니다]]></string>
+    <string name="close">닫기</string>
+
+    <!-- How To Use Screen -->
+    <string name="how_to_use_title">사용 방법</string>
+    <string name="how_to_use_step_1"><![CDATA[1. 다운로드된 앱에서 <font color="#9333EA"><b>이모지 배터리 아이콘 커스텀</b></font>을 선택하세요.]]></string>
+    <string name="how_to_use_step_2"><![CDATA[2. <font color="#9333EA"><b>이모지 배터리 아이콘 커스텀</b></font>을 선택하세요.]]></string>
+    <string name="how_to_use_step_3"><![CDATA[3. 켜기를 누르세요.]]></string>
+    <string name="how_to_use_step_4"><![CDATA[4. <font color="#9333EA"><b>허용</b></font>을 누르세요.]]></string>
+    <string name="go_to_settings">설정으로 이동</string>
+    <string name="continue_text">계속하기</string>
+
+    <!-- Exit Dialog -->
+    <string name="exit_dialog_title">정말 종료하시겠습니까?</string>
+    <string name="exit_dialog_desc">변경사항이 저장되지 않았습니다. 종료하시겠습니까?</string>
+    <string name="yes">예</string>
+    <string name="no">아니요</string>
+
+    <!-- No Internet Dialog -->
+    <string name="no_internet_title">인터넷 연결 없음</string>
+    <string name="no_internet_desc">인터넷 연결 상태를 확인하고 다시 시도해 주세요.</string>
+    <string name="cancel">취소</string>
+    <string name="retry">다시 시도</string>
+
+    <!-- Don't Miss Out Dialog -->
+    <string name="dont_miss_out_title">놓치지 마세요!!</string>
+    <string name="dont_miss_out_desc">알림을 켜서 새로운 배터리 아이콘, 시즌 테마 및 인기 스타일을 확인하세요.</string>
+    <string name="maybe_later">나중에</string>
+    <string name="turn_on_notifications">알림 켜기</string>
+
+    <!-- Sticker For Display Screen Strings -->
+    <string name="sticker_for_display_title">화면용 스티커</string>
+    <string name="my_sticker">내 스티커</string>
+    <string name="save">저장</string>
+    <string name="adjustment">조정</string>
+    <string name="size">크기</string>
+    <string name="rotate">회전</string>
+    <string name="welcome_back">다시 오신 것을 환영합니다!</string>
+    <string name="sticker_saved_success">스티커가 성공적으로 저장되었습니다!</string>
+    <string name="sticker_limit_reached">최대 5개의 스티커만 허용됩니다</string>
+
+    <!-- Shifted Layout & Code Strings -->
+    <string name="default_preview_title">핑크 블라썸</string>
+    <string name="default_preview_subtitle">상태: 배터리 위에서 활성 중</string>
+    <string name="status_bar_permissions_title">상태 표시줄 권한</string>
+    <string name="overlay_perm_desc">상태 표시줄 테마를 폰에 표시하려면 두 가지 권한을 모두 허용해 주세요:</string>
+    <string name="overlay_perm_step1">1. \'다른 앱 위에 표시\' 허용</string>
+    <string name="overlay_perm_step2">2. \'팝업 창 표시\' 허용</string>
+    <string name="btn_apply_status_bar_theme">상태 표시줄 테마 적용</string>
+    <string name="overlay_perm_step1_allowed">1. \'다른 앱 위에 표시\' 허용됨 ✓</string>
+    <string name="please_agree_terms">서비스 이용약관에 동의해 주세요</string>
+    <string name="show_in_status_bar">상태 표시줄에 표시</string>
+    <string name="icon_color">아이콘 색상</string>
+    <string name="style_label">스타일</string>
+    <string name="date_format">날짜 형식</string>
+    <string name="date_style">날짜 스타일</string>
+    <string name="status_bar_left_emojis">상태 표시줄 왼쪽 이모지</string>
+    <string name="choose_emoji_left_desc">시간 옆 왼쪽에 표시할 이모지 선택</string>
+    <string name="emoji_battery_is_active">이모지 배터리가 활성화되었습니다</string>
+    <string name="status_active">활성</string>
+    <string name="item_customized_format">%1$s 커스텀 완료!</string>
+    <string name="item_applied_battery_format">%1$s(이)가 배터리 아이콘으로 적용되었습니다!</string>
+    <string name="item_size_format">%1$s 크기</string>
+    <string name="emoji_battery_deactivated">이모지 배터리가 비활성화되었습니다</string>
+    <string name="emoji_battery_activated">이모지 배터리가 활성화되었습니다!</string>
+    <string name="notification_permission_granted">알림 권한이 허용되었습니다!</string>
+    <string name="opening_privacy_policy">개인정보 처리방침 여는 중…</string>
+    <string name="please_select_sticker">먼저 스티커를 선택해 주세요</string>
+    <string name="language_changed_to">언어가 %1$s(으)로 변경되었습니다</string>
+    <string name="no_connection_msg">인터넷 연결이 없습니다. 확인 후 다시 시도해 주세요.</string>
+    <string name="cd_back">뒤로</string>
+    <string name="cd_clear">지우기</string>
+</resources>

@@ -1,0 +1,245 @@
+<resources>
+    <string name="app_name">JH Battery</string>
+
+    <!-- Splash Screen -->
+    <string name="splash_title">Baterai Emoji</string>
+    <string name="splash_loading">Memuat teman baterai lucu Anda…</string>
+
+    <!-- Onboarding Screen -->
+    <string name="skip">Lewati</string>
+    <string name="onboarding_title_1">Personalisasi setiap\ndetail dengan.</string>
+    <string name="onboarding_desc_1">emoji, hewan peliharaan, gaya baterai, bilah status &amp; latar belakang yang indah.</string>
+    <string name="onboarding_title_2">Jadikan baterai Anda\nmenyenangkan.</string>
+    <string name="onboarding_desc_2">Ubah ikon baterai menjadi emoji lucu. Detail kecil yang membawa banyak keceriaan.</string>
+    <string name="onboarding_title_3">Baterai Anda.\nImajinasi Anda.</string>
+    <string name="help_title">Bantu kami meningkatkan</string>
+    <string name="help_desc_3">Dukung kami dengan memberi peringkat dan merekomendasikan di Google Play</string>
+    <string name="onboarding_desc_3">Padukan emoji dan warna favorit untuk menciptakan baterai yang sesuai dengan Anda.</string>
+    <string name="get_started">Mulai</string>
+    <string name="next">Lanjut</string>
+
+    <!-- Home Screen -->
+    <string name="battery_icon_title">Ikon Baterai</string>
+    <string name="search_emojis_title">Cari Emoji</string>
+    <string name="search_placeholder">Cari emoji atau tema…</string>
+    <string name="enable_emoji_battery_banner">Aktifkan baterai emoji untuk memulai</string>
+    <string name="start">Mulai</string>
+    <string name="sticker_shop">Toko Stiker</string>
+    <string name="animation">Animasi</string>
+    <string name="themes">Tema</string>
+
+    <!-- Category Tabs -->
+    <string name="tab_hot">🔥 Populer</string>
+    <string name="tab_pokemon">Pokemon</string>
+    <string name="tab_sanrio">Sanrio</string>
+    <string name="tab_anime">Anime</string>
+
+    <!-- Filter Chips -->
+    <string name="chip_all">Semua</string>
+    <string name="chip_heart">Hati</string>
+    <string name="chip_cute_emoji">Emoji Lucu</string>
+    <string name="chip_animations">Animasi</string>
+
+    <!-- Home Sections -->
+    <string name="section_recent">Terbaru</string>
+    <string name="section_top_picks">Pilihan Teratas</string>
+
+    <!-- Bottom Navigation -->
+    <string name="nav_trending">Tren</string>
+    <string name="nav_customize">Kustomisasi</string>
+    <string name="nav_setting">Pengaturan</string>
+
+    <!-- Dialogs & Actions -->
+    <string name="apply_battery_style">Terapkan Gaya Baterai</string>
+    <string name="applied_successfully">Gaya berhasil diterapkan!</string>
+    <string name="preview">Pratinjau</string>
+    <string name="battery_level">Tingkat Baterai: %1$d%%</string>
+
+    <!-- Settings Screen -->
+    <string name="settings_title">Pengaturan</string>
+    <string name="setting_language">Bahasa</string>
+    <string name="setting_language_current">Bahasa Indonesia</string>
+    <string name="setting_privacy_policy">Kebijakan Privasi</string>
+    <string name="setting_share_app">Bagikan Aplikasi</string>
+    <string name="setting_rate_us">Beri Nilai Kami</string>
+
+    <!-- Languages Screen -->
+    <string name="languages_title">Bahasa</string>
+    <string name="lang_arabic">Bahasa Arab</string>
+    <string name="lang_arabic_native">العربية</string>
+    <string name="lang_german">Bahasa Jerman</string>
+    <string name="lang_german_native">Deutsch</string>
+    <string name="lang_assamese">Bahasa Assam</string>
+    <string name="lang_assamese_native">অসমীয়া</string>
+    <string name="lang_persian">Bahasa Persia</string>
+    <string name="lang_persian_native">فارسی</string>
+    <string name="lang_french">Bahasa Prancis</string>
+    <string name="lang_french_native">Français</string>
+    <string name="lang_hindi">Bahasa Hindi</string>
+    <string name="lang_hindi_native">हिन्दी</string>
+    <string name="lang_indonesian">Bahasa Indonesia</string>
+    <string name="lang_indonesian_native">Bahasa Indonesia</string>
+    <string name="lang_hebrew">Bahasa Ibrani</string>
+    <string name="lang_hebrew_native">עברית</string>
+    <string name="lang_japanese">Bahasa Jepang</string>
+    <string name="lang_japanese_native">日本語</string>
+    <string name="lang_korean">Bahasa Korea</string>
+    <string name="lang_korean_native">한국어</string>
+    <string name="lang_malay">Bahasa Melayu</string>
+    <string name="lang_malay_native">Bahasa Melayu</string>
+    <string name="lang_portuguese">Bahasa Portugis</string>
+    <string name="lang_portuguese_native">Português</string>
+    <string name="lang_russian">Bahasa Rusia</string>
+    <string name="lang_russian_native">Русский</string>
+    <string name="lang_turkish">Bahasa Turki</string>
+    <string name="lang_turkish_native">Türkçe</string>
+    <string name="lang_urdu">Bahasa Urdu</string>
+    <string name="lang_urdu_native">اردو</string>
+    <string name="lang_vietnamese">Bahasa Vietnam</string>
+    <string name="lang_vietnamese_native">Tiếng Việt</string>
+    <string name="lang_chinese">Bahasa Mandarin</string>
+    <string name="lang_chinese_native">中文</string>
+    <string name="lang_english">Bahasa Inggris</string>
+    <string name="lang_english_native">English</string>
+    <string name="lang_dutch">Bahasa Belanda</string>
+    <string name="lang_dutch_native">Nederlands</string>
+    <string name="apply">Terapkan</string>
+
+    <!-- Dialogs -->
+    <string name="share_dialog_title">Bagikan Aplikasi Emoji</string>
+    <string name="share_dialog_desc">Ajak teman untuk menambahkan emoji lucu pada ponsel mereka.</string>
+    <string name="share_link_url">https://velo.app/get</string>
+    <string name="copy">Salin</string>
+    <string name="link_copied">Tautan disalin ke papan klip!</string>
+    <string name="done">Selesai</string>
+    <string name="feedback_dialog_title">Apa pendapat Anda?</string>
+    <string name="feedback_dialog_desc">Masukan Anda sangat penting untuk membantu kami meningkatkan layanan.</string>
+    <string name="feedback_submitted">Terima kasih atas masukan Anda!</string>
+
+    <!-- Status Bar Themes & Animations Screens -->
+    <string name="status_bar_theme_title">Tema Bilah Status</string>
+    <string name="gradient_tab">Gradien</string>
+    <string name="background_tab">Latar Belakang</string>
+    <string name="choose_gradient">Pilih gradien</string>
+    <string name="choose_background">Pilih latar belakang</string>
+    <string name="status_bar_animation_title">Animasi Bilah Status</string>
+    <string name="date_size">Ukuran Tanggal</string>
+    <string name="animation_style">Gaya Animasi</string>
+    <string name="see_all">Lihat semua</string>
+    <string name="theme_applied_success">Tema bilah status berhasil diterapkan!</string>
+    <string name="animation_applied_success">Animasi bilah status berhasil diterapkan!</string>
+    <string name="accessibility_service_label">Kustomisasi Ikon Baterai Emoji</string>
+    <string name="accessibility_service_desc">Tampilkan stiker emoji di bilah status dan sesuaikan tampilan. Tidak ada data yang dikumpulkan.</string>
+    <string name="accessibility_dialog_title">Izin Ikon Baterai Emoji</string>
+    <string name="accessibility_dialog_desc">Untuk menampilkan emoji baterai, animasi, dan stiker kustom Anda, aktifkan Ikon Baterai Emoji di Layanan Aksesibilitas.</string>
+    <string name="enable_accessibility">Aktifkan Ikon Baterai Emoji</string>
+    <string name="keep_standard_overlay">Pertahankan Hamparan Standar</string>
+
+    <!-- Status Bar Custom Screen Strings -->
+    <string name="status_bar_custom_title">Bilah Status Kustom</string>
+    <string name="tab_size">Ukuran</string>
+    <string name="tab_appearance">Tampilan</string>
+    <string name="tab_battery">Baterai</string>
+    <string name="tab_customize_icon">Kustomisasi ikon</string>
+    <string name="label_size">Ukuran</string>
+    <string name="label_height">Tinggi</string>
+    <string name="label_left_margin">Margin Kiri</string>
+    <string name="label_right_margin">Margin Kanan</string>
+    <string name="label_appearance">Tampilan</string>
+    <string name="label_icon">Ikon</string>
+    <string name="label_background">Latar Belakang</string>
+    <string name="label_battery">Baterai</string>
+    <string name="label_percentage">Persentase</string>
+    <string name="label_icon_size">Ukuran Ikon</string>
+    <string name="label_emoji">Emoji</string>
+    <string name="tab_trending">Tren</string>
+    <string name="tab_halloween">Halloween</string>
+    <string name="tab_wc2">WC 2</string>
+    <string name="apply_custom_success">Bilah status kustom berhasil diterapkan!</string>
+
+    <!-- Notification Permission Dialog -->
+    <string name="notify_permission_title">Izin Notifikasi</string>
+    <string name="notify_permission_desc">Aplikasi menggunakan notifikasi untuk menyampaikan pembaruan penting dan informasi sistem.</string>
+    <string name="not_now">Nanti Saja</string>
+    <string name="allow">Izinkan</string>
+
+    <!-- Accessibility Service Usage Dialog -->
+    <string name="accessibility_usage_title">Penggunaan Layanan Aksesibilitas</string>
+    <string name="accessibility_usage_subtitle">Izin diperlukan untuk melanjutkan</string>
+    <string name="accessibility_usage_intro">Aplikasi ini memerlukan izin Layanan Aksesibilitas untuk:</string>
+    <string name="accessibility_usage_bullet_1"><![CDATA[Menampilkan tampilan <b><font color="#A855F7">"Kustomisasi Ikon Baterai Emoji"</font></b> di layar dan mendeteksi gestur bilah status.]]></string>
+    <string name="accessibility_usage_bullet_2"><![CDATA[Memulai <b><font color="#A855F7">tindakan aksesibilitas</font></b> ke Beranda, Kembali, dan Layar Terbaru.]]></string>
+    <string name="accessibility_usage_notice">Aplikasi ini berkomitmen untuk tidak mengumpulkan atau membagikan informasi pengguna apa pun terkait izin ini.</string>
+    <string name="accessibility_usage_terms"><![CDATA[Saya telah membaca dan menyetujui <u><font color="#A855F7">Ketentuan Layanan</font></u>]]></string>
+    <string name="close">Tutup</string>
+
+    <!-- How To Use Screen -->
+    <string name="how_to_use_title">Cara Penggunaan</string>
+    <string name="how_to_use_step_1"><![CDATA[1. Di aplikasi yang diunduh, pilih <font color="#9333EA"><b>Kustomisasi Ikon Baterai Emoji.</b></font>]]></string>
+    <string name="how_to_use_step_2"><![CDATA[2. Pilih <font color="#9333EA"><b>Kustomisasi Ikon Baterai Emoji.</b></font>]]></string>
+    <string name="how_to_use_step_3"><![CDATA[3. Nyalakan.]]></string>
+    <string name="how_to_use_step_4"><![CDATA[4. Klik <font color="#9333EA"><b>Izinkan.</b></font>]]></string>
+    <string name="go_to_settings">Buka Pengaturan</string>
+    <string name="continue_text">Lanjutkan</string>
+
+    <!-- Exit Dialog -->
+    <string name="exit_dialog_title">Apakah Anda yakin ingin keluar?</string>
+    <string name="exit_dialog_desc">Perubahan Anda belum disimpan. Apakah Anda yakin ingin keluar?</string>
+    <string name="yes">Ya</string>
+    <string name="no">Tidak</string>
+
+    <!-- No Internet Dialog -->
+    <string name="no_internet_title">Tidak Ada Koneksi Internet</string>
+    <string name="no_internet_desc">Silakan periksa koneksi internet Anda dan coba lagi.</string>
+    <string name="cancel">Batal</string>
+    <string name="retry">Coba Lagi</string>
+
+    <!-- Don't Miss Out Dialog -->
+    <string name="dont_miss_out_title">Jangan Lewatkan!!</string>
+    <string name="dont_miss_out_desc">Aktifkan notifikasi untuk menemukan ikon baterai baru, tema musiman, dan gaya populer.</string>
+    <string name="maybe_later">Mungkin Nanti</string>
+    <string name="turn_on_notifications">Aktifkan Notifikasi</string>
+
+    <!-- Sticker For Display Screen Strings -->
+    <string name="sticker_for_display_title">Stiker untuk Layar Tampilan</string>
+    <string name="my_sticker">Stiker Saya</string>
+    <string name="save">Simpan</string>
+    <string name="adjustment">Penyesuaian</string>
+    <string name="size">Ukuran</string>
+    <string name="rotate">Putar</string>
+    <string name="welcome_back">Selamat datang kembali!</string>
+    <string name="sticker_saved_success">Stiker berhasil disimpan!</string>
+    <string name="sticker_limit_reached">Maksimal 5 stiker diperbolehkan</string>
+
+    <!-- Shifted Layout & Code Strings -->
+    <string name="default_preview_title">Bunga Merah Muda</string>
+    <string name="default_preview_subtitle">Status: Aktif dan lucu di baterai Anda</string>
+    <string name="status_bar_permissions_title">Izin Bilah Status</string>
+    <string name="overlay_perm_desc">Harap izinkan kedua izin agar tema bilah status dapat ditampilkan di seluruh ponsel Anda:</string>
+    <string name="overlay_perm_step1">1. Izinkan \'Tampilkan di atas aplikasi lain\'</string>
+    <string name="overlay_perm_step2">2. Izinkan \'Tampilkan jendela pop-up\'</string>
+    <string name="btn_apply_status_bar_theme">Terapkan Tema Bilah Status</string>
+    <string name="overlay_perm_step1_allowed">1. \'Tampilkan di atas aplikasi lain\' diizinkan ✓</string>
+    <string name="please_agree_terms">Harap setujui Ketentuan Layanan</string>
+    <string name="show_in_status_bar">Tampilkan di Bilah Status</string>
+    <string name="icon_color">Warna Ikon</string>
+    <string name="style_label">Gaya</string>
+    <string name="date_format">Format Tanggal</string>
+    <string name="date_style">Gaya Tanggal</string>
+    <string name="status_bar_left_emojis">Emoji Kiri Bilah Status</string>
+    <string name="choose_emoji_left_desc">Pilih emoji untuk ditampilkan di sisi kiri bersama waktu</string>
+    <string name="emoji_battery_is_active">Baterai emoji aktif</string>
+    <string name="status_active">Aktif</string>
+    <string name="item_customized_format">%1$s dikustomisasi!</string>
+    <string name="item_applied_battery_format">%1$s diterapkan sebagai ikon baterai!</string>
+    <string name="item_size_format">Ukuran %1$s</string>
+    <string name="emoji_battery_deactivated">Baterai emoji dinonaktifkan</string>
+    <string name="emoji_battery_activated">Baterai emoji diaktifkan!</string>
+    <string name="notification_permission_granted">Izin notifikasi diberikan!</string>
+    <string name="opening_privacy_policy">Membuka Kebijakan Privasi…</string>
+    <string name="please_select_sticker">Silakan pilih stiker terlebih dahulu</string>
+    <string name="language_changed_to">Bahasa diubah ke %1$s</string>
+    <string name="no_connection_msg">Tidak ada koneksi. Harap periksa internet dan coba lagi.</string>
+    <string name="cd_back">Kembali</string>
+    <string name="cd_clear">Hapus</string>
+</resources>

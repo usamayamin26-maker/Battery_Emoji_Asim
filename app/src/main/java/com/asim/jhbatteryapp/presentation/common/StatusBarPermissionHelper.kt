@@ -294,7 +294,7 @@ object StatusBarPermissionHelper {
 
         // Indicate if Display over other apps is already allowed
         if (hasOverlayPermission(context)) {
-            binding.btnPermOverlay.text = "1. 'Display over other apps' Allowed ✓"
+            binding.btnPermOverlay.text = context.getString(R.string.overlay_perm_step1_allowed)
             binding.btnPermOverlay.setTextColor(ContextCompat.getColor(context, R.color.battery_green))
         }
 
@@ -393,7 +393,7 @@ object StatusBarPermissionHelper {
 
             binding.btnAccessContinue.setOnClickListener {
                 if (!binding.cbTerms.isChecked) {
-                    Toast.makeText(context, "Please agree to the Terms of Service", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, context.getString(R.string.please_agree_terms), Toast.LENGTH_SHORT).show()
                     return@setOnClickListener
                 }
                 if (!actionInvoked) {

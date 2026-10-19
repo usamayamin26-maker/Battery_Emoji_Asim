@@ -122,6 +122,14 @@ class PreferenceRepositoryImpl(
         preferenceLocalDataSource.setOnboardingCompleted(completed)
     }
 
+    override fun isLanguageSelected(): Boolean {
+        return preferenceLocalDataSource.isLanguageSelected()
+    }
+
+    override fun setLanguageSelected(selected: Boolean) {
+        preferenceLocalDataSource.setLanguageSelected(selected)
+    }
+
     override fun isEmojiBatteryEnabled(): Boolean {
         return preferenceLocalDataSource.isEmojiBatteryEnabled()
     }

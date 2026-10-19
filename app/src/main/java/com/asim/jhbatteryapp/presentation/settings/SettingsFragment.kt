@@ -40,6 +40,38 @@ class SettingsFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         viewModel.refreshEmojiBatteryState()
+        updateCurrentLanguageLabel()
+    }
+
+    private fun updateCurrentLanguageLabel() {
+        val currentLocales = androidx.appcompat.app.AppCompatDelegate.getApplicationLocales()
+        val currentLangTag = if (!currentLocales.isEmpty) currentLocales.toLanguageTags() else java.util.Locale.getDefault().language
+        val currentCode = currentLangTag.split("-").first().lowercase()
+        val currentLangName = when (currentCode) {
+            "ar" -> getString(R.string.lang_arabic)
+            "de" -> getString(R.string.lang_german)
+            "as" -> getString(R.string.lang_assamese)
+            "fa" -> getString(R.string.lang_persian)
+            "fr" -> getString(R.string.lang_french)
+            "hi" -> getString(R.string.lang_hindi)
+            "in", "id" -> getString(R.string.lang_indonesian)
+            "iw", "he" -> getString(R.string.lang_hebrew)
+            "ja" -> getString(R.string.lang_japanese)
+            "ko" -> getString(R.string.lang_korean)
+            "ms" -> getString(R.string.lang_malay)
+            "pt" -> getString(R.string.lang_portuguese)
+            "ru" -> getString(R.string.lang_russian)
+            "tr" -> getString(R.string.lang_turkish)
+            "ur" -> getString(R.string.lang_urdu)
+            "vi" -> getString(R.string.lang_vietnamese)
+            "zh" -> getString(R.string.lang_chinese)
+            "nl" -> getString(R.string.lang_dutch)
+            "es" -> getString(R.string.lang_spanish)
+            "th" -> getString(R.string.lang_thai)
+            "uk" -> getString(R.string.lang_ukrainian)
+            else -> getString(R.string.lang_english)
+        }
+        binding.tvCurrentLanguage.text = currentLangName
     }
 
     private fun setupListeners() {
@@ -53,12 +85,12 @@ class SettingsFragment : Fragment() {
                 } else {
                     com.asim.jhbatteryapp.service.StatusBarOverlayService.stop(requireContext())
                 }
-                Toast.makeText(requireContext(), "Emoji battery deactivated", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), getString(R.string.emoji_battery_deactivated), Toast.LENGTH_SHORT).show()
             } else {
                 if (com.asim.jhbatteryapp.service.StatusBarAccessibilityService.isAccessibilityServiceEnabled(requireContext())) {
                     viewModel.toggleEmojiBattery()
                     com.asim.jhbatteryapp.service.StatusBarAccessibilityService.updateCustomSettings()
-                    Toast.makeText(requireContext(), "Emoji battery activated!", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), getString(R.string.emoji_battery_activated), Toast.LENGTH_SHORT).show()
                 } else {
                     com.asim.jhbatteryapp.presentation.common.StatusBarPermissionHelper.showAccessibilityDialog(
                         context = requireContext()
@@ -69,9 +101,12 @@ class SettingsFragment : Fragment() {
         binding.llEnableBanner.setOnClickListener(bannerClickListener)
         binding.btnBannerStart.setOnClickListener(bannerClickListener)
 
-        // 1. Language Item -> Navigate to LanguageFragment via NavGraph!
+        // 1. Language Item -> Launch LanguageActivity
         binding.itemSettingLanguage.setOnClickListener {
-            findNavController().navigate(R.id.action_settingsFragment_to_languageFragment)
+            val intent = Intent(requireContext(), LanguageActivity::class.java).apply {
+                putExtra(LanguageActivity.EXTRA_FROM_SETTINGS, true)
+            }
+            startActivity(intent)
         }
 
         // 2. Privacy Policy Item
@@ -80,7 +115,7 @@ class SettingsFragment : Fragment() {
                 val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse("https://google.com"))
                 startActivity(browserIntent)
             } catch (e: Exception) {
-                Toast.makeText(requireContext(), "Opening Privacy Policy…", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), getString(R.string.opening_privacy_policy), Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -101,8 +136,8 @@ class SettingsFragment : Fragment() {
     private fun observeViewModel() {
         viewModel.isEmojiBatteryEnabled.observe(viewLifecycleOwner) { enabled ->
             if (enabled) {
-                binding.tvBannerText.text = "Emoji battery is active"
-                binding.btnBannerStart.text = "Active"
+                binding.tvBannerText.text = getString(R.string.emoji_battery_is_active)
+                binding.btnBannerStart.text = getString(R.string.status_active)
             } else {
                 binding.tvBannerText.text = getString(R.string.enable_emoji_battery_banner)
                 binding.btnBannerStart.text = getString(R.string.start)

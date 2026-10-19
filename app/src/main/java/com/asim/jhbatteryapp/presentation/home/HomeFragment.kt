@@ -41,7 +41,7 @@ class HomeFragment : Fragment() {
         isPermissionDialogShowing = false
         hasPromptedNotificationInSession = true
         if (isGranted) {
-            Toast.makeText(requireContext(), "Notification permission granted!", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), getString(R.string.notification_permission_granted), Toast.LENGTH_SHORT).show()
         }
         if (!com.asim.jhbatteryapp.service.StatusBarAccessibilityService.isAccessibilityServiceEnabled(requireContext()) && !hasPromptedAccessibilityInSession) {
             checkAccessibilityPermissionOnHome()
@@ -164,6 +164,7 @@ class HomeFragment : Fragment() {
         }
         binding.rvEmojiGrid.itemAnimator = null
         binding.rvEmojiGrid.setHasFixedSize(true)
+        binding.rvEmojiGrid.setItemViewCacheSize(30)
         binding.rvEmojiGrid.adapter = emojiAdapter
     }
 
@@ -183,12 +184,12 @@ class HomeFragment : Fragment() {
                 } else {
                     com.asim.jhbatteryapp.service.StatusBarOverlayService.stop(requireContext())
                 }
-                Toast.makeText(requireContext(), "Emoji battery deactivated", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), getString(R.string.emoji_battery_deactivated), Toast.LENGTH_SHORT).show()
             } else {
                 if (com.asim.jhbatteryapp.service.StatusBarAccessibilityService.isAccessibilityServiceEnabled(requireContext())) {
                     viewModel.toggleEmojiBattery()
                     com.asim.jhbatteryapp.service.StatusBarAccessibilityService.updateCustomSettings()
-                    Toast.makeText(requireContext(), "Emoji battery activated!", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), getString(R.string.emoji_battery_activated), Toast.LENGTH_SHORT).show()
                 } else {
                     com.asim.jhbatteryapp.presentation.common.StatusBarPermissionHelper.showAccessibilityDialog(
                         context = requireContext()
@@ -218,12 +219,16 @@ class HomeFragment : Fragment() {
 
         viewModel.emojis.observe(viewLifecycleOwner) { emojis ->
             emojiAdapter.submitList(emojis)
+            com.asim.jhbatteryapp.core.Utils.ImageLoaderUtils.preload(
+                context = requireContext(),
+                drawableResList = emojis.map { it.previewDrawableRes }
+            )
         }
 
         viewModel.isEmojiBatteryEnabled.observe(viewLifecycleOwner) { enabled ->
             if (enabled) {
-                binding.tvBannerText.text = "Emoji battery is active"
-                binding.btnBannerStart.text = "Active"
+                binding.tvBannerText.text = getString(R.string.emoji_battery_is_active)
+                binding.btnBannerStart.text = getString(R.string.status_active)
             } else {
                 binding.tvBannerText.text = getString(R.string.enable_emoji_battery_banner)
                 binding.btnBannerStart.text = getString(R.string.start)
@@ -241,7 +246,12 @@ class HomeFragment : Fragment() {
             dialogBinding.cvPreviewContainer.setCardBackgroundColor(
                 ContextCompat.getColor(requireContext(), item.backgroundColorRes)
             )
-            dialogBinding.ivDialogMascot.setImageResource(item.previewDrawableRes)
+            com.asim.jhbatteryapp.core.Utils.ImageLoaderUtils.loadOptimizedEmoji(
+                imageView = dialogBinding.ivDialogMascot,
+                drawableRes = item.previewDrawableRes,
+                targetWidthDp = 160,
+                targetHeightDp = 160
+            )
             dialogBinding.tvDialogTitle.text = item.title
 
             dialogBinding.btnApplyStyle.setOnClickListener {
@@ -256,7 +266,7 @@ class HomeFragment : Fragment() {
                 prefRepo.setBatteryIconTintable(false)
                 prefRepo.setEmojiBatteryEnabled(true)
                 com.asim.jhbatteryapp.service.StatusBarAccessibilityService.updateBatteryIcon(item.previewDrawableRes, isTintable = false)
-                Toast.makeText(requireContext(), "${item.title} applied as battery icon!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), getString(R.string.item_applied_battery_format, item.title), Toast.LENGTH_SHORT).show()
                 dismiss()
             }
         }

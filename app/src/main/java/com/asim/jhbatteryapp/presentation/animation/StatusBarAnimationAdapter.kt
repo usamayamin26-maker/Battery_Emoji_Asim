@@ -70,7 +70,12 @@ class StatusBarAnimationAdapter(
                 binding.lottieAnimCard.cancelAnimation()
                 binding.lottieAnimCard.tag = null
                 binding.ivAnimMascot.visibility = View.VISIBLE
-                binding.ivAnimMascot.setImageResource(item.previewDrawableRes)
+                com.asim.jhbatteryapp.core.Utils.ImageLoaderUtils.loadOptimizedEmoji(
+                    imageView = binding.ivAnimMascot,
+                    drawableRes = item.previewDrawableRes,
+                    targetWidthDp = 80,
+                    targetHeightDp = 80
+                )
             }
 
             binding.viewAnimSelectionBorder.visibility = if (isSelected) View.VISIBLE else View.GONE

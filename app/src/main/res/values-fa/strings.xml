@@ -1,0 +1,245 @@
+<resources>
+    <string name="app_name">JH Battery</string>
+
+    <!-- Splash Screen -->
+    <string name="splash_title">باتری ایموجی</string>
+    <string name="splash_loading">در حال بارگذاری دوستان باتری بامزه شما…</string>
+
+    <!-- Onboarding Screen -->
+    <string name="skip">رد کردن</string>
+    <string name="onboarding_title_1">تمام جزئیات را\nشخصی‌سازی کنید.</string>
+    <string name="onboarding_desc_1">ایموجی‌ها، حیوانات خانگی، سبک‌های باتری، نوارهای وضعیت و پس‌زمینه‌های زیبا.</string>
+    <string name="onboarding_title_2">باتری خود را\nجذاب کنید.</string>
+    <string name="onboarding_desc_2">آیکون باتری خود را به ایموجی‌های بامزه تبدیل کنید. یک تغییر کوچک، یک دنیا شادی.</string>
+    <string name="onboarding_title_3">باتری شما.\nتخیل شما.</string>
+    <string name="help_title">به بهبود ما کمک کنید</string>
+    <string name="help_desc_3">لطفاً با امتیاز دادن و پیشنهاد به دیگران در Google Play از ما حمایت کنید</string>
+    <string name="onboarding_desc_3">ایموجی‌ها و رنگ‌های مورد علاقه خود را ترکیب کنید تا باتری مناسب خود را بسازید.</string>
+    <string name="get_started">شروع کنید</string>
+    <string name="next">بعدی</string>
+
+    <!-- Home Screen -->
+    <string name="battery_icon_title">آیکون باتری</string>
+    <string name="search_emojis_title">جستجوی ایموجی</string>
+    <string name="search_placeholder">جستجوی یک ایموجی یا تم…</string>
+    <string name="enable_emoji_battery_banner">برای شروع باتری ایموجی را فعال کنید</string>
+    <string name="start">شروع</string>
+    <string name="sticker_shop">فروشگاه استیکر</string>
+    <string name="animation">انیمیشن</string>
+    <string name="themes">تم‌ها</string>
+
+    <!-- Category Tabs -->
+    <string name="tab_hot">🔥 محبوب</string>
+    <string name="tab_pokemon">پوکمون</string>
+    <string name="tab_sanrio">سانریو</string>
+    <string name="tab_anime">انیمه</string>
+
+    <!-- Filter Chips -->
+    <string name="chip_all">همه</string>
+    <string name="chip_heart">قلب</string>
+    <string name="chip_cute_emoji">ایموجی بامزه</string>
+    <string name="chip_animations">انیمیشن‌ها</string>
+
+    <!-- Home Sections -->
+    <string name="section_recent">اخیر</string>
+    <string name="section_top_picks">برترین انتخاب‌ها</string>
+
+    <!-- Bottom Navigation -->
+    <string name="nav_trending">پرطرفدار</string>
+    <string name="nav_customize">شخصی‌سازی</string>
+    <string name="nav_setting">تنظیمات</string>
+
+    <!-- Dialogs & Actions -->
+    <string name="apply_battery_style">اعمال سبک باتری</string>
+    <string name="applied_successfully">سبک با موفقیت اعمال شد!</string>
+    <string name="preview">پیش‌نمایش</string>
+    <string name="battery_level">سطح باتری: %1$d%%</string>
+
+    <!-- Settings Screen -->
+    <string name="settings_title">تنظیمات</string>
+    <string name="setting_language">زبان</string>
+    <string name="setting_language_current">فارسی</string>
+    <string name="setting_privacy_policy">سیاست حفظ حریم خصوصی</string>
+    <string name="setting_share_app">اشتراک‌گذاری برنامه</string>
+    <string name="setting_rate_us">امتیاز به ما</string>
+
+    <!-- Languages Screen -->
+    <string name="languages_title">زبان‌ها</string>
+    <string name="lang_arabic">عربی</string>
+    <string name="lang_arabic_native">العربية</string>
+    <string name="lang_german">آلمانی</string>
+    <string name="lang_german_native">Deutsch</string>
+    <string name="lang_assamese">آسامی</string>
+    <string name="lang_assamese_native">অসমীয়া</string>
+    <string name="lang_persian">فارسی</string>
+    <string name="lang_persian_native">فارسی</string>
+    <string name="lang_french">فرانسوی</string>
+    <string name="lang_french_native">Français</string>
+    <string name="lang_hindi">هندی</string>
+    <string name="lang_hindi_native">हिन्दी</string>
+    <string name="lang_indonesian">اندونزیایی</string>
+    <string name="lang_indonesian_native">Bahasa Indonesia</string>
+    <string name="lang_hebrew">عبری</string>
+    <string name="lang_hebrew_native">עברית</string>
+    <string name="lang_japanese">ژاپنی</string>
+    <string name="lang_japanese_native">日本語</string>
+    <string name="lang_korean">کره‌ای</string>
+    <string name="lang_korean_native">한국어</string>
+    <string name="lang_malay">مالایی</string>
+    <string name="lang_malay_native">Bahasa Melayu</string>
+    <string name="lang_portuguese">پرتغالی</string>
+    <string name="lang_portuguese_native">Português</string>
+    <string name="lang_russian">روسی</string>
+    <string name="lang_russian_native">Русский</string>
+    <string name="lang_turkish">ترکی</string>
+    <string name="lang_turkish_native">Türkçe</string>
+    <string name="lang_urdu">اردو</string>
+    <string name="lang_urdu_native">اردو</string>
+    <string name="lang_vietnamese">ویتنامی</string>
+    <string name="lang_vietnamese_native">Tiếng Việt</string>
+    <string name="lang_chinese">چینی</string>
+    <string name="lang_chinese_native">中文</string>
+    <string name="lang_english">انگلیسی</string>
+    <string name="lang_english_native">English</string>
+    <string name="lang_dutch">هلندی</string>
+    <string name="lang_dutch_native">Nederlands</string>
+    <string name="apply">اعمال</string>
+
+    <!-- Dialogs -->
+    <string name="share_dialog_title">اشتراک‌گذاری برنامه ایموجی</string>
+    <string name="share_dialog_desc">دوستان خود را برای افزودن ایموجی به نقد و بررسی تلفن خود دعوت کنید.</string>
+    <string name="share_link_url">https://velo.app/get</string>
+    <string name="copy">کپی</string>
+    <string name="link_copied">لینک در حافظه کپی شد!</string>
+    <string name="done">انجام شد</string>
+    <string name="feedback_dialog_title">نظر شما در مورد آن چیست؟</string>
+    <string name="feedback_dialog_desc">نظرات شما برای درک بهتر نیازهایتان بسیار ارزشمند است.</string>
+    <string name="feedback_submitted">از بازخورد شما متشکریم!</string>
+
+    <!-- Status Bar Themes & Animations Screens -->
+    <string name="status_bar_theme_title">تم نوار وضعیت</string>
+    <string name="gradient_tab">گرادیان</string>
+    <string name="background_tab">پس‌زمینه</string>
+    <string name="choose_gradient">انتخاب یک گرادیان</string>
+    <string name="choose_background">انتخاب یک پس‌زمینه</string>
+    <string name="status_bar_animation_title">انیمیشن نوار وضعیت</string>
+    <string name="date_size">اندازه تاریخ</string>
+    <string name="animation_style">سبک انیمیشن</string>
+    <string name="see_all">مشاهده همه</string>
+    <string name="theme_applied_success">تم نوار وضعیت با موفقیت اعمال شد!</string>
+    <string name="animation_applied_success">انیمیشن نوار وضعیت با موفقیت اعمال شد!</string>
+    <string name="accessibility_service_label">شخصی‌سازی آیکون باتری ایموجی</string>
+    <string name="accessibility_service_desc">نمایش استیکرهای ایموجی در نوار وضعیت و شخصی‌سازی ظاهر. هیچ داده‌ای جمع‌آوری نمی‌شود.</string>
+    <string name="accessibility_dialog_title">مجوز آیکون باتری ایموجی</string>
+    <string name="accessibility_dialog_desc">برای نمایش ایموجی باتری سفارشی، انیمیشن‌ها و استیکرها، لطفاً آیکون باتری ایموجی را در خدمات دسترسی فعال کنید.</string>
+    <string name="enable_accessibility">فعال‌سازی آیکون باتری ایموجی</string>
+    <string name="keep_standard_overlay">حفظ همپوشانی استاندارد</string>
+
+    <!-- Status Bar Custom Screen Strings -->
+    <string name="status_bar_custom_title">نوار وضعیت سفارشی</string>
+    <string name="tab_size">اندازه</string>
+    <string name="tab_appearance">ظاهر</string>
+    <string name="tab_battery">باتری</string>
+    <string name="tab_customize_icon">شخصی‌سازی آیکون</string>
+    <string name="label_size">اندازه</string>
+    <string name="label_height">ارتفاع</string>
+    <string name="label_left_margin">حاشیه چپ</string>
+    <string name="label_right_margin">حاشیه راست</string>
+    <string name="label_appearance">ظاهر</string>
+    <string name="label_icon">آیکون</string>
+    <string name="label_background">پس‌زمینه</string>
+    <string name="label_battery">باتری</string>
+    <string name="label_percentage">درصد</string>
+    <string name="label_icon_size">اندازه آیکون</string>
+    <string name="label_emoji">ایموجی</string>
+    <string name="tab_trending">پرطرفدار</string>
+    <string name="tab_halloween">هالووین</string>
+    <string name="tab_wc2">WC 2</string>
+    <string name="apply_custom_success">نوار وضعیت سفارشی با موفقیت اعمال شد!</string>
+
+    <!-- Notification Permission Dialog -->
+    <string name="notify_permission_title">مجوز اعلان‌ها</string>
+    <string name="notify_permission_desc">برنامه از اعلان‌ها برای ارسال به‌روزرسانی‌های مهم و اطلاعات ضروری سیستم استفاده می‌کند.</string>
+    <string name="not_now">اکنون نه</string>
+    <string name="allow">اجازه دادن</string>
+
+    <!-- Accessibility Service Usage Dialog -->
+    <string name="accessibility_usage_title">استفاده از خدمات دسترسی</string>
+    <string name="accessibility_usage_subtitle">مجوز برای ادامه لازم است</string>
+    <string name="accessibility_usage_intro">این برنامه برای موارد زیر به مجوز خدمات دسترسی نیاز دارد:</string>
+    <string name="accessibility_usage_bullet_1"><![CDATA[نمایش نمای <b><font color="#A855F7">"شخصی‌سازی آیکون باتری ایموجی"</font></b> در صفحه نمایش و تشخیص حرکات در نوار وضعیت.]]></string>
+    <string name="accessibility_usage_bullet_2"><![CDATA[اجرای <b><font color="#A855F7">اقدامات دسترسی</font></b> برای خانه، بازگشت، و نمایش صفحه برنامه‌های اخیر.]]></string>
+    <string name="accessibility_usage_notice">این برنامه متعهد می‌شود که هیچ اطلاعات کاربری را در مورد این دسترسی جمع‌آوری یا به اشتراک نگذارد.</string>
+    <string name="accessibility_usage_terms"><![CDATA[من <u><font color="#A855F7">شرایط خدمات</font></u> را خوانده و موافقم]]></string>
+    <string name="close">بستن</string>
+
+    <!-- How To Use Screen -->
+    <string name="how_to_use_title">نحوه استفاده</string>
+    <string name="how_to_use_step_1"><![CDATA[1. در برنامه‌های دانلود شده، <font color="#9333EA"><b>شخصی‌سازی آیکون باتری ایموجی</b></font> را انتخاب کنید.]]></string>
+    <string name="how_to_use_step_2"><![CDATA[2. <font color="#9333EA"><b>شخصی‌سازی آیکون باتری ایموجی</b></font> را برگزینید.]]></string>
+    <string name="how_to_use_step_3"><![CDATA[3. روشن کنید.]]></string>
+    <string name="how_to_use_step_4"><![CDATA[4. روی <font color="#9333EA"><b>اجازه دادن</b></font> کلیک کنید.]]></string>
+    <string name="go_to_settings">رفتن به تنظیمات</string>
+    <string name="continue_text">ادامه</string>
+
+    <!-- Exit Dialog -->
+    <string name="exit_dialog_title">آیا مطمئن هستید که می‌خواهید خارج شوید؟</string>
+    <string name="exit_dialog_desc">تغییرات شما ذخیره نشده است. آیا مطمئن هستید؟</string>
+    <string name="yes">بله</string>
+    <string name="no">خیر</string>
+
+    <!-- No Internet Dialog -->
+    <string name="no_internet_title">عدم اتصال به اینترنت</string>
+    <string name="no_internet_desc">لطفاً اتصال اینترنت خود را بررسی کرده و دوباره تلاش کنید.</string>
+    <string name="cancel">لغو</string>
+    <string name="retry">تلاش مجدد</string>
+
+    <!-- Don't Miss Out Dialog -->
+    <string name="dont_miss_out_title">از دست ندهید!!</string>
+    <string name="dont_miss_out_desc">اعلان‌ها را روشن کنید تا آیکون‌های جدید باتری، تم‌های فصلی و سبک‌های پرطرفدار را کشف کنید.</string>
+    <string name="maybe_later">شاید بعداً</string>
+    <string name="turn_on_notifications">روشن کردن اعلان‌ها</string>
+
+    <!-- Sticker For Display Screen Strings -->
+    <string name="sticker_for_display_title">استیکر برای صفحه نمایش</string>
+    <string name="my_sticker">استیکرهای من</string>
+    <string name="save">ذخیره</string>
+    <string name="adjustment">تنظیم</string>
+    <string name="size">اندازه</string>
+    <string name="rotate">چرخش</string>
+    <string name="welcome_back">خوش آمدید!</string>
+    <string name="sticker_saved_success">استیکرها با موفقیت ذخیره شدند!</string>
+    <string name="sticker_limit_reached">حداکثر ۵ استیکر مجاز است</string>
+
+    <!-- Shifted Layout & Code Strings -->
+    <string name="default_preview_title">شکوفه صورتی</string>
+    <string name="default_preview_subtitle">وضعیت: فعال روی باتری شما</string>
+    <string name="status_bar_permissions_title">مجوزهای نوار وضعیت</string>
+    <string name="overlay_perm_desc">لطفاً هر دو مجوز را بدهید تا تم نوار وضعیت در سراسر تلفن شما نمایش داده شود:</string>
+    <string name="overlay_perm_step1">1. اجازه \'نمایش روی سایر برنامه‌ها\'</string>
+    <string name="overlay_perm_step2">2. اجازه \'نمایش پنجره‌های پاپ‌آپ\'</string>
+    <string name="btn_apply_status_bar_theme">اعمال تم نوار وضعیت</string>
+    <string name="overlay_perm_step1_allowed">1. \'نمایش روی سایر برنامه‌ها\' مجاز شد ✓</string>
+    <string name="please_agree_terms">لطفاً با شرایط خدمات موافقت کنید</string>
+    <string name="show_in_status_bar">نمایش در نوار وضعیت</string>
+    <string name="icon_color">رنگ آیکون</string>
+    <string name="style_label">سبک</string>
+    <string name="date_format">فرمت تاریخ</string>
+    <string name="date_style">سبک تاریخ</string>
+    <string name="status_bar_left_emojis">ایموجی سمت چپ نوار وضعیت</string>
+    <string name="choose_emoji_left_desc">ایموجی را برای نمایش در سمت چپ همراه با زمان انتخاب کنید</string>
+    <string name="emoji_battery_is_active">باتری ایموجی فعال است</string>
+    <string name="status_active">فعال</string>
+    <string name="item_customized_format">%1$s شخصی‌سازی شد!</string>
+    <string name="item_applied_battery_format">%1$s به عنوان آیکون باتری اعمال شد!</string>
+    <string name="item_size_format">اندازه %1$s</string>
+    <string name="emoji_battery_deactivated">باتری ایموجی غیرفعال شد</string>
+    <string name="emoji_battery_activated">باتری ایموجی فعال شد!</string>
+    <string name="notification_permission_granted">مجوز اعلان اعطا شد!</string>
+    <string name="opening_privacy_policy">در حال باز کردن سیاست حفظ حریم خصوصی…</string>
+    <string name="please_select_sticker">لطفاً ابتدا یک استیکر انتخاب کنید</string>
+    <string name="language_changed_to">زبان به %1$s تغییر یافت</string>
+    <string name="no_connection_msg">اتصال وجود ندارد. لطفاً اینترنت خود را بررسی و دوباره تلاش کنید.</string>
+    <string name="cd_back">بازگشت</string>
+    <string name="cd_clear">پاک کردن</string>
+</resources>

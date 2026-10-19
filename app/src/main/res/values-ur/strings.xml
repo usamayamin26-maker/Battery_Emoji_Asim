@@ -1,0 +1,245 @@
+<resources>
+    <string name="app_name">JH Battery</string>
+
+    <!-- Splash Screen -->
+    <string name="splash_title">ایموجی بیٹری</string>
+    <string name="splash_loading">پیارے بیٹری دوست لوڈ ہو رہے ہیں…</string>
+
+    <!-- Onboarding Screen -->
+    <string name="skip">چھوڑیں</string>
+    <string name="onboarding_title_1">ہر تفصیل کو\nاپنی مرضی کے مطابق بنائیں۔</string>
+    <string name="onboarding_desc_1">ایموجیز، پالتو جانور، بیٹری اسٹائلز، اسٹیٹس بارز اور خوبصورت بیک گراؤنڈز۔</string>
+    <string name="onboarding_title_2">اپنی بیٹری کو\nپرلطف بنائیں۔</string>
+    <string name="onboarding_desc_2">اپنی بیٹری کے آئیکن کو پیارے ایموجیز میں تبدیل کریں۔ ایک چھوٹی سی تفصیل، بے شمار خوشیاں۔</string>
+    <string name="onboarding_title_3">آپ کی بیٹری۔\nآپ کا تخیل۔</string>
+    <string name="help_title">ہمیں بہتر بنانے میں مدد کریں</string>
+    <string name="help_desc_3">براہ کرم گوگل پلے پر ریٹنگ اور دوسروں کو تجویز کرکے ہمارا ساتھ دیں</string>
+    <string name="onboarding_desc_3">اپنی پسند کے ایموجیز اور رنگ ملا کر ایسی بیٹری بنائیں جو آپ کے مزاج کے مطابق ہو۔</string>
+    <string name="get_started">شروع کریں</string>
+    <string name="next">اگلا</string>
+
+    <!-- Home Screen -->
+    <string name="battery_icon_title">بیٹری آئیکن</string>
+    <string name="search_emojis_title">ایموجیز تلاش کریں</string>
+    <string name="search_placeholder">کوئی ایموجی یا تھیم تلاش کریں…</string>
+    <string name="enable_emoji_battery_banner">شروع کرنے کے لیے ایموجی بیٹری فعال کریں</string>
+    <string name="start">شروع کریں</string>
+    <string name="sticker_shop">اسٹیکر شاپ</string>
+    <string name="animation">اینیمیشن</string>
+    <string name="themes">تھیمز</string>
+
+    <!-- Category Tabs -->
+    <string name="tab_hot">🔥 مقبول</string>
+    <string name="tab_pokemon">پوکیمون</string>
+    <string name="tab_sanrio">سانریو</string>
+    <string name="tab_anime">اینیمے</string>
+
+    <!-- Filter Chips -->
+    <string name="chip_all">تمام</string>
+    <string name="chip_heart">دل</string>
+    <string name="chip_cute_emoji">پیارا ایموجی</string>
+    <string name="chip_animations">اینیمیشنز</string>
+
+    <!-- Home Sections -->
+    <string name="section_recent">حالیہ</string>
+    <string name="section_top_picks">بہترین انتخاب</string>
+
+    <!-- Bottom Navigation -->
+    <string name="nav_trending">ٹرینڈنگ</string>
+    <string name="nav_customize">کسٹمائز</string>
+    <string name="nav_setting">سیٹنگز</string>
+
+    <!-- Dialogs & Actions -->
+    <string name="apply_battery_style">بیٹری اسٹائل لاگو کریں</string>
+    <string name="applied_successfully">اسٹائل کامیابی سے لاگو ہو گیا!</string>
+    <string name="preview">پیش نظارہ</string>
+    <string name="battery_level">بیٹری کی سطح: %1$d%%</string>
+
+    <!-- Settings Screen -->
+    <string name="settings_title">سیٹنگز</string>
+    <string name="setting_language">زبان</string>
+    <string name="setting_language_current">اردو</string>
+    <string name="setting_privacy_policy">پرائیویسی پالیسی</string>
+    <string name="setting_share_app">ایپ شیئر کریں</string>
+    <string name="setting_rate_us">ہمیں ریٹ کریں</string>
+
+    <!-- Languages Screen -->
+    <string name="languages_title">زبانیں</string>
+    <string name="lang_arabic">عربی</string>
+    <string name="lang_arabic_native">العربية</string>
+    <string name="lang_german">جرمن</string>
+    <string name="lang_german_native">Deutsch</string>
+    <string name="lang_assamese">آسامی</string>
+    <string name="lang_assamese_native">অসমীয়া</string>
+    <string name="lang_persian">فارسی</string>
+    <string name="lang_persian_native">فارسی</string>
+    <string name="lang_french">فرانسیسی</string>
+    <string name="lang_french_native">Français</string>
+    <string name="lang_hindi">ہندی</string>
+    <string name="lang_hindi_native">हिन्दी</string>
+    <string name="lang_indonesian">انڈونیشین</string>
+    <string name="lang_indonesian_native">Bahasa Indonesia</string>
+    <string name="lang_hebrew">عبرانی</string>
+    <string name="lang_hebrew_native">עברית</string>
+    <string name="lang_japanese">جاپانی</string>
+    <string name="lang_japanese_native">日本語</string>
+    <string name="lang_korean">کوریائی</string>
+    <string name="lang_korean_native">한국어</string>
+    <string name="lang_malay">ملائی</string>
+    <string name="lang_malay_native">Bahasa Melayu</string>
+    <string name="lang_portuguese">پرتگالی</string>
+    <string name="lang_portuguese_native">Português</string>
+    <string name="lang_russian">روسی</string>
+    <string name="lang_russian_native">Русский</string>
+    <string name="lang_turkish">ترک</string>
+    <string name="lang_turkish_native">Türkçe</string>
+    <string name="lang_urdu">اردو</string>
+    <string name="lang_urdu_native">اردو</string>
+    <string name="lang_vietnamese">ویتنامی</string>
+    <string name="lang_vietnamese_native">Tiếng Việt</string>
+    <string name="lang_chinese">چینی</string>
+    <string name="lang_chinese_native">中文</string>
+    <string name="lang_english">انگریزی</string>
+    <string name="lang_english_native">English</string>
+    <string name="lang_dutch">ڈچ</string>
+    <string name="lang_dutch_native">Nederlands</string>
+    <string name="apply">لاگو کریں</string>
+
+    <!-- Dialogs -->
+    <string name="share_dialog_title">ایموجی ایپ شیئر کریں</string>
+    <string name="share_dialog_desc">اپنے موبائل ریویو میں ایموجی شامل کرنے کے لیے دوستوں کو مدعو کریں۔</string>
+    <string name="share_link_url">https://velo.app/get</string>
+    <string name="copy">کاپی کریں</string>
+    <string name="link_copied">لنک کلپ بورڈ پر کاپی ہو گیا!</string>
+    <string name="done">مکمل</string>
+    <string name="feedback_dialog_title">آپ کو یہ کیسا لگا؟</string>
+    <string name="feedback_dialog_desc">آپ کی رائے ہماری بہتری اور آپ کی ضروریات کو سمجھنے کے لیے نہایت اہم ہے۔</string>
+    <string name="feedback_submitted">آپ کی رائے کا شکریہ!</string>
+
+    <!-- Status Bar Themes & Animations Screens -->
+    <string name="status_bar_theme_title">اسٹیٹس بار تھیم</string>
+    <string name="gradient_tab">گریڈینٹ</string>
+    <string name="background_tab">پس منظر</string>
+    <string name="choose_gradient">گریڈینٹ منتخب کریں</string>
+    <string name="choose_background">پس منظر منتخب کریں</string>
+    <string name="status_bar_animation_title">اسٹیٹس بار اینیمیشن</string>
+    <string name="date_size">تاریخ کا سائز</string>
+    <string name="animation_style">اینیمیشن اسٹائل</string>
+    <string name="see_all">سب دیکھیں</string>
+    <string name="theme_applied_success">اسٹیٹس بار تھیم کامیابی سے لاگو ہو گیا!</string>
+    <string name="animation_applied_success">اسٹیٹس بار اینیمیشن کامیابی سے لاگو ہو گئی!</string>
+    <string name="accessibility_service_label">ایموجی بیٹری آئیکن کسٹمائز</string>
+    <string name="accessibility_service_desc">اسٹیٹس بار پر ایموجی اسٹیکرز ڈسپلے کریں اور ظاہری شکل کو حسب ضرورت بنائیں۔ کوئی ڈیٹا جمع نہیں کیا جاتا۔</string>
+    <string name="accessibility_dialog_title">ایموجی بیٹری آئیکن کی اجازت</string>
+    <string name="accessibility_dialog_desc">اپنی مرضی کے مطابق بیٹری ایموجی، اینیمیشنز اور اسٹیکرز ڈسپلے کرنے کے لیے، برائے مہربانی ایکسیسبیلٹی سروسز میں ایموجی بیٹری آئیکن فعال کریں۔</string>
+    <string name="enable_accessibility">ایموجی بیٹری آئیکن فعال کریں</string>
+    <string name="keep_standard_overlay">معیاری اوورلے رکھیں</string>
+
+    <!-- Status Bar Custom Screen Strings -->
+    <string name="status_bar_custom_title">اسٹیٹس بار کسٹم</string>
+    <string name="tab_size">سائز</string>
+    <string name="tab_appearance">ظاہری شکل</string>
+    <string name="tab_battery">بیٹری</string>
+    <string name="tab_customize_icon">آئیکن کسٹمائز کریں</string>
+    <string name="label_size">سائز</string>
+    <string name="label_height">اونچائی</string>
+    <string name="label_left_margin">بایاں مارجن</string>
+    <string name="label_right_margin">دایاں مارجن</string>
+    <string name="label_appearance">ظاہری شکل</string>
+    <string name="label_icon">آئیکن</string>
+    <string name="label_background">پس منظر</string>
+    <string name="label_battery">بیٹری</string>
+    <string name="label_percentage">فیصد</string>
+    <string name="label_icon_size">آئیکن سائز</string>
+    <string name="label_emoji">ایموجی</string>
+    <string name="tab_trending">ٹرینڈنگ</string>
+    <string name="tab_halloween">ہیلووین</string>
+    <string name="tab_wc2">WC 2</string>
+    <string name="apply_custom_success">کسٹم اسٹیٹس بار کامیابی سے لاگو ہو گیا!</string>
+
+    <!-- Notification Permission Dialog -->
+    <string name="notify_permission_title">اطلاعات کی اجازت</string>
+    <string name="notify_permission_desc">ایپ اہم اپ ڈیٹس اور ضروری سسٹم معلومات پہنچانے کے لیے اطلاعات استعمال کرتی ہے۔</string>
+    <string name="not_now">ابھی نہیں</string>
+    <string name="allow">اجازت دیں</string>
+
+    <!-- Accessibility Service Usage Dialog -->
+    <string name="accessibility_usage_title">ایکسیسبیلٹی سروس کا استعمال</string>
+    <string name="accessibility_usage_subtitle">آگے بڑھنے کے لیے اجازت درکار ہے</string>
+    <string name="accessibility_usage_intro">اس ایپ کو درج ذیل مقاصد کے لیے ایکسیسبیلٹی سروس کی اجازت درکار ہے:</string>
+    <string name="accessibility_usage_bullet_1"><![CDATA[موبائل اسکرین پر <b><font color="#A855F7">"ایموجی بیٹری آئیکن کسٹمائز"</font></b> ڈسپلے کرنے اور اسٹیٹس بار کے اشارے معلوم کرنے کے لیے۔]]></string>
+    <string name="accessibility_usage_bullet_2"><![CDATA[ہوم، بیک، اور حالیہ اسکرین کے لیے <b><font color="#A855F7">ایکسیسبیلٹی ایکشنز</font></b> شروع کرنے کے لیے۔]]></string>
+    <string name="accessibility_usage_notice">یہ ایپلیکیشن اس ایکسیسبیلٹی حق سے متعلق صارف کی کوئی معلومات جمع یا شیئر نہ کرنے کا عہد کرتی ہے۔</string>
+    <string name="accessibility_usage_terms"><![CDATA[میں نے <u><font color="#A855F7">سروس کی شرائط</font></u> پڑھ لی ہیں اور ان سے متفق ہوں]]></string>
+    <string name="close">بند کریں</string>
+
+    <!-- How To Use Screen -->
+    <string name="how_to_use_title">استعمال کا طریقہ</string>
+    <string name="how_to_use_step_1"><![CDATA[1. ڈاؤن لوڈ کردہ ایپس میں سے <font color="#9333EA"><b>ایموجی بیٹری آئیکن کسٹمائز</b></font> منتخب کریں۔]]></string>
+    <string name="how_to_use_step_2"><![CDATA[2. <font color="#9333EA"><b>ایموجی بیٹری آئیکن کسٹمائز</b></font> کا انتخاب کریں۔]]></string>
+    <string name="how_to_use_step_3"><![CDATA[3. آن کریں۔]]></string>
+    <string name="how_to_use_step_4"><![CDATA[4. <font color="#9333EA"><b>اجازت دیں</b></font> پر کلک کریں۔]]></string>
+    <string name="go_to_settings">سیٹنگز میں جائیں</string>
+    <string name="continue_text">جاری رکھیں</string>
+
+    <!-- Exit Dialog -->
+    <string name="exit_dialog_title">کیا آپ واقعی باہر نکلنا چاہتے ہیں؟</string>
+    <string name="exit_dialog_desc">آپ کی تبدیلیاں محفوظ نہیں ہوئیں۔ کیا آپ واقعی باہر نکلنا چاہتے ہیں؟</string>
+    <string name="yes">ہاں</string>
+    <string name="no">نہیں</string>
+
+    <!-- No Internet Dialog -->
+    <string name="no_internet_title">انٹرنیٹ کنکشن نہیں ہے</string>
+    <string name="no_internet_desc">براہ کرم اپنا انٹرنیٹ کنکشن چیک کریں اور دوبارہ کوشش کریں۔</string>
+    <string name="cancel">منسوخ کریں</string>
+    <string name="retry">دوبارہ کوشش کریں</string>
+
+    <!-- Don't Miss Out Dialog -->
+    <string name="dont_miss_out_title">موقع ہاتھ سے نہ جانے دیں!!</string>
+    <string name="dont_miss_out_desc">نئے بیٹری آئیکنز، موسمی تھیمز اور ٹرینڈنگ اسٹائلز دیکھنے کے لیے اطلاعات آن کریں۔</string>
+    <string name="maybe_later">شاید بعد میں</string>
+    <string name="turn_on_notifications">اطلاعات آن کریں</string>
+
+    <!-- Sticker For Display Screen Strings -->
+    <string name="sticker_for_display_title">ڈسپلے اسکرین کے لیے اسٹیکر</string>
+    <string name="my_sticker">میرا اسٹیکر</string>
+    <string name="save">محفوظ کریں</string>
+    <string name="adjustment">ترتیب</string>
+    <string name="size">سائز</string>
+    <string name="rotate">گھمائیں</string>
+    <string name="welcome_back">خوش آمدید!</string>
+    <string name="sticker_saved_success">اسٹیکرز کامیابی سے محفوظ ہو گئے!</string>
+    <string name="sticker_limit_reached">زیادہ سے زیادہ 5 اسٹیکرز کی اجازت ہے</string>
+
+    <!-- Shifted Layout & Code Strings -->
+    <string name="default_preview_title">پنک بلاسم</string>
+    <string name="default_preview_subtitle">حیثیت: آپ کی بیٹری پر فعال اور پیارا</string>
+    <string name="status_bar_permissions_title">اسٹیٹس بار کی اجازتیں</string>
+    <string name="overlay_perm_desc">براہ کرم دونوں اجازتیں دیں تاکہ اسٹیٹس بار تھیم پورے فون میں نظر آ سکے:</string>
+    <string name="overlay_perm_step1">1. \'دیگر ایپس پر ڈسپلے کریں\' کی اجازت دیں</string>
+    <string name="overlay_perm_step2">2. \'پاپ اپ ونڈوز ڈسپلے کریں\' کی اجازت دیں</string>
+    <string name="btn_apply_status_bar_theme">اسٹیٹس بار تھیم لاگو کریں</string>
+    <string name="overlay_perm_step1_allowed">1. \'دیگر ایپس پر ڈسپلے\' کی اجازت مل گئی ✓</string>
+    <string name="please_agree_terms">براہ کرم سروس کی شرائط سے اتفاق کریں</string>
+    <string name="show_in_status_bar">اسٹیٹس بار میں دکھائیں</string>
+    <string name="icon_color">آئیکن کا رنگ</string>
+    <string name="style_label">اسٹائل</string>
+    <string name="date_format">تاریخ کا فارمیٹ</string>
+    <string name="date_style">تاریخ کا انداز</string>
+    <string name="status_bar_left_emojis">اسٹیٹس بار کے بائیں ایموجیز</string>
+    <string name="choose_emoji_left_desc">وقت کے ساتھ بائیں طرف ڈسپلے کرنے کے لیے ایک ایموجی منتخب کریں</string>
+    <string name="emoji_battery_is_active">ایموجی بیٹری فعال ہے</string>
+    <string name="status_active">فعال</string>
+    <string name="item_customized_format">%1$s کسٹمائز ہو گیا!</string>
+    <string name="item_applied_battery_format">%1$s کو بطور بیٹری آئیکن لاگو کر دیا گیا!</string>
+    <string name="item_size_format">%1$s کا سائز</string>
+    <string name="emoji_battery_deactivated">ایموجی بیٹری غیر فعال کر دی گئی</string>
+    <string name="emoji_battery_activated">ایموجی بیٹری فعال ہو گئی!</string>
+    <string name="notification_permission_granted">اطلاعات کی اجازت مل گئی!</string>
+    <string name="opening_privacy_policy">پرائیویسی پالیسی کھولی جا رہی ہے…</string>
+    <string name="please_select_sticker">براہ کرم پہلے کوئی اسٹیکر منتخب کریں</string>
+    <string name="language_changed_to">زبان %1$s میں تبدیل کر دی گئی</string>
+    <string name="no_connection_msg">کوئی کنکشن نہیں ہے۔ برائے مہربانی انٹرنیٹ چیک کریں اور دوبارہ کوشش کریں۔</string>
+    <string name="cd_back">واپس</string>
+    <string name="cd_clear">صاف کریں</string>
+</resources>

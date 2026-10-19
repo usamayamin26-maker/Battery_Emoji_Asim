@@ -77,7 +77,12 @@ class EmojiBatteryCardView @JvmOverloads constructor(
     }
 
     fun setEmojiMascot(@DrawableRes drawableRes: Int) {
-        mascotImageView.setImageResource(drawableRes)
+        com.asim.jhbatteryapp.core.Utils.ImageLoaderUtils.loadOptimizedEmoji(
+            imageView = mascotImageView,
+            drawableRes = drawableRes,
+            targetWidthDp = 100,
+            targetHeightDp = 100
+        )
     }
 
     fun setBatteryPercentage(percent: Int) {

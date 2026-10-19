@@ -1,0 +1,251 @@
+<resources>
+    <string name="app_name">JH Battery</string>
+
+    <!-- Splash Screen -->
+    <string name="splash_title">อิโมจิแบตเตอรี่</string>
+    <string name="splash_loading">กำลังโหลดเพื่อนแบตเตอรี่สุดน่ารักของคุณ…</string>
+
+    <!-- Onboarding Screen -->
+    <string name="skip">ข้าม</string>
+    <string name="onboarding_title_1">ปรับแต่งทุก\nรายละเอียดด้วย.</string>
+    <string name="onboarding_desc_1">อิโมจิ สัตว์เลี้ยง สไตล์แบตเตอรี่ แถบสถานะ และพื้นหลังที่สวยงาม</string>
+    <string name="onboarding_title_2">ทำให้แบตเตอรี่\nของคุณสนุกสนาน</string>
+    <string name="onboarding_desc_2">เปลี่ยนไอคอนแบตเตอรี่ของคุณให้เป็นอิโมจิน่ารัก รายละเอียดเล็กๆ ที่สร้างความสุขมากมาย</string>
+    <string name="onboarding_title_3">แบตเตอรี่ของคุณ.\nจินตนาการของคุณ.</string>
+    <string name="help_title">ช่วยเราปรับปรุง</string>
+    <string name="help_desc_3">โปรดสนับสนุนเราโดยการให้คะแนนและแนะนำแก่ผู้อื่นบน Google Play</string>
+    <string name="onboarding_desc_3">ผสมผสานอิโมจิและสีที่คุณชื่นชอบเพื่อสร้างแบตเตอรี่ที่เป็นตัวคุณ</string>
+    <string name="get_started">เริ่มต้นใช้งาน</string>
+    <string name="next">ถัดไป</string>
+
+    <!-- Home Screen -->
+    <string name="battery_icon_title">ไอคอนแบตเตอรี่</string>
+    <string name="search_emojis_title">ค้นหาอิโมจิ</string>
+    <string name="search_placeholder">ค้นหาอิโมจิหรือธีม…</string>
+    <string name="enable_emoji_battery_banner">เปิดใช้งานอิโมจิแบตเตอรี่เพื่อเริ่มต้น</string>
+    <string name="start">เริ่ม</string>
+    <string name="sticker_shop">ร้านสติกเกอร์</string>
+    <string name="animation">แอนิเมชัน</string>
+    <string name="themes">ธีม</string>
+
+    <!-- Category Tabs -->
+    <string name="tab_hot">🔥 ยอดนิยม</string>
+    <string name="tab_pokemon">โปเกมอน</string>
+    <string name="tab_sanrio">ซานริโอ</string>
+    <string name="tab_anime">อนิเมะ</string>
+
+    <!-- Filter Chips -->
+    <string name="chip_all">ทั้งหมด</string>
+    <string name="chip_heart">หัวใจ</string>
+    <string name="chip_cute_emoji">อิโมจิน่ารัก</string>
+    <string name="chip_animations">แอนิเมชัน</string>
+
+    <!-- Home Sections -->
+    <string name="section_recent">ล่าสุด</string>
+    <string name="section_top_picks">ยอดนิยม</string>
+
+    <!-- Bottom Navigation -->
+    <string name="nav_trending">กำลังฮิต</string>
+    <string name="nav_customize">ปรับแต่ง</string>
+    <string name="nav_setting">การตั้งค่า</string>
+
+    <!-- Dialogs & Actions -->
+    <string name="apply_battery_style">ใช้สไตล์แบตเตอรี่</string>
+    <string name="applied_successfully">ใช้สไตล์สำเร็จแล้ว!</string>
+    <string name="preview">ดูตัวอย่าง</string>
+    <string name="battery_level">ระดับแบตเตอรี่: %1$d%%</string>
+
+    <!-- Settings Screen -->
+    <string name="settings_title">การตั้งค่า</string>
+    <string name="setting_language">ภาษา</string>
+    <string name="setting_language_current">ไทย</string>
+    <string name="setting_privacy_policy">นโยบายความเป็นส่วนตัว</string>
+    <string name="setting_share_app">แชร์แอป</string>
+    <string name="setting_rate_us">ให้คะแนนเรา</string>
+
+    <!-- Languages Screen -->
+    <string name="languages_title">ภาษา</string>
+    <string name="lang_arabic">อาหรับ</string>
+    <string name="lang_arabic_native">العربية</string>
+    <string name="lang_german">เยอรมัน</string>
+    <string name="lang_german_native">Deutsch</string>
+    <string name="lang_assamese">อัสสัม</string>
+    <string name="lang_assamese_native">অসমীয়া</string>
+    <string name="lang_persian">เปอร์เซีย</string>
+    <string name="lang_persian_native">فارسی</string>
+    <string name="lang_french">ฝรั่งเศส</string>
+    <string name="lang_french_native">Français</string>
+    <string name="lang_hindi">ฮินดี</string>
+    <string name="lang_hindi_native">हिन्दी</string>
+    <string name="lang_indonesian">อินโดนีเซีย</string>
+    <string name="lang_indonesian_native">Bahasa Indonesia</string>
+    <string name="lang_hebrew">ฮีบรู</string>
+    <string name="lang_hebrew_native">עברית</string>
+    <string name="lang_japanese">ญี่ปุ่น</string>
+    <string name="lang_japanese_native">日本語</string>
+    <string name="lang_korean">เกาหลี</string>
+    <string name="lang_korean_native">한국어</string>
+    <string name="lang_malay">มาเลย์</string>
+    <string name="lang_malay_native">Bahasa Melayu</string>
+    <string name="lang_portuguese">โปรตุเกส</string>
+    <string name="lang_portuguese_native">Português</string>
+    <string name="lang_russian">รัสเซีย</string>
+    <string name="lang_russian_native">Русский</string>
+    <string name="lang_turkish">ตุรกี</string>
+    <string name="lang_turkish_native">Türkçe</string>
+    <string name="lang_urdu">อูรดู</string>
+    <string name="lang_urdu_native">اردو</string>
+    <string name="lang_vietnamese">เวียดนาม</string>
+    <string name="lang_vietnamese_native">Tiếng Việt</string>
+    <string name="lang_chinese">จีน</string>
+    <string name="lang_chinese_native">中文</string>
+    <string name="lang_english">อังกฤษ</string>
+    <string name="lang_english_native">English</string>
+    <string name="lang_dutch">ดัตช์</string>
+    <string name="lang_dutch_native">Nederlands</string>
+    <string name="lang_spanish">สเปน</string>
+    <string name="lang_spanish_native">Español</string>
+    <string name="lang_thai">ไทย</string>
+    <string name="lang_thai_native">ไทย</string>
+    <string name="lang_ukrainian">ยูเครน</string>
+    <string name="lang_ukrainian_native">Українська</string>
+    <string name="apply">นำไปใช้</string>
+
+    <!-- Dialogs -->
+    <string name="share_dialog_title">แชร์แอป Emoji</string>
+    <string name="share_dialog_desc">เชิญเพื่อนๆ เพื่อเพิ่มอิโมจิบนแถบสถานะ</string>
+    <string name="share_link_url">https://velo.app/get</string>
+    <string name="copy">คัดลอก</string>
+    <string name="link_copied">คัดลอกลิงก์ไปยังคลิปบอร์ดแล้ว!</string>
+    <string name="done">เสร็จสิ้น</string>
+    <string name="feedback_dialog_title">คุณคิดอย่างไรกับสิ่งนี้?</string>
+    <string name="feedback_dialog_desc">ความคิดเห็นของคุณมีความสำคัญในการช่วยให้เราเข้าใจความต้องการของคุณได้ดียิ่งขึ้น</string>
+    <string name="feedback_submitted">ขอบคุณสำหรับความคิดเห็นของคุณ!</string>
+
+    <!-- Status Bar Themes & Animations Screens -->
+    <string name="status_bar_theme_title">ธีมแถบสถานะ</string>
+    <string name="gradient_tab">การไล่ระดับสี</string>
+    <string name="background_tab">พื้นหลัง</string>
+    <string name="choose_gradient">เลือกการไล่ระดับสี</string>
+    <string name="choose_background">เลือกพื้นหลัง</string>
+    <string name="status_bar_animation_title">แอนิเมชันแถบสถานะ</string>
+    <string name="date_size">ขนาดวันที่</string>
+    <string name="animation_style">สไตล์แอนิเมชัน</string>
+    <string name="see_all">ดูทั้งหมด</string>
+    <string name="theme_applied_success">ใช้ธีมแถบสถานะสำเร็จแล้ว!</string>
+    <string name="animation_applied_success">ใช้แอนิเมชันแถบสถานะสำเร็จแล้ว!</string>
+    <string name="accessibility_service_label">ปรับแต่งไอคอนอิโมจิแบตเตอรี่</string>
+    <string name="accessibility_service_desc">แสดงสติกเกอร์อิโมจิบนแถบสถานะและปรับแต่งรูปลักษณ์ ไม่มีการเก็บข้อมูล</string>
+    <string name="accessibility_dialog_title">การอนุญาตไอคอนอิโมจิแบตเตอรี่</string>
+    <string name="accessibility_dialog_desc">ในการแสดงอิโมจิแบตเตอรี่ แอนิเมชัน และสติกเกอร์หน้าจอ โปรดเปิดใช้งานไอคอนอิโมจิแบตเตอรี่ในการเข้าถึง</string>
+    <string name="enable_accessibility">เปิดใช้งานไอคอนอิโมจิแบตเตอรี่</string>
+    <string name="keep_standard_overlay">ใช้การซ้อนทับมาตรฐาน</string>
+
+    <!-- Status Bar Custom Screen Strings -->
+    <string name="status_bar_custom_title">ปรับแต่งแถบสถานะ</string>
+    <string name="tab_size">ขนาด</string>
+    <string name="tab_appearance">ลักษณะ</string>
+    <string name="tab_battery">แบตเตอรี่</string>
+    <string name="tab_customize_icon">ปรับแต่งไอคอน</string>
+    <string name="label_size">ขนาด</string>
+    <string name="label_height">ความสูง</string>
+    <string name="label_left_margin">ระยะขอบซ้าย</string>
+    <string name="label_right_margin">ระยะขอบขวา</string>
+    <string name="label_appearance">ลักษณะ</string>
+    <string name="label_icon">ไอคอน</string>
+    <string name="label_background">พื้นหลัง</string>
+    <string name="label_battery">แบตเตอรี่</string>
+    <string name="label_percentage">เปอร์เซ็นต์</string>
+    <string name="label_icon_size">ขนาดไอคอน</string>
+    <string name="label_emoji">อิโมจิ</string>
+    <string name="tab_trending">กำลังฮิต</string>
+    <string name="tab_halloween">ฮาโลวีน</string>
+    <string name="tab_wc2">WC 2</string>
+    <string name="apply_custom_success">ใช้แถบสถานะแบบกำหนดเองสำเร็จแล้ว!</string>
+
+    <!-- Notification Permission Dialog -->
+    <string name="notify_permission_title">การอนุญาตการแจ้งเตือน</string>
+    <string name="notify_permission_desc">แอปใช้การแจ้งเตือนเพื่อส่งการอัปเดตที่สำคัญและข้อมูลระบบที่จำเป็น</string>
+    <string name="not_now">ไม่ใช่ตอนนี้</string>
+    <string name="allow">อนุญาต</string>
+
+    <!-- Accessibility Service Usage Dialog -->
+    <string name="accessibility_usage_title">การใช้บริการการเข้าถึง</string>
+    <string name="accessibility_usage_subtitle">จำเป็นต้องได้รับอนุญาตเพื่อดำเนินการต่อ</string>
+    <string name="accessibility_usage_intro">แอปนี้ต้องการสิทธิ์การเข้าถึงสำหรับ:</string>
+    <string name="accessibility_usage_bullet_1"><![CDATA[<b><font color="#A855F7">แสดงมุมมอง "ปรับแต่งไอคอนอิโมจิแบตเตอรี่"</font></b> บนหน้าจอมือถือและตรวจจับท่าทางบนแถบสถานะ]]></string>
+    <string name="accessibility_usage_bullet_2"><![CDATA[<b><font color="#A855F7">เริ่มการทำงานของการเข้าถึง</font></b> ไปยังหน้าแรก ย้อนกลับ และหน้าจอล่าสุด]]></string>
+    <string name="accessibility_usage_notice">แอปพลิเคชันนี้สัญญาว่าจะไม่รวบรวมหรือแบ่งปันข้อมูลผู้ใช้เกี่ยวกับสิทธิ์การเข้าถึงนี้..</string>
+    <string name="accessibility_usage_terms"><![CDATA[ฉันได้อ่านและยอมรับ <u><font color="#A855F7">ข้อกำหนดในการให้บริการ</font></u>]]></string>
+    <string name="close">ปิด</string>
+
+    <!-- How To Use Screen -->
+    <string name="how_to_use_title">วิธีใช้งาน</string>
+    <string name="how_to_use_step_1"><![CDATA[1. ในแอปที่ดาวน์โหลด ให้เลือก <font color="#9333EA"><b>ปรับแต่งไอคอนอิโมจิแบตเตอรี่</b></font>]]></string>
+    <string name="how_to_use_step_2"><![CDATA[2. เลือก <font color="#9333EA"><b>ปรับแต่งไอคอนอิโมจิแบตเตอรี่</b></font>]]></string>
+    <string name="how_to_use_step_3"><![CDATA[3. เปิดสวิตช์]]></string>
+    <string name="how_to_use_step_4"><![CDATA[4. คลิก <font color="#9333EA"><b>อนุญาต</b></font>]]></string>
+    <string name="go_to_settings">ไปที่การตั้งค่า</string>
+    <string name="continue_text">ดำเนินการต่อ</string>
+
+    <!-- Exit Dialog -->
+    <string name="exit_dialog_title">คุณแน่ใจหรือไม่ว่าต้องการออก?</string>
+    <string name="exit_dialog_desc">การเปลี่ยนแปลงของคุณยังไม่ได้รับการบันทึก คุณแน่ใจหรือไม่ว่าต้องการออก?</string>
+    <string name="yes">ใช่</string>
+    <string name="no">ไม่</string>
+
+    <!-- No Internet Dialog -->
+    <string name="no_internet_title">ไม่มีการเชื่อมต่ออินเทอร์เน็ต</string>
+    <string name="no_internet_desc">โปรดตรวจสอบการเชื่อมต่ออินเทอร์เน็ตของคุณแล้วลองอีกครั้ง</string>
+    <string name="cancel">ยกเลิก</string>
+    <string name="retry">ลองอีกครั้ง</string>
+
+    <!-- Don't Miss Out Dialog -->
+    <string name="dont_miss_out_title">อย่าพลาด!!</string>
+    <string name="dont_miss_out_desc">เปิดการแจ้งเตือนเพื่อค้นพบไอคอนแบตเตอรี่ใหม่ ธีมตามฤดูกาล และสไตล์ที่กำลังเป็นที่นิยม</string>
+    <string name="maybe_later">อาจจะภายหลัง</string>
+    <string name="turn_on_notifications">เปิดการแจ้งเตือน</string>
+
+    <!-- Sticker For Display Screen Strings -->
+    <string name="sticker_for_display_title">สติกเกอร์สำหรับหน้าจอแสดงผล</string>
+    <string name="my_sticker">สติกเกอร์ของฉัน</string>
+    <string name="save">บันทึก</string>
+    <string name="adjustment">การปรับแต่ง</string>
+    <string name="size">ขนาด</string>
+    <string name="rotate">หมุน</string>
+    <string name="welcome_back">ยินดีต้อนรับกลับมา!</string>
+    <string name="sticker_saved_success">บันทึกสติกเกอร์เรียบร้อยแล้ว!</string>
+    <string name="sticker_limit_reached">อนุญาตให้ใช้สติกเกอร์ได้สูงสุด 5 ชิ้น</string>
+
+    <!-- Shifted Layout & Code Strings -->
+    <string name="default_preview_title">พิงค์บลอสซั่ม</string>
+    <string name="default_preview_subtitle">สถานะ: ใช้งานอยู่และอยู่บนแบตเตอรี่ของคุณ</string>
+    <string name="status_bar_permissions_title">การอนุญาตแถบสถานะ</string>
+    <string name="overlay_perm_desc">โปรดอนุญาตสิทธิ์ทั้งสองเพื่อให้สามารถแสดงธีมแถบสถานะได้ทั่วทั้งโทรศัพท์ของคุณ:</string>
+    <string name="overlay_perm_step1">1. อนุญาต \'แสดงทับแอปอื่น\'</string>
+    <string name="overlay_perm_step2">2. อนุญาต \'แสดงหน้าต่างป๊อปอัป\'</string>
+    <string name="btn_apply_status_bar_theme">ใช้ธีมแถบสถานะ</string>
+    <string name="overlay_perm_step1_allowed">1. อนุญาต \'แสดงทับแอปอื่น\' แล้ว ✓</string>
+    <string name="please_agree_terms">โปรดยอมรับข้อกำหนดในการให้บริการ</string>
+    <string name="show_in_status_bar">แสดงในแถบสถานะ</string>
+    <string name="icon_color">สีไอคอน</string>
+    <string name="style_label">สไตล์</string>
+    <string name="date_format">รูปแบบวันที่</string>
+    <string name="date_style">สไตล์วันที่</string>
+    <string name="status_bar_left_emojis">อิโมจิแถบสถานะด้านซ้าย</string>
+    <string name="choose_emoji_left_desc">เลือกอิโมจิที่จะแสดงทางด้านซ้ายพร้อมเวลา</string>
+    <string name="emoji_battery_is_active">อิโมจิแบตเตอรี่เปิดใช้งานอยู่</string>
+    <string name="status_active">เปิดใช้งาน</string>
+    <string name="item_customized_format">ปรับแต่ง %1$s แล้ว!</string>
+    <string name="item_applied_battery_format">ใช้ %1$s เป็นไอคอนแบตเตอรี่แล้ว!</string>
+    <string name="item_size_format">ขนาด %1$s</string>
+    <string name="emoji_battery_deactivated">ปิดใช้งานอิโมจิแบตเตอรี่แล้ว</string>
+    <string name="emoji_battery_activated">เปิดใช้งานอิโมจิแบตเตอรี่แล้ว!</string>
+    <string name="notification_permission_granted">ได้รับการอนุญาตการแจ้งเตือนแล้ว!</string>
+    <string name="opening_privacy_policy">กำลังเปิดนโยบายความเป็นส่วนตัว…</string>
+    <string name="please_select_sticker">โปรดเลือกสติกเกอร์ก่อน</string>
+    <string name="language_changed_to">เปลี่ยนภาษาเป็น %1$s แล้ว</string>
+    <string name="no_connection_msg">ไม่มีการเชื่อมต่อ โปรดตรวจสอบอินเทอร์เน็ตแล้วลองใหม่</string>
+    <string name="cd_back">กลับ</string>
+    <string name="cd_clear">ล้าง</string>
+</resources>

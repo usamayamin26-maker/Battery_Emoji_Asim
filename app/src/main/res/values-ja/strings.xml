@@ -1,0 +1,245 @@
+<resources>
+    <string name="app_name">JH Battery</string>
+
+    <!-- Splash Screen -->
+    <string name="splash_title">絵文字バッテリー</string>
+    <string name="splash_loading">かわいいバッテリーの仲間たちを読み込み中…</string>
+
+    <!-- Onboarding Screen -->
+    <string name="skip">スキップ</string>
+    <string name="onboarding_title_1">細部まで\n自由にカスタマイズ。</string>
+    <string name="onboarding_desc_1">絵文字、ペット、バッテリースタイル、ステータスバー、美しい背景。</string>
+    <string name="onboarding_title_2">バッテリーを\nもっと楽しく。</string>
+    <string name="onboarding_desc_2">バッテリーアイコンを可愛い絵文字に。小さな変化で毎日がもっとハッピーに。</string>
+    <string name="onboarding_title_3">あなただけのバッテリー。\n自由なイマジネーション。</string>
+    <string name="help_title">改善にご協力ください</string>
+    <string name="help_desc_3">Google Playでの評価やレビューでぜひ応援をお願いします</string>
+    <string name="onboarding_desc_3">お気に入りの絵文字と色を組み合わせて、あなたらしいバッテリーを作りましょう。</string>
+    <string name="get_started">使ってみる</string>
+    <string name="next">次へ</string>
+
+    <!-- Home Screen -->
+    <string name="battery_icon_title">バッテリーアイコン</string>
+    <string name="search_emojis_title">絵文字を検索</string>
+    <string name="search_placeholder">絵文字やテーマを検索…</string>
+    <string name="enable_emoji_battery_banner">開始するには絵文字バッテリーを有効にしてください</string>
+    <string name="start">開始</string>
+    <string name="sticker_shop">ステッカーショップ</string>
+    <string name="animation">アニメーション</string>
+    <string name="themes">テーマ</string>
+
+    <!-- Category Tabs -->
+    <string name="tab_hot">🔥 人気</string>
+    <string name="tab_pokemon">ポケモン</string>
+    <string name="tab_sanrio">サンリオ</string>
+    <string name="tab_anime">アニメ</string>
+
+    <!-- Filter Chips -->
+    <string name="chip_all">すべて</string>
+    <string name="chip_heart">ハート</string>
+    <string name="chip_cute_emoji">かわいい絵文字</string>
+    <string name="chip_animations">アニメーション</string>
+
+    <!-- Home Sections -->
+    <string name="section_recent">最近</string>
+    <string name="section_top_picks">おすすめ</string>
+
+    <!-- Bottom Navigation -->
+    <string name="nav_trending">トレンド</string>
+    <string name="nav_customize">カスタマイズ</string>
+    <string name="nav_setting">設定</string>
+
+    <!-- Dialogs & Actions -->
+    <string name="apply_battery_style">バッテリースタイルを適用</string>
+    <string name="applied_successfully">スタイルが正常に適用されました！</string>
+    <string name="preview">プレビュー</string>
+    <string name="battery_level">バッテリー残量: %1$d%%</string>
+
+    <!-- Settings Screen -->
+    <string name="settings_title">設定</string>
+    <string name="setting_language">言語</string>
+    <string name="setting_language_current">日本語</string>
+    <string name="setting_privacy_policy">プライバシーポリシー</string>
+    <string name="setting_share_app">アプリを共有</string>
+    <string name="setting_rate_us">評価する</string>
+
+    <!-- Languages Screen -->
+    <string name="languages_title">言語</string>
+    <string name="lang_arabic">アラビア語</string>
+    <string name="lang_arabic_native">العربية</string>
+    <string name="lang_german">ドイツ語</string>
+    <string name="lang_german_native">Deutsch</string>
+    <string name="lang_assamese">アッサム語</string>
+    <string name="lang_assamese_native">অসমীয়া</string>
+    <string name="lang_persian">ペルシャ語</string>
+    <string name="lang_persian_native">فارسی</string>
+    <string name="lang_french">フランス語</string>
+    <string name="lang_french_native">Français</string>
+    <string name="lang_hindi">ヒンディー語</string>
+    <string name="lang_hindi_native">हिन्दी</string>
+    <string name="lang_indonesian">インドネシア語</string>
+    <string name="lang_indonesian_native">Bahasa Indonesia</string>
+    <string name="lang_hebrew">ヘブライ語</string>
+    <string name="lang_hebrew_native">עברית</string>
+    <string name="lang_japanese">日本語</string>
+    <string name="lang_japanese_native">日本語</string>
+    <string name="lang_korean">韓国語</string>
+    <string name="lang_korean_native">한국어</string>
+    <string name="lang_malay">マレー語</string>
+    <string name="lang_malay_native">Bahasa Melayu</string>
+    <string name="lang_portuguese">ポルトガル語</string>
+    <string name="lang_portuguese_native">Português</string>
+    <string name="lang_russian">ロシア語</string>
+    <string name="lang_russian_native">Русский</string>
+    <string name="lang_turkish">トルコ語</string>
+    <string name="lang_turkish_native">Türkçe</string>
+    <string name="lang_urdu">ウルドゥー語</string>
+    <string name="lang_urdu_native">اردو</string>
+    <string name="lang_vietnamese">ベトナム語</string>
+    <string name="lang_vietnamese_native">Tiếng Việt</string>
+    <string name="lang_chinese">中国語</string>
+    <string name="lang_chinese_native">中文</string>
+    <string name="lang_english">英語</string>
+    <string name="lang_english_native">English</string>
+    <string name="lang_dutch">オランダ語</string>
+    <string name="lang_dutch_native">Nederlands</string>
+    <string name="apply">適用</string>
+
+    <!-- Dialogs -->
+    <string name="share_dialog_title">絵文字アプリを共有</string>
+    <string name="share_dialog_desc">友達を招待して、スマホにかわいい絵文字を付けましょう。</string>
+    <string name="share_link_url">https://velo.app/get</string>
+    <string name="copy">コピー</string>
+    <string name="link_copied">リンクをクリップボードにコピーしました！</string>
+    <string name="done">完了</string>
+    <string name="feedback_dialog_title">使い心地はいかがですか？</string>
+    <string name="feedback_dialog_desc">皆様のご意見は、今後のアプリ改善のために大変貴重です。</string>
+    <string name="feedback_submitted">フィードバックありがとうございます！</string>
+
+    <!-- Status Bar Themes & Animations Screens -->
+    <string name="status_bar_theme_title">ステータスバーのテーマ</string>
+    <string name="gradient_tab">グラデーション</string>
+    <string name="background_tab">背景</string>
+    <string name="choose_gradient">グラデーションを選択</string>
+    <string name="choose_background">背景を選択</string>
+    <string name="status_bar_animation_title">ステータスバーのアニメーション</string>
+    <string name="date_size">日付のサイズ</string>
+    <string name="animation_style">アニメーションスタイル</string>
+    <string name="see_all">すべて見る</string>
+    <string name="theme_applied_success">ステータスバーのテーマが正常に適用されました！</string>
+    <string name="animation_applied_success">ステータスバーのアニメーションが正常に適用されました！</string>
+    <string name="accessibility_service_label">絵文字バッテリーアイコンのカスタマイズ</string>
+    <string name="accessibility_service_desc">ステータスバーに絵文字ステッカーを表示し、外観をカスタマイズします。データは収集されません。</string>
+    <string name="accessibility_dialog_title">絵文字バッテリーアイコンの権限</string>
+    <string name="accessibility_dialog_desc">カスタム絵文字、アニメーション、ステッカーを表示するには、ユーザー補助サービスで絵文字バッテリーアイコンを有効にしてください。</string>
+    <string name="enable_accessibility">絵文字バッテリーアイコンを有効にする</string>
+    <string name="keep_standard_overlay">標準オーバーレイを維持</string>
+
+    <!-- Status Bar Custom Screen Strings -->
+    <string name="status_bar_custom_title">ステータスバーのカスタム</string>
+    <string name="tab_size">サイズ</string>
+    <string name="tab_appearance">外観</string>
+    <string name="tab_battery">バッテリー</string>
+    <string name="tab_customize_icon">アイコンをカスタマイズ</string>
+    <string name="label_size">サイズ</string>
+    <string name="label_height">高さ</string>
+    <string name="label_left_margin">左余白</string>
+    <string name="label_right_margin">右余白</string>
+    <string name="label_appearance">外観</string>
+    <string name="label_icon">アイコン</string>
+    <string name="label_background">背景</string>
+    <string name="label_battery">バッテリー</string>
+    <string name="label_percentage">パーセンテージ</string>
+    <string name="label_icon_size">アイコンサイズ</string>
+    <string name="label_emoji">絵文字</string>
+    <string name="tab_trending">トレンド</string>
+    <string name="tab_halloween">ハロウィン</string>
+    <string name="tab_wc2">WC 2</string>
+    <string name="apply_custom_success">カスタムステータスバーが適用されました！</string>
+
+    <!-- Notification Permission Dialog -->
+    <string name="notify_permission_title">通知の許可</string>
+    <string name="notify_permission_desc">アプリは重要なお知らせやシステム情報を配信するために通知を使用します。</string>
+    <string name="not_now">後で</string>
+    <string name="allow">許可</string>
+
+    <!-- Accessibility Service Usage Dialog -->
+    <string name="accessibility_usage_title">ユーザー補助サービスの使用</string>
+    <string name="accessibility_usage_subtitle">続行するには権限が必要です</string>
+    <string name="accessibility_usage_intro">このアプリは次の機能のためにユーザー補助サービスの権限が必要です:</string>
+    <string name="accessibility_usage_bullet_1"><![CDATA[画面上に<b><font color="#A855F7">「絵文字バッテリーアイコンのカスタマイズ」</font></b>を表示し、ステータスバーのジェスチャーを検出するため。]]></string>
+    <string name="accessibility_usage_bullet_2"><![CDATA[ホーム、戻る、最近のアプリ画面の<b><font color="#A855F7">ユーザー補助操作</font></b>を実行するため。]]></string>
+    <string name="accessibility_usage_notice">本アプリはこの権限に関してユーザーのいかなる個人情報も収集または共有しません。</string>
+    <string name="accessibility_usage_terms"><![CDATA[<u><font color="#A855F7">利用規約</font></u>を読み、同意します]]></string>
+    <string name="close">閉じる</string>
+
+    <!-- How To Use Screen -->
+    <string name="how_to_use_title">使い方</string>
+    <string name="how_to_use_step_1"><![CDATA[1. インストール済みアプリで<font color="#9333EA"><b>絵文字バッテリーアイコンのカスタマイズ</b></font>を選択します。]]></string>
+    <string name="how_to_use_step_2"><![CDATA[2. <font color="#9333EA"><b>絵文字バッテリーアイコンのカスタマイズ</b></font>を選択します。]]></string>
+    <string name="how_to_use_step_3"><![CDATA[3. オンにします。]]></string>
+    <string name="how_to_use_step_4"><![CDATA[4. <font color="#9333EA"><b>許可</b></font>をクリックします。]]></string>
+    <string name="go_to_settings">設定へ移動</string>
+    <string name="continue_text">続ける</string>
+
+    <!-- Exit Dialog -->
+    <string name="exit_dialog_title">本当に終了しますか？</string>
+    <string name="exit_dialog_desc">変更は保存されていません。終了してもよろしいですか？</string>
+    <string name="yes">はい</string>
+    <string name="no">いいえ</string>
+
+    <!-- No Internet Dialog -->
+    <string name="no_internet_title">インターネット接続がありません</string>
+    <string name="no_internet_desc">インターネット接続を確認して、もう一度お試しください。</string>
+    <string name="cancel">キャンセル</string>
+    <string name="retry">再試行</string>
+
+    <!-- Don't Miss Out Dialog -->
+    <string name="dont_miss_out_title">お見逃しなく！！</string>
+    <string name="dont_miss_out_desc">通知をオンにして、新しいバッテリーアイコンや季節のテーマ、トレンドスタイルを見つけましょう。</string>
+    <string name="maybe_later">後で</string>
+    <string name="turn_on_notifications">通知をオンにする</string>
+
+    <!-- Sticker For Display Screen Strings -->
+    <string name="sticker_for_display_title">ディスプレイ用ステッカー</string>
+    <string name="my_sticker">マイスケジュール</string>
+    <string name="save">保存</string>
+    <string name="adjustment">調整</string>
+    <string name="size">サイズ</string>
+    <string name="rotate">回転</string>
+    <string name="welcome_back">おかえりなさい！</string>
+    <string name="sticker_saved_success">ステッカーが正常に保存されました！</string>
+    <string name="sticker_limit_reached">ステッカーは最大5個までです</string>
+
+    <!-- Shifted Layout & Code Strings -->
+    <string name="default_preview_title">ピンクブロッサム</string>
+    <string name="default_preview_subtitle">ステータス: バッテリー上でアクティブ</string>
+    <string name="status_bar_permissions_title">ステータスバーの権限</string>
+    <string name="overlay_perm_desc">テーマを正しく表示するため、両方の権限を許可してください:</string>
+    <string name="overlay_perm_step1">1. 「他のアプリの上に重ねて表示」を許可</string>
+    <string name="overlay_perm_step2">2. 「ポップアップウィンドウの表示」を許可</string>
+    <string name="btn_apply_status_bar_theme">ステータスバーテーマを適用</string>
+    <string name="overlay_perm_step1_allowed">1. 「他のアプリの上に重ねて表示」許可済み ✓</string>
+    <string name="please_agree_terms">利用規約に同意してください</string>
+    <string name="show_in_status_bar">ステータスバーに表示</string>
+    <string name="icon_color">アイコンの色</string>
+    <string name="style_label">スタイル</string>
+    <string name="date_format">日付形式</string>
+    <string name="date_style">日付スタイル</string>
+    <string name="status_bar_left_emojis">ステータスバー左の絵文字</string>
+    <string name="choose_emoji_left_desc">時刻の横に表示する絵文字を選択</string>
+    <string name="emoji_battery_is_active">絵文字バッテリーが有効です</string>
+    <string name="status_active">アクティブ</string>
+    <string name="item_customized_format">%1$s をカスタマイズしました！</string>
+    <string name="item_applied_battery_format">%1$s をバッテリーアイコンに適用しました！</string>
+    <string name="item_size_format">%1$s のサイズ</string>
+    <string name="emoji_battery_deactivated">絵文字バッテリーを無効にしました</string>
+    <string name="emoji_battery_activated">絵文字バッテリーを有効にしました！</string>
+    <string name="notification_permission_granted">通知の権限が付与されました！</string>
+    <string name="opening_privacy_policy">プライバシーポリシーを開いています…</string>
+    <string name="please_select_sticker">最初にステッカーを選択してください</string>
+    <string name="language_changed_to">言語を %1$s に変更しました</string>
+    <string name="no_connection_msg">接続がありません。インターネットを確認して再試行してください。</string>
+    <string name="cd_back">戻る</string>
+    <string name="cd_clear">クリア</string>
+</resources>

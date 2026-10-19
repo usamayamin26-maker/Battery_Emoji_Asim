@@ -166,8 +166,8 @@ class StatusBarAnimationFragment : Fragment() {
 
         viewModel.isBatteryActive.observe(viewLifecycleOwner) { isActive ->
             if (isActive) {
-                binding.tvAnimBannerText.text = "Emoji battery is active"
-                binding.btnAnimBannerStart.text = "Active"
+                binding.tvAnimBannerText.text = getString(R.string.emoji_battery_is_active)
+                binding.btnAnimBannerStart.text = getString(R.string.status_active)
             } else {
                 binding.tvAnimBannerText.text = getString(R.string.enable_emoji_battery_banner)
                 binding.btnAnimBannerStart.text = getString(R.string.start)

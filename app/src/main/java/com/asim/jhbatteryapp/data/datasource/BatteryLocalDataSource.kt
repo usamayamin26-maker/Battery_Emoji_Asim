@@ -242,98 +242,196 @@ class BatteryLocalDataSource {
                 isTopPick = false,
                 tags = listOf("cat", "gray")
             ),
+//            BatteryEmojiItem(
+//                id = "battery1",
+//                title = "battery1",
+//                category = "pokemon",
+//                previewDrawableRes = R.drawable.battery_01,
+//                isHot = true,
+//                isRecent = true
+//            ),
+//            BatteryEmojiItem(
+//                id = "battery2",
+//                title = "battery2",
+//                category = "pokemon",
+//                previewDrawableRes = R.drawable.battery_02,
+//                isHot = true,
+//                isRecent = true
+//            ),
+//            BatteryEmojiItem(
+//                id = "battery3",
+//                title = "battery3",
+//                category = "pokemon",
+//                previewDrawableRes = R.drawable.battery_03,
+//                isHot = true,
+//                isRecent = true
+//            ),
+//            BatteryEmojiItem(
+//                id = "battery4",
+//                title = "battery4",
+//                category = "pokemon",
+//                previewDrawableRes = R.drawable.battery_04,
+//                isHot = true,
+//                isRecent = true
+//            ),
+//            BatteryEmojiItem(
+//                id = "battery5",
+//                title = "battery5",
+//                category = "pokemon",
+//                previewDrawableRes = R.drawable.battery_05,
+//                isHot = true,
+//                isRecent = true
+//            ),
+//            BatteryEmojiItem(
+//                id = "battery6",
+//                title = "battery6",
+//                category = "pokemon",
+//                previewDrawableRes = R.drawable.battery_06,
+//                isHot = true,
+//                isRecent = true
+//            ),
+//            BatteryEmojiItem(
+//                id = "battery7",
+//                title = "battery7",
+//                category = "pokemon",
+//                previewDrawableRes = R.drawable.battery_07,
+//                isHot = true,
+//                isRecent = true
+//            ),
+//            BatteryEmojiItem(
+//                id = "battery8",
+//                title = "battery8",
+//                category = "pokemon",
+//                previewDrawableRes = R.drawable.battery_08,
+//                isHot = true,
+//                isRecent = true
+//            ),
+//            BatteryEmojiItem(
+//                id = "battery9",
+//                title = "battery9",
+//                category = "pokemon",
+//                previewDrawableRes = R.drawable.battery_09,
+//                isHot = true,
+//                isRecent = true
+//            ),
+//            BatteryEmojiItem(
+//                id = "battery10",
+//                title = "battery10",
+//                category = "pokemon",
+//                previewDrawableRes = R.drawable.battery_10,
+//                isHot = true,
+//                isRecent = true
+//            ),
+//            BatteryEmojiItem(
+//                id = "battery11",
+//                title = "battery11",
+//                category = "pokemon",
+//                previewDrawableRes = R.drawable.battery_11,
+//                isHot = true,
+//                isRecent = true
+//            ),
+//            BatteryEmojiItem(
+//                id = "battery12",
+//                title = "battery12",
+//                category = "pokemon",
+//                previewDrawableRes = R.drawable.battery_12,
+//                isHot = true,
+//                isRecent = true
+//            ),
+//            BatteryEmojiItem(
+//                id = "battery13",
+//                title = "battery13",
+//                category = "pokemon",
+//                previewDrawableRes = R.drawable.battery_13,
+//                isHot = true,
+//                isRecent = true
+//            ),
+//            BatteryEmojiItem(
+//                id = "battery14",
+//                title = "battery14",
+//                category = "pokemon",
+//                previewDrawableRes = R.drawable.battery_14,
+//                isHot = true,
+//                isRecent = true
+//            ),
+//            BatteryEmojiItem(
+//                id = "battery15",
+//                title = "battery15",
+//                category = "pokemon",
+//                previewDrawableRes = R.drawable.battery_15,
+//                isHot = true,
+//                isRecent = true
+//            ),
+//            BatteryEmojiItem(
+//                id = "battery16",
+//                title = "battery16",
+//                category = "pokemon",
+//                previewDrawableRes = R.drawable.battery_16,
+//                isHot = true,
+//                isRecent = true
+//            ),
+//            BatteryEmojiItem(
+//                id = "battery17",
+//                title = "battery17",
+//                category = "pokemon",
+//                previewDrawableRes = R.drawable.battery_17,
+//                isHot = true,
+//                isRecent = true
+//            ),
+//            BatteryEmojiItem(
+//                id = "battery18",
+//                title = "battery18",
+//                category = "pokemon",
+//                previewDrawableRes = R.drawable.battery_18,
+//                isHot = true,
+//                isRecent = true
+//            ),
+//            BatteryEmojiItem(
+//                id = "battery19",
+//                title = "battery19",
+//                category = "pokemon",
+//                previewDrawableRes = R.drawable.battery_19,
+//                isHot = true,
+//                isRecent = true
+//            ),
+//
+//            BatteryEmojiItem(
+//                id = "battery20",
+//                title = "battery20",
+//                category = "pokemon",
+//                previewDrawableRes = R.drawable.battery_20,
+//                isHot = true,
+//                isRecent = true
+//            ),
+
             BatteryEmojiItem(
-                id = "emojie1",
-                title = "Emoji 1",
-                category = "hot",
-                previewDrawableRes = R.drawable.emojie1,
-                isHot = true,
-                isRecent = true
-            ),
-            BatteryEmojiItem(
-                id = "emojie2",
-                title = "Emoji 2",
-                category = "hot",
-                previewDrawableRes = R.drawable.emojie2,
-                isHot = true,
-                isRecent = true
-            ),
-            BatteryEmojiItem(
-                id = "emojie3",
-                title = "Emoji 3",
-                category = "hot",
-                previewDrawableRes = R.drawable.emojie3,
-                isHot = true,
-                isRecent = true
-            ),
-            BatteryEmojiItem(
-                id = "emojie4",
-                title = "Emoji 4",
-                category = "hot",
-                previewDrawableRes = R.drawable.emojie4,
-                isHot = true,
-                isRecent = true
-            ),
-            BatteryEmojiItem(
-                id = "emojie6",
-                title = "Emoji 6",
-                category = "hot",
-                previewDrawableRes = R.drawable.emojie6,
-                isHot = true,
-                isRecent = true
-            ),
-            BatteryEmojiItem(
-                id = "emojie7",
-                title = "Emoji 7",
-                category = "hot",
-                previewDrawableRes = R.drawable.emojie7,
-                isHot = true,
-                isRecent = true
-            ),
-            BatteryEmojiItem(
-                id = "emojie8",
-                title = "Emoji 8",
-                category = "hot",
-                previewDrawableRes = R.drawable.emojie8,
-                isHot = true,
-                isRecent = true
-            ),
-            BatteryEmojiItem(
-                id = "emojie9",
-                title = "Emoji 9",
-                category = "hot",
-                previewDrawableRes = R.drawable.emojie9,
-                isHot = true,
-                isRecent = true
-            ),
-            BatteryEmojiItem(
-                id = "battery1",
-                title = "Battery 1",
-                category = "hot",
+                id = "battery21",
+                title = "battery21",
+                category = "pokemon",
                 previewDrawableRes = R.drawable.battery1,
                 isHot = true,
                 isRecent = true
             ),
             BatteryEmojiItem(
-                id = "battery2",
+                id = "battery22",
                 title = "Battery 2",
-                category = "hot",
+                category = "pokemon",
                 previewDrawableRes = R.drawable.battery2,
                 isHot = true,
                 isRecent = true
             ),
             BatteryEmojiItem(
-                id = "battery3",
+                id = "battery23",
                 title = "Battery 3",
-                category = "hot",
+                category = "pokemon",
                 previewDrawableRes = R.drawable.battery3,
                 isHot = true,
                 isRecent = true
             ),
             BatteryEmojiItem(
-                id = "battery4",
+                id = "battery24",
                 title = "Battery 4",
-                category = "hot",
+                category = "pokemon",
                 previewDrawableRes = R.drawable.battery4,
                 isHot = true,
                 isRecent = true
@@ -341,19 +439,45 @@ class BatteryLocalDataSource {
             BatteryEmojiItem(
                 id = "battery5",
                 title = "Battery 5",
-                category = "hot",
+                category = "pokemon",
                 previewDrawableRes = R.drawable.battery5,
                 isHot = true,
                 isRecent = true
             ),
             BatteryEmojiItem(
-                id = "battery6",
+                id = "battery26",
                 title = "Battery 6",
-                category = "hot",
+                category = "pokemon",
                 previewDrawableRes = R.drawable.battery6,
                 isHot = true,
                 isRecent = true
+            ),
+            BatteryEmojiItem(
+                id = "battery27",
+                title = "Battery 7",
+                category = "pokemon",
+                previewDrawableRes = R.drawable.battery_21,
+                isHot = true,
+                isRecent = true
+            ),
+            BatteryEmojiItem(
+                id = "battery28",
+                title = "Battery 8",
+                category = "pokemon",
+                previewDrawableRes = R.drawable.battery_22,
+                isHot = true,
+                isRecent = true
+            ),
+            BatteryEmojiItem(
+                id = "battery29",
+                title = "Battery 9",
+                category = "pokemon",
+                previewDrawableRes = R.drawable.battery_23,
+                isHot = true,
+                isRecent = true
             )
+
+
         )
 
         return if (categoryId.isNullOrEmpty() || categoryId == "hot") {

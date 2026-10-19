@@ -11,7 +11,7 @@ class LanguageAdapter(
     private val onLanguageSelected: (LanguageItem) -> Unit
 ) : RecyclerView.Adapter<LanguageAdapter.LanguageViewHolder>() {
 
-    private var selectedIndex = items.indexOfFirst { it.isSelected }.let { if (it >= 0) it else 3 } // Default English
+    private var selectedIndex = items.indexOfFirst { it.isSelected }.let { if (it >= 0) it else 0 }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LanguageViewHolder {
         val binding = ItemLanguageBinding.inflate(
@@ -37,9 +37,9 @@ class LanguageAdapter(
         fun bind(item: LanguageItem, isSelected: Boolean) {
             binding.tvLanguageName.text = item.name
             binding.tvLanguageNative.text = item.nativeName
+
             binding.ivLanguageFlag.setImageResource(item.flagRes)
 
-            // Dynamic selection background
             if (isSelected) {
                 binding.llLanguageItem.setBackgroundResource(R.drawable.bg_language_card_selected)
             } else {
@@ -48,10 +48,19 @@ class LanguageAdapter(
 
             binding.root.setOnClickListener {
                 val previousIndex = selectedIndex
-                selectedIndex = bindingAdapterPosition
-                notifyItemChanged(previousIndex)
-                notifyItemChanged(selectedIndex)
-                onLanguageSelected(items[selectedIndex])
+                val currentPos = bindingAdapterPosition
+                if (currentPos != androidx.recyclerview.widget.RecyclerView.NO_POSITION && currentPos != selectedIndex) {
+                    selectedIndex = currentPos
+                    if (previousIndex in items.indices) {
+                        items[previousIndex].isSelected = false
+                        notifyItemChanged(previousIndex)
+                    }
+                    if (selectedIndex in items.indices) {
+                        items[selectedIndex].isSelected = true
+                        notifyItemChanged(selectedIndex)
+                        onLanguageSelected(items[selectedIndex])
+                    }
+                }
             }
         }
     }
