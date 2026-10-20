@@ -166,14 +166,28 @@
         </HorizontalScrollView>
     </LinearLayout>
 
+    <!-- Top Ad Slot (Banner or Native) -->
+    <com.universal.remote.ads.AdSlotView
+        android:id="@+id/adSlotTop"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/_4sdp"
+        android:paddingBottom="@dimen/_4sdp"
+        android:visibility="gone"
+        app:nativeMarginHorizontal="@dimen/_14sdp"
+        app:layout_constraintTop_toBottomOf="@+id/headerSearch"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:visibility="visible" />
+
     <!-- Scrollable Search Results (Recent & Top Picks Grids) -->
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:clipToPadding="false"
-        android:paddingBottom="@dimen/_24sdp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/headerSearch">
+        android:paddingBottom="@dimen/_16sdp"
+        app:layout_constraintBottom_toTopOf="@+id/adSlotBottom"
+        app:layout_constraintTop_toBottomOf="@+id/adSlotTop">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -225,5 +239,19 @@
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
+
+    <!-- Bottom Ad Slot (Banner or Native) -->
+    <com.universal.remote.ads.AdSlotView
+        android:id="@+id/adSlotBottom"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/_4sdp"
+        android:paddingBottom="@dimen/_4sdp"
+        android:visibility="gone"
+        app:nativeMarginHorizontal="@dimen/_14sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:visibility="visible" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

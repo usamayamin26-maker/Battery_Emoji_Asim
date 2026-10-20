@@ -58,4 +58,16 @@
     <style name="CustomBottomSheetStyle" parent="Widget.Design.BottomSheet.Modal">
         <item name="android:background">@drawable/bottom_sheet_shap</item>
     </style>
+
+    <style name="TextAppearance.Ad.LoadingLabel" parent="">
+        <item name="android:fontFamily">@font/outfit_medium</item>
+        <item name="fontFamily">@font/outfit_medium</item>
+        <item name="android:textSize">@dimen/_10ssp</item>
+        <item name="lineHeight">@dimen/_13ssp</item>
+        <item name="android:textColor">@color/ad_loading_label</item>
+    </style>
+    <style name="ShapeAppearance.NativeAd.Icon" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">8dp</item>
+    </style>
 </resources>

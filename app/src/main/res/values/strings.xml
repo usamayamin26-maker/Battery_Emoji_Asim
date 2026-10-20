@@ -110,6 +110,7 @@
     <string name="lang_ukrainian">Ukrainian</string>
     <string name="lang_ukrainian_native">Українська</string>
     <string name="apply">Apply</string>
+    <string name="continue_text">Continue →</string>
 
     <!-- Dialogs -->
     <string name="share_dialog_title">Share Emoji app</string>
@@ -186,7 +187,6 @@
     <string name="how_to_use_step_3"><![CDATA[3. Turn On.]]></string>
     <string name="how_to_use_step_4"><![CDATA[4. Click <font color="#9333EA"><b>Allow.</b></font>]]></string>
     <string name="go_to_settings">Go to Settings</string>
-    <string name="continue_text">Continue</string>
 
     <!-- Exit Dialog -->
     <string name="exit_dialog_title">Are you sure you want to exit?</string>
@@ -248,4 +248,16 @@
     <string name="no_connection_msg">No connection. Please check your internet and retry.</string>
     <string name="cd_back">Back</string>
     <string name="cd_clear">Clear</string>
+
+
+    <string name="ad_attribution">Ad</string>
+
+    <!-- Shown in the dialog while a button-triggered interstitial loads -->
+    <string name="ad_loading_dialog_message">Ad Loading…</string>
+
+    <!-- Centred on the full-screen native ad's shimmer while the request is in flight -->
+    <string name="ad_loading_placeholder">Loading ad…</string>
+
+    <!-- Spoken label of the full-screen native ad's close button -->
+    <string name="ad_close">Close</string>
 </resources>

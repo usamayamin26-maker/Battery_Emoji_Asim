@@ -1,5 +1,6 @@
 plugins {
     alias(libs.plugins.android.application)
+    alias(libs.plugins.kotlin.serialization)
 }
 
 android {
@@ -31,6 +32,8 @@ android {
     }
     buildFeatures {
         viewBinding = true
+        dataBinding = true
+        buildConfig = true
     }
 
     compileOptions {
@@ -64,4 +67,28 @@ dependencies {
     implementation("com.intuit.sdp:sdp-android:1.1.1")
     implementation("com.github.Dimezis:BlurView:version-2.0.6")
     implementation("com.airbnb.android:lottie:6.7.1")
+
+    // firebase
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.firebase.config)
+    implementation(libs.firebase.analytics)
+    implementation(libs.firebase.crashlytics)
+
+    // admob-ads
+    implementation(libs.play.services.ads)
+    implementation(libs.user.messaging.platform)
+
+    // Google Play in-app updates (utils/InAppUpdateManager).
+    implementation(libs.play.app.update)
+    implementation(libs.shimmer)
+    implementation(libs.kotlinx.serialization.json)
+
+    // ---------- AdMob mediation ----------
+    implementation("com.unity3d.ads:unity-ads:4.21.0")
+    implementation("com.google.ads.mediation:unity:4.21.0.0")
+    implementation("com.google.ads.mediation:mintegral:17.1.81.1")
+    implementation("com.google.ads.mediation:pangle:8.3.0.4.0")
+    implementation("com.google.ads.mediation:facebook:6.22.0.1")   // Meta Audience Network
+    implementation("com.google.ads.mediation:applovin:13.6.4.2")   // AppLovin network, via AdMob
+    implementation("com.yandex.ads.adapter:admob-mobileads:8.6.0.0")
 }

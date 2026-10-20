@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Contents of AdSlotView: one slot that shows either a banner or a native ad (AdSlots picks).
+    The banner part spans the slot edge to edge; the native part gets the screen's native side margin
+    from app:nativeMarginHorizontal. The unused part stays GONE.
+-->
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:parentTag="android.widget.FrameLayout">
+
+    <FrameLayout
+        android:id="@+id/adSlotBannerPart"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <include
+            android:id="@+id/shimmerBanner"
+            layout="@layout/layout_banner_ad_shimmer_placeholder" />
+
+        <FrameLayout
+            android:id="@+id/adContainerBanner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="gone" />
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/adSlotNativePart"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone">
+
+        <include
+            android:id="@+id/shimmerNative"
+            layout="@layout/layout_native_ad_shimmer_placeholder" />
+
+        <FrameLayout
+            android:id="@+id/adContainerNative"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone" />
+
+    </FrameLayout>
+
+</merge>

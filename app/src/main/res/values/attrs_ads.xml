@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- ADS BUNDLE FILE: attributes of the ads package's AdSlotView. -->
+<resources>
+
+    <declare-styleable name="AdSlotView">
+        <!-- Start/end margin of the native part only; the banner part stays edge to edge. -->
+        <attr name="nativeMarginHorizontal" format="dimension" />
+    </declare-styleable>
+
+</resources>

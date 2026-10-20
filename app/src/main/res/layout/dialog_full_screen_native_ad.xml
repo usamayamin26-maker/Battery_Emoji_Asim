@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/native_ad_full_screen_bg">
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/shimmerFullScreenNative"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:shimmer_duration="1000">
+
+        <!-- Same shape as native_ad_full_screen.xml: media box takes the remaining height,
+             medium-ad skeleton (10dp padding + 110dp) below it. -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+                <View
+                    android:id="@+id/viewFullScreenShimmerBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/bg_ad_placeholder" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/ad_loading_placeholder"
+                    android:textColor="@color/ad_dialog_muted"
+                    android:fontFamily="@font/outfit_medium"
+                    android:textSize="13sp" />
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp">
+
+                <include layout="@layout/layout_native_ad_skeleton_medium_without_media_bottom_cta" />
+
+            </FrameLayout>
+
+        </LinearLayout>
+
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
+    <FrameLayout
+        android:id="@+id/adContainerFullScreenNative"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone" />
+
+    <ImageView
+        android:id="@+id/btnCloseFullScreenNative"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_gravity="top|end"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/bg_ad_placeholder"
+        android:contentDescription="@string/ad_close"
+        android:padding="8dp"
+        android:src="@drawable/ic_ad_close"
+        app:tint="@color/ad_dialog_text" />
+
+</FrameLayout>

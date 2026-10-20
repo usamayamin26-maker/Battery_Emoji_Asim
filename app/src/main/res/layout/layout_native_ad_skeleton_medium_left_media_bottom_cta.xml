@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Skeleton for native_ad_medium_left_media_bottom_cta.xml, inflated by NativeAdLoader into the
+    layout_native_ad_shimmer_placeholder root (which supplies the card background and 10dp padding).
+    Keep in sync with the ad layout: 200dp content height, 200x140 media on the left, 60dp icon centred in
+    the right column, Ad tag + headline row and description under the icon, 50dp full-width CTA at the bottom.
+-->
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="200dp">
+
+    <View
+        android:id="@+id/skeletonMedia"
+        android:layout_width="200dp"
+        android:layout_height="140dp"
+        android:background="@drawable/bg_ad_skeleton_bar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/skeletonIcon"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="10dp"
+        android:background="@drawable/bg_ad_skeleton_icon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/skeletonMedia"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/skeletonTag"
+        android:layout_width="22dp"
+        android:layout_height="14dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/bg_ad_skeleton_bar"
+        app:layout_constraintStart_toEndOf="@id/skeletonMedia"
+        app:layout_constraintTop_toBottomOf="@id/skeletonIcon" />
+
+    <View
+        android:id="@+id/skeletonHeading"
+        android:layout_width="0dp"
+        android:layout_height="14dp"
+        android:layout_marginStart="10dp"
+        android:background="@drawable/bg_ad_skeleton_bar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toEndOf="@id/skeletonTag"
+        app:layout_constraintTop_toTopOf="@id/skeletonTag"
+        app:layout_constraintWidth_max="120dp" />
+
+    <View
+        android:id="@+id/skeletonDescription1"
+        android:layout_width="0dp"
+        android:layout_height="10dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/bg_ad_skeleton_bar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/skeletonTag"
+        app:layout_constraintTop_toBottomOf="@id/skeletonHeading" />
+
+    <View
+        android:id="@+id/skeletonDescription2"
+        android:layout_width="0dp"
+        android:layout_height="10dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="30dp"
+        android:background="@drawable/bg_ad_skeleton_bar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/skeletonDescription1"
+        app:layout_constraintTop_toBottomOf="@id/skeletonDescription1" />
+
+    <View
+        android:id="@+id/skeletonButton"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:background="@drawable/bg_ad_skeleton_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textAdLoadingLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/ad_loading_placeholder"
+        android:textAppearance="@style/TextAppearance.Ad.LoadingLabel"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

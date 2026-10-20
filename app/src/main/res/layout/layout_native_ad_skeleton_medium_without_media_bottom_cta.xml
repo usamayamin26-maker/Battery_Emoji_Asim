@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Skeleton for native_ad_medium_without_media_bottom_cta.xml, inflated by NativeAdLoader into the
+    layout_native_ad_shimmer_placeholder root (which supplies the card background and 10dp padding).
+    Keep the 110dp content height in sync with native_ad_medium_without_media_bottom_cta.xml.
+-->
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="110dp">
+
+    <View
+        android:id="@+id/skeletonIcon"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/bg_ad_skeleton_icon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/skeletonHeading"
+        android:layout_width="0dp"
+        android:layout_height="14dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/bg_ad_skeleton_bar"
+        app:layout_constraintBottom_toTopOf="@id/skeletonTag"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toEndOf="@id/skeletonIcon"
+        app:layout_constraintTop_toTopOf="@id/skeletonIcon"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintWidth_max="160dp" />
+
+    <View
+        android:id="@+id/skeletonTag"
+        android:layout_width="22dp"
+        android:layout_height="12dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/bg_ad_skeleton_bar"
+        app:layout_constraintBottom_toBottomOf="@id/skeletonIcon"
+        app:layout_constraintStart_toStartOf="@id/skeletonHeading"
+        app:layout_constraintTop_toBottomOf="@id/skeletonHeading" />
+
+    <View
+        android:id="@+id/skeletonDescription"
+        android:layout_width="0dp"
+        android:layout_height="10dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginEnd="50dp"
+        android:background="@drawable/bg_ad_skeleton_bar"
+        app:layout_constraintBottom_toBottomOf="@id/skeletonTag"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/skeletonTag"
+        app:layout_constraintTop_toTopOf="@id/skeletonTag" />
+
+    <View
+        android:id="@+id/skeletonButton"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:background="@drawable/bg_ad_skeleton_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- Centred on the 110dp root, which is a fixed height, so the label cannot add to it. -->
+    <TextView
+        android:id="@+id/textAdLoadingLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/ad_loading_placeholder"
+        android:textAppearance="@style/TextAppearance.Ad.LoadingLabel"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -63,6 +63,20 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <!-- Top Ad Slot (Banner or Native) -->
+    <com.universal.remote.ads.AdSlotView
+        android:id="@+id/adSlotTop"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/_4sdp"
+        android:paddingBottom="@dimen/_4sdp"
+        android:visibility="gone"
+        app:nativeMarginHorizontal="@dimen/_14sdp"
+        app:layout_constraintTop_toBottomOf="@+id/clDetailHeader"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:visibility="visible" />
+
     <!-- Scrollable Content Area -->
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -70,7 +84,7 @@
         android:fillViewport="true"
         android:overScrollMode="never"
         app:layout_constraintBottom_toTopOf="@+id/clBottomApplyContainer"
-        app:layout_constraintTop_toBottomOf="@+id/clDetailHeader">
+        app:layout_constraintTop_toBottomOf="@+id/adSlotTop">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -612,9 +626,9 @@
         android:layout_height="wrap_content"
         android:background="@color/bg_home"
         android:paddingHorizontal="@dimen/_16sdp"
-        android:paddingTop="@dimen/_8sdp"
-        android:paddingBottom="@dimen/_16sdp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:paddingTop="@dimen/_6sdp"
+        android:paddingBottom="@dimen/_10sdp"
+        app:layout_constraintBottom_toTopOf="@+id/adSlotBottom"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
@@ -636,5 +650,19 @@
             app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- Bottom Ad Slot (Banner or Native) -->
+    <com.universal.remote.ads.AdSlotView
+        android:id="@+id/adSlotBottom"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/_4sdp"
+        android:paddingBottom="@dimen/_4sdp"
+        android:visibility="gone"
+        app:nativeMarginHorizontal="@dimen/_14sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:visibility="visible" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

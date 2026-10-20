@@ -17,5 +17,52 @@
         app:layout_constraintStart_toStartOf="parent" />
 
 
+    <com.universal.remote.ads.AdSlotView
+        android:id="@+id/adSlotTop"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:paddingTop="@dimen/_6sdp"
+        android:paddingBottom="@dimen/_4sdp"
+        android:visibility="gone"
+        app:nativeMarginHorizontal="@dimen/_14sdp"
+        tools:visibility="visible" />
+
+
+
+    <!-- Apply Button -->
+    <TextView
+        android:id="@+id/btnContinue"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_44sdp"
+        android:layout_marginStart="@dimen/_18sdp"
+        android:layout_marginEnd="@dimen/_18sdp"
+        android:background="@drawable/bg_btn_apply"
+        android:clickable="true"
+        android:elevation="@dimen/_2sdp"
+        android:focusable="true"
+        android:gravity="center"
+        android:text="@string/continue_text"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_13ssp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/adSlotBottom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.universal.remote.ads.AdSlotView
+        android:id="@+id/adSlotBottom"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:paddingTop="@dimen/_4sdp"
+        android:paddingBottom="@dimen/_4sdp"
+        android:visibility="gone"
+        app:nativeMarginHorizontal="@dimen/_14sdp"
+        tools:visibility="visible" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

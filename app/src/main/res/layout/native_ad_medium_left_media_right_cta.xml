@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Native layout 3 (<screen>_<position>_native = 3): [190x120 media] | [icon] [Ad tag + headline / description],
+    CTA at the bottom of the right column.
+    Content height is fixed (120dp) to match layout_native_ad_skeleton_medium_left_media_right_cta.xml exactly.
+    Colors are applied at runtime by NativeAdStyler; the ones set here are the same defaults.
+-->
+<com.google.android.gms.ads.nativead.NativeAdView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_ad_placeholder"
+    android:padding="10dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dp">
+
+        <!-- 190x120dp (AdMob minimum is 120x120) -->
+        <com.google.android.gms.ads.nativead.MediaView
+            android:id="@+id/ad_media_view"
+            android:layout_width="190dp"
+            android:layout_height="120dp"
+            android:background="@color/ad_media_bg"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/ad_app_icon"
+            android:layout_width="54dp"
+            android:layout_height="54dp"
+            android:layout_marginStart="10dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintStart_toEndOf="@id/ad_media_view"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/ShapeAppearance.NativeAd.Icon" />
+
+        <TextView
+            android:id="@+id/tvAdBadge"
+            android:fontFamily="@font/outfit_regular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/bg_native_ad_tag"
+            android:paddingStart="5dp"
+            android:paddingTop="1dp"
+            android:paddingEnd="5dp"
+            android:paddingBottom="1dp"
+            android:text="@string/ad_attribution"
+            android:textColor="@color/native_ad_tag_text"
+            android:textSize="11sp"
+            app:layout_constraintBottom_toBottomOf="@id/ad_headline"
+            app:layout_constraintStart_toEndOf="@id/ad_app_icon"
+            app:layout_constraintTop_toTopOf="@id/ad_headline"
+            app:layout_goneMarginStart="10dp" />
+
+        <!-- 20dp end margin keeps the headline clear of the AdChoices icon in the top-right corner -->
+        <TextView
+            android:id="@+id/ad_headline"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:layout_marginEnd="20dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/outfit_semi_bold"
+            android:maxLines="1"
+            android:textColor="@color/native_ad_heading"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toTopOf="@id/ad_body"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tvAdBadge"
+            app:layout_constraintTop_toTopOf="@id/ad_app_icon"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <TextView
+            android:id="@+id/ad_body"
+            android:fontFamily="@font/outfit_regular"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:textColor="@color/native_ad_description"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@id/ad_app_icon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/tvAdBadge"
+            app:layout_constraintTop_toBottomOf="@id/ad_headline" />
+
+        <Button
+            android:id="@+id/ad_call_to_action"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/bg_native_ad_button"
+            android:fontFamily="@font/outfit_semi_bold"
+            android:includeFontPadding="false"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:maxLines="1"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:textAllCaps="false"
+            android:textColor="@color/native_ad_button_text"
+            android:textSize="15sp"
+            app:backgroundTint="@null"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ad_media_view" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.gms.ads.nativead.NativeAdView>

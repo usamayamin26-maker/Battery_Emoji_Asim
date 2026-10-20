@@ -40,6 +40,20 @@
         app:layout_constraintStart_toEndOf="@+id/ivAnimBack"
         app:layout_constraintTop_toTopOf="@+id/ivAnimBack" />
 
+    <!-- Top Ad Slot (Banner or Native) -->
+    <com.universal.remote.ads.AdSlotView
+        android:id="@+id/adSlotTop"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/_4sdp"
+        android:paddingBottom="@dimen/_4sdp"
+        android:visibility="gone"
+        app:nativeMarginHorizontal="@dimen/_14sdp"
+        app:layout_constraintTop_toBottomOf="@+id/ivAnimBack"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:visibility="visible" />
+
     <!-- Banner Card (ConstraintLayout only) -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/clAnimBanner"
@@ -53,7 +67,7 @@
         android:paddingVertical="@dimen/_9sdp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ivAnimBack">
+        app:layout_constraintTop_toBottomOf="@+id/adSlotTop">
 
         <ImageView
             android:id="@+id/ivBannerSparkle"
@@ -242,7 +256,7 @@
         android:layout_height="@dimen/_44sdp"
         android:layout_marginStart="@dimen/_18sdp"
         android:layout_marginEnd="@dimen/_18sdp"
-        android:layout_marginBottom="@dimen/_18sdp"
+        android:layout_marginBottom="@dimen/_12sdp"
         android:background="@drawable/bg_btn_apply"
         android:clickable="true"
         android:elevation="@dimen/_2sdp"
@@ -252,8 +266,22 @@
         android:textColor="@color/white"
         android:textSize="@dimen/_13ssp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/adSlotBottom"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- Bottom Ad Slot (Banner or Native) -->
+    <com.universal.remote.ads.AdSlotView
+        android:id="@+id/adSlotBottom"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/_4sdp"
+        android:paddingBottom="@dimen/_4sdp"
+        android:visibility="gone"
+        app:nativeMarginHorizontal="@dimen/_14sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:visibility="visible" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

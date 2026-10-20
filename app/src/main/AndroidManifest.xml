@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Permissions required to draw custom theme over Android status bar -->
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
@@ -20,6 +21,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.JHBatteryApp">
+
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-3940256069942544~3347511713" />
+
+        <meta-data
+            android:name="applovin.sdk.key"
+            android:value="YOUR_APPLOVIN_SDK_KEY_HERE" />
 
         <!-- 1. Splash Activity (Launcher) -->
         <activity

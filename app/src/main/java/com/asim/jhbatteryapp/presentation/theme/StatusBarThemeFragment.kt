@@ -12,8 +12,13 @@ import androidx.navigation.fragment.findNavController
 import com.asim.jhbatteryapp.R
 import com.asim.jhbatteryapp.databinding.FragmentStatusBarThemeBinding
 import androidx.fragment.app.viewModels
+import com.universal.remote.ads.AdsController
 
 class StatusBarThemeFragment : Fragment() {
+
+    companion object {
+        private const val SCREEN_KEY = "theme"
+    }
 
     private var _binding: FragmentStatusBarThemeBinding? = null
     private val binding get() = _binding!!
@@ -45,6 +50,25 @@ class StatusBarThemeFragment : Fragment() {
         setupRecyclerView()
         setupListeners()
         observeViewModel()
+        bindAdSlots()
+    }
+
+    private fun bindAdSlots() {
+        val activity = activity ?: return
+        AdsController.slot(
+            activity = activity,
+            container = binding.adSlotTop,
+            slotKey = "${SCREEN_KEY}_top",
+            units = SCREEN_KEY,
+            isCurrent = { isAdded && _binding != null }
+        )
+        AdsController.slot(
+            activity = activity,
+            container = binding.adSlotBottom,
+            slotKey = "${SCREEN_KEY}_bottom",
+            units = SCREEN_KEY,
+            isCurrent = { isAdded && _binding != null }
+        )
     }
 
     private fun setupRecyclerView() {
@@ -185,6 +209,7 @@ class StatusBarThemeFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
+        AdsController.forgetSlots(SCREEN_KEY)
         _binding = null
     }
 }

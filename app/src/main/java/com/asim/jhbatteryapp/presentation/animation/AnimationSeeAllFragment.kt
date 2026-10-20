@@ -8,8 +8,13 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.asim.jhbatteryapp.databinding.FragmentAnimationSeeAllBinding
+import com.universal.remote.ads.AdsController
 
 class AnimationSeeAllFragment : Fragment() {
+
+    companion object {
+        private const val SCREEN_KEY = "animation_see_all"
+    }
 
     private var _binding: FragmentAnimationSeeAllBinding? = null
     private val binding get() = _binding!!
@@ -33,6 +38,25 @@ class AnimationSeeAllFragment : Fragment() {
         setupRecyclerView()
         setupListeners()
         observeViewModel()
+        bindAdSlots()
+    }
+
+    private fun bindAdSlots() {
+        val activity = activity ?: return
+        AdsController.slot(
+            activity = activity,
+            container = binding.adSlotTop,
+            slotKey = "${SCREEN_KEY}_top",
+            units = SCREEN_KEY,
+            isCurrent = { isAdded && _binding != null }
+        )
+        AdsController.slot(
+            activity = activity,
+            container = binding.adSlotBottom,
+            slotKey = "${SCREEN_KEY}_bottom",
+            units = SCREEN_KEY,
+            isCurrent = { isAdded && _binding != null }
+        )
     }
 
     private fun setupRecyclerView() {
@@ -67,6 +91,7 @@ class AnimationSeeAllFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
+        AdsController.forgetSlots(SCREEN_KEY)
         _binding = null
     }
 }

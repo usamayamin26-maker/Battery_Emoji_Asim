@@ -49,18 +49,32 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <!-- Top Ad Slot (Banner or Native) -->
+    <com.universal.remote.ads.AdSlotView
+        android:id="@+id/adSlotTop"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/_4sdp"
+        android:paddingBottom="@dimen/_4sdp"
+        android:visibility="gone"
+        app:nativeMarginHorizontal="@dimen/_14sdp"
+        app:layout_constraintTop_toBottomOf="@+id/clDetailHeader"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:visibility="visible" />
+
     <!-- Top Status Bar Live Preview Capsule -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/clStatusBarPreview"
         android:layout_width="0dp"
         android:layout_height="@dimen/_44sdp"
         android:layout_marginStart="@dimen/_16sdp"
-        android:layout_marginTop="@dimen/_14sdp"
+        android:layout_marginTop="@dimen/_10sdp"
         android:layout_marginEnd="@dimen/_16sdp"
         android:background="@drawable/bg_theme_grad_pink"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/clDetailHeader">
+        app:layout_constraintTop_toBottomOf="@+id/adSlotTop">
 
         <!-- Time Label -->
         <TextView
@@ -443,8 +457,8 @@
         android:layout_marginTop="@dimen/_8sdp"
         android:clipToPadding="false"
         android:fillViewport="true"
-        android:paddingBottom="@dimen/_60sdp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:paddingBottom="@dimen/_16sdp"
+        app:layout_constraintBottom_toTopOf="@+id/clBottomApplyContainer"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/clCustomTabsRow">
@@ -1000,9 +1014,9 @@
         android:layout_height="wrap_content"
         android:background="@color/bg_home"
         android:paddingHorizontal="@dimen/_16sdp"
-        android:paddingTop="@dimen/_8sdp"
-        android:paddingBottom="@dimen/_16sdp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:paddingTop="@dimen/_6sdp"
+        android:paddingBottom="@dimen/_10sdp"
+        app:layout_constraintBottom_toTopOf="@+id/adSlotBottom"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
@@ -1024,5 +1038,19 @@
             app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- Bottom Ad Slot (Banner or Native) -->
+    <com.universal.remote.ads.AdSlotView
+        android:id="@+id/adSlotBottom"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/_4sdp"
+        android:paddingBottom="@dimen/_4sdp"
+        android:visibility="gone"
+        app:nativeMarginHorizontal="@dimen/_14sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:visibility="visible" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

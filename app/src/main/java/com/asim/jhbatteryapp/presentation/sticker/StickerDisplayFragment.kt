@@ -11,8 +11,13 @@ import androidx.navigation.fragment.findNavController
 import com.asim.jhbatteryapp.R
 import com.asim.jhbatteryapp.databinding.FragmentStickerDisplayBinding
 import com.asim.jhbatteryapp.domain.model.StickerItem
+import com.universal.remote.ads.AdsController
 
 class StickerDisplayFragment : Fragment() {
+
+    companion object {
+        private const val SCREEN_KEY = "sticker"
+    }
 
     private var _binding: FragmentStickerDisplayBinding? = null
     private val binding get() = _binding!!
@@ -38,6 +43,25 @@ class StickerDisplayFragment : Fragment() {
         setupRecyclerViews()
         setupListeners()
         observeViewModel()
+        bindAdSlots()
+    }
+
+    private fun bindAdSlots() {
+        val activity = activity ?: return
+        AdsController.slot(
+            activity = activity,
+            container = binding.adSlotTop,
+            slotKey = "${SCREEN_KEY}_top",
+            units = SCREEN_KEY,
+            isCurrent = { isAdded && _binding != null }
+        )
+        AdsController.slot(
+            activity = activity,
+            container = binding.adSlotBottom,
+            slotKey = "${SCREEN_KEY}_bottom",
+            units = SCREEN_KEY,
+            isCurrent = { isAdded && _binding != null }
+        )
     }
 
     private fun setupRecyclerViews() {
@@ -272,6 +296,7 @@ class StickerDisplayFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
+        AdsController.forgetSlots(SCREEN_KEY)
         _binding = null
     }
 }

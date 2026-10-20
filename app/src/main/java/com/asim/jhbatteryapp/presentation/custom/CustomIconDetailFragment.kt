@@ -16,11 +16,16 @@ import com.asim.jhbatteryapp.data.repository.PreferenceRepositoryImpl
 import com.asim.jhbatteryapp.databinding.FragmentCustomIconDetailBinding
 import com.asim.jhbatteryapp.domain.repository.PreferenceRepository
 import com.asim.jhbatteryapp.service.StatusBarAccessibilityService
+import com.universal.remote.ads.AdsController
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
 
 class CustomIconDetailFragment : Fragment() {
+
+    companion object {
+        private const val SCREEN_KEY = "custom_detail"
+    }
 
     private var _binding: FragmentCustomIconDetailBinding? = null
     private val binding get() = _binding!!
@@ -60,6 +65,25 @@ class CustomIconDetailFragment : Fragment() {
         setupColorSwatches()
         setupSpecializedSections()
         updateLivePreview()
+        bindAdSlots()
+    }
+
+    private fun bindAdSlots() {
+        val activity = activity ?: return
+        AdsController.slot(
+            activity = activity,
+            container = binding.adSlotTop,
+            slotKey = "${SCREEN_KEY}_top",
+            units = SCREEN_KEY,
+            isCurrent = { isAdded && _binding != null }
+        )
+        AdsController.slot(
+            activity = activity,
+            container = binding.adSlotBottom,
+            slotKey = "${SCREEN_KEY}_bottom",
+            units = SCREEN_KEY,
+            isCurrent = { isAdded && _binding != null }
+        )
     }
 
     private fun loadInitialValues() {
@@ -402,6 +426,7 @@ class CustomIconDetailFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
+        AdsController.forgetSlots(SCREEN_KEY)
         _binding = null
     }
 }

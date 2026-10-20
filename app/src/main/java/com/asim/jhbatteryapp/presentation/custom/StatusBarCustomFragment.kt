@@ -21,8 +21,13 @@ import com.asim.jhbatteryapp.presentation.common.StatusBarPermissionHelper
 import com.asim.jhbatteryapp.presentation.home.BatteryEmojiAdapter
 import com.asim.jhbatteryapp.service.StatusBarAccessibilityService
 import com.asim.jhbatteryapp.service.StatusBarOverlayService
+import com.universal.remote.ads.AdsController
 
 class StatusBarCustomFragment : Fragment() {
+
+    companion object {
+        private const val SCREEN_KEY = "custom"
+    }
 
     private var _binding: FragmentStatusBarCustomBinding? = null
     private val binding get() = _binding!!
@@ -53,6 +58,25 @@ class StatusBarCustomFragment : Fragment() {
         setupSliderListeners()
         setupApplyButton()
         observeViewModel()
+        bindAdSlots()
+    }
+
+    private fun bindAdSlots() {
+        val activity = activity ?: return
+        AdsController.slot(
+            activity = activity,
+            container = binding.adSlotTop,
+            slotKey = "${SCREEN_KEY}_top",
+            units = SCREEN_KEY,
+            isCurrent = { isAdded && _binding != null }
+        )
+        AdsController.slot(
+            activity = activity,
+            container = binding.adSlotBottom,
+            slotKey = "${SCREEN_KEY}_bottom",
+            units = SCREEN_KEY,
+            isCurrent = { isAdded && _binding != null }
+        )
     }
 
     private fun setupPreviewCapsule() {
@@ -653,6 +677,7 @@ class StatusBarCustomFragment : Fragment() {
     override fun onDestroyView() {
         binding.lottiePreviewLeftAnimation.cancelAnimation()
         super.onDestroyView()
+        AdsController.forgetSlots(SCREEN_KEY)
         _binding = null
     }
 }

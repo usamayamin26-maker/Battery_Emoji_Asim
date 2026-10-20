@@ -5,7 +5,11 @@ import android.content.Intent
 import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.ProcessLifecycleOwner
+import com.asim.jhbatteryapp.BuildConfig
+import com.asim.jhbatteryapp.ads.AppAds
 import com.asim.jhbatteryapp.presentation.welcome.WelcomeActivity
+import com.universal.remote.ads.AdsController
+import com.universal.remote.ads.AdsSetup
 
 class JHBatteryApplication : Application() {
 
@@ -30,6 +34,15 @@ class JHBatteryApplication : Application() {
                 startActivity(intent)
             }
         })
+
+        AdsController.init(
+            this,
+            AdsSetup(
+                remoteConfigKey = AppAds.REMOTE_CONFIG_KEY,
+                defaultJson = AppAds.DEFAULT_JSON,
+                isDebug = BuildConfig.DEBUG,
+            ),
+        )
     }
 
     companion object {

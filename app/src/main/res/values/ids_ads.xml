@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    ADS BUNDLE FILE: ids the ads package looks up that a project's own layouts may or may not define.
+    tvAdLoadingLabel is an optional "loading" label inside a native skeleton; FullScreenNativeAdLoader
+    hides it. Declared here so the package compiles in a project whose skeletons have none.
+-->
+<resources>
+    <item name="tvAdLoadingLabel" type="id" />
+</resources>

@@ -53,22 +53,50 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/ivSeeAllBack" />
 
+    <!-- Top Ad Slot (Banner or Native) -->
+    <com.universal.remote.ads.AdSlotView
+        android:id="@+id/adSlotTop"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/_4sdp"
+        android:paddingBottom="@dimen/_4sdp"
+        android:visibility="gone"
+        app:nativeMarginHorizontal="@dimen/_14sdp"
+        app:layout_constraintTop_toBottomOf="@+id/ivSeeAllBack"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:visibility="visible" />
+
     <!-- Full 3-Column Animation Grid (ConstraintLayout only) -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvSeeAllGrid"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="@dimen/_12sdp"
-        android:layout_marginTop="@dimen/_16sdp"
+        android:layout_marginTop="@dimen/_8sdp"
         android:layout_marginEnd="@dimen/_12sdp"
         android:clipToPadding="false"
-        android:paddingBottom="@dimen/_20sdp"
+        android:paddingBottom="@dimen/_16sdp"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/adSlotBottom"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ivSeeAllBack"
+        app:layout_constraintTop_toBottomOf="@+id/adSlotTop"
         app:spanCount="3"
         tools:listitem="@layout/item_animation_card" />
+
+    <!-- Bottom Ad Slot (Banner or Native) -->
+    <com.universal.remote.ads.AdSlotView
+        android:id="@+id/adSlotBottom"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/_4sdp"
+        android:paddingBottom="@dimen/_4sdp"
+        android:visibility="gone"
+        app:nativeMarginHorizontal="@dimen/_14sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:visibility="visible" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

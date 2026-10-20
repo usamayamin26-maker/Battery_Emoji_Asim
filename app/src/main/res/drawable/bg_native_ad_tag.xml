@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- "Ad" tag on native ads. Fill and border colors are overridden at runtime by NativeAdStyler. -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="@color/native_ad_tag_bg" />
+    <stroke
+        android:width="0.8dp"
+        android:color="@color/native_ad_tag_text" />
+    <corners android:radius="3dp" />
+</shape>

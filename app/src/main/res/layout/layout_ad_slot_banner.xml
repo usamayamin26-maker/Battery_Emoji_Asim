@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    The banner part of a plain-FrameLayout ad slot: AdsController.slot() inflates it into the screen's
+    container when the console turns <slot>_banner on (an AdSlotView carries its own parts instead). The include carries constraints and nothing else: both the gutter and the
+    vertical gap live on this root, so there is one place to change a slot's spacing for every
+    screen in the app.
+
+    It starts GONE and stays GONE unless an ad is actually shown: BannerAdLoader sets it VISIBLE when
+    a request goes out and back to GONE when the slot is disabled or the ad fails. A screen whose
+    <screen>_<position>_banner is 0 - which is what DEFAULT_JSON ships - therefore measures exactly as it did
+    before the slot was added. The host must keep it that way in its own constraints, with
+    layout_goneMarginTop on whatever follows the slot.
+
+    The shimmer and the container are stacked, not chained: only one of them is ever visible, and
+    BannerAdLoader.sizeSlot() fixes both to the mode's height (50dp standard, the collapsed anchored height for collapsible, 250dp rectangle and inline adaptive),
+    so wrap_content on the root is the height of whichever one is showing.
+
+    **The gap above and below the ad is here, not in the host.** An ad has to read as clearly
+    separate from the app's own content, and on a scrolling screen it does not: the content scrolls
+    right up to the slot's edge and the two read as one column. The padding on this root - 14sdp either side, 4sdp top and bottom - is that
+    separation, and it belongs to the package for two reasons. It is the same gap on every screen,
+    so a host that has to add it per slot will sooner or later miss one. And it is free: the loaders
+    collapse *this* view, so the padding exists only while an ad is actually showing - a screen whose
+    flag is 0 measures exactly as it did before, with no gone-margin bookkeeping on the host side.
+
+    Both edges, because a slot does not know which way it faces. The same include is the top slot on
+    one screen, the bottom slot on another and a mid slot between two blocks of content on a third,
+    so "the content-facing edge" is not a thing this file can know.
+
+    The gutter is here for the same reason, and it is the one place the package spends a dependency
+    to get it: `@dimen/_14sdp` means a project adopting this bundle needs com.intuit.sdp as well as
+    the serialization plugin. One place to change every slot's spacing was judged worth that. A
+    project without `sdp` swaps these four values for raw dp - they are the only four in the bundle.
+
+    ADS BUNDLE FILE. It follows the package's conventions, not the host project's: the ad_* colours
+    from colors_ads.xml and the bundle's layout_ prefix. The four `@dimen/_*sdp` above are the one
+    exception to the bundle's raw-dp rule, and they are the whole of the package's `sdp`
+    requirement - see the paragraph above. The 50dp here only has to match the initial height of
+    layout_banner_ad_shimmer_placeholder; the real height is set in code.
+-->
+
+<!--    android:paddingStart="@dimen/_14sdp"-->
+<!--    android:paddingEnd="@dimen/_14sdp"-->
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/adSlotBannerRoot"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="@dimen/_6sdp"
+    android:paddingBottom="@dimen/_4sdp"
+    android:visibility="gone"
+    tools:visibility="visible"
+    tools:ignore="MergeRootFrame">
+    <!--
+        Not a <merge>, which is what lint suggests: this root is the slotRoot the loaders
+        hold and set VISIBLE or GONE. BannerAdLoader collapses the slot by setting exactly
+        this view GONE, so it has to survive inflation as a view of its own. A <merge> would
+        put its children straight into the host screen with nothing left to collapse.
+    -->
+
+    <include
+        android:id="@+id/shimmerBannerAd"
+        layout="@layout/layout_banner_ad_shimmer_placeholder" />
+
+    <FrameLayout
+        android:id="@+id/containerBannerAd"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:visibility="gone"
+        tools:visibility="visible" />
+
+</FrameLayout>

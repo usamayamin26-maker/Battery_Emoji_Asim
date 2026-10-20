@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Skeleton for native_ad_medium_without_media_right_cta.xml, inflated by NativeAdLoader into the
+    layout_native_ad_shimmer_placeholder root (which supplies the card background and 10dp padding).
+    Same content as the placeholder's own small skeleton; it's needed so one slot can go back to the
+    layout 1 size after another layout's skeleton was swapped in (Onboarding slides share one slot).
+    Keep the 60dp content height in sync with native_ad_medium_without_media_right_cta.xml and the placeholder.
+-->
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="60dp">
+
+    <View
+        android:id="@+id/skeletonIcon"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/bg_ad_skeleton_icon"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/skeletonTag"
+        android:layout_width="22dp"
+        android:layout_height="14dp"
+        android:layout_marginStart="10dp"
+        android:background="@drawable/bg_ad_skeleton_bar"
+        app:layout_constraintBottom_toTopOf="@id/skeletonDescription1"
+        app:layout_constraintStart_toEndOf="@id/skeletonIcon"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <View
+        android:id="@+id/skeletonHeading"
+        android:layout_width="0dp"
+        android:layout_height="14dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/bg_ad_skeleton_bar"
+        app:layout_constraintBottom_toBottomOf="@id/skeletonTag"
+        app:layout_constraintEnd_toStartOf="@id/skeletonButton"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toEndOf="@id/skeletonTag"
+        app:layout_constraintTop_toTopOf="@id/skeletonTag"
+        app:layout_constraintWidth_max="120dp" />
+
+    <View
+        android:id="@+id/skeletonDescription1"
+        android:layout_width="0dp"
+        android:layout_height="10dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/bg_ad_skeleton_bar"
+        app:layout_constraintBottom_toTopOf="@id/skeletonDescription2"
+        app:layout_constraintEnd_toStartOf="@id/skeletonButton"
+        app:layout_constraintStart_toStartOf="@id/skeletonTag"
+        app:layout_constraintTop_toBottomOf="@id/skeletonTag" />
+
+    <View
+        android:id="@+id/skeletonDescription2"
+        android:layout_width="0dp"
+        android:layout_height="10dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="50dp"
+        android:background="@drawable/bg_ad_skeleton_bar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/skeletonButton"
+        app:layout_constraintStart_toStartOf="@id/skeletonTag"
+        app:layout_constraintTop_toBottomOf="@id/skeletonDescription1" />
+
+    <View
+        android:id="@+id/skeletonButton"
+        android:layout_width="88dp"
+        android:layout_height="50dp"
+        android:background="@drawable/bg_ad_skeleton_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Centred on the 60dp root, which is a fixed height, so the label cannot add to it. -->
+    <TextView
+        android:id="@+id/textAdLoadingLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/ad_loading_placeholder"
+        android:textAppearance="@style/TextAppearance.Ad.LoadingLabel"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

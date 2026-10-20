@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Loading placeholder for banner ads. BannerAdLoader resizes it at runtime to fill the slot,
+    full width x the mode's height: 50dp standard, the collapsed anchored height for the two
+    collapsible modes, 250dp for the 300x250 rectangle and for inline adaptive
+    (INLINE_ADAPTIVE_MAX_HEIGHT_DP). The slot keeps that height after the ad loads; the ad is
+    centered in it. 50dp here is only the initial height.
+-->
+<com.facebook.shimmer.ShimmerFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    app:shimmer_base_alpha="0.5"
+    app:shimmer_duration="1000">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/ad_placeholder_skeleton" />
+
+    <!--
+        Deliberately has no id. A banner placeholder and a native one can be inflated into the same
+        activity - the splash carries both - and two views sharing an id under one root make
+        findViewById and ViewBinding pick whichever comes first.
+
+        Centred in the frame at wrap_content, so it cannot touch the measured height: this root is
+        sized by BannerAdLoader (50dp standard, up to 250dp inline adaptive) and the whole point of
+        the placeholder is that the slot does not jump when the real ad replaces it.
+    -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/ad_loading_placeholder"
+        android:textAppearance="@style/TextAppearance.Ad.LoadingLabel" />
+
+</com.facebook.shimmer.ShimmerFrameLayout>

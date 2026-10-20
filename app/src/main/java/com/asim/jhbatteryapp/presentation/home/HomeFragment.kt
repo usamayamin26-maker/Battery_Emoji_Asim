@@ -20,8 +20,13 @@ import com.asim.jhbatteryapp.databinding.FragmentHomeBinding
 import com.asim.jhbatteryapp.domain.model.BatteryEmojiItem
 import com.asim.jhbatteryapp.presentation.common.NotificationPermissionDialog
 import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.universal.remote.ads.AdsController
 
 class HomeFragment : Fragment() {
+
+    companion object {
+        private const val SCREEN_KEY = "home"
+    }
 
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
@@ -67,6 +72,25 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         observeViewModel()
+        bindAdSlots()
+    }
+
+    private fun bindAdSlots() {
+        val activity = activity ?: return
+        AdsController.slot(
+            activity = activity,
+            container = binding.adSlotTop,
+            slotKey = "${SCREEN_KEY}_top",
+            units = SCREEN_KEY,
+            isCurrent = { isAdded && _binding != null }
+        )
+        AdsController.slot(
+            activity = activity,
+            container = binding.adSlotBottom,
+            slotKey = "${SCREEN_KEY}_bottom",
+            units = SCREEN_KEY,
+            isCurrent = { isAdded && _binding != null }
+        )
     }
 
     private fun checkPermissionsOnHome() {
@@ -275,6 +299,7 @@ class HomeFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         isPermissionDialogShowing = false
+        AdsController.forgetSlots(SCREEN_KEY)
         // Retain _binding cached across fragment transitions so return is instant with zero blink
     }
 

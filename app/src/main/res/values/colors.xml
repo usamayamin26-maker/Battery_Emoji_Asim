@@ -69,4 +69,44 @@
     <color name="chip_bg_inactive">#F3F4F6</color>
     <color name="search_bar_bg">#F5F5F7</color>
     <color name="divider_soft">#EFEFF5</color>
+
+
+
+    <!-- Native ad card: fill and 1dp outline (bg_ad_placeholder) -->
+    <color name="native_ad_card_bg">#FFFFFFFF</color>
+    <color name="native_ad_card_border">#FFD4D5D8</color>
+
+    <!-- Full-screen native ad: dialog root, the ad's own root and the nav bar strip -->
+    <color name="native_ad_full_screen_bg">#FFFFFFFF</color>
+
+    <!-- "Ad" tag (bg_native_ad_tag); the border takes the tag text colour unless overridden -->
+    <color name="native_ad_tag_text">#FF9DA3B4</color>
+    <color name="native_ad_tag_bg">#1A0D0D0D</color>
+
+    <!-- Headline and description -->
+    <color name="native_ad_heading">#FF0D0D0D</color>
+    <color name="native_ad_description">#FF9DA3B4</color>
+
+    <!-- Call to action (bg_native_ad_button) -->
+    <color name="native_ad_button_text">#FFFFFFFF</color>
+    <color name="native_ad_button_bg">#FF837DFF</color>
+
+    <!-- Loading placeholders: the shimmer skeleton blocks -->
+    <color name="ad_placeholder_skeleton">#FFE8E8EE</color>
+
+    <!-- "Loading ad…" centred on a shimmer placeholder; muted against the skeleton behind it -->
+    <color name="ad_loading_label">#66000000</color>
+
+    <!-- "Ad Loading" dialog and the full-screen dialog's close button -->
+    <color name="ad_dialog_text">#FF0D0D0D</color>
+    <color name="ad_dialog_muted">#FF4B5563</color>
+    <color name="ad_dialog_progress">#FF837DFF</color>
+
+    <!-- Behind the large ad's 16:9 media, so a letterboxed creative sits on a neutral field -->
+    <color name="ad_media_bg">#FF000000</color>
+
+    <!-- Opaque backdrop drawn under a full-screen app open ad. Opaque in both modes on purpose:
+         it exists to hide the screen behind the translucent AdActivity. -->
+    <color name="ad_backdrop">#FF000000</color>
+
 </resources>
