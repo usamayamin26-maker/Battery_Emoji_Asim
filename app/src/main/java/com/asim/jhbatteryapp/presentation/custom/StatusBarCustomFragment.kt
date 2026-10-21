@@ -114,10 +114,13 @@ class StatusBarCustomFragment : Fragment() {
                 val bundle = Bundle().apply {
                     putString("iconId", iconItem.id)
                 }
-                findNavController().navigate(
-                    R.id.action_statusBarCustomFragment_to_customIconDetailFragment,
-                    bundle
-                )
+                val act = activity ?: return@CustomStatusIconAdapter
+                AdsController.interstitial(act, "is_show_custom_btn_inter") {
+                    findNavController().navigate(
+                        R.id.action_statusBarCustomFragment_to_customIconDetailFragment,
+                        bundle
+                    )
+                }
             },
             onCheckClicked = { iconItem ->
                 viewModel.toggleCustomIcon(iconItem.id)
@@ -134,8 +137,11 @@ class StatusBarCustomFragment : Fragment() {
     }
 
     private fun setupTabListeners() {
+        AdsController.routeSystemBack(this, binding.ivDetailBack)
         binding.ivDetailBack.setOnClickListener {
-            findNavController().navigateUp()
+            AdsController.back(this, "is_show_custom_back_inter") {
+                findNavController().navigateUp()
+            }
         }
 
         binding.tabSize.setOnClickListener {

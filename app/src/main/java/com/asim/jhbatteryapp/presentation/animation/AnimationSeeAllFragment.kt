@@ -67,12 +67,18 @@ class AnimationSeeAllFragment : Fragment() {
     }
 
     private fun setupListeners() {
+        AdsController.routeSystemBack(this, binding.ivSeeAllBack)
         binding.ivSeeAllBack.setOnClickListener {
-            findNavController().navigateUp()
+            AdsController.back(this, "is_show_animation_see_all_back_inter") {
+                findNavController().navigateUp()
+            }
         }
 
         binding.ivSeeAllConfirm.setOnClickListener {
-            findNavController().navigateUp()
+            val act = activity ?: return@setOnClickListener
+            AdsController.interstitial(act, "is_show_animation_see_all_btn_inter") {
+                findNavController().navigateUp()
+            }
         }
     }
 

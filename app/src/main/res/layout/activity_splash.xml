@@ -4,41 +4,45 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/splahs">
+    android:background="@drawable/splahs"
+    android:focusableInTouchMode="true">
+
+    <com.universal.remote.ads.AdSlotView
+        android:id="@+id/adSlotTop"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_28sdp"
+        android:paddingTop="@dimen/_6sdp"
+        android:paddingBottom="@dimen/_4sdp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:nativeMarginHorizontal="@dimen/_14sdp"
+        tools:visibility="visible" />
 
     <com.asim.jhbatteryapp.presentation.components.GradientProgressView
         android:id="@+id/gradientProgressIndicator"
         android:layout_width="0dp"
         android:layout_height="@dimen/_6sdp"
         android:layout_marginHorizontal="@dimen/_36sdp"
-        android:layout_marginBottom="@dimen/_34sdp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="@dimen/_20sdp"
+        app:layout_goneMarginBottom="@dimen/_36sdp"
+        app:layout_constraintTop_toBottomOf="@+id/adSlotTop"
+        app:layout_constraintBottom_toTopOf="@+id/adSlotBottom"
+        app:layout_constraintVertical_bias="1.0"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-
-    <com.universal.remote.ads.AdSlotView
-        android:id="@+id/adSlotTop"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:paddingTop="@dimen/_6sdp"
-        android:paddingBottom="@dimen/_4sdp"
-        android:visibility="gone"
-        app:nativeMarginHorizontal="@dimen/_14sdp"
-        tools:visibility="visible" />
-
-
-
-    <!-- Apply Button -->
+    <!-- Continue Button -->
     <TextView
         android:id="@+id/btnContinue"
         android:layout_width="0dp"
         android:layout_height="@dimen/_44sdp"
         android:layout_marginStart="@dimen/_18sdp"
         android:layout_marginEnd="@dimen/_18sdp"
+        android:layout_marginBottom="@dimen/_16sdp"
+        app:layout_goneMarginBottom="@dimen/_32sdp"
         android:background="@drawable/bg_btn_apply"
         android:clickable="true"
         android:elevation="@dimen/_2sdp"
@@ -48,7 +52,10 @@
         android:textColor="@color/white"
         android:textSize="@dimen/_13ssp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/adSlotBottom"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@+id/adSlotTop"
+        app:layout_constraintBottom_toTopOf="@+id/adSlotBottom"
+        app:layout_constraintVertical_bias="1.0"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -56,12 +63,12 @@
         android:id="@+id/adSlotBottom"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         android:paddingTop="@dimen/_4sdp"
         android:paddingBottom="@dimen/_4sdp"
         android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:nativeMarginHorizontal="@dimen/_14sdp"
         tools:visibility="visible" />
 

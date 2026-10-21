@@ -73,8 +73,11 @@ class StatusBarAnimationFragment : Fragment() {
     }
 
     private fun setupListeners() {
+        AdsController.routeSystemBack(this, binding.ivAnimBack)
         binding.ivAnimBack.setOnClickListener {
-            findNavController().navigateUp()
+            AdsController.back(this, "is_show_animation_back_inter") {
+                findNavController().navigateUp()
+            }
         }
 
         binding.btnAnimBannerStart.setOnClickListener {
@@ -83,7 +86,10 @@ class StatusBarAnimationFragment : Fragment() {
         }
 
         binding.tvSeeAll.setOnClickListener {
-            findNavController().navigate(R.id.action_statusBarAnimationFragment_to_animationSeeAllFragment)
+            val act = activity ?: return@setOnClickListener
+            AdsController.interstitial(act, "is_show_animation_btn_inter") {
+                findNavController().navigate(R.id.action_statusBarAnimationFragment_to_animationSeeAllFragment)
+            }
         }
 
         binding.sbDateSize.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
@@ -106,7 +112,10 @@ class StatusBarAnimationFragment : Fragment() {
         })
 
         binding.btnApplyAnimation.setOnClickListener {
-            applyCurrentAnimation()
+            val act = activity ?: return@setOnClickListener
+            AdsController.interstitial(act, "is_show_animation_btn_inter") {
+                applyCurrentAnimation()
+            }
         }
     }
 

@@ -30,7 +30,7 @@ class AdsSetup(
     val remoteConfigKey: String,
     val defaultJson: String,
     val isDebug: Boolean,
-    val noResumeAdOver: Set<String> = setOf("SplashActivity"),
+    val noResumeAdOver: Set<String> = setOf("SplashActivity", "WelcomeActivity"),
     val allowResumeAd: () -> Boolean = { true },
 )
 

@@ -68,8 +68,9 @@
         android:clipToPadding="false"
         android:descendantFocusability="beforeDescendants"
         android:focusableInTouchMode="true"
-        android:paddingBottom="@dimen/_96sdp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:paddingBottom="@dimen/_16sdp"
+        app:layout_goneMarginBottom="@dimen/_76sdp"
+        app:layout_constraintBottom_toTopOf="@+id/adSlotBottom"
         app:layout_constraintTop_toBottomOf="@+id/adSlotTop">
 
         <LinearLayout
@@ -309,20 +310,23 @@
                 app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
                 app:spanCount="3" />
 
-            <!-- Bottom Ad Slot (Banner or Native) -->
-            <com.universal.remote.ads.AdSlotView
-                android:id="@+id/adSlotBottom"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_14sdp"
-                android:paddingTop="@dimen/_4sdp"
-                android:paddingBottom="@dimen/_4sdp"
-                android:visibility="gone"
-                app:nativeMarginHorizontal="@dimen/_14sdp"
-                tools:visibility="visible" />
-
         </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>
+
+    <!-- Bottom Ad Slot (Banner or Native) - Docked above bottom nav bar -->
+    <com.universal.remote.ads.AdSlotView
+        android:id="@+id/adSlotBottom"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_76sdp"
+        android:paddingTop="@dimen/_4sdp"
+        android:paddingBottom="@dimen/_4sdp"
+        android:visibility="gone"
+        app:nativeMarginHorizontal="@dimen/_14sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:visibility="visible" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

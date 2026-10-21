@@ -7,6 +7,7 @@ import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
+import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
 import com.asim.jhbatteryapp.data.datasource.PreferenceLocalDataSource
@@ -33,21 +34,23 @@ class SplashActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        WindowCompat.setDecorFitsSystemWindows(window, true)
+
         binding = ActivitySplashBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        ViewCompat.setOnApplyWindowInsetsListener(binding.root) { view, insets ->
+            val bottomInset = insets.getInsets(WindowInsetsCompat.Type.navigationBars()).bottom
+            view.setPadding(view.paddingLeft, view.paddingTop, view.paddingRight, bottomInset)
+            insets
+        }
 
+        ViewCompat.requestApplyInsets(binding.root)
         // Initial UI: Show loader, hide continue button
         binding.gradientProgressIndicator.visibility = View.VISIBLE
         binding.btnContinue.visibility = View.GONE
 
         binding.btnContinue.setOnClickListener {
             onContinueClicked()
-        }
-
-        ViewCompat.setOnApplyWindowInsetsListener(binding.root) { view, insets ->
-            val bottomInset = insets.getInsets(WindowInsetsCompat.Type.navigationBars()).bottom
-            view.setPadding(view.paddingLeft, view.paddingTop, view.paddingRight, bottomInset)
-            insets
         }
 
         lifecycleScope.launch {
@@ -70,9 +73,16 @@ class SplashActivity : AppCompatActivity() {
             minDelayJob.join()
             Log.i(TAG, "lifecycleScope.launch: Ad load and min delay finished")
 
-            // 5. Ready: hide loader and show the button to continue
-            if (!isFinishing) {
-                Log.i(TAG, "lifecycleScope.launch: Showing continue button")
+            // 5. If full-screen ad is loaded, show it automatically!
+            val ad = loadedSplashAd
+            if (ad != null && !isFinishing) {
+                Log.i(TAG, "lifecycleScope.launch: Showing splash ad automatically")
+                loadedSplashAd = null
+                SplashAds.show(this@SplashActivity, ad) {
+                    routeOnwards()
+                }
+            } else if (!isFinishing) {
+                Log.i(TAG, "lifecycleScope.launch: Showing continue button as fallback")
                 binding.gradientProgressIndicator.visibility = View.GONE
                 binding.btnContinue.visibility = View.VISIBLE
             }

@@ -81,8 +81,11 @@ class StatusBarThemeFragment : Fragment() {
     private var isAwaitingPermission = false
 
     private fun setupListeners() {
+        AdsController.routeSystemBack(this, binding.ivThemeBack)
         binding.ivThemeBack.setOnClickListener {
-            findNavController().navigateUp()
+            AdsController.back(this, "is_show_theme_back_inter") {
+                findNavController().navigateUp()
+            }
         }
 
         binding.btnTabGradient.setOnClickListener {
@@ -94,15 +97,18 @@ class StatusBarThemeFragment : Fragment() {
         }
 
         binding.btnApplyTheme.setOnClickListener {
-            if (com.asim.jhbatteryapp.service.StatusBarAccessibilityService.isAccessibilityServiceEnabled(requireContext())) {
-                applyCurrentTheme()
-            } else {
-                com.asim.jhbatteryapp.presentation.common.StatusBarPermissionHelper.showAccessibilityDialog(
-                    context = requireContext(),
-                    onSettingsOpened = {
-                        isAwaitingPermission = true
-                    }
-                )
+            val act = activity ?: return@setOnClickListener
+            AdsController.interstitial(act, "is_show_theme_btn_inter") {
+                if (com.asim.jhbatteryapp.service.StatusBarAccessibilityService.isAccessibilityServiceEnabled(requireContext())) {
+                    applyCurrentTheme()
+                } else {
+                    com.asim.jhbatteryapp.presentation.common.StatusBarPermissionHelper.showAccessibilityDialog(
+                        context = requireContext(),
+                        onSettingsOpened = {
+                            isAwaitingPermission = true
+                        }
+                    )
+                }
             }
         }
     }

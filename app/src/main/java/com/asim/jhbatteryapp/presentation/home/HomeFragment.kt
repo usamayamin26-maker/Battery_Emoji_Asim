@@ -135,6 +135,7 @@ class HomeFragment : Fragment() {
                     isPermissionDialogShowing = false
                     hasPromptedNotificationInSession = true
                     try {
+                        com.asim.jhbatteryapp.JHBatteryApplication.skipNextWelcome()
                         val intent = Intent(Settings.ACTION_APP_NOTIFICATION_SETTINGS).apply {
                             putExtra(Settings.EXTRA_APP_PACKAGE, requireContext().packageName)
                         }
@@ -184,7 +185,10 @@ class HomeFragment : Fragment() {
 
         // Main Emoji Grid (3 columns)
         emojiAdapter = BatteryEmojiAdapter { item ->
-            showPreviewBottomSheet(item)
+            val act = activity ?: return@BatteryEmojiAdapter
+            AdsController.interstitial(act, "is_show_home_btn_inter") {
+                showPreviewBottomSheet(item)
+            }
         }
         binding.rvEmojiGrid.itemAnimator = null
         binding.rvEmojiGrid.setHasFixedSize(true)
@@ -195,7 +199,10 @@ class HomeFragment : Fragment() {
     private fun setupListeners() {
         // Navigate to SearchFragment using NavGraph action!
         binding.btnOpenSearch.setOnClickListener {
-            findNavController().navigate(R.id.action_homeFragment_to_searchFragment)
+            val act = activity ?: return@setOnClickListener
+            AdsController.interstitial(act, "is_show_home_btn_inter") {
+                findNavController().navigate(R.id.action_homeFragment_to_searchFragment)
+            }
         }
 
         // Banner Start Button & Entire Card
@@ -226,13 +233,22 @@ class HomeFragment : Fragment() {
 
         // Quick Action Cards
         binding.cardStickerShop.setOnClickListener {
-            findNavController().navigate(R.id.action_homeFragment_to_stickerDisplayFragment)
+            val act = activity ?: return@setOnClickListener
+            AdsController.interstitial(act, "is_show_home_btn_inter") {
+                findNavController().navigate(R.id.action_homeFragment_to_stickerDisplayFragment)
+            }
         }
         binding.cardAnimation.setOnClickListener {
-            findNavController().navigate(R.id.action_homeFragment_to_statusBarAnimationFragment)
+            val act = activity ?: return@setOnClickListener
+            AdsController.interstitial(act, "is_show_home_btn_inter") {
+                findNavController().navigate(R.id.action_homeFragment_to_statusBarAnimationFragment)
+            }
         }
         binding.cardThemes.setOnClickListener {
-            findNavController().navigate(R.id.action_homeFragment_to_statusBarThemeFragment)
+            val act = activity ?: return@setOnClickListener
+            AdsController.interstitial(act, "is_show_home_btn_inter") {
+                findNavController().navigate(R.id.action_homeFragment_to_statusBarThemeFragment)
+            }
         }
     }
 

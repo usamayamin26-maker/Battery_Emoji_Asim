@@ -70,9 +70,8 @@ object SplashAds {
      */
     fun isWorthWaitingFor(): Boolean {
         val config = RemoteConfigManager.current()
-        return (config.splashAdPreference != AdsConfig.SPLASH_AD_PREFERENCE_NONE &&
-            (isAppOpenOn(config) || isInterstitialOn(config))) ||
-            config.isOn("is_show_admob_splash_native")
+        val hasFormatOn = isAppOpenOn(config) || isInterstitialOn(config)
+        return hasFormatOn || config.isOn("is_show_admob_splash_native")
     }
 
     /** A splash ad that has loaded and is waiting for the user to press Continue. */
@@ -166,11 +165,22 @@ object SplashAds {
         }
     }
 
-    private fun orderFor(config: AdsConfig): List<Format> = when (config.splashAdPreference) {
-        AdsConfig.SPLASH_AD_PREFERENCE_APP_OPEN_FIRST -> listOf(Format.APP_OPEN, Format.INTERSTITIAL)
-        AdsConfig.SPLASH_AD_PREFERENCE_INTER_FIRST -> listOf(Format.INTERSTITIAL, Format.APP_OPEN)
-        else -> emptyList()
-    }.filter { it.isOn(config) }
+    private fun orderFor(config: AdsConfig): List<Format> {
+        val pref = if (config.splashAdPreference == AdsConfig.SPLASH_AD_PREFERENCE_NONE) {
+            when {
+                isAppOpenOn(config) -> AdsConfig.SPLASH_AD_PREFERENCE_APP_OPEN_FIRST
+                isInterstitialOn(config) -> AdsConfig.SPLASH_AD_PREFERENCE_INTER_FIRST
+                else -> AdsConfig.SPLASH_AD_PREFERENCE_NONE
+            }
+        } else {
+            config.splashAdPreference
+        }
+        return when (pref) {
+            AdsConfig.SPLASH_AD_PREFERENCE_APP_OPEN_FIRST -> listOf(Format.APP_OPEN, Format.INTERSTITIAL)
+            AdsConfig.SPLASH_AD_PREFERENCE_INTER_FIRST -> listOf(Format.INTERSTITIAL, Format.APP_OPEN)
+            else -> emptyList()
+        }.filter { it.isOn(config) }
+    }
 
     /**
      * Shows whichever format the preference asks for, then runs [onDone]. [onDone] always runs

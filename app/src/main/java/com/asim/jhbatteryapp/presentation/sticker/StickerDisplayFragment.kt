@@ -149,8 +149,11 @@ class StickerDisplayFragment : Fragment() {
     }
 
     private fun setupListeners() {
+        AdsController.routeSystemBack(this, binding.ivStickerBack)
         binding.ivStickerBack.setOnClickListener {
-            findNavController().navigateUp()
+            AdsController.back(this, "is_show_sticker_back_inter") {
+                findNavController().navigateUp()
+            }
         }
 
         binding.clPreviewDashedBox.setOnClickListener {
@@ -160,53 +163,56 @@ class StickerDisplayFragment : Fragment() {
         }
 
         binding.btnSaveStickers.setOnClickListener {
-            val active = viewModel.activeSticker.value
-            if (active == null) {
-                Toast.makeText(requireContext(), getString(R.string.please_select_sticker), Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
-            }
+            val act = activity ?: return@setOnClickListener
+            AdsController.interstitial(act, "is_show_sticker_btn_inter") {
+                val active = viewModel.activeSticker.value
+                if (active == null) {
+                    Toast.makeText(requireContext(), getString(R.string.please_select_sticker), Toast.LENGTH_SHORT).show()
+                    return@interstitial
+                }
 
-            val isAccessibilityEnabled = com.asim.jhbatteryapp.service.StatusBarAccessibilityService.isAccessibilityServiceEnabled(requireContext())
+                val isAccessibilityEnabled = com.asim.jhbatteryapp.service.StatusBarAccessibilityService.isAccessibilityServiceEnabled(requireContext())
 
-            if (!isAccessibilityEnabled) {
-                pendingStickerToFloat = active
-                com.asim.jhbatteryapp.presentation.common.StatusBarPermissionHelper.showAccessibilityDialog(
+                if (!isAccessibilityEnabled) {
+                    pendingStickerToFloat = active
+                    com.asim.jhbatteryapp.presentation.common.StatusBarPermissionHelper.showAccessibilityDialog(
+                        context = requireContext(),
+                        onSettingsOpened = {},
+                        onDismissed = { pendingStickerToFloat = null }
+                    )
+                    return@interstitial
+                }
+
+                val pref = com.asim.jhbatteryapp.data.repository.PreferenceRepositoryImpl()
+                val activeInst = com.asim.jhbatteryapp.service.FloatingStickerService.instance
+                val curX = activeInst?.currentX ?: pref.getFloatingStickerX()
+                val curY = activeInst?.currentY ?: pref.getFloatingStickerY()
+
+                pref.setFloatingStickerEnabled(true)
+                pref.setFloatingStickerDrawableRes(active.drawableRes)
+                pref.setFloatingStickerSize(active.sizeDp)
+                pref.setFloatingStickerRotation(active.rotationDeg)
+                if (curX > 0 && curY > 0) {
+                    pref.setFloatingStickerX(curX)
+                    pref.setFloatingStickerY(curY)
+                }
+
+                com.asim.jhbatteryapp.service.FloatingStickerService.start(
                     context = requireContext(),
-                    onSettingsOpened = {},
-                    onDismissed = { pendingStickerToFloat = null }
+                    drawableRes = active.drawableRes,
+                    x = if (curX > 0) curX else null,
+                    y = if (curY > 0) curY else null,
+                    sizeDp = active.sizeDp,
+                    rotationDeg = active.rotationDeg
                 )
-                return@setOnClickListener
+
+                Toast.makeText(
+                    requireContext(),
+                    "Sticker fixed on screen! It stays visible even when app is closed.",
+                    Toast.LENGTH_SHORT
+                ).show()
+                findNavController().navigateUp()
             }
-
-            val pref = com.asim.jhbatteryapp.data.repository.PreferenceRepositoryImpl()
-            val activeInst = com.asim.jhbatteryapp.service.FloatingStickerService.instance
-            val curX = activeInst?.currentX ?: pref.getFloatingStickerX()
-            val curY = activeInst?.currentY ?: pref.getFloatingStickerY()
-
-            pref.setFloatingStickerEnabled(true)
-            pref.setFloatingStickerDrawableRes(active.drawableRes)
-            pref.setFloatingStickerSize(active.sizeDp)
-            pref.setFloatingStickerRotation(active.rotationDeg)
-            if (curX > 0 && curY > 0) {
-                pref.setFloatingStickerX(curX)
-                pref.setFloatingStickerY(curY)
-            }
-
-            com.asim.jhbatteryapp.service.FloatingStickerService.start(
-                context = requireContext(),
-                drawableRes = active.drawableRes,
-                x = if (curX > 0) curX else null,
-                y = if (curY > 0) curY else null,
-                sizeDp = active.sizeDp,
-                rotationDeg = active.rotationDeg
-            )
-
-            Toast.makeText(
-                requireContext(),
-                "Sticker fixed on screen! It stays visible even when app is closed.",
-                Toast.LENGTH_SHORT
-            ).show()
-            findNavController().navigateUp()
         }
     }
 

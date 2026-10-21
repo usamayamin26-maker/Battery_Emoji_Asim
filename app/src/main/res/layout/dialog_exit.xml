@@ -62,7 +62,7 @@
         android:layout_marginTop="@dimen/_20sdp"
         android:gravity="center"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/adSlotBottom"
         app:layout_constraintTop_toBottomOf="@+id/tvExitDesc">
 
         <!-- Left: Yes -->
@@ -98,5 +98,21 @@
             android:textStyle="bold" />
 
     </LinearLayout>
+
+    <!-- Bottom Ad Slot (Banner or Native) -->
+    <com.universal.remote.ads.AdSlotView
+        android:id="@+id/adSlotBottom"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:paddingTop="@dimen/_4sdp"
+        android:paddingBottom="@dimen/_4sdp"
+        android:visibility="gone"
+        app:nativeMarginHorizontal="@dimen/_4sdp"
+        app:layout_constraintTop_toBottomOf="@+id/llExitActions"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:visibility="visible" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

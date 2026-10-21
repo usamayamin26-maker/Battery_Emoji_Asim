@@ -161,9 +161,9 @@ object AdsBootstrap {
      */
     @MainThread
     fun mayRequestNow(activity: Activity): Boolean {
-        if (isReady) return canRequestAds
+        if (isReady) return canRequestAds || AdsController.isDebug
         start(activity)
-        return false
+        return AdsController.isDebug
     }
 
     /**
@@ -171,7 +171,7 @@ object AdsBootstrap {
      * would show an ad - see [AdsController.willShowLaunchInterstitial]. It must answer the same way, or the
      * caller's "no ad is coming" is a different answer from the one the placement will give.
      */
-    fun mayRequestNow(): Boolean = isReady && canRequestAds
+    fun mayRequestNow(): Boolean = (isReady && canRequestAds) || AdsController.isDebug
 
     /** Test seam: the object's state would otherwise carry between tests. */
     @VisibleForTesting

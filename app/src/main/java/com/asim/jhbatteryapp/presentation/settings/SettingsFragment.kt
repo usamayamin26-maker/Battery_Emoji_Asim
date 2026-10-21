@@ -127,10 +127,13 @@ class SettingsFragment : Fragment() {
 
         // 1. Language Item -> Launch LanguageActivity
         binding.itemSettingLanguage.setOnClickListener {
-            val intent = Intent(requireContext(), LanguageActivity::class.java).apply {
-                putExtra(LanguageActivity.EXTRA_FROM_SETTINGS, true)
+            val act = activity ?: return@setOnClickListener
+            AdsController.interstitial(act, "is_show_settings_btn_inter") {
+                val intent = Intent(requireContext(), LanguageActivity::class.java).apply {
+                    putExtra(LanguageActivity.EXTRA_FROM_SETTINGS, true)
+                }
+                startActivity(intent)
             }
-            startActivity(intent)
         }
 
         // 2. Privacy Policy Item

@@ -145,12 +145,24 @@ class MainActivity : AppCompatActivity() {
                 }
                 FloatingBottomBarView.Tab.CUSTOMIZE -> {
                     if (navController.currentDestination?.id != R.id.statusBarCustomFragment) {
-                        navController.navigate(R.id.statusBarCustomFragment)
+                        com.universal.remote.ads.AdsController.interstitial(
+                            activity = this@MainActivity,
+                            flag = "is_show_home_btn_inter",
+                            counter = com.universal.remote.ads.AdsController.Counter.BOTTOM_NAV
+                        ) {
+                            navController.navigate(R.id.statusBarCustomFragment)
+                        }
                     }
                 }
                 FloatingBottomBarView.Tab.SETTING -> {
                     if (navController.currentDestination?.id != R.id.settingsFragment) {
-                        navController.navigate(R.id.settingsFragment)
+                        com.universal.remote.ads.AdsController.interstitial(
+                            activity = this@MainActivity,
+                            flag = "is_show_home_btn_inter",
+                            counter = com.universal.remote.ads.AdsController.Counter.BOTTOM_NAV
+                        ) {
+                            navController.navigate(R.id.settingsFragment)
+                        }
                     }
                 }
             }

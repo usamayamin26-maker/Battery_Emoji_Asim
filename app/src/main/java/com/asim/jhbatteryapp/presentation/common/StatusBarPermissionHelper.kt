@@ -149,6 +149,7 @@ object StatusBarPermissionHelper {
     }
 
     fun openXiaomiPermissionScreen(context: Context): Boolean {
+        com.asim.jhbatteryapp.JHBatteryApplication.skipNextWelcome()
         try {
             val intent = Intent("miui.intent.action.APP_PERM_EDITOR").apply {
                 setClassName(
@@ -179,6 +180,7 @@ object StatusBarPermissionHelper {
     }
 
     fun openDisplayOverOtherApps(context: Context) {
+        com.asim.jhbatteryapp.JHBatteryApplication.skipNextWelcome()
         var opened = false
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -222,6 +224,7 @@ object StatusBarPermissionHelper {
     }
 
     fun openAutostartSettings(context: Context): Boolean {
+        com.asim.jhbatteryapp.JHBatteryApplication.skipNextWelcome()
         val intents = arrayOf(
             Intent().apply {
                 component = android.content.ComponentName(
@@ -268,6 +271,7 @@ object StatusBarPermissionHelper {
     }
 
     fun openPopUpWindowsSettings(context: Context) {
+        com.asim.jhbatteryapp.JHBatteryApplication.skipNextWelcome()
         if (!openXiaomiPermissionScreen(context)) {
             try {
                 val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS).apply {

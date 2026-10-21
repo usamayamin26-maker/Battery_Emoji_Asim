@@ -97,7 +97,9 @@ class LanguageActivity : AppCompatActivity() {
         } else {
             binding.btnBackLanguage.visibility = View.VISIBLE
             binding.btnBackLanguage.setOnClickListener {
-                finish()
+                com.universal.remote.ads.AdsController.back(this, "is_show_language_back_inter") {
+                    finish()
+                }
             }
         }
     }
@@ -141,21 +143,27 @@ class LanguageActivity : AppCompatActivity() {
                 )
             }
 
-            if (isFromSplash) {
-                val nextActivity = if (preferences.isOnboardingCompleted()) {
-                    MainActivity::class.java
+            com.universal.remote.ads.AdsController.launchInterstitial(
+                activity = this,
+                flag = "is_show_admob_language_done_btn_inter",
+                unitKey = "admob_language_done_btn_inter_id"
+            ) {
+                if (isFromSplash) {
+                    val nextActivity = if (preferences.isOnboardingCompleted()) {
+                        MainActivity::class.java
+                    } else {
+                        OnboardingActivity::class.java
+                    }
+                    startActivity(Intent(this, nextActivity))
+                    finish()
                 } else {
-                    OnboardingActivity::class.java
+                    val intent = Intent(this, MainActivity::class.java).apply {
+                        flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
+                        putExtra("START_DESTINATION", "settingsFragment")
+                    }
+                    startActivity(intent)
+                    finish()
                 }
-                startActivity(Intent(this, nextActivity))
-                finish()
-            } else {
-                val intent = Intent(this, MainActivity::class.java).apply {
-                    flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
-                    putExtra("START_DESTINATION", "settingsFragment")
-                }
-                startActivity(intent)
-                finish()
             }
         }
     }
@@ -163,7 +171,11 @@ class LanguageActivity : AppCompatActivity() {
     private fun setupBackPressHandler() {
         onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
-                finish()
+                if (binding.btnBackLanguage.visibility == View.VISIBLE) {
+                    binding.btnBackLanguage.performClick()
+                } else {
+                    finish()
+                }
             }
         })
     }

@@ -601,6 +601,7 @@ class StatusBarAccessibilityService : AccessibilityService() {
         }
 
         fun openAccessibilitySettings(context: Context) {
+            com.asim.jhbatteryapp.JHBatteryApplication.skipNextWelcome()
             try {
                 val intent = Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS).apply {
                     if (context !is android.app.Activity) {

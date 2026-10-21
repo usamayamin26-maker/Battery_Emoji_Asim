@@ -72,12 +72,14 @@ object ConsentManager {
                     if (formError != null) {
                         Log.w(TAG, "Consent form error: ${formError.message}")
                     }
-                    onComplete(consentInformation.canRequestAds())
+                    val canRequest = consentInformation.canRequestAds() || AdsController.isDebug || consentInformation.consentStatus == com.google.android.ump.ConsentInformation.ConsentStatus.NOT_REQUIRED
+                    onComplete(canRequest)
                 }
             },
             { requestError ->
                 Log.w(TAG, "Consent info update failed: ${requestError.message}")
-                onComplete(consentInformation.canRequestAds())
+                val canRequest = consentInformation.canRequestAds() || AdsController.isDebug || consentInformation.consentStatus == com.google.android.ump.ConsentInformation.ConsentStatus.NOT_REQUIRED
+                onComplete(canRequest)
             }
         )
     }

@@ -175,6 +175,19 @@ object MyUtils {
                 )
             }
 
+            (context as? android.app.Activity)?.let { activity ->
+                com.universal.remote.ads.AdsController.slot(
+                    activity = activity,
+                    container = binding.adSlotBottom,
+                    slotKey = "exit_bottom",
+                    units = "exit"
+                )
+            }
+
+            dialog.setOnDismissListener {
+                com.universal.remote.ads.AdsController.forgetSlots("exit")
+            }
+
             binding.btnExitYes.setOnClickListener {
                 dialog.dismiss()
                 onExit.invoke()
@@ -201,6 +214,19 @@ object MyUtils {
             isCancelable = true,
             bindingInflater = BottomSheetExitBinding::inflate
         ) { binding ->
+            (context as? android.app.Activity)?.let { activity ->
+                com.universal.remote.ads.AdsController.slot(
+                    activity = activity,
+                    container = binding.adSlotBottom,
+                    slotKey = "exit_bottom",
+                    units = "exit"
+                )
+            }
+
+            setOnDismissListener {
+                com.universal.remote.ads.AdsController.forgetSlots("exit")
+            }
+
             binding.btnExitYes.setOnClickListener {
                 dismiss()
                 onExit.invoke()

@@ -74,7 +74,10 @@ class SearchFragment : Fragment() {
     private fun setupRecyclerViews() {
         // Recent Grid (3 columns)
         recentAdapter = BatteryEmojiAdapter { item ->
-            showPreviewBottomSheet(item)
+            val act = activity ?: return@BatteryEmojiAdapter
+            AdsController.interstitial(act, "is_show_search_btn_inter") {
+                showPreviewBottomSheet(item)
+            }
         }
         binding.rvRecentGrid.itemAnimator = null
         binding.rvRecentGrid.setHasFixedSize(true)
@@ -83,7 +86,10 @@ class SearchFragment : Fragment() {
 
         // Top Picks Grid (3 columns)
         topPicksAdapter = BatteryEmojiAdapter { item ->
-            showPreviewBottomSheet(item)
+            val act = activity ?: return@BatteryEmojiAdapter
+            AdsController.interstitial(act, "is_show_search_btn_inter") {
+                showPreviewBottomSheet(item)
+            }
         }
         binding.rvTopPicksGrid.itemAnimator = null
         binding.rvTopPicksGrid.setHasFixedSize(true)
@@ -92,9 +98,12 @@ class SearchFragment : Fragment() {
     }
 
     private fun setupListeners() {
-        // Back Button -> Navigate back using NavController!
+        // Back Button & System Back -> Navigate back using NavController!
+        AdsController.routeSystemBack(this, binding.btnCloseSearch)
         binding.btnCloseSearch.setOnClickListener {
-            findNavController().navigateUp()
+            AdsController.back(this, "is_show_search_back_inter") {
+                findNavController().navigateUp()
+            }
         }
 
         // Clear Search Query

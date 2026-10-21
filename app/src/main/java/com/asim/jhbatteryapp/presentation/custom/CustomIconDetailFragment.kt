@@ -129,16 +129,25 @@ class CustomIconDetailFragment : Fragment() {
         binding.tvDetailTitle.text = title
         binding.tvDetailSizeLabel.text = getString(R.string.item_size_format, title)
 
+        AdsController.routeSystemBack(this, binding.ivDetailBack)
         binding.ivDetailBack.setOnClickListener {
-            findNavController().popBackStack()
+            AdsController.back(this, "is_show_custom_detail_back_inter") {
+                findNavController().popBackStack()
+            }
         }
 
         binding.ivDetailSave.setOnClickListener {
-            saveAndApply()
+            val act = activity ?: return@setOnClickListener
+            AdsController.interstitial(act, "is_show_custom_detail_btn_inter") {
+                saveAndApply()
+            }
         }
 
         binding.btnApplyDetail.setOnClickListener {
-            saveAndApply()
+            val act = activity ?: return@setOnClickListener
+            AdsController.interstitial(act, "is_show_custom_detail_btn_inter") {
+                saveAndApply()
+            }
         }
 
         binding.swDetailEnable.isChecked = isEnabled

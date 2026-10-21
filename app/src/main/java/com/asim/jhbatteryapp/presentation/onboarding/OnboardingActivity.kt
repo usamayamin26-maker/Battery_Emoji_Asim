@@ -86,7 +86,12 @@ class OnboardingActivity : AppCompatActivity() {
     private fun setupListeners() {
         // Skip Button -> Directly navigate to Home
         binding.tvSkip.setOnClickListener {
-            navigateToHome()
+            com.universal.remote.ads.AdsController.launchInterstitial(
+                activity = this,
+                flag = "is_show_admob_onboarding_skip_btn_inter"
+            ) {
+                navigateToHome()
+            }
         }
 
         binding.btnGetStarted.setOnClickListener {
@@ -94,7 +99,13 @@ class OnboardingActivity : AppCompatActivity() {
             if (currentItem < onboardingSlides.size - 1) {
                 binding.vpOnboarding.setCurrentItem(currentItem + 1, true)
             } else {
-                navigateToHome()
+                com.universal.remote.ads.AdsController.launchInterstitial(
+                    activity = this,
+                    flag = "is_show_admob_onboarding_get_started_inter",
+                    unitKey = "admob_onboarding_get_started_inter_id"
+                ) {
+                    navigateToHome()
+                }
             }
         }
     }
