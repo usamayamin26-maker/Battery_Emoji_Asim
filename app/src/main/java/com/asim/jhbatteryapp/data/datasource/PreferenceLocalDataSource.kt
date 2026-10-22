@@ -125,6 +125,24 @@ class PreferenceLocalDataSource(
         prefs.edit().putInt(KEY_APPLIED_BATTERY_ICON_RES, res).apply()
     }
 
+    /** Absolute path of a downloaded remote battery icon; used only while the applied icon res is 0. */
+    fun getAppliedBatteryIconPath(): String {
+        return prefs.getString(KEY_APPLIED_BATTERY_ICON_PATH, "") ?: ""
+    }
+
+    fun setAppliedBatteryIconPath(path: String) {
+        prefs.edit().putString(KEY_APPLIED_BATTERY_ICON_PATH, path).apply()
+    }
+
+    /** Absolute path of a downloaded remote animation; used only while the applied animation res is 0. */
+    fun getAppliedAnimationPath(): String {
+        return prefs.getString(KEY_APPLIED_ANIMATION_PATH, "") ?: ""
+    }
+
+    fun setAppliedAnimationPath(path: String) {
+        prefs.edit().putString(KEY_APPLIED_ANIMATION_PATH, path).apply()
+    }
+
     fun isBatteryIconTintable(): Boolean {
         return prefs.getBoolean(KEY_IS_BATTERY_ICON_TINTABLE, true)
     }
@@ -219,6 +237,22 @@ class PreferenceLocalDataSource(
         prefs.edit().putInt(KEY_LEFT_STATUS_EMOJI_RES, res).apply()
     }
 
+    fun getEmotionPath(): String {
+        return prefs.getString(KEY_EMOTION_PATH, "") ?: ""
+    }
+
+    fun setEmotionPath(path: String) {
+        prefs.edit().putString(KEY_EMOTION_PATH, path).apply()
+    }
+
+    fun getLeftStatusEmojiPath(): String {
+        return prefs.getString(KEY_LEFT_STATUS_EMOJI_PATH, "") ?: ""
+    }
+
+    fun setLeftStatusEmojiPath(path: String) {
+        prefs.edit().putString(KEY_LEFT_STATUS_EMOJI_PATH, path).apply()
+    }
+
     fun getAppliedAnimationRawRes(): Int {
         return prefs.getInt(KEY_APPLIED_ANIMATION_RAW_RES, 0)
     }
@@ -257,6 +291,14 @@ class PreferenceLocalDataSource(
 
     fun setFloatingStickerDrawableRes(res: Int) {
         prefs.edit().putInt(KEY_FLOATING_STICKER_RES, res).apply()
+    }
+
+    fun getFloatingStickerImagePath(): String {
+        return prefs.getString(KEY_FLOATING_STICKER_PATH, "") ?: ""
+    }
+
+    fun setFloatingStickerImagePath(path: String) {
+        prefs.edit().putString(KEY_FLOATING_STICKER_PATH, path).apply()
     }
 
     fun getFloatingStickerX(): Int {
@@ -303,6 +345,9 @@ class PreferenceLocalDataSource(
 
         private const val KEY_FLOATING_STICKER_ENABLED = "key_floating_sticker_enabled"
         private const val KEY_FLOATING_STICKER_RES = "key_floating_sticker_res"
+        private const val KEY_FLOATING_STICKER_PATH = "key_floating_sticker_path"
+        private const val KEY_LEFT_STATUS_EMOJI_PATH = "key_left_status_emoji_path"
+        private const val KEY_EMOTION_PATH = "key_emotion_path"
         private const val KEY_FLOATING_STICKER_X = "key_floating_sticker_x"
         private const val KEY_FLOATING_STICKER_Y = "key_floating_sticker_y"
         private const val KEY_FLOATING_STICKER_SIZE = "key_floating_sticker_size"
@@ -316,6 +361,8 @@ class PreferenceLocalDataSource(
         private const val KEY_CUSTOM_BATTERY_TEXT_SIZE = "key_custom_battery_text_size"
         private const val KEY_CUSTOM_BATTERY_STYLE = "key_custom_battery_style"
         private const val KEY_APPLIED_BATTERY_ICON_RES = "key_applied_battery_icon_res"
+        private const val KEY_APPLIED_BATTERY_ICON_PATH = "key_applied_battery_icon_path"
+        private const val KEY_APPLIED_ANIMATION_PATH = "key_applied_animation_path"
         private const val KEY_IS_BATTERY_ICON_TINTABLE = "key_is_battery_icon_tintable"
         private const val KEY_CUSTOM_BATTERY_ICON_SIZE = "key_custom_battery_icon_size"
         private const val KEY_ENABLED_CUSTOM_ICONS = "key_enabled_custom_icons"

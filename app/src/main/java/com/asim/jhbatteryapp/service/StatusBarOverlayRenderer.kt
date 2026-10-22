@@ -9,6 +9,7 @@ import android.view.View
 import android.view.WindowManager
 import androidx.core.content.ContextCompat
 import com.asim.jhbatteryapp.R
+import com.asim.jhbatteryapp.data.remote.RemoteImageLoader
 import com.asim.jhbatteryapp.databinding.LayoutStatusBarOverlayBinding
 import com.asim.jhbatteryapp.domain.model.StatusBarSettings
 import java.text.SimpleDateFormat
@@ -97,15 +98,22 @@ class StatusBarOverlayRenderer {
             settings.appliedMascotDrawableRes != 0 && !settings.isAppliedAnimationLottie -> settings.appliedMascotDrawableRes
             else -> 0
         }
-        if (mascotToDisplay != 0) {
+        val remoteLeftEmojiPath = settings.remoteLeftEmojiPath
+        if (remoteLeftEmojiPath != null || mascotToDisplay != 0) {
             binding.ivOverlayLeftEmoji.visibility = View.VISIBLE
-            binding.ivOverlayLeftEmoji.setImageResource(mascotToDisplay)
             binding.ivOverlayLeftEmoji.imageTintList = null
             val emojiSize = (16 * density).toInt().coerceIn((12 * density).toInt(), (26 * density).toInt())
             val params = binding.ivOverlayLeftEmoji.layoutParams
             params.width = (emojiSize * 1.35f).toInt()
             params.height = emojiSize
             binding.ivOverlayLeftEmoji.layoutParams = params
+            if (remoteLeftEmojiPath != null) {
+                binding.ivOverlayLeftEmoji.setImageBitmap(
+                    RemoteImageLoader.decodeFileForDisplay(remoteLeftEmojiPath, params.width, params.height)
+                )
+            } else {
+                binding.ivOverlayLeftEmoji.setImageResource(mascotToDisplay)
+            }
         } else {
             binding.ivOverlayLeftEmoji.visibility = View.GONE
         }
@@ -167,8 +175,13 @@ class StatusBarOverlayRenderer {
                 "happy" -> R.drawable.ic_reaction_happy
                 else -> R.drawable.ic_reaction_love
             }
-            binding.ivOverlayEmotion.setImageResource(emotionRes)
             val s = (settings.getEffectiveIconSize("emotion") * density).toInt()
+            val remoteEmotionPath = settings.remoteEmotionPath
+            if (remoteEmotionPath != null) {
+                binding.ivOverlayEmotion.setImageBitmap(RemoteImageLoader.decodeFileForDisplay(remoteEmotionPath, s, s))
+            } else {
+                binding.ivOverlayEmotion.setImageResource(emotionRes)
+            }
             binding.ivOverlayEmotion.layoutParams.width = s
             binding.ivOverlayEmotion.layoutParams.height = s
         } else {
@@ -181,7 +194,18 @@ class StatusBarOverlayRenderer {
         val animMascotSizeDp = settings.iconSizes["animation"] ?: settings.mascotSizeDp
         val mascotSize = (animMascotSizeDp * density).toInt().coerceIn((12 * density).toInt(), (60 * density).toInt())
 
-        if (isAnimEnabled && settings.isAppliedAnimationLottie && settings.appliedAnimationRawRes != 0) {
+        val remoteAnimPath = settings.remoteAnimationPath
+        if (isAnimEnabled && remoteAnimPath != null) {
+            // Downloaded animation from the remote manifest
+            binding.lottieOverlayLeftAnimation.visibility = View.VISIBLE
+            val params = binding.lottieOverlayLeftAnimation.layoutParams
+            params.width = (mascotSize * 1.35f).toInt()
+            params.height = mascotSize
+            binding.lottieOverlayLeftAnimation.layoutParams = params
+            RemoteImageLoader.bindAnimationFile(
+                binding.lottieOverlayLeftAnimation, remoteAnimPath, params.width, params.height
+            )
+        } else if (isAnimEnabled && settings.isAppliedAnimationLottie && settings.appliedAnimationRawRes != 0) {
             binding.lottieOverlayLeftAnimation.visibility = View.VISIBLE
             val params = binding.lottieOverlayLeftAnimation.layoutParams
             params.width = (mascotSize * 1.35f).toInt()
@@ -289,8 +313,16 @@ class StatusBarOverlayRenderer {
         iconParams.height = iconHeightPx
         binding.ivOverlayBatteryIcon.layoutParams = iconParams
 
-        binding.ivOverlayBatteryIcon.setImageResource(settings.appliedBatteryIconRes)
-        if (settings.isBatteryIconTintable) {
+        val remoteIconPath = settings.remoteBatteryIconPath
+        if (remoteIconPath != null) {
+            // Downloaded emoji from the remote manifest
+            binding.ivOverlayBatteryIcon.setImageBitmap(
+                RemoteImageLoader.decodeFileForDisplay(remoteIconPath, iconWidthPx, iconHeightPx)
+            )
+        } else {
+            binding.ivOverlayBatteryIcon.setImageResource(settings.appliedBatteryIconRes)
+        }
+        if (settings.isBatteryIconTintable && remoteIconPath == null) {
             binding.ivOverlayBatteryIcon.imageTintList = ColorStateList.valueOf(settings.iconColor)
         } else {
             binding.ivOverlayBatteryIcon.imageTintList = null

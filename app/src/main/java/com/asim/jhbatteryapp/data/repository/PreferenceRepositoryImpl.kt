@@ -72,7 +72,11 @@ class PreferenceRepositoryImpl(
             isEmojiBatteryEnabled = preferenceLocalDataSource.isEmojiBatteryEnabled(),
             leftStatusEmojiRes = preferenceLocalDataSource.getLeftStatusEmojiRes(),
             appliedAnimationRawRes = preferenceLocalDataSource.getAppliedAnimationRawRes(),
-            isAppliedAnimationLottie = preferenceLocalDataSource.isAppliedAnimationLottie()
+            isAppliedAnimationLottie = preferenceLocalDataSource.isAppliedAnimationLottie(),
+            appliedBatteryIconPath = preferenceLocalDataSource.getAppliedBatteryIconPath(),
+            appliedAnimationPath = preferenceLocalDataSource.getAppliedAnimationPath(),
+            leftStatusEmojiPath = preferenceLocalDataSource.getLeftStatusEmojiPath(),
+            emotionPath = preferenceLocalDataSource.getEmotionPath()
         )
     }
 
@@ -111,6 +115,10 @@ class PreferenceRepositoryImpl(
         preferenceLocalDataSource.setLeftStatusEmojiRes(settings.leftStatusEmojiRes)
         preferenceLocalDataSource.setAppliedAnimationRawRes(settings.appliedAnimationRawRes)
         preferenceLocalDataSource.setAppliedAnimationLottie(settings.isAppliedAnimationLottie)
+        preferenceLocalDataSource.setAppliedBatteryIconPath(settings.appliedBatteryIconPath)
+        preferenceLocalDataSource.setAppliedAnimationPath(settings.appliedAnimationPath)
+        preferenceLocalDataSource.setLeftStatusEmojiPath(settings.leftStatusEmojiPath)
+        preferenceLocalDataSource.setEmotionPath(settings.emotionPath)
         notifySettingsChanged()
     }
 
@@ -355,6 +363,40 @@ class PreferenceRepositoryImpl(
         notifySettingsChanged()
     }
 
+    override fun getEmotionPath(): String {
+        return preferenceLocalDataSource.getEmotionPath()
+    }
+
+    override fun setEmotionPath(path: String) {
+        preferenceLocalDataSource.setEmotionPath(path)
+    }
+
+    override fun getLeftStatusEmojiPath(): String {
+        return preferenceLocalDataSource.getLeftStatusEmojiPath()
+    }
+
+    override fun setLeftStatusEmojiPath(path: String) {
+        preferenceLocalDataSource.setLeftStatusEmojiPath(path)
+    }
+
+    override fun getAppliedBatteryIconPath(): String {
+        return preferenceLocalDataSource.getAppliedBatteryIconPath()
+    }
+
+    override fun setAppliedBatteryIconPath(path: String) {
+        preferenceLocalDataSource.setAppliedBatteryIconPath(path)
+        notifySettingsChanged()
+    }
+
+    override fun getAppliedAnimationPath(): String {
+        return preferenceLocalDataSource.getAppliedAnimationPath()
+    }
+
+    override fun setAppliedAnimationPath(path: String) {
+        preferenceLocalDataSource.setAppliedAnimationPath(path)
+        notifySettingsChanged()
+    }
+
     override fun getMascotSize(): Int {
         return preferenceLocalDataSource.getMascotSize()
     }
@@ -378,6 +420,14 @@ class PreferenceRepositoryImpl(
 
     override fun setFloatingStickerDrawableRes(res: Int) {
         preferenceLocalDataSource.setFloatingStickerDrawableRes(res)
+    }
+
+    override fun getFloatingStickerImagePath(): String {
+        return preferenceLocalDataSource.getFloatingStickerImagePath()
+    }
+
+    override fun setFloatingStickerImagePath(path: String) {
+        preferenceLocalDataSource.setFloatingStickerImagePath(path)
     }
 
     override fun getFloatingStickerX(): Int {

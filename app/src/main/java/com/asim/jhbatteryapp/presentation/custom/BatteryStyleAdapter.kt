@@ -6,13 +6,17 @@ import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.asim.jhbatteryapp.R
+import com.asim.jhbatteryapp.data.remote.RemoteImageLoader
 import com.asim.jhbatteryapp.databinding.ItemCustomBatteryStyleBinding
+import com.asim.jhbatteryapp.domain.model.RemoteAssetItem
 
 data class BatteryStyleItem(
     val id: String,
     val drawableRes: Int,
     val isSelected: Boolean = false,
-    val isTintable: Boolean = true
+    val isTintable: Boolean = false,
+    /** Set for a battery icon from the remote manifest; [drawableRes] is then 0. */
+    val remote: RemoteAssetItem? = null
 )
 
 class BatteryStyleAdapter(
@@ -48,9 +52,17 @@ class BatteryStyleAdapter(
 
     override fun onBindViewHolder(holder: StyleViewHolder, position: Int) {
         holder.bind(items[position], items[position].id == selectedId)
+        if (items[position].remote != null) {
+            val next = items.drop(position + 1).take(PREFETCH_AHEAD).mapNotNull { it.remote }
+            RemoteImageLoader.prefetch(next)
+        }
     }
 
     override fun getItemCount(): Int = items.size
+
+    private companion object {
+        const val PREFETCH_AHEAD = 6
+    }
 
     inner class StyleViewHolder(
         private val binding: ItemCustomBatteryStyleBinding
@@ -63,7 +75,14 @@ class BatteryStyleAdapter(
                 R.drawable.bg_custom_icon_item
             }
             binding.clBatteryStyleCard.setBackgroundResource(bgRes)
-            binding.ivBatteryStyleIcon.setImageResource(item.drawableRes)
+            if (item.remote != null) {
+                binding.ivBatteryStyleIcon.setImageDrawable(null)
+                RemoteImageLoader.loadImage(item.remote, binding.ivBatteryStyleIcon)
+            } else {
+                // Clear the tag so a remote load still in flight doesn't overwrite this icon
+                binding.ivBatteryStyleIcon.tag = null
+                binding.ivBatteryStyleIcon.setImageResource(item.drawableRes)
+            }
             if (item.isTintable) {
                 binding.ivBatteryStyleIcon.imageTintList = ContextCompat.getColorStateList(binding.root.context, R.color.primary_blue)
             } else {

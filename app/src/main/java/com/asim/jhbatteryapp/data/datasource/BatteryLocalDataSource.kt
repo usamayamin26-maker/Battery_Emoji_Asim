@@ -59,197 +59,7 @@ class BatteryLocalDataSource {
                 isTopPick = true,
                 tags = listOf("cute", "bunny", "blue", "heart")
             ),
-            BatteryEmojiItem(
-                id = "2",
-                title = "Pink Blossom",
-                category = "hot",
-                previewDrawableRes = R.drawable.ic_blueprint_girl_pink,
-                backgroundColorRes = R.color.card_bg_pink,
-                batteryPercentage = 85,
-                batteryColorRes = R.color.battery_pink,
-                isHot = true,
-                isRecent = true,
-                isTopPick = true,
-                tags = listOf("anime", "pink", "girl", "cute")
-            ),
-            BatteryEmojiItem(
-                id = "3",
-                title = "Scholar Cat",
-                category = "hot",
-                previewDrawableRes = R.drawable.battery_pupy,
-                backgroundColorRes = R.color.card_bg_gray,
-                batteryPercentage = 60,
-                batteryColorRes = R.color.battery_gray,
-                isHot = true,
-                isRecent = true,
-                isTopPick = true,
-                tags = listOf("cat", "gray", "smart", "black")
-            ),
-            BatteryEmojiItem(
-                id = "4",
-                title = "Lucky Frog",
-                category = "pokemon",
-                previewDrawableRes = R.drawable.ic_blueprint_frog_green,
-                backgroundColorRes = R.color.card_bg_green,
-                batteryPercentage = 95,
-                batteryColorRes = R.color.battery_green,
-                isHot = true,
-                isRecent = true,
-                isTopPick = false,
-                tags = listOf("frog", "green", "lucky", "nature")
-            ),
-            BatteryEmojiItem(
-                id = "5",
-                title = "Starry Buddy",
-                category = "anime",
-                previewDrawableRes = R.drawable.ic_blueprint_stitch_yellow,
-                backgroundColorRes = R.color.card_bg_yellow,
-                batteryPercentage = 75,
-                batteryColorRes = R.color.battery_yellow,
-                isHot = true,
-                isRecent = false,
-                isTopPick = true,
-                tags = listOf("stitch", "yellow", "blue", "alien")
-            ),
-            BatteryEmojiItem(
-                id = "6",
-                title = "Lilac Melody",
-                category = "sanrio",
-                previewDrawableRes = R.drawable.ic_blueprint_melody_purple,
-                backgroundColorRes = R.color.card_bg_purple,
-                batteryPercentage = 90,
-                batteryColorRes = R.color.battery_purple,
-                isHot = true,
-                isRecent = true,
-                isTopPick = true,
-                tags = listOf("sanrio", "purple", "melody", "bunny")
-            ),
-            // Repeat to form a full grid as seen in the screenshot
-            BatteryEmojiItem(
-                id = "7",
-                title = "Cloud Bunny II",
-                category = "sanrio",
-                previewDrawableRes = R.drawable.ic_blueprint_bunny_blue,
-                backgroundColorRes = R.color.card_bg_blue,
-                batteryPercentage = 100,
-                batteryColorRes = R.color.battery_blue,
-                isHot = false,
-                isRecent = false,
-                isTopPick = false,
-                tags = listOf("cute", "bunny", "blue")
-            ),
-            BatteryEmojiItem(
-                id = "8",
-                title = "Pink Blossom II",
-                category = "anime",
-                previewDrawableRes = R.drawable.ic_blueprint_girl_pink,
-                backgroundColorRes = R.color.card_bg_pink,
-                batteryPercentage = 80,
-                batteryColorRes = R.color.battery_pink,
-                isHot = false,
-                isRecent = false,
-                isTopPick = false,
-                tags = listOf("anime", "pink")
-            ),
-            BatteryEmojiItem(
-                id = "9",
-                title = "Scholar Cat II",
-                category = "pokemon",
-                previewDrawableRes = R.drawable.ic_blueprint_cat_gray,
-                backgroundColorRes = R.color.card_bg_gray,
-                batteryPercentage = 50,
-                batteryColorRes = R.color.battery_gray,
-                isHot = false,
-                isRecent = false,
-                isTopPick = false,
-                tags = listOf("cat", "gray")
-            ),
-            BatteryEmojiItem(
-                id = "7",
-                title = "Cloud Bunny II",
-                category = "sanrio",
-                previewDrawableRes = R.drawable.ic_blueprint_bunny_blue,
-                backgroundColorRes = R.color.card_bg_blue,
-                batteryPercentage = 100,
-                batteryColorRes = R.color.battery_blue,
-                isHot = false,
-                isRecent = false,
-                isTopPick = false,
-                tags = listOf("cute", "bunny", "blue")
-            ),
-            BatteryEmojiItem(
-                id = "8",
-                title = "Pink Blossom II",
-                category = "anime",
-                previewDrawableRes = R.drawable.ic_blueprint_girl_pink,
-                backgroundColorRes = R.color.card_bg_pink,
-                batteryPercentage = 80,
-                batteryColorRes = R.color.battery_pink,
-                isHot = false,
-                isRecent = false,
-                isTopPick = false,
-                tags = listOf("anime", "pink")
-            ),
-            BatteryEmojiItem(
-                id = "9",
-                title = "Scholar Cat II",
-                category = "pokemon",
-                previewDrawableRes = R.drawable.ic_blueprint_cat_gray,
-                backgroundColorRes = R.color.card_bg_gray,
-                batteryPercentage = 50,
-                batteryColorRes = R.color.battery_gray,
-                isHot = false,
-                isRecent = false,
-                isTopPick = false,
-                tags = listOf("cat", "gray")
-            ),
-            BatteryEmojiItem(
-                id = "7",
-                title = "Cloud Bunny II",
-                category = "sanrio",
-                previewDrawableRes = R.drawable.ic_blueprint_bunny_blue,
-                backgroundColorRes = R.color.card_bg_blue,
-                batteryPercentage = 100,
-                batteryColorRes = R.color.battery_blue,
-                isHot = false,
-                isRecent = false,
-                isTopPick = false,
-                tags = listOf("cute", "bunny", "blue")
-            ),
-            BatteryEmojiItem(
-                id = "8",
-                title = "Pink Blossom II",
-                category = "anime",
-                previewDrawableRes = R.drawable.ic_blueprint_girl_pink,
-                backgroundColorRes = R.color.card_bg_pink,
-                batteryPercentage = 80,
-                batteryColorRes = R.color.battery_pink,
-                isHot = false,
-                isRecent = false,
-                isTopPick = false,
-                tags = listOf("anime", "pink")
-            ),
-            BatteryEmojiItem(
-                id = "9",
-                title = "Scholar Cat II",
-                category = "pokemon",
-                previewDrawableRes = R.drawable.ic_blueprint_cat_gray,
-                backgroundColorRes = R.color.card_bg_gray,
-                batteryPercentage = 50,
-                batteryColorRes = R.color.battery_gray,
-                isHot = false,
-                isRecent = false,
-                isTopPick = false,
-                tags = listOf("cat", "gray")
-            ),
-//            BatteryEmojiItem(
-//                id = "battery1",
-//                title = "battery1",
-//                category = "pokemon",
-//                previewDrawableRes = R.drawable.battery_01,
-//                isHot = true,
-//                isRecent = true
-//            ),
+
 //            BatteryEmojiItem(
 //                id = "battery2",
 //                title = "battery2",
@@ -404,78 +214,78 @@ class BatteryLocalDataSource {
 //                isRecent = true
 //            ),
 
-            BatteryEmojiItem(
-                id = "battery21",
-                title = "battery21",
-                category = "pokemon",
-                previewDrawableRes = R.drawable.battery1,
-                isHot = true,
-                isRecent = true
-            ),
-            BatteryEmojiItem(
-                id = "battery22",
-                title = "Battery 2",
-                category = "pokemon",
-                previewDrawableRes = R.drawable.battery2,
-                isHot = true,
-                isRecent = true
-            ),
-            BatteryEmojiItem(
-                id = "battery23",
-                title = "Battery 3",
-                category = "pokemon",
-                previewDrawableRes = R.drawable.battery3,
-                isHot = true,
-                isRecent = true
-            ),
-            BatteryEmojiItem(
-                id = "battery24",
-                title = "Battery 4",
-                category = "pokemon",
-                previewDrawableRes = R.drawable.battery4,
-                isHot = true,
-                isRecent = true
-            ),
-            BatteryEmojiItem(
-                id = "battery5",
-                title = "Battery 5",
-                category = "pokemon",
-                previewDrawableRes = R.drawable.battery5,
-                isHot = true,
-                isRecent = true
-            ),
-            BatteryEmojiItem(
-                id = "battery26",
-                title = "Battery 6",
-                category = "pokemon",
-                previewDrawableRes = R.drawable.battery6,
-                isHot = true,
-                isRecent = true
-            ),
-            BatteryEmojiItem(
-                id = "battery27",
-                title = "Battery 7",
-                category = "pokemon",
-                previewDrawableRes = R.drawable.battery_21,
-                isHot = true,
-                isRecent = true
-            ),
-            BatteryEmojiItem(
-                id = "battery28",
-                title = "Battery 8",
-                category = "pokemon",
-                previewDrawableRes = R.drawable.battery_22,
-                isHot = true,
-                isRecent = true
-            ),
-            BatteryEmojiItem(
-                id = "battery29",
-                title = "Battery 9",
-                category = "pokemon",
-                previewDrawableRes = R.drawable.battery_23,
-                isHot = true,
-                isRecent = true
-            )
+//            BatteryEmojiItem(
+//                id = "battery21",
+//                title = "battery21",
+//                category = "pokemon",
+//                previewDrawableRes = R.drawable.battery1,
+//                isHot = true,
+//                isRecent = true
+//            ),
+//            BatteryEmojiItem(
+//                id = "battery22",
+//                title = "Battery 2",
+//                category = "pokemon",
+//                previewDrawableRes = R.drawable.battery2,
+//                isHot = true,
+//                isRecent = true
+//            ),
+//            BatteryEmojiItem(
+//                id = "battery23",
+//                title = "Battery 3",
+//                category = "pokemon",
+//                previewDrawableRes = R.drawable.battery3,
+//                isHot = true,
+//                isRecent = true
+//            ),
+//            BatteryEmojiItem(
+//                id = "battery24",
+//                title = "Battery 4",
+//                category = "pokemon",
+//                previewDrawableRes = R.drawable.battery4,
+//                isHot = true,
+//                isRecent = true
+//            ),
+//            BatteryEmojiItem(
+//                id = "battery5",
+//                title = "Battery 5",
+//                category = "pokemon",
+//                previewDrawableRes = R.drawable.battery5,
+//                isHot = true,
+//                isRecent = true
+//            ),
+//            BatteryEmojiItem(
+//                id = "battery26",
+//                title = "Battery 6",
+//                category = "pokemon",
+//                previewDrawableRes = R.drawable.battery6,
+//                isHot = true,
+//                isRecent = true
+//            ),
+//            BatteryEmojiItem(
+//                id = "battery27",
+//                title = "Battery 7",
+//                category = "pokemon",
+//                previewDrawableRes = R.drawable.battery_21,
+//                isHot = true,
+//                isRecent = true
+//            ),
+//            BatteryEmojiItem(
+//                id = "battery28",
+//                title = "Battery 8",
+//                category = "pokemon",
+//                previewDrawableRes = R.drawable.battery_22,
+//                isHot = true,
+//                isRecent = true
+//            ),
+//            BatteryEmojiItem(
+//                id = "battery29",
+//                title = "Battery 9",
+//                category = "pokemon",
+//                previewDrawableRes = R.drawable.battery_23,
+//                isHot = true,
+//                isRecent = true
+//            )
 
 
         )
@@ -674,48 +484,6 @@ class BatteryLocalDataSource {
                 category = "sanrio",
                 drawableRes = R.drawable.ic_blueprint_puppy
             ),
-            com.asim.jhbatteryapp.domain.model.StickerItem(
-                id = "stk_girl",
-                title = "Pink Blossom",
-                category = "anime",
-                drawableRes = R.drawable.ic_blueprint_girl_pink
-            ),
-            com.asim.jhbatteryapp.domain.model.StickerItem(
-                id = "stk_cat",
-                title = "Smart Scholar",
-                category = "anime",
-                drawableRes = R.drawable.ic_blueprint_cat_gray
-            ),
-            com.asim.jhbatteryapp.domain.model.StickerItem(
-                id = "stk_frog",
-                title = "Lucky Frog",
-                category = "pokemon",
-                drawableRes = R.drawable.ic_blueprint_frog_green
-            ),
-            com.asim.jhbatteryapp.domain.model.StickerItem(
-                id = "stk_stitch",
-                title = "Starry Stitch",
-                category = "pokemon",
-                drawableRes = R.drawable.ic_blueprint_stitch_yellow
-            ),
-            com.asim.jhbatteryapp.domain.model.StickerItem(
-                id = "stk_melody",
-                title = "Purple Melody",
-                category = "sanrio",
-                drawableRes = R.drawable.ic_blueprint_melody_purple
-            ),
-            com.asim.jhbatteryapp.domain.model.StickerItem(
-                id = "stk_poke",
-                title = "Electric Mouse",
-                category = "pokemon",
-                drawableRes = R.drawable.poke
-            ),
-            com.asim.jhbatteryapp.domain.model.StickerItem(
-                id = "stk_bunny",
-                title = "Cloud Bunny",
-                category = "sanrio",
-                drawableRes = R.drawable.ic_blueprint_bunny_blue
-            )
         )
         return if (category.isNullOrEmpty() || category.equals("hot", ignoreCase = true)) {
             allStickers

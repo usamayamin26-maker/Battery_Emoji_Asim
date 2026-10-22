@@ -13,6 +13,7 @@ import android.view.View
 import android.view.WindowManager
 import android.view.accessibility.AccessibilityEvent
 import com.asim.jhbatteryapp.R
+import com.asim.jhbatteryapp.data.remote.RemoteImageLoader
 import com.asim.jhbatteryapp.data.repository.PreferenceRepositoryImpl
 import com.asim.jhbatteryapp.databinding.LayoutFloatingStickerBinding
 import com.asim.jhbatteryapp.databinding.LayoutStatusBarOverlayBinding
@@ -45,6 +46,8 @@ class StatusBarAccessibilityService : AccessibilityService() {
     var stickerCurrentRotationDeg: Float = 0f
         private set
     var stickerCurrentDrawableRes: Int = R.drawable.ic_sticker_player_blue
+        private set
+    var stickerCurrentImagePath: String = ""
         private set
 
     val preferenceRepository: PreferenceRepository by lazy {
@@ -143,6 +146,7 @@ class StatusBarAccessibilityService : AccessibilityService() {
             stickerCurrentSizeDp = preferenceRepository.getFloatingStickerSize().coerceIn(30, 150)
             stickerCurrentRotationDeg = preferenceRepository.getFloatingStickerRotation()
             stickerCurrentDrawableRes = preferenceRepository.getFloatingStickerDrawableRes()
+            stickerCurrentImagePath = preferenceRepository.getFloatingStickerImagePath()
 
             val savedX = preferenceRepository.getFloatingStickerX()
             val savedY = preferenceRepository.getFloatingStickerY()
@@ -174,7 +178,7 @@ class StatusBarAccessibilityService : AccessibilityService() {
             stickerLayoutParams = lp
 
             val b = stickerBinding ?: return
-            b.ivFloatingSticker.setImageResource(stickerCurrentDrawableRes)
+            RemoteImageLoader.bindSticker(b.ivFloatingSticker, stickerCurrentDrawableRes, stickerCurrentImagePath)
             val ivParams = b.ivFloatingSticker.layoutParams
             if (ivParams != null) {
                 ivParams.width = sizePx
@@ -276,9 +280,11 @@ class StatusBarAccessibilityService : AccessibilityService() {
         updateStickerVisuals()
     }
 
-    fun updateStickerDrawable(drawableRes: Int) {
+    fun updateStickerDrawable(drawableRes: Int, imagePath: String? = null) {
         stickerCurrentDrawableRes = drawableRes
+        stickerCurrentImagePath = imagePath.orEmpty()
         preferenceRepository.setFloatingStickerDrawableRes(drawableRes)
+        preferenceRepository.setFloatingStickerImagePath(stickerCurrentImagePath)
         updateStickerVisuals()
     }
 
@@ -302,7 +308,7 @@ class StatusBarAccessibilityService : AccessibilityService() {
         val b = stickerBinding ?: return
         val density = resources.displayMetrics.density
 
-        b.ivFloatingSticker.setImageResource(stickerCurrentDrawableRes)
+        RemoteImageLoader.bindSticker(b.ivFloatingSticker, stickerCurrentDrawableRes, stickerCurrentImagePath)
 
         val sizePx = (stickerCurrentSizeDp * density).toInt()
         val ivParams = b.ivFloatingSticker.layoutParams
@@ -480,6 +486,7 @@ class StatusBarAccessibilityService : AccessibilityService() {
             inst.preferenceRepository.setAppliedAnimationLottie(isLottie)
             inst.preferenceRepository.setAppliedMascotDrawableRes(fallbackDrawableRes)
             inst.preferenceRepository.setLeftStatusEmojiRes(0)
+            inst.preferenceRepository.setLeftStatusEmojiPath("")
             inst.preferenceRepository.setMascotSize(sizeDp)
             inst.preferenceRepository.setCustomIconSize("animation", sizeDp)
             inst.preferenceRepository.setCustomIconEnabled("animation", true)
@@ -499,6 +506,7 @@ class StatusBarAccessibilityService : AccessibilityService() {
         // Floating Sticker Controls (Accessibility Overlay Layer)
         fun showFloatingSticker(
             drawableRes: Int,
+            imagePath: String? = null,
             sizeDp: Int = 60,
             rotationDeg: Float = 0f,
             x: Int? = null,
@@ -507,6 +515,7 @@ class StatusBarAccessibilityService : AccessibilityService() {
             val inst = instance ?: return
             inst.preferenceRepository.setFloatingStickerEnabled(true)
             inst.preferenceRepository.setFloatingStickerDrawableRes(drawableRes)
+            inst.preferenceRepository.setFloatingStickerImagePath(imagePath.orEmpty())
             inst.preferenceRepository.setFloatingStickerSize(sizeDp)
             inst.preferenceRepository.setFloatingStickerRotation(rotationDeg)
             if (x != null && y != null) {
@@ -517,7 +526,7 @@ class StatusBarAccessibilityService : AccessibilityService() {
             if (!inst.isStickerAttached) {
                 inst.initFloatingStickerView()
             } else {
-                inst.updateStickerDrawable(drawableRes)
+                inst.updateStickerDrawable(drawableRes, imagePath)
                 inst.updateStickerSize(sizeDp)
                 inst.updateStickerRotation(rotationDeg)
                 if (x != null && y != null) {
@@ -538,8 +547,8 @@ class StatusBarAccessibilityService : AccessibilityService() {
             instance?.updateStickerRotation(rotDeg)
         }
 
-        fun updateFloatingStickerDrawable(drawableRes: Int) {
-            instance?.updateStickerDrawable(drawableRes)
+        fun updateFloatingStickerDrawable(drawableRes: Int, imagePath: String? = null) {
+            instance?.updateStickerDrawable(drawableRes, imagePath)
         }
 
         fun stopFloatingSticker() {

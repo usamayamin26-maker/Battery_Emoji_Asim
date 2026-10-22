@@ -68,9 +68,9 @@ object SplashAds {
      * Whether the config currently in hand asks for a splash full-screen ad at all. Read before
      * waiting on [AdsBootstrap], so the ads-off path costs nothing.
      */
-    fun isWorthWaitingFor(): Boolean {
+    fun isWorthWaitingFor(appOpenOnly: Boolean = false): Boolean {
         val config = RemoteConfigManager.current()
-        val hasFormatOn = isAppOpenOn(config) || isInterstitialOn(config)
+        val hasFormatOn = isAppOpenOn(config) || (!appOpenOnly && isInterstitialOn(config))
         return hasFormatOn || config.isOn("is_show_admob_splash_native")
     }
 
@@ -95,10 +95,16 @@ object SplashAds {
      * Splitting the load from the show is what lets the splash put a Continue button in front of
      * the ad instead of dropping one on the user unannounced. Nothing about the chain or the
      * preference's meaning changes: this is [showInOrder] with the show step deferred.
+     *
+     * [appOpenOnly] drops the interstitial from the chain, whatever the preference says.
      */
-    fun load(activity: Activity, onResult: (Loaded?) -> Unit): () -> Unit {
+    fun load(
+        activity: Activity,
+        appOpenOnly: Boolean = false,
+        onResult: (Loaded?) -> Unit,
+    ): () -> Unit {
         val config = RemoteConfigManager.current()
-        val order = orderFor(config)
+        val order = orderFor(config).filter { !appOpenOnly || it == Format.APP_OPEN }
 
         if (order.isEmpty()) {
             Log.d(TAG, "No splash full-screen ad: preference=${config.splashAdPreference}")
@@ -154,11 +160,14 @@ object SplashAds {
     /**
      * Shows an ad [load] handed back, then runs [onDone] - dismissed or failed to show, the splash
      * moves on either way. [onDone] runs exactly once.
+     *
+     * [keepBackdrop] leaves the black backdrop up after an app open ad; pass false when the splash
+     * stays on screen afterwards instead of routing straight on.
      */
-    fun show(activity: Activity, loaded: Loaded, onDone: () -> Unit) {
+    fun show(activity: Activity, loaded: Loaded, keepBackdrop: Boolean = true, onDone: () -> Unit) {
         when (loaded) {
             is Loaded.AppOpen ->
-                AppOpenAdManager.show(activity, loaded.ad, { onDone() }, keepBackdrop = true)
+                AppOpenAdManager.show(activity, loaded.ad, { onDone() }, keepBackdrop = keepBackdrop)
 
             is Loaded.Interstitial ->
                 InterstitialAdManager.show(activity, loaded.ad) { onDone() }

@@ -7,6 +7,7 @@ import android.os.Bundle
 import com.asim.jhbatteryapp.BuildConfig
 import com.asim.jhbatteryapp.ads.AppAds
 import com.asim.jhbatteryapp.ads.RemoteConfigManager
+import com.asim.jhbatteryapp.data.remote.RemoteImageLoader
 import com.asim.jhbatteryapp.presentation.splash.SplashActivity
 import com.asim.jhbatteryapp.presentation.welcome.WelcomeActivity
 import com.universal.remote.ads.AdsController
@@ -17,6 +18,13 @@ class JHBatteryApplication : Application() {
     private var startedActivityCount = 0
     private var isChangingConfig = false
     private var hasActiveScreenInBackground = false
+
+    /**
+     * True when this return from background launched WelcomeActivity, which shows its own app open
+     * ad. Our activity callbacks run before AdsController's (registered first in onCreate), so this
+     * is set before ResumeAppOpenManager asks [AdsSetup.allowResumeAd] — one ad per return, not two.
+     */
+    private var welcomeShowsResumeAd = false
 
     override fun onCreate() {
         super.onCreate()
@@ -67,11 +75,17 @@ class JHBatteryApplication : Application() {
                 remoteConfigKey = AppAds.REMOTE_CONFIG_KEY,
                 defaultJson = AppAds.DEFAULT_JSON,
                 isDebug = BuildConfig.DEBUG,
+                allowResumeAd = { !welcomeShowsResumeAd },
             ),
         )
+
+        // Remove the old-format caches of earlier builds (current cache: remote_asset_cache)
+        RemoteImageLoader.purgeLegacyDiskCache(this)
     }
 
     private fun onAppReturnedToForeground(startedActivity: Activity) {
+        welcomeShowsResumeAd = false
+
         // 1. If user navigated to settings for permission, skip welcome screen completely
         if (isPermissionNavigation) {
             isPermissionNavigation = false
@@ -99,6 +113,7 @@ class JHBatteryApplication : Application() {
             addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
             putExtra("IS_REOPEN", true)
         }
+        welcomeShowsResumeAd = true
         startActivity(intent)
     }
 

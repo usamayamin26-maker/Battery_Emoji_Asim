@@ -98,6 +98,12 @@ class EmojiBatteryCardView @JvmOverloads constructor(
         cardContainer.setOnClickListener(listener)
     }
 
+    /**
+     * Exposes the internal mascot [ImageView] for remote image loading.
+     * Used by adapters that load images from URLs rather than drawable resources.
+     */
+    fun getEmojiImageView(): ImageView = mascotImageView
+
     private fun setupTouchFeedback() {
         cardContainer.setOnTouchListener { view, event ->
             when (event.action) {

@@ -1,0 +1,60 @@
+{
+  "manifestVersion": 2,
+  "generatedAt": "2026-10-22",
+  "minAppVersion": 1,
+  "categories": [
+    { "id": "trending", "name": "Trending" },
+    { "id": "halloween", "name": "Halloween" },
+    { "id": "wc2", "name": "WC2" }
+  ],
+  "assets": [
+    {
+      "id": "battery_trending_01",
+      "name": "Neon Battery",
+      "category": "trending",
+      "type": "battery",
+      "format": "png",
+      "downloadUrl": "https://www.dropbox.com/scl/fi/REPLACE_ME/battery_trending_01.png?rlkey=REPLACE_ME&dl=1"
+    },
+    {
+      "id": "battery_trending_02",
+      "name": "Heart Battery",
+      "category": "trending",
+      "type": "battery",
+      "format": "svg",
+      "downloadUrl": "https://www.dropbox.com/scl/fi/REPLACE_ME/battery_trending_02.svg?rlkey=REPLACE_ME&dl=1"
+    },
+    {
+      "id": "battery_halloween_01",
+      "name": "Pumpkin Battery",
+      "category": "halloween",
+      "type": "battery",
+      "format": "png",
+      "downloadUrl": "https://www.dropbox.com/scl/fi/REPLACE_ME/battery_halloween_01.png?rlkey=REPLACE_ME&dl=1"
+    },
+    {
+      "id": "battery_halloween_02",
+      "name": "Ghost Battery",
+      "category": "halloween",
+      "type": "battery",
+      "format": "webp",
+      "downloadUrl": "https://www.dropbox.com/scl/fi/REPLACE_ME/battery_halloween_02.webp?rlkey=REPLACE_ME&dl=1"
+    },
+    {
+      "id": "battery_wc2_01",
+      "name": "Football Battery",
+      "category": "wc2",
+      "type": "battery",
+      "format": "png",
+      "downloadUrl": "https://www.dropbox.com/scl/fi/REPLACE_ME/battery_wc2_01.png?rlkey=REPLACE_ME&dl=1"
+    },
+    {
+      "id": "battery_wc2_02",
+      "name": "Trophy Battery",
+      "category": "wc2",
+      "type": "battery",
+      "format": "png",
+      "downloadUrl": "https://www.dropbox.com/scl/fi/REPLACE_ME/battery_wc2_02.png?rlkey=REPLACE_ME&dl=1"
+    }
+  ]
+}

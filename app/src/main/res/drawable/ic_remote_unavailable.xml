@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Shown when a remote asset isn't cached and can't be downloaded (offline / broken link) -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="48dp"
+    android:height="48dp"
+    android:viewportWidth="48"
+    android:viewportHeight="48">
+    <path
+        android:fillColor="#26808080"
+        android:pathData="M12,6h24a6,6 0,0 1,6 6v24a6,6 0,0 1,-6 6h-24a6,6 0,0 1,-6 -6v-24a6,6 0,0 1,6 -6z" />
+    <path
+        android:fillColor="#80808080"
+        android:pathData="M17,17h14v2h-14zM17,23h14v2h-14zM17,29h9v2h-9z" />
+    <path
+        android:fillColor="#80808080"
+        android:pathData="M14.4,12.99l20.6,20.6l-1.41,1.41l-20.6,-20.6z" />
+</vector>

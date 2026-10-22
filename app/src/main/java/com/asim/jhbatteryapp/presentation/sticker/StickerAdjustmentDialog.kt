@@ -6,6 +6,7 @@ import android.graphics.drawable.ColorDrawable
 import android.view.WindowManager
 import android.widget.SeekBar
 import com.asim.jhbatteryapp.core.Utils.MyUtils
+import com.asim.jhbatteryapp.data.remote.RemoteImageLoader
 import com.asim.jhbatteryapp.databinding.DialogStickerAdjustmentBinding
 import com.asim.jhbatteryapp.domain.model.StickerItem
 import com.asim.jhbatteryapp.presentation.common.StatusBarPermissionHelper
@@ -49,7 +50,7 @@ class StickerAdjustmentDialog(
             }
 
             // Setup views
-            binding.ivAdjustmentSticker.setImageResource(sticker.drawableRes)
+            RemoteImageLoader.bindSticker(binding.ivAdjustmentSticker, sticker.drawableRes, sticker.imagePath)
             binding.sbAdjustmentSize.progress = currentSize
             binding.tvSizeValue.text = "${currentSize}dp"
             binding.sbAdjustmentRotate.progress = currentRotate
@@ -127,10 +128,11 @@ class StickerAdjustmentDialog(
                 FloatingStickerService.start(
                     context = context,
                     drawableRes = sticker.drawableRes,
+                    imagePath = sticker.imagePath,
                     sizeDp = currentSize,
                     rotationDeg = ((currentRotate - 50) * 3.6f)
                 )
-                FloatingStickerService.updateStickerDrawable(sticker.drawableRes)
+                FloatingStickerService.updateStickerDrawable(sticker.drawableRes, sticker.imagePath)
             }
         }
     }

@@ -63,7 +63,7 @@ class SplashActivity : AppCompatActivity() {
             bindAdSlots()
             Log.i(TAG, "lifecycleScope.launch: Ad slots bound")
 
-            // 3. Load full-screen splash ad and wait for minimum branding delay
+            // 3. Load the splash app open ad and wait for minimum branding delay
             Log.i(TAG, "lifecycleScope.launch: Launching ad load and min delay")
             val adLoadJob = launch { loadSplashAdIfAny() }
             val minDelayJob = launch { delay(SPLASH_DURATION_MS) }
@@ -73,20 +73,25 @@ class SplashActivity : AppCompatActivity() {
             minDelayJob.join()
             Log.i(TAG, "lifecycleScope.launch: Ad load and min delay finished")
 
-            // 5. If full-screen ad is loaded, show it automatically!
+            // 4. If the app open ad loaded, show it automatically; Continue appears once it closes
             val ad = loadedSplashAd
             if (ad != null && !isFinishing) {
-                Log.i(TAG, "lifecycleScope.launch: Showing splash ad automatically")
+                Log.i(TAG, "lifecycleScope.launch: Showing splash app open ad automatically")
                 loadedSplashAd = null
-                SplashAds.show(this@SplashActivity, ad) {
-                    routeOnwards()
+                SplashAds.show(this@SplashActivity, ad, keepBackdrop = false) {
+                    showContinueButton()
                 }
             } else if (!isFinishing) {
-                Log.i(TAG, "lifecycleScope.launch: Showing continue button as fallback")
-                binding.gradientProgressIndicator.visibility = View.GONE
-                binding.btnContinue.visibility = View.VISIBLE
+                Log.i(TAG, "lifecycleScope.launch: No app open ad, showing continue button")
+                showContinueButton()
             }
         }
+    }
+
+    private fun showContinueButton() {
+        if (isFinishing) return
+        binding.gradientProgressIndicator.visibility = View.GONE
+        binding.btnContinue.visibility = View.VISIBLE
     }
 
     private fun bindAdSlots() {
@@ -100,24 +105,15 @@ class SplashActivity : AppCompatActivity() {
         Log.i(TAG, "onContinueClicked: Button clicked")
         binding.btnContinue.isEnabled = false
 
-        val ad = loadedSplashAd
-        if (ad != null) {
-            loadedSplashAd = null
-            Log.i(TAG, "onContinueClicked: Showing pre-loaded splash ad")
-            SplashAds.show(this, ad) {
-                Log.i(TAG, "onContinueClicked: Splash ad dismissed, routing onwards")
-                routeOnwards()
-            }
-        } else {
-            Log.i(TAG, "onContinueClicked: No pre-loaded ad, showing full-screen native via AdsController")
-            AdsController.fullScreenNative(
-                activity = this,
-                flag = "is_show_admob_splash_native",
-                unitKey = "admob_splash_native_id"
-            ) {
-                Log.i(TAG, "onContinueClicked: Full-screen native finished, routing onwards")
-                routeOnwards()
-            }
+        // The full-screen native is shown only from this button, never automatically
+        Log.i(TAG, "onContinueClicked: Showing full-screen native via AdsController")
+        AdsController.fullScreenNative(
+            activity = this,
+            flag = "is_show_admob_splash_native",
+            unitKey = "admob_splash_native_id"
+        ) {
+            Log.i(TAG, "onContinueClicked: Full-screen native finished, routing onwards")
+            routeOnwards()
         }
     }
 
@@ -150,7 +146,7 @@ class SplashActivity : AppCompatActivity() {
 
     private suspend fun loadSplashAdIfAny() {
         Log.i(TAG, "loadSplashAdIfAny: Checking if splash ad is worth waiting for")
-        val worthWaiting = SplashAds.isWorthWaitingFor()
+        val worthWaiting = SplashAds.isWorthWaitingFor(appOpenOnly = true)
 
         if (!worthWaiting) {
             Log.i(TAG, "loadSplashAdIfAny: Early exit - no splash ad configured in Remote Config")
@@ -176,7 +172,8 @@ class SplashActivity : AppCompatActivity() {
         
         Log.i(TAG, "loadSplashAdIfAny: Requesting splash ad load")
         loadedSplashAd = suspendCancellableCoroutine { continuation ->
-            cancelSplashAdLoad = SplashAds.load(this@SplashActivity) { loaded ->
+            // App open only: the splash never shows an interstitial
+            cancelSplashAdLoad = SplashAds.load(this@SplashActivity, appOpenOnly = true) { loaded ->
                 cancelSplashAdLoad = null
                 Log.i(TAG, "loadSplashAdIfAny: Splash ad load finished. Result: ${if (loaded == null) "NULL" else "SUCCESS"}")
                 if (continuation.isActive) continuation.resume(loaded)

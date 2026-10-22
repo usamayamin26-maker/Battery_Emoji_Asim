@@ -14,14 +14,17 @@ import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.asim.jhbatteryapp.R
+import com.asim.jhbatteryapp.data.remote.RemoteImageLoader
 import com.asim.jhbatteryapp.databinding.FragmentStatusBarCustomBinding
 import com.asim.jhbatteryapp.presentation.common.StatusBarPermissionHelper
 import com.asim.jhbatteryapp.presentation.home.BatteryEmojiAdapter
 import com.asim.jhbatteryapp.service.StatusBarAccessibilityService
 import com.asim.jhbatteryapp.service.StatusBarOverlayService
 import com.universal.remote.ads.AdsController
+import kotlinx.coroutines.launch
 
 class StatusBarCustomFragment : Fragment() {
 
@@ -104,9 +107,10 @@ class StatusBarCustomFragment : Fragment() {
         }
         binding.rvBatteryStyles.adapter = batteryStyleAdapter
 
-        mascotAdapter = BatteryEmojiAdapter { emojiItem ->
-            viewModel.selectMascot(emojiItem)
-        }
+        mascotAdapter = BatteryEmojiAdapter(
+            onRemoteItemClick = { remoteMascot -> viewModel.selectRemoteMascot(remoteMascot) },
+            onItemClick = { emojiItem -> viewModel.selectMascot(emojiItem) }
+        )
         binding.rvBatteryMascots.adapter = mascotAdapter
 
         customIconAdapter = CustomStatusIconAdapter(
@@ -188,6 +192,7 @@ class StatusBarCustomFragment : Fragment() {
         binding.btnBatteryTabTrending.setTextColor(if (category == "trending") purple else muted)
         binding.btnBatteryTabHalloween.setTextColor(if (category == "halloween") purple else muted)
         binding.btnBatteryTabWC2.setTextColor(if (category == "wc2") purple else muted)
+        viewModel.setBatteryCategory(category)
     }
 
     private fun setupSliderListeners() {
@@ -276,19 +281,47 @@ class StatusBarCustomFragment : Fragment() {
                 return@setOnClickListener
             }
 
-            viewModel.applyCustomizations()
-            StatusBarAccessibilityService.updateCustomSettings()
-            
-            // Immediately sync left emoji as well
-            val res = viewModel.selectedLeftEmojiRes.value ?: 0
-            StatusBarAccessibilityService.updateMascot(res)
-
-            Toast.makeText(
-                requireContext(),
-                getString(R.string.apply_custom_success),
-                Toast.LENGTH_SHORT
-            ).show()
+            val remoteBattery = viewModel.selectedRemoteBattery.value
+            val remoteLeftEmoji = viewModel.selectedRemoteLeftEmoji
+            if (remoteBattery == null && remoteLeftEmoji == null) {
+                applyAndNotify(null, null)
+                return@setOnClickListener
+            }
+            // Remote picks are saved here (from the cache, downloading if needed) for the overlay
+            val appContext = requireContext().applicationContext
+            binding.btnApplyCustom.isEnabled = false
+            viewLifecycleOwner.lifecycleScope.launch {
+                val batteryPath = remoteBattery?.let { RemoteImageLoader.saveForApply(it) }
+                val leftEmojiPath = remoteLeftEmoji?.let {
+                    // Keep the battery file saved above: its path isn't stored until applyAndNotify
+                    RemoteImageLoader.saveForApply(it, alsoKeep = listOfNotNull(batteryPath))
+                }
+                _binding?.btnApplyCustom?.isEnabled = true
+                if ((remoteBattery != null && batteryPath == null) ||
+                    (remoteLeftEmoji != null && leftEmojiPath == null)
+                ) {
+                    Toast.makeText(appContext, R.string.remote_asset_download_failed, Toast.LENGTH_SHORT).show()
+                    return@launch
+                }
+                applyAndNotify(batteryPath, leftEmojiPath)
+            }
         }
+    }
+
+    private fun applyAndNotify(remoteBatteryIconPath: String?, remoteLeftEmojiPath: String?) {
+        viewModel.applyCustomizations(remoteBatteryIconPath, remoteLeftEmojiPath)
+        StatusBarAccessibilityService.updateCustomSettings()
+
+        // Immediately sync left emoji as well
+        val res = viewModel.selectedLeftEmojiRes.value ?: 0
+        StatusBarAccessibilityService.updateMascot(res)
+
+        val ctx = context ?: return
+        Toast.makeText(
+            ctx,
+            getString(R.string.apply_custom_success),
+            Toast.LENGTH_SHORT
+        ).show()
     }
 
     private fun observeViewModel() {
@@ -381,7 +414,21 @@ class StatusBarCustomFragment : Fragment() {
 
         // Dynamic Battery Icon Live Update (Shape, Custom Icon, or Mascot Emoji)
         viewModel.selectedBatteryIconRes.observe(viewLifecycleOwner) { res ->
-            binding.ivPreviewBattery.setImageResource(res)
+            // res 0 = a remote battery icon is picked, or a downloaded file is already applied
+            val pendingRemote = viewModel.selectedRemoteBattery.value
+            val remotePath = viewModel.preferenceRepository.getAppliedBatteryIconPath()
+            if (res == 0 && pendingRemote != null) {
+                RemoteImageLoader.loadImage(pendingRemote, binding.ivPreviewBattery)
+            } else if (res == 0 && remotePath.isNotEmpty()) {
+                // Clear the tag so a remote load still in flight doesn't overwrite this icon
+                binding.ivPreviewBattery.tag = null
+                binding.ivPreviewBattery.setImageBitmap(
+                    RemoteImageLoader.decodeFileForDisplay(remotePath, 200, 200)
+                )
+            } else {
+                binding.ivPreviewBattery.tag = null
+                binding.ivPreviewBattery.setImageResource(res)
+            }
             // binding.ivMiniBatteryIcon.setImageResource(res)
         }
 
@@ -392,12 +439,17 @@ class StatusBarCustomFragment : Fragment() {
 
         // Battery Styles
         viewModel.batteryStyles.observe(viewLifecycleOwner) { styles ->
-            batteryStyleAdapter.setItems(styles, "bolt")
+            batteryStyleAdapter.setItems(styles, viewModel.selectedBatteryStyle.value ?: "bolt")
         }
 
         // Mascot emojis
         viewModel.batteryMascots.observe(viewLifecycleOwner) { emojis ->
             mascotAdapter.submitList(emojis)
+        }
+
+        // Remote mascots, appended after the built-in ones (submitList clears them, so observe after)
+        viewModel.remoteMascots.observe(viewLifecycleOwner) { remote ->
+            mascotAdapter.submitRemoteList(remote)
         }
 
         // Status bar icons
@@ -415,12 +467,12 @@ class StatusBarCustomFragment : Fragment() {
         // Left Status Emojis list
         viewModel.leftStatusEmojis.observe(viewLifecycleOwner) { emojis ->
             val selected = viewModel.selectedLeftEmojiRes.value ?: 0
-            customLeftEmojiAdapter.setItems(emojis, selected)
+            customLeftEmojiAdapter.setItems(emojis, selected, viewModel.selectedLeftEmojiRemoteId)
         }
 
         // Left Status Emoji selection Live Update (shows on left side with time)
         viewModel.selectedLeftEmojiRes.observe(viewLifecycleOwner) { emojiRes ->
-            customLeftEmojiAdapter.setSelectedRes(emojiRes)
+            customLeftEmojiAdapter.setSelection(emojiRes, viewModel.selectedLeftEmojiRemoteId)
             updatePreviewAppearance()
         }
     }
@@ -476,7 +528,28 @@ class StatusBarCustomFragment : Fragment() {
                 } else 0
             }
         }
-        if (leftEmojiRes != 0) {
+        // A remote left emoji: picked now (from cache/network) or applied earlier (saved file)
+        val remoteLeftEmoji = viewModel.selectedRemoteLeftEmoji
+        val remoteLeftEmojiPath = viewModel.leftEmojiPath
+            .takeIf { it.isNotEmpty() && (viewModel.selectedLeftEmojiRes.value ?: 0) == 0 }
+        if (remoteLeftEmoji != null || remoteLeftEmojiPath != null) {
+            binding.ivPreviewLeftEmoji.visibility = View.VISIBLE
+            binding.ivPreviewLeftEmoji.imageTintList = null
+            val emojiSize = (16 * density).toInt()
+            val lp = binding.ivPreviewLeftEmoji.layoutParams
+            lp.width = (emojiSize * 1.35f).toInt()
+            lp.height = emojiSize
+            binding.ivPreviewLeftEmoji.layoutParams = lp
+            if (remoteLeftEmoji != null) {
+                RemoteImageLoader.loadImage(remoteLeftEmoji, binding.ivPreviewLeftEmoji)
+            } else if (remoteLeftEmojiPath != null) {
+                binding.ivPreviewLeftEmoji.tag = null
+                binding.ivPreviewLeftEmoji.setImageBitmap(
+                    RemoteImageLoader.decodeFileForDisplay(remoteLeftEmojiPath, lp.width, lp.height)
+                )
+            }
+        } else if (leftEmojiRes != 0) {
+            binding.ivPreviewLeftEmoji.tag = null
             binding.ivPreviewLeftEmoji.visibility = View.VISIBLE
             binding.ivPreviewLeftEmoji.setImageResource(leftEmojiRes)
             binding.ivPreviewLeftEmoji.imageTintList = null
@@ -548,8 +621,13 @@ class StatusBarCustomFragment : Fragment() {
                 "happy" -> R.drawable.ic_reaction_happy
                 else -> R.drawable.ic_reaction_love
             }
-            binding.ivPreviewEmotion.setImageResource(emotionRes)
             val s = (viewModel.preferenceRepository.getCustomIconSize("emotion") * density).toInt()
+            val remoteEmotionPath = viewModel.preferenceRepository.getStatusBarSettings().remoteEmotionPath
+            if (remoteEmotionPath != null) {
+                binding.ivPreviewEmotion.setImageBitmap(RemoteImageLoader.decodeFileForDisplay(remoteEmotionPath, s, s))
+            } else {
+                binding.ivPreviewEmotion.setImageResource(emotionRes)
+            }
             binding.ivPreviewEmotion.layoutParams.width = s
             binding.ivPreviewEmotion.layoutParams.height = s
         } else {
@@ -569,7 +647,17 @@ class StatusBarCustomFragment : Fragment() {
         val appliedAnimRes = viewModel.preferenceRepository.getAppliedAnimationRawRes()
         val isAppliedLottie = viewModel.preferenceRepository.isAppliedAnimationLottie()
 
-        if (isAnimEnabled && isAppliedLottie && appliedAnimRes != 0) {
+        val remoteAnimPath = viewModel.preferenceRepository.getStatusBarSettings().remoteAnimationPath
+        if (isAnimEnabled && remoteAnimPath != null) {
+            binding.lottiePreviewLeftAnimation.visibility = View.VISIBLE
+            val lp = binding.lottiePreviewLeftAnimation.layoutParams
+            lp.width = (animSizePx * 1.35f).toInt()
+            lp.height = animSizePx
+            binding.lottiePreviewLeftAnimation.layoutParams = lp
+            RemoteImageLoader.bindAnimationFile(
+                binding.lottiePreviewLeftAnimation, remoteAnimPath, lp.width, lp.height
+            )
+        } else if (isAnimEnabled && isAppliedLottie && appliedAnimRes != 0) {
             binding.lottiePreviewLeftAnimation.visibility = View.VISIBLE
             val lp = binding.lottiePreviewLeftAnimation.layoutParams
             lp.width = (animSizePx * 1.35f).toInt()

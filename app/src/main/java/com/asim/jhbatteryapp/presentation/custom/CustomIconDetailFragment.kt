@@ -10,13 +10,21 @@ import android.widget.SeekBar
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.asim.jhbatteryapp.R
+import com.asim.jhbatteryapp.core.Utils.AssetConfig
+import com.asim.jhbatteryapp.data.remote.RemoteImageLoader
 import com.asim.jhbatteryapp.data.repository.PreferenceRepositoryImpl
+import com.asim.jhbatteryapp.data.repository.RemoteAssetRepositoryImpl
 import com.asim.jhbatteryapp.databinding.FragmentCustomIconDetailBinding
+import com.asim.jhbatteryapp.domain.model.AssetManifest
+import com.asim.jhbatteryapp.domain.model.RemoteAssetItem
+import com.asim.jhbatteryapp.domain.model.StatusBarSettings
 import com.asim.jhbatteryapp.domain.repository.PreferenceRepository
 import com.asim.jhbatteryapp.service.StatusBarAccessibilityService
 import com.universal.remote.ads.AdsController
+import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
@@ -37,6 +45,10 @@ class CustomIconDetailFragment : Fragment() {
     private var selectedSizeDp: Int = 20
     private var isEnabled: Boolean = true
     private var selectedEmotion: String = "love"
+
+    /** Remote emotion picked but not applied yet; downloaded on Apply. */
+    private var selectedRemoteEmotion: RemoteAssetItem? = null
+    private var remoteEmotionAdapter: CustomStatusEmojiAdapter? = null
     private var selectedDateFormat: String = "EEE, MMM dd"
     private var selectedDateStyle: Int = 0
 
@@ -205,6 +217,8 @@ class CustomIconDetailFragment : Fragment() {
             binding.clDetailEmotionSection.visibility = View.VISIBLE
             highlightSelectedEmotion(selectedEmotion)
 
+            setupRemoteEmotions()
+
             binding.cardEmotionLove.setOnClickListener {
                 selectedEmotion = "love"
                 highlightSelectedEmotion("love")
@@ -282,7 +296,39 @@ class CustomIconDetailFragment : Fragment() {
         }
     }
 
+    /** Remote emotions from the manifest, shown under the built-in three (cached manifest first). */
+    private fun setupRemoteEmotions() {
+        val adapter = CustomStatusEmojiAdapter { item ->
+            val remote = item.remote ?: return@CustomStatusEmojiAdapter
+            selectedRemoteEmotion = remote
+            selectedEmotion = StatusBarSettings.EMOTION_STYLE_REMOTE
+            highlightSelectedEmotion(selectedEmotion)
+            updateLivePreview()
+        }
+        remoteEmotionAdapter = adapter
+        binding.rvDetailRemoteEmotions.adapter = adapter
+
+        val repository = RemoteAssetRepositoryImpl()
+        viewLifecycleOwner.lifecycleScope.launch {
+            repository.loadCachedManifest()?.let { showRemoteEmotions(it) }
+            repository.fetchManifest().onSuccess { showRemoteEmotions(it) }
+        }
+    }
+
+    private fun showRemoteEmotions(manifest: AssetManifest) {
+        val items = manifest.getByType(AssetConfig.Type.EMOTION)
+            .map { CustomStatusEmojiItem("remote_${it.id}", it.name, 0, remote = it) }
+        val b = _binding ?: return
+        b.rvDetailRemoteEmotions.visibility = if (items.isEmpty()) View.GONE else View.VISIBLE
+        // res -1 matches no item, so only the picked remote emotion (if any) is highlighted
+        remoteEmotionAdapter?.setItems(items, -1, selectedRemoteEmotion?.id)
+    }
+
     private fun highlightSelectedEmotion(emotion: String) {
+        if (emotion != StatusBarSettings.EMOTION_STYLE_REMOTE) {
+            selectedRemoteEmotion = null
+            remoteEmotionAdapter?.setSelection(-1, null)
+        }
         val selectedBg = R.drawable.bg_custom_icon_item_selected
         val unselectedBg = R.drawable.bg_custom_panel_card
 
@@ -375,7 +421,20 @@ class CustomIconDetailFragment : Fragment() {
                 "happy" -> R.drawable.ic_reaction_happy
                 else -> R.drawable.ic_reaction_love
             }
-            binding.ivDetailIconPreview.setImageResource(res)
+            val pendingRemote = selectedRemoteEmotion
+            val appliedRemotePath = preferenceRepository.getEmotionPath()
+                .takeIf { selectedEmotion == StatusBarSettings.EMOTION_STYLE_REMOTE && it.isNotEmpty() }
+            if (pendingRemote != null) {
+                RemoteImageLoader.loadImage(pendingRemote, binding.ivDetailIconPreview)
+            } else if (appliedRemotePath != null) {
+                binding.ivDetailIconPreview.tag = null
+                binding.ivDetailIconPreview.setImageBitmap(
+                    RemoteImageLoader.decodeFileForDisplay(appliedRemotePath, sizePx, sizePx)
+                )
+            } else {
+                binding.ivDetailIconPreview.tag = null
+                binding.ivDetailIconPreview.setImageResource(res)
+            }
             binding.ivDetailIconPreview.imageTintList = null
         } else {
             val res = when (iconId) {
@@ -394,6 +453,27 @@ class CustomIconDetailFragment : Fragment() {
     }
 
     private fun saveAndApply() {
+        val remoteEmotion = selectedRemoteEmotion
+        if (iconId != "emotion" || remoteEmotion == null) {
+            save(remoteEmotionPath = null)
+            return
+        }
+        // A remote emotion is saved here (from the cache, downloading if needed) for the overlay
+        val appContext = requireContext().applicationContext
+        binding.btnApplyDetail.isEnabled = false
+        viewLifecycleOwner.lifecycleScope.launch {
+            val path = RemoteImageLoader.saveForApply(remoteEmotion)
+            val b = _binding ?: return@launch
+            b.btnApplyDetail.isEnabled = true
+            if (path == null) {
+                Toast.makeText(appContext, R.string.remote_asset_download_failed, Toast.LENGTH_SHORT).show()
+                return@launch
+            }
+            save(path)
+        }
+    }
+
+    private fun save(remoteEmotionPath: String?) {
         val current = preferenceRepository.getStatusBarSettings()
         val targets = if (iconId == "signal" || iconId == "sim") setOf("signal", "sim") else setOf(iconId)
         val newEnabled = if (isEnabled) {
@@ -421,6 +501,13 @@ class CustomIconDetailFragment : Fragment() {
             mascotSizeDp = if (iconId == "animation") selectedSizeDp else current.mascotSizeDp,
             isEmojiBatteryEnabled = if (iconId == "animation") isEnabled else current.isEmojiBatteryEnabled,
             emotionStyle = if (iconId == "emotion") selectedEmotion else current.emotionStyle,
+            // A built-in style drops the file; a remote one keeps the new (or already applied) file
+            emotionPath = when {
+                iconId != "emotion" -> current.emotionPath
+                remoteEmotionPath != null -> remoteEmotionPath
+                selectedEmotion == StatusBarSettings.EMOTION_STYLE_REMOTE -> current.emotionPath
+                else -> ""
+            },
             dateFormat = if (iconId == "calendar") selectedDateFormat else current.dateFormat,
             dateStyle = if (iconId == "calendar") selectedDateStyle else current.dateStyle
         )

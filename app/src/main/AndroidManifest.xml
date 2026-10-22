@@ -34,6 +34,7 @@
         <activity
             android:name=".presentation.splash.SplashActivity"
             android:exported="true"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.JHBatteryApp.Fullscreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -45,36 +46,42 @@
         <activity
             android:name=".presentation.settings.LanguageActivity"
             android:exported="false"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.JHBatteryApp" />
 
         <!-- 2. Onboarding Activity -->
         <activity
             android:name=".presentation.onboarding.OnboardingActivity"
             android:exported="false"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.JHBatteryApp.Fullscreen" />
 
         <!-- 3. Home / Main Activity -->
         <activity
             android:name=".presentation.home.MainActivity"
             android:exported="false"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.JHBatteryApp" />
 
         <!-- Welcome Activity -->
         <activity
             android:name=".presentation.welcome.WelcomeActivity"
             android:exported="false"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.JHBatteryApp.Fullscreen" />
 
         <!-- How To Use / Accessibility Guide Activity -->
         <activity
             android:name=".presentation.guide.HowToUseActivity"
             android:exported="false"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.JHBatteryApp" />
 
         <!-- 4. Status Bar Overlay Foreground Service -->
         <service
             android:name=".service.StatusBarOverlayService"
             android:exported="false"
+
             android:stopWithTask="false"
             android:foregroundServiceType="specialUse">
             <property

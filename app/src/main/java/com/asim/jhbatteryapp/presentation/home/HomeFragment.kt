@@ -13,14 +13,18 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.asim.jhbatteryapp.R
+import com.asim.jhbatteryapp.data.remote.RemoteImageLoader
 import com.asim.jhbatteryapp.databinding.DialogBatteryPreviewBinding
 import com.asim.jhbatteryapp.databinding.FragmentHomeBinding
 import com.asim.jhbatteryapp.domain.model.BatteryEmojiItem
+import com.asim.jhbatteryapp.domain.model.RemoteAssetItem
 import com.asim.jhbatteryapp.presentation.common.NotificationPermissionDialog
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.universal.remote.ads.AdsController
+import kotlinx.coroutines.launch
 
 class HomeFragment : Fragment() {
 
@@ -184,7 +188,14 @@ class HomeFragment : Fragment() {
         binding.rvCategoryTabs.adapter = categoryAdapter
 
         // Main Emoji Grid (3 columns)
-        emojiAdapter = BatteryEmojiAdapter { item ->
+        emojiAdapter = BatteryEmojiAdapter(
+            onRemoteItemClick = { remoteItem ->
+                val act = activity ?: return@BatteryEmojiAdapter
+                AdsController.interstitial(act, "is_show_home_btn_inter") {
+                    showRemotePreviewBottomSheet(remoteItem)
+                }
+            }
+        ) { item ->
             val act = activity ?: return@BatteryEmojiAdapter
             AdsController.interstitial(act, "is_show_home_btn_inter") {
                 showPreviewBottomSheet(item)
@@ -265,6 +276,11 @@ class HomeFragment : Fragment() {
             )
         }
 
+        // Remote emojis from the JSON manifest, appended after local items
+        viewModel.remoteEmojis.observe(viewLifecycleOwner) { remote ->
+            emojiAdapter.submitRemoteList(remote)
+        }
+
         viewModel.isEmojiBatteryEnabled.observe(viewLifecycleOwner) { enabled ->
             if (enabled) {
                 binding.tvBannerText.text = getString(R.string.emoji_battery_is_active)
@@ -308,6 +324,53 @@ class HomeFragment : Fragment() {
                 com.asim.jhbatteryapp.service.StatusBarAccessibilityService.updateBatteryIcon(item.previewDrawableRes, isTintable = false)
                 Toast.makeText(requireContext(), getString(R.string.item_applied_battery_format, item.title), Toast.LENGTH_SHORT).show()
                 dismiss()
+            }
+        }
+    }
+
+    /** Same preview sheet as [showPreviewBottomSheet], for an emoji from the remote manifest. */
+    private fun showRemotePreviewBottomSheet(item: RemoteAssetItem) {
+        com.asim.jhbatteryapp.core.Utils.MyUtils.genBottomSheetDialog(
+            context = requireContext(),
+            style = R.style.Style_Rounded_Bottom_Sheet,
+            isCancelable = true,
+            bindingInflater = DialogBatteryPreviewBinding::inflate
+        ) { dialogBinding ->
+            val bgColor = try {
+                android.graphics.Color.parseColor(item.backgroundColor)
+            } catch (_: Throwable) {
+                ContextCompat.getColor(requireContext(), R.color.card_bg_pink)
+            }
+            dialogBinding.cvPreviewContainer.setCardBackgroundColor(bgColor)
+            RemoteImageLoader.loadImage(item, dialogBinding.ivDialogMascot)
+            dialogBinding.tvDialogTitle.text = item.name
+
+            dialogBinding.btnApplyStyle.setOnClickListener {
+                val hasAccessibility = com.asim.jhbatteryapp.service.StatusBarAccessibilityService.isAccessibilityServiceEnabled(requireContext())
+                if (!hasAccessibility) {
+                    dismiss()
+                    checkAccessibilityPermissionOnHome()
+                    return@setOnClickListener
+                }
+                dialogBinding.btnApplyStyle.isEnabled = false
+                val appContext = requireContext().applicationContext
+                viewLifecycleOwner.lifecycleScope.launch {
+                    val path = RemoteImageLoader.saveForApply(item)
+                    if (path == null) {
+                        Toast.makeText(appContext, R.string.remote_asset_download_failed, Toast.LENGTH_SHORT).show()
+                        dialogBinding.btnApplyStyle.isEnabled = true
+                        return@launch
+                    }
+                    val prefRepo = com.asim.jhbatteryapp.data.repository.PreferenceRepositoryImpl()
+                    prefRepo.setAppliedBatteryIconPath(path)
+                    // Res 0 tells the overlay to draw the downloaded file instead of a drawable
+                    prefRepo.setAppliedBatteryIconRes(0)
+                    prefRepo.setBatteryIconTintable(false)
+                    prefRepo.setEmojiBatteryEnabled(true)
+                    com.asim.jhbatteryapp.service.StatusBarAccessibilityService.updateCustomSettings()
+                    Toast.makeText(appContext, appContext.getString(R.string.item_applied_battery_format, item.name), Toast.LENGTH_SHORT).show()
+                    dismiss()
+                }
             }
         }
     }

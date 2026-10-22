@@ -18,6 +18,7 @@ import android.view.View
 import android.view.WindowManager
 import androidx.core.app.NotificationCompat
 import com.asim.jhbatteryapp.R
+import com.asim.jhbatteryapp.data.remote.RemoteImageLoader
 import com.asim.jhbatteryapp.data.repository.PreferenceRepositoryImpl
 import com.asim.jhbatteryapp.databinding.LayoutFloatingStickerBinding
 import com.asim.jhbatteryapp.domain.repository.PreferenceRepository
@@ -47,6 +48,8 @@ class FloatingStickerService : Service() {
         private set
     var currentDrawableRes: Int = R.drawable.ic_sticker_player_blue
         private set
+    var currentImagePath: String = ""
+        private set
 
     override fun onBind(intent: Intent?): IBinder? = null
 
@@ -68,6 +71,7 @@ class FloatingStickerService : Service() {
         currentSizeDp = preferenceRepository.getFloatingStickerSize().coerceIn(30, 150)
         currentRotationDeg = preferenceRepository.getFloatingStickerRotation()
         currentDrawableRes = preferenceRepository.getFloatingStickerDrawableRes()
+        currentImagePath = preferenceRepository.getFloatingStickerImagePath()
 
         val savedX = preferenceRepository.getFloatingStickerX()
         val savedY = preferenceRepository.getFloatingStickerY()
@@ -90,7 +94,9 @@ class FloatingStickerService : Service() {
         val res = intent?.getIntExtra(EXTRA_DRAWABLE_RES, -1) ?: -1
         if (res != -1) {
             currentDrawableRes = res
+            currentImagePath = intent?.getStringExtra(EXTRA_IMAGE_PATH).orEmpty()
             preferenceRepository.setFloatingStickerDrawableRes(res)
+            preferenceRepository.setFloatingStickerImagePath(currentImagePath)
         }
 
         val x = intent?.getIntExtra(EXTRA_X, -1) ?: -1
@@ -167,7 +173,9 @@ class FloatingStickerService : Service() {
             setupTouchDragListener()
 
             val density = resources.displayMetrics.density
-            binding?.ivFloatingSticker?.setImageResource(currentDrawableRes)
+            binding?.ivFloatingSticker?.let {
+                RemoteImageLoader.bindSticker(it, currentDrawableRes, currentImagePath)
+            }
             val sizePx = (currentSizeDp * density).toInt()
             val ivParams = binding?.ivFloatingSticker?.layoutParams
             if (ivParams != null) {
@@ -268,9 +276,11 @@ class FloatingStickerService : Service() {
         updateViewVisuals()
     }
 
-    fun applyDrawable(drawableRes: Int) {
+    fun applyDrawable(drawableRes: Int, imagePath: String? = null) {
         currentDrawableRes = drawableRes
+        currentImagePath = imagePath.orEmpty()
         preferenceRepository.setFloatingStickerDrawableRes(drawableRes)
+        preferenceRepository.setFloatingStickerImagePath(currentImagePath)
         updateViewVisuals()
     }
 
@@ -278,7 +288,7 @@ class FloatingStickerService : Service() {
         val b = binding ?: return
         val density = resources.displayMetrics.density
 
-        b.ivFloatingSticker.setImageResource(currentDrawableRes)
+        RemoteImageLoader.bindSticker(b.ivFloatingSticker, currentDrawableRes, currentImagePath)
 
         val sizePx = (currentSizeDp * density).toInt()
         val ivParams = b.ivFloatingSticker.layoutParams
@@ -381,6 +391,7 @@ class FloatingStickerService : Service() {
         private const val ACTION_STOP = "action_stop_floating_sticker"
 
         const val EXTRA_DRAWABLE_RES = "extra_drawable_res"
+        const val EXTRA_IMAGE_PATH = "extra_image_path"
         const val EXTRA_X = "extra_x"
         const val EXTRA_Y = "extra_y"
         const val EXTRA_SIZE_DP = "extra_size_dp"
@@ -395,6 +406,7 @@ class FloatingStickerService : Service() {
         fun start(
             context: Context,
             drawableRes: Int? = null,
+            imagePath: String? = null,
             x: Int? = null,
             y: Int? = null,
             sizeDp: Int? = null,
@@ -407,8 +419,12 @@ class FloatingStickerService : Service() {
             if (StatusBarAccessibilityService.isAccessibilityServiceEnabled(context) &&
                 StatusBarAccessibilityService.instance != null
             ) {
+                // No sticker passed (e.g. restore on app start): keep the saved one instead of
+                // resetting to the default, so a remote sticker survives relaunch
+                val prefs = PreferenceRepositoryImpl()
                 StatusBarAccessibilityService.showFloatingSticker(
-                    drawableRes = drawableRes ?: R.drawable.ic_sticker_player_blue,
+                    drawableRes = drawableRes ?: prefs.getFloatingStickerDrawableRes(),
+                    imagePath = if (drawableRes != null) imagePath else prefs.getFloatingStickerImagePath(),
                     sizeDp = sizeDp ?: 60,
                     rotationDeg = rotationDeg ?: 0f,
                     x = x,
@@ -419,7 +435,7 @@ class FloatingStickerService : Service() {
 
             val inst = instance
             if (inst != null) {
-                drawableRes?.let { inst.applyDrawable(it) }
+                drawableRes?.let { inst.applyDrawable(it, imagePath) }
                 sizeDp?.let { inst.applySize(it) }
                 rotationDeg?.let { inst.applyRotation(it) }
                 if (x != null && y != null) {
@@ -445,6 +461,7 @@ class FloatingStickerService : Service() {
 
             val intent = Intent(context, FloatingStickerService::class.java).apply {
                 drawableRes?.let { putExtra(EXTRA_DRAWABLE_RES, it) }
+                imagePath?.let { putExtra(EXTRA_IMAGE_PATH, it) }
                 x?.let { putExtra(EXTRA_X, it) }
                 y?.let { putExtra(EXTRA_Y, it) }
                 sizeDp?.let { putExtra(EXTRA_SIZE_DP, it) }
@@ -484,9 +501,9 @@ class FloatingStickerService : Service() {
             instance?.applyRotation(rotDeg)
         }
 
-        fun updateStickerDrawable(drawableRes: Int) {
-            StatusBarAccessibilityService.updateFloatingStickerDrawable(drawableRes)
-            instance?.applyDrawable(drawableRes)
+        fun updateStickerDrawable(drawableRes: Int, imagePath: String? = null) {
+            StatusBarAccessibilityService.updateFloatingStickerDrawable(drawableRes, imagePath)
+            instance?.applyDrawable(drawableRes, imagePath)
         }
     }
 }

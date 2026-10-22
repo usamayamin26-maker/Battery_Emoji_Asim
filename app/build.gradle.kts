@@ -19,11 +19,22 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        // Remote asset management — manifest URL injected at build time.
+        // Dropbox link must end in dl=1 (direct download), not dl=0 (preview page).
+        // Never hardcode secret tokens; use public raw-download share links only.
+        buildConfigField(
+            "String",
+            "ASSET_MANIFEST_URL",
+            "\"https://www.dropbox.com/scl/fi/9eldsurxtnau1035me9ii/manifest.json?rlkey=kwnymyenbj0n0r0arhtd3flwm&st=j2ub02sh&dl=0\""
+        )
     }
 
     buildTypes {
         release {
-            isMinifyEnabled = false
+            // R8: removes unused code and obfuscates; shrinkResources then drops unused resources
+            isMinifyEnabled = true
+            isShrinkResources = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -82,6 +93,11 @@ dependencies {
     implementation(libs.play.app.update)
     implementation(libs.shimmer)
     implementation(libs.kotlinx.serialization.json)
+
+    // Remote asset management — OkHttp for manifest + asset downloads
+    implementation(libs.okhttp)
+    // SVG decoding for remote assets (BitmapFactory cannot decode SVG)
+    implementation(libs.androidsvg)
 
     // ---------- AdMob mediation ----------
     implementation("com.unity3d.ads:unity-ads:4.21.0")

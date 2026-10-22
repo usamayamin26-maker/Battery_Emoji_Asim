@@ -4,15 +4,23 @@ import android.graphics.Color
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.asim.jhbatteryapp.R
+import com.asim.jhbatteryapp.core.Utils.AssetConfig
 import com.asim.jhbatteryapp.data.datasource.BatteryLocalDataSource
 import com.asim.jhbatteryapp.data.repository.PreferenceRepositoryImpl
+import com.asim.jhbatteryapp.data.repository.RemoteAssetRepositoryImpl
+import com.asim.jhbatteryapp.domain.model.AssetManifest
 import com.asim.jhbatteryapp.domain.model.BatteryEmojiItem
+import com.asim.jhbatteryapp.domain.model.RemoteAssetItem
 import com.asim.jhbatteryapp.domain.repository.PreferenceRepository
+import com.asim.jhbatteryapp.domain.repository.RemoteAssetRepository
+import kotlinx.coroutines.launch
 
 class StatusBarCustomViewModel(
     val preferenceRepository: PreferenceRepository = PreferenceRepositoryImpl(),
-    private val batteryDataSource: BatteryLocalDataSource = BatteryLocalDataSource()
+    private val batteryDataSource: BatteryLocalDataSource = BatteryLocalDataSource(),
+    private val remoteAssetRepository: RemoteAssetRepository = RemoteAssetRepositoryImpl()
 ) : ViewModel() {
 
     enum class CustomTab {
@@ -86,11 +94,45 @@ class StatusBarCustomViewModel(
     private val _batteryStyles = MutableLiveData<List<BatteryStyleItem>>()
     val batteryStyles: LiveData<List<BatteryStyleItem>> = _batteryStyles
 
+    /** Built-in styles, shown when the remote manifest can't be fetched or has no battery icons. */
+    private var localBatteryStyles: List<BatteryStyleItem> = emptyList()
+
+    /** Battery icons from the remote manifest (type "battery"), all categories. */
+    private var remoteBatteryIcons: List<RemoteAssetItem> = emptyList()
+
+    private var batteryCategory: String = "trending"
+
+    /** A remote battery icon picked but not applied yet; downloaded for the overlay on Apply. */
+    private val _selectedRemoteBattery = MutableLiveData<RemoteAssetItem?>(null)
+    val selectedRemoteBattery: LiveData<RemoteAssetItem?> = _selectedRemoteBattery
+
     private val _statusIcons = MutableLiveData<List<CustomStatusIconItem>>()
     val statusIcons: LiveData<List<CustomStatusIconItem>> = _statusIcons
 
     private val _batteryMascots = MutableLiveData<List<BatteryEmojiItem>>()
     val batteryMascots: LiveData<List<BatteryEmojiItem>> = _batteryMascots
+
+    /**
+     * Remote left emoji picked but not applied yet; downloaded on Apply. Set before
+     * [_selectedLeftEmojiRes] changes, so observers of that see the matching remote id.
+     */
+    var selectedRemoteLeftEmoji: RemoteAssetItem? = null
+        private set
+
+    /** Downloaded left emoji in effect (applied, or "" once a local emoji / None is picked). */
+    var leftEmojiPath: String = preferenceRepository.getLeftStatusEmojiPath()
+        private set
+
+    /** Id of the selected remote left emoji for highlighting; [APPLIED_REMOTE_ID] = applied earlier. */
+    var selectedLeftEmojiRemoteId: String? = null
+        private set
+
+    /** Left emojis from the remote manifest (type "status_emoji"), shown after the built-in ones. */
+    private var localLeftEmojis: List<CustomStatusEmojiItem> = emptyList()
+
+    /** Battery mascots from the remote manifest (type "emoji"), shown after the built-in ones. */
+    private val _remoteMascots = MutableLiveData<List<RemoteAssetItem>>(emptyList())
+    val remoteMascots: LiveData<List<RemoteAssetItem>> = _remoteMascots
 
     private val _selectedLeftEmojiRes = MutableLiveData(preferenceRepository.getLeftStatusEmojiRes())
     val selectedLeftEmojiRes: LiveData<Int> = _selectedLeftEmojiRes
@@ -115,20 +157,15 @@ class StatusBarCustomViewModel(
             ColorSwatchItem("orange", Color.parseColor("#FF7A00"))
         )
 
-        // Battery Styles
-        _batteryStyles.value = listOf(
+        // Battery Styles (built-in fallback; remote icons replace them once fetched)
+        localBatteryStyles = listOf(
             BatteryStyleItem("bolt", R.drawable.ic_battery_style_bolt, isTintable = true),
             BatteryStyleItem("pill", R.drawable.ic_battery_style_pill, isTintable = true),
             BatteryStyleItem("outline", R.drawable.ic_battery_style_outline, isTintable = true),
             BatteryStyleItem("circle", R.drawable.ic_battery_style_circle, isTintable = true),
             BatteryStyleItem("standard", R.drawable.ic_status_battery, isTintable = true),
-            BatteryStyleItem("battery1", R.drawable.battery1, isTintable = false),
-            BatteryStyleItem("battery2", R.drawable.battery2, isTintable = false),
-            BatteryStyleItem("battery3", R.drawable.battery3, isTintable = false),
-            BatteryStyleItem("battery4", R.drawable.battery4, isTintable = false),
-            BatteryStyleItem("battery5", R.drawable.battery5, isTintable = false),
-            BatteryStyleItem("battery6", R.drawable.battery6, isTintable = false)
         )
+        _batteryStyles.value = localBatteryStyles
 
         // 10 Status Bar Icons from snippet
         _statusIcons.value = listOf(
@@ -145,7 +182,7 @@ class StatusBarCustomViewModel(
         )
 
         // Left Status Emojis (shows beside time on the left side of status bar)
-        _leftStatusEmojis.value = listOf(
+        localLeftEmojis = listOf(
             CustomStatusEmojiItem("none", "None", 0, isNone = true),
             CustomStatusEmojiItem("emojie1", "Emoji 1", R.drawable.emojie1),
             CustomStatusEmojiItem("emojie2", "Emoji 2", R.drawable.emojie2),
@@ -172,8 +209,14 @@ class StatusBarCustomViewModel(
             CustomStatusEmojiItem("emoji", "Emoji", R.drawable.ic_emojee)
         )
 
+        _leftStatusEmojis.value = localLeftEmojis
+        syncAppliedRemoteLeftEmoji()
+
         // Mascot emojis
         _batteryMascots.value = batteryDataSource.getBatteryEmojis()
+
+        // After the built-in lists are set: a cached manifest is shown synchronously
+        loadRemoteAssets()
     }
 
     fun setTab(tab: CustomTab) {
@@ -224,14 +267,70 @@ class StatusBarCustomViewModel(
         _batteryIconSizeDp.value = sizeDp
     }
 
+    /** Fetches battery icons, battery mascots and left emojis from the remote manifest. */
+    fun loadRemoteAssets() {
+        viewModelScope.launch {
+            // Show the manifest saved by an earlier launch right away, then refresh it
+            remoteAssetRepository.loadCachedManifest()?.let { showRemoteAssets(it) }
+            remoteAssetRepository.fetchManifest().onSuccess { showRemoteAssets(it) }
+        }
+    }
+
+    private fun showRemoteAssets(manifest: AssetManifest) {
+        val icons = manifest.getByType(AssetConfig.Type.BATTERY)
+        if (icons != remoteBatteryIcons) {
+            remoteBatteryIcons = icons
+            showBatteryCategory()
+        }
+
+        val mascots = manifest.getByType(AssetConfig.Type.EMOJI)
+        if (mascots != _remoteMascots.value) _remoteMascots.value = mascots
+
+        val leftEmojis = localLeftEmojis + manifest.getByType(AssetConfig.Type.STATUS_EMOJI)
+            .map { CustomStatusEmojiItem("remote_${it.id}", it.name, 0, remote = it) }
+        if (leftEmojis != _leftStatusEmojis.value) _leftStatusEmojis.value = leftEmojis
+    }
+
+    fun setBatteryCategory(category: String) {
+        batteryCategory = category
+        showBatteryCategory()
+    }
+
+    /** Built-in styles show only under Trending; the selected category's remote icons follow them. */
+    private fun showBatteryCategory() {
+        val local = if (batteryCategory.equals("trending", ignoreCase = true)) localBatteryStyles else emptyList()
+        _batteryStyles.value = local + remoteBatteryIcons
+            .filter { it.category.equals(batteryCategory, ignoreCase = true) }
+            .map { BatteryStyleItem(it.id, 0, isTintable = false, remote = it) }
+    }
+
     fun selectBatteryIcon(drawableRes: Int, isTintable: Boolean) {
+        _selectedRemoteBattery.value = null
         _selectedBatteryIconRes.value = drawableRes
         _isBatteryIconTintable.value = isTintable
     }
 
     fun selectBatteryStyle(styleItem: BatteryStyleItem) {
         _selectedBatteryStyle.value = styleItem.id
-        selectBatteryIcon(styleItem.drawableRes, isTintable = styleItem.isTintable)
+        val remote = styleItem.remote
+        if (remote != null) {
+            selectRemoteBatteryIcon(remote)
+        } else {
+            selectBatteryIcon(styleItem.drawableRes, isTintable = styleItem.isTintable)
+        }
+    }
+
+    /** A remote battery mascot is applied as the battery icon, like a built-in mascot. */
+    fun selectRemoteMascot(mascot: RemoteAssetItem) {
+        _selectedMascotRes.value = 0
+        selectRemoteBatteryIcon(mascot)
+    }
+
+    private fun selectRemoteBatteryIcon(remote: RemoteAssetItem) {
+        // Res 0 = draw a downloaded file; set the remote item first so the preview sees it
+        _selectedRemoteBattery.value = remote
+        _isBatteryIconTintable.value = false
+        _selectedBatteryIconRes.value = 0
     }
 
     fun selectMascot(mascot: BatteryEmojiItem) {
@@ -241,14 +340,28 @@ class StatusBarCustomViewModel(
     }
 
     fun selectLeftEmoji(emojiItem: CustomStatusEmojiItem) {
-        val res = if (emojiItem.isNone) 0 else emojiItem.drawableRes
+        val remote = emojiItem.remote
+        selectedRemoteLeftEmoji = remote
+        selectedLeftEmojiRemoteId = remote?.id
+        // A remote emoji is res 0 + a file, so picking anything else drops the applied file
+        leftEmojiPath = ""
+        val res = if (emojiItem.isNone || remote != null) 0 else emojiItem.drawableRes
         _selectedLeftEmojiRes.value = res
         // Removed immediate repository saves to allow "Apply" button logic
     }
 
     fun refreshEnabledCustomIcons() {
         _enabledCustomIcons.value = preferenceRepository.getEnabledCustomIcons()
+        syncAppliedRemoteLeftEmoji()
         _selectedLeftEmojiRes.value = preferenceRepository.getLeftStatusEmojiRes()
+    }
+
+    /** Resets the left emoji selection to what is saved (drops an unapplied remote pick). */
+    private fun syncAppliedRemoteLeftEmoji() {
+        selectedRemoteLeftEmoji = null
+        leftEmojiPath = preferenceRepository.getLeftStatusEmojiPath()
+        val hasAppliedRemote = preferenceRepository.getLeftStatusEmojiRes() == 0 && leftEmojiPath.isNotEmpty()
+        selectedLeftEmojiRemoteId = if (hasAppliedRemote) APPLIED_REMOTE_ID else null
     }
 
     fun toggleCustomIcon(iconId: String) {
@@ -261,9 +374,17 @@ class StatusBarCustomViewModel(
         _enabledCustomIcons.value = current
     }
 
-    fun applyCustomizations() {
+    /**
+     * Saves the customizations. [remoteBatteryIconPath] / [remoteLeftEmojiPath] are the downloaded
+     * files of [selectedRemoteBattery] / [selectedRemoteLeftEmoji], when those are picked.
+     */
+    fun applyCustomizations(remoteBatteryIconPath: String? = null, remoteLeftEmojiPath: String? = null) {
         val currentSettings = preferenceRepository.getStatusBarSettings()
         val leftEmoji = _selectedLeftEmojiRes.value ?: currentSettings.leftStatusEmojiRes
+        if (remoteLeftEmojiPath != null) {
+            leftEmojiPath = remoteLeftEmojiPath
+            selectedRemoteLeftEmoji = null
+        }
         val mode = _lastAppliedThemeMode.value ?: "custom"
         val updated = currentSettings.copy(
             heightDp = _heightDp.value ?: currentSettings.heightDp,
@@ -276,16 +397,24 @@ class StatusBarCustomViewModel(
             batteryStyle = _selectedBatteryStyle.value ?: currentSettings.batteryStyle,
             appliedMascotDrawableRes = if (leftEmoji != 0) leftEmoji else currentSettings.appliedMascotDrawableRes,
             appliedBatteryIconRes = _selectedBatteryIconRes.value ?: currentSettings.appliedBatteryIconRes,
+            appliedBatteryIconPath = remoteBatteryIconPath ?: currentSettings.appliedBatteryIconPath,
             isBatteryIconTintable = _isBatteryIconTintable.value ?: currentSettings.isBatteryIconTintable,
             enabledCustomIcons = _enabledCustomIcons.value ?: currentSettings.enabledCustomIcons,
             leftStatusEmojiRes = leftEmoji,
+            leftStatusEmojiPath = if (leftEmoji == 0) leftEmojiPath else "",
             lastAppliedThemeMode = mode
         )
         preferenceRepository.updateStatusBarSettings(updated)
+        if (remoteBatteryIconPath != null) _selectedRemoteBattery.value = null
         preferenceRepository.setLeftStatusEmojiRes(leftEmoji)
         if (leftEmoji != 0) {
             preferenceRepository.setAppliedMascotDrawableRes(leftEmoji)
         }
         preferenceRepository.setLastAppliedThemeMode(mode)
+    }
+
+    private companion object {
+        /** Highlights no built-in left emoji when a remote one was applied in an earlier session. */
+        const val APPLIED_REMOTE_ID = "applied_remote"
     }
 }

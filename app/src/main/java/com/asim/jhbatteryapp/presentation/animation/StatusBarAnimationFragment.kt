@@ -10,10 +10,13 @@ import android.widget.SeekBar
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.asim.jhbatteryapp.R
+import com.asim.jhbatteryapp.data.remote.RemoteImageLoader
 import com.asim.jhbatteryapp.databinding.FragmentStatusBarAnimationBinding
 import com.universal.remote.ads.AdsController
+import kotlinx.coroutines.launch
 
 class StatusBarAnimationFragment : Fragment() {
 
@@ -65,7 +68,12 @@ class StatusBarAnimationFragment : Fragment() {
     }
 
     private fun setupRecyclerView() {
-        animationAdapter = StatusBarAnimationAdapter { selectedItem ->
+        animationAdapter = StatusBarAnimationAdapter(
+            onRemoteItemClick = { remoteItem ->
+                viewModel.selectRemoteAnimation(remoteItem)
+                pulsePreviewMascot()
+            }
+        ) { selectedItem ->
             viewModel.selectAnimation(selectedItem)
             pulsePreviewMascot()
         }
@@ -122,6 +130,10 @@ class StatusBarAnimationFragment : Fragment() {
     private var isAwaitingPermission = false
 
     private fun applyCurrentAnimation() {
+        viewModel.selectedRemoteAnimation.value?.let { remote ->
+            applyRemoteAnimation(remote)
+            return
+        }
         val selected = viewModel.selectedAnimation.value ?: return
         val size = viewModel.dateSize.value ?: 50
         viewModel.applyAnimation(selected)
@@ -152,9 +164,34 @@ class StatusBarAnimationFragment : Fragment() {
         }
     }
 
+    /** Downloads the remote animation, saves it, then applies it like a local one. */
+    private fun applyRemoteAnimation(item: com.asim.jhbatteryapp.domain.model.RemoteAssetItem) {
+        val appContext = requireContext().applicationContext
+        binding.btnApplyAnimation.isEnabled = false
+        viewLifecycleOwner.lifecycleScope.launch {
+            val path = RemoteImageLoader.saveForApply(item)
+            _binding?.btnApplyAnimation?.isEnabled = true
+            if (path == null) {
+                Toast.makeText(appContext, R.string.remote_asset_download_failed, Toast.LENGTH_SHORT).show()
+                return@launch
+            }
+            viewModel.applyRemoteAnimation(path)
+            val ctx = context ?: return@launch
+            if (com.asim.jhbatteryapp.service.StatusBarAccessibilityService.isAccessibilityServiceEnabled(ctx)) {
+                com.asim.jhbatteryapp.service.StatusBarAccessibilityService.updateCustomSettings()
+                Toast.makeText(appContext, R.string.animation_applied_success, Toast.LENGTH_SHORT).show()
+            } else {
+                com.asim.jhbatteryapp.presentation.common.StatusBarPermissionHelper.showAccessibilityDialog(
+                    context = ctx,
+                    onSettingsOpened = { isAwaitingPermission = true }
+                )
+            }
+        }
+    }
+
     override fun onResume() {
         super.onResume()
-        val selected = viewModel.selectedAnimation.value
+        val selected = viewModel.selectedRemoteAnimation.value ?: viewModel.selectedAnimation.value
         if (selected != null && isAwaitingPermission) {
             val isAccessibility = com.asim.jhbatteryapp.service.StatusBarAccessibilityService.isAccessibilityServiceEnabled(requireContext())
             if (isAccessibility) {
@@ -170,6 +207,11 @@ class StatusBarAnimationFragment : Fragment() {
             animationAdapter.setItems(anims, selectedId)
         }
 
+        // Remote animations from the JSON manifest, appended after local items
+        viewModel.remoteAnimations.observe(viewLifecycleOwner) { remote ->
+            animationAdapter.submitRemoteList(remote)
+        }
+
         viewModel.selectedAnimation.observe(viewLifecycleOwner) { mascot ->
             if (mascot != null) {
                 if (mascot.isLottie && mascot.lottieRawRes != 0) {
@@ -183,8 +225,19 @@ class StatusBarAnimationFragment : Fragment() {
                     binding.ivPreviewMascot.visibility = View.VISIBLE
                     binding.ivPreviewMascot.setImageResource(mascot.previewDrawableRes)
                 }
+                // Cancel any in-flight remote preview load targeting this view
+                binding.lottiePreviewMascot.tag = null
                 animationAdapter.setSelectedId(mascot.id)
             }
+        }
+
+        // Remote selection overrides the local preview (registered after it on purpose)
+        viewModel.selectedRemoteAnimation.observe(viewLifecycleOwner) { remote ->
+            if (remote == null) return@observe
+            binding.ivPreviewMascot.visibility = View.GONE
+            binding.lottiePreviewMascot.visibility = View.VISIBLE
+            RemoteImageLoader.loadLottie(remote, binding.lottiePreviewMascot)
+            animationAdapter.setSelectedId(remote.id)
         }
 
         viewModel.dateSize.observe(viewLifecycleOwner) { size ->

@@ -55,10 +55,20 @@ interface PreferenceRepository {
     fun setLastAppliedThemeMode(mode: String)
     fun getLeftStatusEmojiRes(): Int
     fun setLeftStatusEmojiRes(res: Int)
+    fun getEmotionPath(): String
+    fun setEmotionPath(path: String)
+    fun getLeftStatusEmojiPath(): String
+    fun setLeftStatusEmojiPath(path: String)
     fun getAppliedAnimationRawRes(): Int
     fun setAppliedAnimationRawRes(res: Int)
     fun isAppliedAnimationLottie(): Boolean
     fun setAppliedAnimationLottie(isLottie: Boolean)
+
+    // Remote (downloaded) assets — honored only while the matching res value is 0
+    fun getAppliedBatteryIconPath(): String
+    fun setAppliedBatteryIconPath(path: String)
+    fun getAppliedAnimationPath(): String
+    fun setAppliedAnimationPath(path: String)
 
     fun getMascotSize(): Int
     fun setMascotSize(sizeDp: Int)
@@ -67,6 +77,8 @@ interface PreferenceRepository {
     fun setFloatingStickerEnabled(enabled: Boolean)
     fun getFloatingStickerDrawableRes(): Int
     fun setFloatingStickerDrawableRes(res: Int)
+    fun getFloatingStickerImagePath(): String
+    fun setFloatingStickerImagePath(path: String)
     fun getFloatingStickerX(): Int
     fun setFloatingStickerX(x: Int)
     fun getFloatingStickerY(): Int

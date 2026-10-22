@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.asim.jhbatteryapp.data.remote.RemoteImageLoader
 import com.asim.jhbatteryapp.databinding.ItemMyStickerBinding
 import com.asim.jhbatteryapp.domain.model.StickerItem
 
@@ -43,7 +44,7 @@ class MyStickerAdapter(
     ) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(item: StickerItem, isActive: Boolean) {
-            binding.ivMyStickerThumb.setImageResource(item.drawableRes)
+            RemoteImageLoader.bindSticker(binding.ivMyStickerThumb, item.drawableRes, item.imagePath)
 
             // Show dashed purple border and remove minus badge when active
             binding.viewDashedBorder.visibility = if (isActive) View.VISIBLE else View.GONE

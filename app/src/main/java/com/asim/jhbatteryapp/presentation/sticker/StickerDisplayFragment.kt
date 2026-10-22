@@ -7,11 +7,15 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.asim.jhbatteryapp.R
+import com.asim.jhbatteryapp.data.remote.RemoteImageLoader
 import com.asim.jhbatteryapp.databinding.FragmentStickerDisplayBinding
+import com.asim.jhbatteryapp.domain.model.RemoteAssetItem
 import com.asim.jhbatteryapp.domain.model.StickerItem
 import com.universal.remote.ads.AdsController
+import kotlinx.coroutines.launch
 
 class StickerDisplayFragment : Fragment() {
 
@@ -79,7 +83,7 @@ class StickerDisplayFragment : Fragment() {
                 } else {
                     val nextActive = remaining.firstOrNull()
                     if (nextActive != null && com.asim.jhbatteryapp.presentation.common.StatusBarPermissionHelper.hasOverlayPermission(requireContext())) {
-                        com.asim.jhbatteryapp.service.FloatingStickerService.updateStickerDrawable(nextActive.drawableRes)
+                        com.asim.jhbatteryapp.service.FloatingStickerService.updateStickerDrawable(nextActive.drawableRes, nextActive.imagePath)
                     }
                 }
             }
@@ -93,13 +97,40 @@ class StickerDisplayFragment : Fragment() {
         binding.rvStickerTabs.adapter = tabAdapter
 
         // 4-Column Sticker Grid: Clicking ANY sticker starts floating it on screen immediately!
-        gridAdapter = StickerGridAdapter { clickedItem ->
-            onStickerSelected(clickedItem)
-        }
+        gridAdapter = StickerGridAdapter(
+            onRemoteItemClick = { remoteItem -> onRemoteStickerSelected(remoteItem) },
+            onItemClick = { clickedItem -> onStickerSelected(clickedItem) }
+        )
         binding.rvStickerGrid.adapter = gridAdapter
     }
 
     private var pendingStickerToFloat: StickerItem? = null
+    private var isDownloadingSticker = false
+
+    /** Remote stickers are downloaded to a file first, then go through the same flow as local ones. */
+    private fun onRemoteStickerSelected(asset: RemoteAssetItem) {
+        if (isDownloadingSticker) return
+        isDownloadingSticker = true
+        val appContext = requireContext().applicationContext
+        viewLifecycleOwner.lifecycleScope.launch {
+            val path = RemoteImageLoader.saveSticker(asset)
+            isDownloadingSticker = false
+            if (path == null) {
+                Toast.makeText(appContext, R.string.remote_asset_download_failed, Toast.LENGTH_SHORT).show()
+                return@launch
+            }
+            onStickerSelected(
+                StickerItem(
+                    id = asset.id,
+                    title = asset.name,
+                    category = asset.category,
+                    // Res 0 tells the overlay to draw the downloaded file instead of a drawable
+                    drawableRes = 0,
+                    imagePath = path
+                )
+            )
+        }
+    }
 
     private fun onStickerSelected(item: StickerItem) {
         viewModel.addOrSelectSticker(item)
@@ -127,10 +158,11 @@ class StickerDisplayFragment : Fragment() {
         com.asim.jhbatteryapp.service.FloatingStickerService.start(
             context = requireContext(),
             drawableRes = item.drawableRes,
+            imagePath = item.imagePath,
             sizeDp = item.sizeDp,
             rotationDeg = item.rotationDeg
         )
-        com.asim.jhbatteryapp.service.FloatingStickerService.updateStickerDrawable(item.drawableRes)
+        com.asim.jhbatteryapp.service.FloatingStickerService.updateStickerDrawable(item.drawableRes, item.imagePath)
 
         // 2. Open adjustment dialog so user can move it on screen with buttons and apply!
         openAdjustmentDialog(item)
@@ -190,6 +222,7 @@ class StickerDisplayFragment : Fragment() {
 
                 pref.setFloatingStickerEnabled(true)
                 pref.setFloatingStickerDrawableRes(active.drawableRes)
+                pref.setFloatingStickerImagePath(active.imagePath.orEmpty())
                 pref.setFloatingStickerSize(active.sizeDp)
                 pref.setFloatingStickerRotation(active.rotationDeg)
                 if (curX > 0 && curY > 0) {
@@ -200,6 +233,7 @@ class StickerDisplayFragment : Fragment() {
                 com.asim.jhbatteryapp.service.FloatingStickerService.start(
                     context = requireContext(),
                     drawableRes = active.drawableRes,
+                    imagePath = active.imagePath,
                     x = if (curX > 0) curX else null,
                     y = if (curY > 0) curY else null,
                     sizeDp = active.sizeDp,
@@ -229,6 +263,7 @@ class StickerDisplayFragment : Fragment() {
 
                 pref.setFloatingStickerEnabled(true)
                 pref.setFloatingStickerDrawableRes(sticker.drawableRes)
+                pref.setFloatingStickerImagePath(sticker.imagePath.orEmpty())
                 pref.setFloatingStickerSize(sizeDp)
                 pref.setFloatingStickerRotation(rotationDeg)
                 if (curX > 0 && curY > 0) {
@@ -242,6 +277,7 @@ class StickerDisplayFragment : Fragment() {
                     com.asim.jhbatteryapp.service.FloatingStickerService.start(
                         context = requireContext(),
                         drawableRes = sticker.drawableRes,
+                        imagePath = sticker.imagePath,
                         x = if (curX > 0) curX else null,
                         y = if (curY > 0) curY else null,
                         sizeDp = sizeDp,
@@ -272,6 +308,11 @@ class StickerDisplayFragment : Fragment() {
             gridAdapter.submitList(stickers)
         }
 
+        // Remote stickers from the JSON manifest, appended after local items
+        viewModel.remoteStickers.observe(viewLifecycleOwner) { remote ->
+            gridAdapter.submitRemoteList(remote)
+        }
+
         viewModel.myStickers.observe(viewLifecycleOwner) { myStickers ->
             val activeId = viewModel.activeSticker.value?.id
             myStickerAdapter.submitList(myStickers, activeId)
@@ -280,7 +321,7 @@ class StickerDisplayFragment : Fragment() {
 
         viewModel.activeSticker.observe(viewLifecycleOwner) { active ->
             if (active != null) {
-                binding.ivPreviewSticker.setImageResource(active.drawableRes)
+                RemoteImageLoader.bindSticker(binding.ivPreviewSticker, active.drawableRes, active.imagePath)
                 binding.ivPreviewSticker.visibility = View.VISIBLE
 
                 binding.ivPreviewSticker.translationX = active.offsetX

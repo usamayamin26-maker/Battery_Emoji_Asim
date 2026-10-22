@@ -7,13 +7,17 @@ import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.asim.jhbatteryapp.R
+import com.asim.jhbatteryapp.data.remote.RemoteImageLoader
 import com.asim.jhbatteryapp.databinding.ItemCustomStatusIconBinding
+import com.asim.jhbatteryapp.domain.model.RemoteAssetItem
 
 data class CustomStatusEmojiItem(
     val id: String,
     val title: String,
     val drawableRes: Int,
-    val isNone: Boolean = false
+    val isNone: Boolean = false,
+    /** Set for an emoji from the remote manifest (type "status_emoji"); [drawableRes] is then 0. */
+    val remote: RemoteAssetItem? = null
 )
 
 class CustomStatusEmojiAdapter(
@@ -23,15 +27,24 @@ class CustomStatusEmojiAdapter(
     private val items = mutableListOf<CustomStatusEmojiItem>()
     private var selectedRes: Int = 0
 
-    fun setItems(newItems: List<CustomStatusEmojiItem>, currentlySelectedRes: Int = 0) {
+    /** Id of the selected remote emoji; non-null means no local item (nor "None") is selected. */
+    private var selectedRemoteId: String? = null
+
+    fun setItems(
+        newItems: List<CustomStatusEmojiItem>,
+        currentlySelectedRes: Int = 0,
+        currentlySelectedRemoteId: String? = null
+    ) {
         items.clear()
         items.addAll(newItems)
         selectedRes = currentlySelectedRes
+        selectedRemoteId = currentlySelectedRemoteId
         notifyDataSetChanged()
     }
 
-    fun setSelectedRes(newRes: Int) {
+    fun setSelection(newRes: Int, remoteId: String?) {
         selectedRes = newRes
+        selectedRemoteId = remoteId
         notifyDataSetChanged()
     }
 
@@ -55,10 +68,11 @@ class CustomStatusEmojiAdapter(
     ) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(item: CustomStatusEmojiItem) {
-            val isSelected = if (item.isNone) {
-                selectedRes == 0
-            } else {
-                selectedRes == item.drawableRes
+            val isSelected = when {
+                item.remote != null -> selectedRemoteId == item.remote.id
+                selectedRemoteId != null -> false
+                item.isNone -> selectedRes == 0
+                else -> selectedRes == item.drawableRes
             }
 
             val bgRes = if (isSelected) {
@@ -70,7 +84,12 @@ class CustomStatusEmojiAdapter(
             binding.ivIconCardCheck.visibility = if (isSelected) View.VISIBLE else View.GONE
             binding.tvCustomStatusIconTitle.text = item.title
 
-            if (item.isNone) {
+            if (item.remote != null) {
+                RemoteImageLoader.loadImage(item.remote, binding.ivCustomStatusIcon)
+                binding.ivCustomStatusIcon.imageTintList = null
+            } else if (item.isNone) {
+                // Clear the tag so a remote load still in flight doesn't overwrite this icon
+                binding.ivCustomStatusIcon.tag = null
                 binding.ivCustomStatusIcon.setImageResource(R.drawable.ic_clear)
                 val color = ContextCompat.getColor(
                     binding.root.context,
@@ -78,11 +97,13 @@ class CustomStatusEmojiAdapter(
                 )
                 binding.ivCustomStatusIcon.imageTintList = ColorStateList.valueOf(color)
             } else {
+                binding.ivCustomStatusIcon.tag = null
                 binding.ivCustomStatusIcon.setImageResource(item.drawableRes)
                 binding.ivCustomStatusIcon.imageTintList = null
             }
 
             binding.clIconCard.setOnClickListener {
+                selectedRemoteId = item.remote?.id
                 selectedRes = if (item.isNone) 0 else item.drawableRes
                 notifyDataSetChanged()
                 onEmojiClicked(item)
