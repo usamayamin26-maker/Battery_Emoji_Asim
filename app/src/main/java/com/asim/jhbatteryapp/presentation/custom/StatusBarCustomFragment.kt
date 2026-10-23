@@ -141,8 +141,8 @@ class StatusBarCustomFragment : Fragment() {
     }
 
     private fun setupTabListeners() {
-        AdsController.routeSystemBack(this, binding.ivDetailBack)
-        binding.ivDetailBack.setOnClickListener {
+        AdsController.routeSystemBack(this, binding.topHeader.backButton)
+        binding.topHeader.backButton.setOnClickListener {
             AdsController.back(this, "is_show_custom_back_inter") {
                 findNavController().navigateUp()
             }

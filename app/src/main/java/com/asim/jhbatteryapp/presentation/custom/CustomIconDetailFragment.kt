@@ -138,17 +138,17 @@ class CustomIconDetailFragment : Fragment() {
             else -> iconId.replaceFirstChar { it.uppercase() }
         }
 
-        binding.tvDetailTitle.text = title
+        binding.topHeader.title = title
         binding.tvDetailSizeLabel.text = getString(R.string.item_size_format, title)
 
-        AdsController.routeSystemBack(this, binding.ivDetailBack)
-        binding.ivDetailBack.setOnClickListener {
+        AdsController.routeSystemBack(this, binding.topHeader.backButton)
+        binding.topHeader.backButton.setOnClickListener {
             AdsController.back(this, "is_show_custom_detail_back_inter") {
                 findNavController().popBackStack()
             }
         }
 
-        binding.ivDetailSave.setOnClickListener {
+        binding.topHeader.actionButton.setOnClickListener {
             val act = activity ?: return@setOnClickListener
             AdsController.interstitial(act, "is_show_custom_detail_btn_inter") {
                 saveAndApply()
@@ -372,7 +372,7 @@ class CustomIconDetailFragment : Fragment() {
             binding.tvDetailDatePreview.visibility = View.GONE
             val isLottie = preferenceRepository.isAppliedAnimationLottie()
             val animRes = preferenceRepository.getAppliedAnimationRawRes()
-            val effectiveAnimRes = if (animRes != 0) animRes else R.raw.cakerun
+            val effectiveAnimRes = if (animRes != 0) animRes else R.raw.rabit
 
             if (isLottie || animRes != 0) {
                 binding.ivDetailIconPreview.visibility = View.GONE
@@ -516,7 +516,7 @@ class CustomIconDetailFragment : Fragment() {
         // Trigger real-time status bar overlay update if service is running
         StatusBarAccessibilityService.updateCustomSettings()
 
-        Toast.makeText(requireContext(), getString(R.string.item_customized_format, binding.tvDetailTitle.text), Toast.LENGTH_SHORT).show()
+        Toast.makeText(requireContext(), getString(R.string.item_customized_format, binding.topHeader.title), Toast.LENGTH_SHORT).show()
         findNavController().popBackStack()
     }
 

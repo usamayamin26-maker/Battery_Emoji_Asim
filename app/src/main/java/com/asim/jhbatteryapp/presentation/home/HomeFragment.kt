@@ -209,7 +209,7 @@ class HomeFragment : Fragment() {
 
     private fun setupListeners() {
         // Navigate to SearchFragment using NavGraph action!
-        binding.btnOpenSearch.setOnClickListener {
+        binding.topHeader.actionButton.setOnClickListener {
             val act = activity ?: return@setOnClickListener
             AdsController.interstitial(act, "is_show_home_btn_inter") {
                 findNavController().navigate(R.id.action_homeFragment_to_searchFragment)

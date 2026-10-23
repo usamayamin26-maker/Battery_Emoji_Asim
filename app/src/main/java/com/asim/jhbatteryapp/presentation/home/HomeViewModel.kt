@@ -58,6 +58,15 @@ class HomeViewModel(
     private val _remoteEmojis = MutableLiveData<List<RemoteAssetItem>>(emptyList())
     val remoteEmojis: LiveData<List<RemoteAssetItem>> = _remoteEmojis
 
+    // Remote emojis for the Search screen, split the same way as the local Recent / Top Picks grids
+    private val _remoteRecentEmojis = MutableLiveData<List<RemoteAssetItem>>(emptyList())
+    val remoteRecentEmojis: LiveData<List<RemoteAssetItem>> = _remoteRecentEmojis
+
+    private val _remoteTopPickEmojis = MutableLiveData<List<RemoteAssetItem>>(emptyList())
+    val remoteTopPickEmojis: LiveData<List<RemoteAssetItem>> = _remoteTopPickEmojis
+
+    private var currentSearchQuery: String = ""
+
     // ── Init ───────────────────────────────────────────────────────────────────
 
     init {
@@ -111,6 +120,21 @@ class HomeViewModel(
         _emojis.value = results
         _recentEmojis.value = results.filter { it.isRecent }
         _topPickEmojis.value = results.filter { it.isTopPick }
+        currentSearchQuery = query
+        updateRemoteSearch(remoteAssetRepository.getAssetsByType(AssetConfig.Type.EMOJI, null))
+    }
+
+    /** Filters remote emojis by [currentSearchQuery] with the same rules as the local search. */
+    private fun updateRemoteSearch(allRemote: List<RemoteAssetItem>) {
+        val trimmed = currentSearchQuery.trim().lowercase()
+        val results = if (trimmed.isEmpty()) allRemote else allRemote.filter { item ->
+            item.name.lowercase().contains(trimmed) ||
+                    item.category.lowercase().contains(trimmed) ||
+                    item.tags.any { it.lowercase().contains(trimmed) }
+        }
+        _remoteRecentEmojis.value = results.filter { it.isRecent }
+        // Manifest emojis usually carry no flags, so anything not marked recent lands in Top Picks
+        _remoteTopPickEmojis.value = results.filter { it.isTopPick || !it.isRecent }
     }
 
     // ── New remote methods ─────────────────────────────────────────────────────
@@ -152,6 +176,7 @@ class HomeViewModel(
         val items = manifest.getByType(AssetConfig.Type.EMOJI, currentCategoryId)
         // Skip identical lists so a background refresh doesn't rebind the grid
         if (_remoteEmojis.value != items) _remoteEmojis.value = items
+        updateRemoteSearch(manifest.getByType(AssetConfig.Type.EMOJI))
         _remoteEmojiState.value = if (items.isEmpty()) {
             RemoteAssetUiState.Empty
         } else {

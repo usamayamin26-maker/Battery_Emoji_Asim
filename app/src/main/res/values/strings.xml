@@ -32,7 +32,7 @@
     <string name="tab_hot">🔥 HOT</string>
     <string name="tab_pokemon">Pokemon</string>
     <string name="tab_sanrio">Sanrio</string>
-    <string name="tab_anime">Anime</string>
+    <string name="tab_anime">Cartoon</string>
 
     <!-- Filter Chips -->
     <string name="chip_all">All</string>

@@ -81,8 +81,8 @@ class StatusBarAnimationFragment : Fragment() {
     }
 
     private fun setupListeners() {
-        AdsController.routeSystemBack(this, binding.ivAnimBack)
-        binding.ivAnimBack.setOnClickListener {
+        AdsController.routeSystemBack(this, binding.topHeader.backButton)
+        binding.topHeader.backButton.setOnClickListener {
             AdsController.back(this, "is_show_animation_back_inter") {
                 findNavController().navigateUp()
             }

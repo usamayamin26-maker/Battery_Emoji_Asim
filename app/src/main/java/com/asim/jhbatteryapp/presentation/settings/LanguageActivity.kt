@@ -93,10 +93,10 @@ class LanguageActivity : AppCompatActivity() {
 
     private fun setupHeader(isFromSplash: Boolean) {
         if (isFromSplash) {
-            binding.btnBackLanguage.visibility = View.GONE
+            binding.topHeader.backButton.visibility = View.GONE
         } else {
-            binding.btnBackLanguage.visibility = View.VISIBLE
-            binding.btnBackLanguage.setOnClickListener {
+            binding.topHeader.backButton.visibility = View.VISIBLE
+            binding.topHeader.backButton.setOnClickListener {
                 com.universal.remote.ads.AdsController.back(this, "is_show_language_back_inter") {
                     finish()
                 }
@@ -171,8 +171,8 @@ class LanguageActivity : AppCompatActivity() {
     private fun setupBackPressHandler() {
         onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
-                if (binding.btnBackLanguage.visibility == View.VISIBLE) {
-                    binding.btnBackLanguage.performClick()
+                if (binding.topHeader.backButton.visibility == View.VISIBLE) {
+                    binding.topHeader.backButton.performClick()
                 } else {
                     finish()
                 }

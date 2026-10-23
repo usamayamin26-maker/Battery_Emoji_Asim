@@ -9,4 +9,12 @@
         <attr name="batteryFillColor" format="color" />
         <attr name="cardCornerRadius" format="dimension" />
     </declare-styleable>
+
+    <!-- Custom Attributes for the shared TopHeaderView (back button + title + optional action) -->
+    <declare-styleable name="TopHeaderView">
+        <attr name="headerTitle" format="string" />
+        <attr name="showBack" format="boolean" />
+        <attr name="actionIcon" format="reference" />
+        <attr name="actionTint" format="color" />
+    </declare-styleable>
 </resources>

@@ -6,39 +6,15 @@
     android:layout_height="match_parent"
     android:background="@color/bg_home">
 
-    <!-- Header: Back Arrow & Languages Title -->
-    <LinearLayout
-        android:id="@+id/headerLanguages"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_45sdp"
-        android:layout_marginTop="@dimen/_28sdp"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        android:paddingHorizontal="@dimen/_16sdp"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <ImageView
-            android:id="@+id/btnBackLanguage"
-            android:layout_width="@dimen/_24sdp"
-            android:layout_height="@dimen/_24sdp"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:clickable="true"
-            android:contentDescription="@string/cd_back"
-            android:focusable="true"
-            android:padding="@dimen/_2sdp"
-            android:src="@drawable/ic_arrow_back"
-            app:tint="@color/text_primary" />
-
-        <TextView
-            android:id="@+id/tvLanguagesTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_12sdp"
-            android:text="@string/languages_title"
-            android:textColor="@color/text_primary"
-            android:textSize="@dimen/_18ssp"
-            android:textStyle="bold" />
-    </LinearLayout>
+    <!-- Shared screen header -->
+    <com.asim.jhbatteryapp.presentation.components.TopHeaderView
+        android:id="@+id/topHeader"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:headerTitle="@string/languages_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <!-- Languages List RecyclerView -->
     <androidx.recyclerview.widget.RecyclerView
@@ -51,7 +27,7 @@
         android:paddingBottom="@dimen/_16sdp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toTopOf="@+id/btnApplyLanguage"
-        app:layout_constraintTop_toBottomOf="@+id/headerLanguages"
+        app:layout_constraintTop_toBottomOf="@+id/topHeader"
         tools:listitem="@layout/item_language" />
 
     <!-- Apply Button -->

@@ -6,45 +6,15 @@
     android:layout_height="match_parent"
     android:background="@color/bg_home">
 
-    <!-- Top App Bar / Header -->
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/clHeader"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="#FAF9FD"
-        android:layout_marginTop="@dimen/_28sdp"
-        android:paddingHorizontal="@dimen/_12sdp"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <!-- Back Button -->
-        <ImageView
-            android:id="@+id/btnBack"
-            android:layout_width="@dimen/_32sdp"
-            android:layout_height="@dimen/_32sdp"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:clickable="true"
-            android:contentDescription="@string/close"
-            android:focusable="true"
-            android:padding="@dimen/_4sdp"
-            android:src="@drawable/ic_arrow_back"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <!-- Title: How to use -->
-        <TextView
-            android:id="@+id/tvHeaderTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_8sdp"
-            android:text="@string/how_to_use_title"
-            android:textColor="#111827"
-            android:textSize="@dimen/_17ssp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/btnBack"
-            app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    <!-- Shared screen header -->
+    <com.asim.jhbatteryapp.presentation.components.TopHeaderView
+        android:id="@+id/topHeader"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:headerTitle="@string/how_to_use_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <!-- Scrollable Steps Content -->
     <androidx.core.widget.NestedScrollView
@@ -56,7 +26,7 @@
         android:paddingTop="@dimen/_6sdp"
         android:paddingBottom="@dimen/_16sdp"
         app:layout_constraintBottom_toTopOf="@+id/clBottomBar"
-        app:layout_constraintTop_toBottomOf="@+id/clHeader">
+        app:layout_constraintTop_toBottomOf="@+id/topHeader">
 
         <LinearLayout
             android:layout_width="match_parent"

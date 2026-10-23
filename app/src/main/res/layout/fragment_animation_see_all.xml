@@ -6,52 +6,16 @@
     android:layout_height="match_parent"
     android:background="@color/bg_home">
 
-    <!-- Header: Back Arrow Button -->
-    <ImageView
-        android:id="@+id/ivSeeAllBack"
-        android:layout_width="@dimen/_24sdp"
-        android:layout_height="@dimen/_24sdp"
-        android:layout_marginStart="@dimen/_16sdp"
-        android:layout_marginTop="@dimen/_28sdp"
-        android:background="?attr/selectableItemBackgroundBorderless"
-        android:clickable="true"
-        android:contentDescription="@null"
-        android:focusable="true"
-        android:padding="@dimen/_2sdp"
-        android:src="@drawable/ic_arrow_back"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:tint="@color/text_primary" />
-
-    <!-- Header: Title -->
-    <TextView
-        android:id="@+id/tvSeeAllTitle"
-        android:layout_width="wrap_content"
+    <!-- Shared screen header -->
+    <com.asim.jhbatteryapp.presentation.components.TopHeaderView
+        android:id="@+id/topHeader"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_12sdp"
-        android:text="@string/status_bar_animation_title"
-        android:textColor="@color/text_primary"
-        android:textSize="@dimen/_18ssp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/ivSeeAllBack"
-        app:layout_constraintStart_toEndOf="@+id/ivSeeAllBack"
-        app:layout_constraintTop_toTopOf="@+id/ivSeeAllBack" />
-
-    <!-- Header: Checkmark Confirm Action Button -->
-    <ImageView
-        android:id="@+id/ivSeeAllConfirm"
-        android:layout_width="@dimen/_24sdp"
-        android:layout_height="@dimen/_24sdp"
-        android:layout_marginEnd="@dimen/_16sdp"
-        android:background="?attr/selectableItemBackgroundBorderless"
-        android:clickable="true"
-        android:contentDescription="@null"
-        android:focusable="true"
-        android:padding="@dimen/_2sdp"
-        android:src="@drawable/ic_check"
-        app:layout_constraintBottom_toBottomOf="@+id/ivSeeAllBack"
+        app:headerTitle="@string/status_bar_animation_title"
+        app:actionIcon="@drawable/ic_check"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/ivSeeAllBack" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <!-- Top Ad Slot (Banner or Native) -->
     <com.universal.remote.ads.AdSlotView
@@ -62,7 +26,7 @@
         android:paddingBottom="@dimen/_4sdp"
         android:visibility="gone"
         app:nativeMarginHorizontal="@dimen/_14sdp"
-        app:layout_constraintTop_toBottomOf="@+id/ivSeeAllBack"
+        app:layout_constraintTop_toBottomOf="@+id/topHeader"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         tools:visibility="visible" />

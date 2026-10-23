@@ -81,8 +81,8 @@ class StatusBarThemeFragment : Fragment() {
     private var isAwaitingPermission = false
 
     private fun setupListeners() {
-        AdsController.routeSystemBack(this, binding.ivThemeBack)
-        binding.ivThemeBack.setOnClickListener {
+        AdsController.routeSystemBack(this, binding.topHeader.backButton)
+        binding.topHeader.backButton.setOnClickListener {
             AdsController.back(this, "is_show_theme_back_inter") {
                 findNavController().navigateUp()
             }

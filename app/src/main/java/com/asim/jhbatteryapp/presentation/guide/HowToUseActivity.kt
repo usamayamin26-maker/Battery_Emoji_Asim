@@ -56,7 +56,7 @@ class HowToUseActivity : AppCompatActivity() {
     }
 
     private fun setupClickListeners() {
-        binding.btnBack.setOnClickListener {
+        binding.topHeader.backButton.setOnClickListener {
             com.universal.remote.ads.AdsController.back(this, "is_show_how_to_use_back_inter") {
                 finish()
             }
@@ -64,7 +64,7 @@ class HowToUseActivity : AppCompatActivity() {
 
         onBackPressedDispatcher.addCallback(this, object : androidx.activity.OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
-                binding.btnBack.performClick()
+                binding.topHeader.backButton.performClick()
             }
         })
 

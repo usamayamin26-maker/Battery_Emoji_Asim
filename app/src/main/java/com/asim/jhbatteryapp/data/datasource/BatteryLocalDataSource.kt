@@ -14,7 +14,7 @@ class BatteryLocalDataSource {
             CategoryItem(id = "hot", title = "🔥 HOT", isSelected = true),
             CategoryItem(id = "pokemon", title = "Pokemon", isSelected = false),
             CategoryItem(id = "sanrio", title = "Sanrio", isSelected = false),
-            CategoryItem(id = "anime", title = "Anime", isSelected = false)
+            CategoryItem(id = "anime", title = "Cartoons", isSelected = false)
         )
     }
 
@@ -406,34 +406,6 @@ class BatteryLocalDataSource {
     fun getStatusBarAnimations(): List<BatteryEmojiItem> {
         return listOf(
             BatteryEmojiItem(
-                id = "anim_cakerun",
-                title = "Cake Run",
-                category = "animation",
-                isLottie = true,
-                lottieRawRes = R.raw.cakerun
-            ),
-            BatteryEmojiItem(
-                id = "anim_bird_pair",
-                title = "Bird Pair",
-                category = "animation",
-                isLottie = true,
-                lottieRawRes = R.raw.bird_pair
-            ),
-            BatteryEmojiItem(
-                id = "anim_cat",
-                title = "Cat",
-                category = "animation",
-                isLottie = true,
-                lottieRawRes = R.raw.cat
-            ),
-            BatteryEmojiItem(
-                id = "anim_cartoon",
-                title = "Cartoon",
-                category = "animation",
-                isLottie = true,
-                lottieRawRes = R.raw.cartoon
-            ),
-            BatteryEmojiItem(
                 id = "anim_heart",
                 title = "Heart",
                 category = "animation",
@@ -445,10 +417,8 @@ class BatteryLocalDataSource {
                 title = "Doraemon",
                 category = "animation",
                 isLottie = true,
-                lottieRawRes = R.raw.doraemon
+                lottieRawRes = R.raw.rabit
             )
-
-
         )
     }
 

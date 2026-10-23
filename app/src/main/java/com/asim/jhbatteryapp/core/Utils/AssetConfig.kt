@@ -14,7 +14,7 @@ object AssetConfig {
      * Set via buildConfigField in app/build.gradle.kts.
      * Replace PLACEHOLDER_SHARE_ID with your actual Dropbox share ID.
      */
-    val MANIFEST_URL: String ="https://www.dropbox.com/scl/fi/csed77vtwdlvop6w8aojn/manifest122.json?rlkey=dlwkwnmfmbwqf37qrufzc9k2h&st=95uauqhq&dl=0"
+    val MANIFEST_URL: String ="https://www.dropbox.com/scl/fi/s1xirfllee8587cr57aft/manifest.json?rlkey=9afoz156dez2qvwn8lbjtxc67&st=gjlxnp8e&dl=0"
 
     /** Asset type constants — must match manifest.json "type" field values. */
     object Type {

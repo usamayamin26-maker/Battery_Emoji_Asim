@@ -8,46 +8,15 @@
     android:descendantFocusability="beforeDescendants"
     android:focusableInTouchMode="true">
 
-    <!-- Header: Back Arrow Button -->
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/clDetailHeader"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_45sdp"
-        android:layout_marginTop="@dimen/_28sdp"
-        android:paddingHorizontal="@dimen/_16sdp"
+    <!-- Shared screen header -->
+    <com.asim.jhbatteryapp.presentation.components.TopHeaderView
+        android:id="@+id/topHeader"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:headerTitle="@string/status_bar_custom_title"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <ImageView
-            android:id="@+id/ivDetailBack"
-            android:layout_width="@dimen/_24sdp"
-            android:layout_height="@dimen/_24sdp"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:clickable="true"
-            android:contentDescription="@null"
-            android:focusable="true"
-            android:padding="@dimen/_2sdp"
-            android:src="@drawable/ic_arrow_back"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:tint="@color/text_primary" />
-
-        <TextView
-            android:id="@+id/tvDetailTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/text_primary"
-            android:textSize="@dimen/_18ssp"
-            android:layout_marginStart="@dimen/_10sdp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/ivDetailBack"
-            app:layout_constraintTop_toTopOf="parent"
-            android:text="@string/status_bar_custom_title" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <!-- Top Ad Slot (Banner or Native) -->
     <com.universal.remote.ads.AdSlotView
@@ -58,7 +27,7 @@
         android:paddingBottom="@dimen/_4sdp"
         android:visibility="gone"
         app:nativeMarginHorizontal="@dimen/_14sdp"
-        app:layout_constraintTop_toBottomOf="@+id/clDetailHeader"
+        app:layout_constraintTop_toBottomOf="@+id/topHeader"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         tools:visibility="visible" />

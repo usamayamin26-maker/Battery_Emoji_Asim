@@ -181,8 +181,8 @@ class StickerDisplayFragment : Fragment() {
     }
 
     private fun setupListeners() {
-        AdsController.routeSystemBack(this, binding.ivStickerBack)
-        binding.ivStickerBack.setOnClickListener {
+        AdsController.routeSystemBack(this, binding.topHeader.backButton)
+        binding.topHeader.backButton.setOnClickListener {
             AdsController.back(this, "is_show_sticker_back_inter") {
                 findNavController().navigateUp()
             }

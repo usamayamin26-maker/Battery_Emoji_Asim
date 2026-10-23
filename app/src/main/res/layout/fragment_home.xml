@@ -8,43 +8,17 @@
     android:descendantFocusability="beforeDescendants"
     android:focusableInTouchMode="true">
 
-    <!-- Header: Battery Icon Title & Search Button -->
-    <RelativeLayout
-        android:id="@+id/headerHome"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_45sdp"
-        android:layout_marginTop="@dimen/_28sdp"
-        android:focusableInTouchMode="true"
-        android:paddingHorizontal="@dimen/_16sdp"
+    <!-- Shared screen header -->
+    <com.asim.jhbatteryapp.presentation.components.TopHeaderView
+        android:id="@+id/topHeader"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:headerTitle="@string/battery_icon_title"
+        app:showBack="false"
+        app:actionIcon="@drawable/ic_search"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <TextView
-            android:id="@+id/tvHomeTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_centerVertical="true"
-            android:text="@string/battery_icon_title"
-            android:textColor="@color/text_primary"
-            android:textSize="@dimen/_18ssp"
-            android:textStyle="bold" />
-
-        <!-- Search Icon Button (Navigates to SearchFragment) -->
-        <ImageView
-            android:id="@+id/btnOpenSearch"
-            android:layout_width="@dimen/_36sdp"
-            android:layout_height="@dimen/_36sdp"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:clickable="true"
-            android:contentDescription="@string/search_emojis_title"
-            android:focusable="true"
-            android:padding="@dimen/_7sdp"
-            android:src="@drawable/ic_search" />
-    </RelativeLayout>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <!-- Top Ad Slot (Banner or Native) -->
     <com.universal.remote.ads.AdSlotView
@@ -55,264 +29,278 @@
         android:paddingBottom="@dimen/_4sdp"
         android:visibility="gone"
         app:nativeMarginHorizontal="@dimen/_14sdp"
-        app:layout_constraintTop_toBottomOf="@+id/headerHome"
+        app:layout_constraintTop_toBottomOf="@+id/topHeader"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         tools:visibility="visible" />
 
-    <!-- Scrollable Home Content -->
-    <androidx.core.widget.NestedScrollView
-        android:id="@+id/nestedScrollView"
+    <!-- Scrollable Home Content: banner & cards scroll away, category tabs stay pinned on top -->
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/homeCoordinator"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:clipToPadding="false"
         android:descendantFocusability="beforeDescendants"
         android:focusableInTouchMode="true"
-        android:paddingBottom="@dimen/_16sdp"
         app:layout_goneMarginBottom="@dimen/_76sdp"
         app:layout_constraintBottom_toTopOf="@+id/adSlotBottom"
         app:layout_constraintTop_toBottomOf="@+id/adSlotTop">
 
-        <LinearLayout
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/homeAppBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:descendantFocusability="beforeDescendants"
-            android:focusableInTouchMode="true"
-            android:orientation="vertical"
-            android:paddingHorizontal="@dimen/_16sdp">
+            android:background="@color/bg_home"
+            android:stateListAnimator="@null"
+            app:elevation="0dp">
 
-            <!-- Enable Emoji Battery Banner Card -->
+            <!-- Scrolls off the top -->
             <LinearLayout
-                android:id="@+id/llEnableBanner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_12sdp"
-                android:background="@drawable/bg_banner_gradient"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
+                android:orientation="vertical"
                 android:paddingHorizontal="@dimen/_16sdp"
-                android:paddingVertical="@dimen/_12sdp">
+                app:layout_scrollFlags="scroll">
 
-                <ImageView
-                    android:layout_width="@dimen/_22sdp"
-                    android:layout_height="@dimen/_22sdp"
-                    android:src="@drawable/ic_sparkle" />
-
-                <TextView
-                    android:id="@+id/tvBannerText"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_10sdp"
-                    android:layout_weight="1"
-                    android:text="@string/enable_emoji_battery_banner"
-                    android:textColor="@color/primary_purple"
-                    android:textSize="@dimen/_11ssp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/btnBannerStart"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/bg_pill_start_button"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:paddingHorizontal="@dimen/_18sdp"
-                    android:paddingVertical="@dimen/_6sdp"
-                    android:text="@string/start"
-                    android:textColor="@color/primary_pink"
-                    android:textSize="@dimen/_10ssp"
-                    android:textStyle="bold" />
-            </LinearLayout>
-
-            <!-- Quick Action Cards Section -->
-            <LinearLayout
-                android:id="@+id/llQuickActionCards"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_106sdp"
-                android:layout_marginTop="@dimen/_14sdp"
-                android:orientation="horizontal">
-
-                <!-- Left Large Card: Sticker Shop -->
-                <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/cardStickerShop"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginEnd="6dp"
-                    android:layout_weight="1.1"
-                    android:clickable="true"
-                    android:focusable="true"
-                    app:cardCornerRadius="24dp"
-                    app:cardElevation="0dp"
-                    app:strokeWidth="0dp">
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@drawable/puppy_ic"
-                        android:padding="14dp">
-
-                        <ImageView
-                            android:layout_width="@dimen/_24sdp"
-                            android:layout_height="@dimen/_24sdp"
-                            android:layout_alignParentStart="true"
-                            android:layout_alignParentTop="true"
-                            android:src="@drawable/ic_emojee"
-                            app:tint="@color/white" />
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentBottom="true"
-                            android:layout_alignParentStart="true"
-                            android:gravity="center_vertical"
-                            android:orientation="horizontal">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@string/sticker_shop"
-                                android:textColor="@color/white"
-                                android:textSize="18sp"
-                                android:textStyle="bold" />
-
-                            <ImageView
-                                android:layout_width="14dp"
-                                android:layout_height="14dp"
-                                android:layout_marginStart="4dp"
-                                android:src="@drawable/ic_arrow_forward" />
-                        </LinearLayout>
-                    </RelativeLayout>
-                </com.google.android.material.card.MaterialCardView>
-
-                <!-- Right Column (Animation & Themes) -->
+                <!-- Enable Emoji Battery Banner Card -->
                 <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="6dp"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
+                    android:id="@+id/llEnableBanner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:background="@drawable/bg_banner_gradient"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/_16sdp"
+                    android:paddingVertical="@dimen/_12sdp">
 
-                    <!-- Top Card: Animation -->
-                    <com.google.android.material.card.MaterialCardView
-                        android:id="@+id/cardAnimation"
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_marginBottom="6dp"
+                    <ImageView
+                        android:layout_width="@dimen/_22sdp"
+                        android:layout_height="@dimen/_22sdp"
+                        android:src="@drawable/ic_sparkle" />
+
+                    <TextView
+                        android:id="@+id/tvBannerText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_10sdp"
                         android:layout_weight="1"
+                        android:text="@string/enable_emoji_battery_banner"
+                        android:textColor="@color/primary_purple"
+                        android:textSize="@dimen/_11ssp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/btnBannerStart"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_pill_start_button"
                         android:clickable="true"
                         android:focusable="true"
-                        app:cardCornerRadius="20dp"
-                        app:cardElevation="0dp"
-                        app:strokeWidth="0dp">
-
-                        <RelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:background="@drawable/bg_quick_animation"
-                            android:paddingHorizontal="12dp">
-
-                            <ImageView
-                                android:id="@+id/ivAnimIcon"
-                                android:layout_width="@dimen/_22sdp"
-                                android:layout_height="@dimen/_22sdp"
-                                android:layout_alignParentStart="true"
-                                android:layout_centerVertical="true"
-                                android:src="@drawable/ic_animation"
-                                app:tint="@color/white" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_centerVertical="true"
-                                android:layout_marginStart="8dp"
-                                android:layout_toEndOf="@+id/ivAnimIcon"
-                                android:text="@string/animation"
-                                android:textColor="@color/white"
-                                android:textSize="14sp"
-                                android:textStyle="bold" />
-
-                            <ImageView
-                                android:layout_width="@dimen/_18sdp"
-                                android:layout_height="@dimen/_18sdp"
-                                android:layout_alignParentEnd="true"
-                                android:layout_centerVertical="true"
-                                android:src="@drawable/arrow_forword" />
-                        </RelativeLayout>
-                    </com.google.android.material.card.MaterialCardView>
-
-                    <!-- Bottom Card: Themes -->
-                    <com.google.android.material.card.MaterialCardView
-                        android:id="@+id/cardThemes"
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_marginTop="@dimen/_6sdp"
-                        android:layout_weight="1"
-                        android:clickable="true"
-                        android:focusable="true"
-                        app:cardCornerRadius="@dimen/_20sdp"
-                        app:cardElevation="0dp"
-                        app:strokeWidth="0dp">
-
-                        <RelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:background="@drawable/bg_quick_themes"
-                            android:paddingHorizontal="@dimen/_10sdp">
-
-                            <ImageView
-                                android:id="@+id/ivThemesIcon"
-                                android:layout_width="@dimen/_22sdp"
-                                android:layout_height="@dimen/_22sdp"
-                                android:layout_alignParentStart="true"
-                                android:layout_centerVertical="true"
-                                android:src="@drawable/ic_theme"
-                                app:tint="@color/white" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_centerVertical="true"
-                                android:layout_marginStart="8dp"
-                                android:layout_toEndOf="@+id/ivThemesIcon"
-                                android:text="@string/themes"
-                                android:textColor="@color/white"
-                                android:textSize="14sp"
-                                android:textStyle="bold" />
-
-                            <ImageView
-                                android:layout_width="@dimen/_18sdp"
-                                android:layout_height="@dimen/_18sdp"
-                                android:layout_alignParentEnd="true"
-                                android:layout_centerVertical="true"
-                                android:src="@drawable/arrow_forword" />
-                        </RelativeLayout>
-                    </com.google.android.material.card.MaterialCardView>
-
+                        android:paddingHorizontal="@dimen/_18sdp"
+                        android:paddingVertical="@dimen/_6sdp"
+                        android:text="@string/start"
+                        android:textColor="@color/primary_pink"
+                        android:textSize="@dimen/_10ssp"
+                        android:textStyle="bold" />
                 </LinearLayout>
+
+                <!-- Quick Action Cards Section -->
+                <LinearLayout
+                    android:id="@+id/llQuickActionCards"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_106sdp"
+                    android:layout_marginTop="@dimen/_14sdp"
+                    android:orientation="horizontal">
+
+                    <!-- Left Large Card: Sticker Shop -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/cardStickerShop"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginEnd="6dp"
+                        android:layout_weight="1.1"
+                        android:clickable="true"
+                        android:focusable="true"
+                        app:cardCornerRadius="24dp"
+                        app:cardElevation="0dp"
+                        app:strokeWidth="0dp">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/puppy_ic"
+                            android:padding="14dp">
+
+                            <ImageView
+                                android:layout_width="@dimen/_24sdp"
+                                android:layout_height="@dimen/_24sdp"
+                                android:layout_alignParentStart="true"
+                                android:layout_alignParentTop="true"
+                                android:src="@drawable/ic_emojee"
+                                app:tint="@color/white" />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentBottom="true"
+                                android:layout_alignParentStart="true"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/sticker_shop"
+                                    android:textColor="@color/white"
+                                    android:textSize="18sp"
+                                    android:textStyle="bold" />
+
+                                <ImageView
+                                    android:layout_width="14dp"
+                                    android:layout_height="14dp"
+                                    android:layout_marginStart="4dp"
+                                    android:src="@drawable/ic_arrow_forward" />
+                            </LinearLayout>
+                        </RelativeLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <!-- Right Column (Animation & Themes) -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="6dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <!-- Top Card: Animation -->
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/cardAnimation"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_marginBottom="6dp"
+                            android:layout_weight="1"
+                            android:clickable="true"
+                            android:focusable="true"
+                            app:cardCornerRadius="20dp"
+                            app:cardElevation="0dp"
+                            app:strokeWidth="0dp">
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/bg_quick_animation"
+                                android:paddingHorizontal="12dp">
+
+                                <ImageView
+                                    android:id="@+id/ivAnimIcon"
+                                    android:layout_width="@dimen/_22sdp"
+                                    android:layout_height="@dimen/_22sdp"
+                                    android:layout_alignParentStart="true"
+                                    android:layout_centerVertical="true"
+                                    android:src="@drawable/ic_animation"
+                                    app:tint="@color/white" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:layout_marginStart="8dp"
+                                    android:layout_toEndOf="@+id/ivAnimIcon"
+                                    android:text="@string/animation"
+                                    android:textColor="@color/white"
+                                    android:textSize="14sp"
+                                    android:textStyle="bold" />
+
+                                <ImageView
+                                    android:layout_width="@dimen/_18sdp"
+                                    android:layout_height="@dimen/_18sdp"
+                                    android:layout_alignParentEnd="true"
+                                    android:layout_centerVertical="true"
+                                    android:src="@drawable/arrow_forword" />
+                            </RelativeLayout>
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <!-- Bottom Card: Themes -->
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/cardThemes"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_marginTop="@dimen/_6sdp"
+                            android:layout_weight="1"
+                            android:clickable="true"
+                            android:focusable="true"
+                            app:cardCornerRadius="@dimen/_20sdp"
+                            app:cardElevation="0dp"
+                            app:strokeWidth="0dp">
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/bg_quick_themes"
+                                android:paddingHorizontal="@dimen/_10sdp">
+
+                                <ImageView
+                                    android:id="@+id/ivThemesIcon"
+                                    android:layout_width="@dimen/_22sdp"
+                                    android:layout_height="@dimen/_22sdp"
+                                    android:layout_alignParentStart="true"
+                                    android:layout_centerVertical="true"
+                                    android:src="@drawable/ic_theme"
+                                    app:tint="@color/white" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:layout_marginStart="8dp"
+                                    android:layout_toEndOf="@+id/ivThemesIcon"
+                                    android:text="@string/themes"
+                                    android:textColor="@color/white"
+                                    android:textSize="14sp"
+                                    android:textStyle="bold" />
+
+                                <ImageView
+                                    android:layout_width="@dimen/_18sdp"
+                                    android:layout_height="@dimen/_18sdp"
+                                    android:layout_alignParentEnd="true"
+                                    android:layout_centerVertical="true"
+                                    android:src="@drawable/arrow_forword" />
+                            </RelativeLayout>
+                        </com.google.android.material.card.MaterialCardView>
+
+                    </LinearLayout>
+                </LinearLayout>
+
             </LinearLayout>
 
-            <!-- Category Filter Tabs Horizontal RecyclerView -->
+            <!-- Category Filter Tabs: no scroll flags, so they stay pinned at the top -->
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvCategoryTabs"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_16sdp"
+                android:background="@color/bg_home"
                 android:orientation="horizontal"
+                android:paddingHorizontal="@dimen/_16sdp"
+                android:paddingTop="@dimen/_16sdp"
+                android:paddingBottom="@dimen/_8sdp"
+                android:clipToPadding="false"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
-            <!-- Main Battery Emoji Grid (3 columns) -->
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rvEmojiGrid"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_8sdp"
-                android:nestedScrollingEnabled="false"
-                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-                app:spanCount="3" />
+        </com.google.android.material.appbar.AppBarLayout>
 
-        </LinearLayout>
+        <!-- Main Battery Emoji Grid (3 columns) -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvEmojiGrid"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:paddingHorizontal="@dimen/_16sdp"
+            android:paddingBottom="@dimen/_16sdp"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:spanCount="3" />
 
-    </androidx.core.widget.NestedScrollView>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
     <!-- Bottom Ad Slot (Banner or Native) - Docked above bottom nav bar -->
     <com.universal.remote.ads.AdSlotView

@@ -11,15 +11,19 @@ import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.asim.jhbatteryapp.R
+import com.asim.jhbatteryapp.data.remote.RemoteImageLoader
 import com.asim.jhbatteryapp.databinding.DialogBatteryPreviewBinding
 import com.asim.jhbatteryapp.databinding.FragmentSearchBinding
 import com.asim.jhbatteryapp.domain.model.BatteryEmojiItem
+import com.asim.jhbatteryapp.domain.model.RemoteAssetItem
 import com.asim.jhbatteryapp.presentation.home.BatteryEmojiAdapter
 import com.asim.jhbatteryapp.presentation.home.HomeViewModel
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.universal.remote.ads.AdsController
+import kotlinx.coroutines.launch
 
 class SearchFragment : Fragment() {
 
@@ -73,7 +77,14 @@ class SearchFragment : Fragment() {
 
     private fun setupRecyclerViews() {
         // Recent Grid (3 columns)
-        recentAdapter = BatteryEmojiAdapter { item ->
+        recentAdapter = BatteryEmojiAdapter(
+            onRemoteItemClick = { remoteItem ->
+                val act = activity ?: return@BatteryEmojiAdapter
+                AdsController.interstitial(act, "is_show_search_btn_inter") {
+                    showRemotePreviewBottomSheet(remoteItem)
+                }
+            }
+        ) { item ->
             val act = activity ?: return@BatteryEmojiAdapter
             AdsController.interstitial(act, "is_show_search_btn_inter") {
                 showPreviewBottomSheet(item)
@@ -85,7 +96,14 @@ class SearchFragment : Fragment() {
         binding.rvRecentGrid.adapter = recentAdapter
 
         // Top Picks Grid (3 columns)
-        topPicksAdapter = BatteryEmojiAdapter { item ->
+        topPicksAdapter = BatteryEmojiAdapter(
+            onRemoteItemClick = { remoteItem ->
+                val act = activity ?: return@BatteryEmojiAdapter
+                AdsController.interstitial(act, "is_show_search_btn_inter") {
+                    showRemotePreviewBottomSheet(remoteItem)
+                }
+            }
+        ) { item ->
             val act = activity ?: return@BatteryEmojiAdapter
             AdsController.interstitial(act, "is_show_search_btn_inter") {
                 showPreviewBottomSheet(item)
@@ -99,8 +117,8 @@ class SearchFragment : Fragment() {
 
     private fun setupListeners() {
         // Back Button & System Back -> Navigate back using NavController!
-        AdsController.routeSystemBack(this, binding.btnCloseSearch)
-        binding.btnCloseSearch.setOnClickListener {
+        AdsController.routeSystemBack(this, binding.topHeader.backButton)
+        binding.topHeader.backButton.setOnClickListener {
             AdsController.back(this, "is_show_search_back_inter") {
                 findNavController().navigateUp()
             }
@@ -161,6 +179,24 @@ class SearchFragment : Fragment() {
                 drawableResList = topPicksList.map { it.previewDrawableRes }
             )
         }
+
+        // Remote emojis from the JSON manifest, appended after local items (same as Home).
+        // Registered after the local observers because submitList() clears the remote items.
+        viewModel.remoteRecentEmojis.observe(viewLifecycleOwner) { remote ->
+            recentAdapter.submitRemoteList(remote)
+            updateSectionHeaders()
+        }
+
+        viewModel.remoteTopPickEmojis.observe(viewLifecycleOwner) { remote ->
+            topPicksAdapter.submitRemoteList(remote)
+            updateSectionHeaders()
+        }
+    }
+
+    /** Hides a section's title when its grid has nothing to show. */
+    private fun updateSectionHeaders() {
+        //binding.tvRecentHeader.visibility = if (recentAdapter.itemCount > 0) View.VISIBLE else View.GONE
+        binding.tvTopPicksHeader.visibility = if (topPicksAdapter.itemCount > 0) View.VISIBLE else View.GONE
     }
 
     private fun highlightChip(activeChip: TextView) {
@@ -216,6 +252,53 @@ class SearchFragment : Fragment() {
                 com.asim.jhbatteryapp.service.StatusBarAccessibilityService.updateBatteryIcon(item.previewDrawableRes, isTintable = false)
                 Toast.makeText(requireContext(), getString(R.string.item_applied_battery_format, item.title), Toast.LENGTH_SHORT).show()
                 dismiss()
+            }
+        }
+    }
+
+    /** Same preview sheet as [showPreviewBottomSheet], for an emoji from the remote manifest. */
+    private fun showRemotePreviewBottomSheet(item: RemoteAssetItem) {
+        com.asim.jhbatteryapp.core.Utils.MyUtils.genBottomSheetDialog(
+            context = requireContext(),
+            isCancelable = true,
+            style = R.style.Style_Rounded_Bottom_Sheet,
+            bindingInflater = DialogBatteryPreviewBinding::inflate
+        ) { dialogBinding ->
+            val bgColor = try {
+                android.graphics.Color.parseColor(item.backgroundColor)
+            } catch (_: Throwable) {
+                ContextCompat.getColor(requireContext(), R.color.card_bg_pink)
+            }
+            dialogBinding.cvPreviewContainer.setCardBackgroundColor(bgColor)
+            RemoteImageLoader.loadImage(item, dialogBinding.ivDialogMascot)
+            dialogBinding.tvDialogTitle.text = item.name
+
+            dialogBinding.btnApplyStyle.setOnClickListener {
+                val hasAccessibility = com.asim.jhbatteryapp.service.StatusBarAccessibilityService.isAccessibilityServiceEnabled(requireContext())
+                if (!hasAccessibility) {
+                    dismiss()
+                    com.asim.jhbatteryapp.presentation.common.StatusBarPermissionHelper.showAccessibilityDialog(requireContext())
+                    return@setOnClickListener
+                }
+                dialogBinding.btnApplyStyle.isEnabled = false
+                val appContext = requireContext().applicationContext
+                viewLifecycleOwner.lifecycleScope.launch {
+                    val path = RemoteImageLoader.saveForApply(item)
+                    if (path == null) {
+                        Toast.makeText(appContext, R.string.remote_asset_download_failed, Toast.LENGTH_SHORT).show()
+                        dialogBinding.btnApplyStyle.isEnabled = true
+                        return@launch
+                    }
+                    val prefRepo = com.asim.jhbatteryapp.data.repository.PreferenceRepositoryImpl()
+                    prefRepo.setAppliedBatteryIconPath(path)
+                    // Res 0 tells the overlay to draw the downloaded file instead of a drawable
+                    prefRepo.setAppliedBatteryIconRes(0)
+                    prefRepo.setBatteryIconTintable(false)
+                    prefRepo.setEmojiBatteryEnabled(true)
+                    com.asim.jhbatteryapp.service.StatusBarAccessibilityService.updateCustomSettings()
+                    Toast.makeText(appContext, appContext.getString(R.string.item_applied_battery_format, item.name), Toast.LENGTH_SHORT).show()
+                    dismiss()
+                }
             }
         }
     }

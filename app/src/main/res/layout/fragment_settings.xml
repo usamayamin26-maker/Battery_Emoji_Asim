@@ -6,25 +6,16 @@
     android:layout_height="match_parent"
     android:background="@color/bg_home">
 
-    <!-- Header: Settings Title -->
-    <RelativeLayout
-        android:id="@+id/headerSettings"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_45sdp"
-        android:layout_marginTop="@dimen/_28sdp"
-        android:paddingHorizontal="@dimen/_16sdp"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_centerVertical="true"
-            android:text="@string/settings_title"
-            android:textColor="@color/text_primary"
-            android:textSize="@dimen/_18ssp"
-            android:textStyle="bold" />
-    </RelativeLayout>
+    <!-- Shared screen header -->
+    <com.asim.jhbatteryapp.presentation.components.TopHeaderView
+        android:id="@+id/topHeader"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:headerTitle="@string/settings_title"
+        app:showBack="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <!-- Top Ad Slot (Banner or Native) -->
     <com.universal.remote.ads.AdSlotView
@@ -35,7 +26,7 @@
         android:paddingBottom="@dimen/_4sdp"
         android:visibility="gone"
         app:nativeMarginHorizontal="@dimen/_14sdp"
-        app:layout_constraintTop_toBottomOf="@+id/headerSettings"
+        app:layout_constraintTop_toBottomOf="@+id/topHeader"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         tools:visibility="visible" />
