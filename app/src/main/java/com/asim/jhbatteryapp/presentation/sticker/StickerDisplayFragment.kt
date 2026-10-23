@@ -136,19 +136,17 @@ class StickerDisplayFragment : Fragment() {
         viewModel.addOrSelectSticker(item)
         viewModel.setActiveSticker(item)
 
-        val isAccessibilityEnabled = com.asim.jhbatteryapp.service.StatusBarAccessibilityService.isAccessibilityServiceEnabled(requireContext())
-        val hasOverlay = com.asim.jhbatteryapp.presentation.common.StatusBarPermissionHelper.hasOverlayPermission(requireContext())
-
         // Check Accessibility permission (primary) or overlay permission (fallback)
-        if (!isAccessibilityEnabled && !hasOverlay) {
+        if (!canFloatSticker()) {
             pendingStickerToFloat = item
-            com.asim.jhbatteryapp.presentation.common.StatusBarPermissionHelper.showAccessibilityDialog(
+            // Display over other apps is all the sticker needs; onResume floats it once allowed
+            com.asim.jhbatteryapp.presentation.common.StatusBarPermissionHelper.showPermissionDialog(
                 context = requireContext(),
-                onSettingsOpened = {
-                    // Directed to Accessibility Settings
-                },
-                onDismissed = {
-                    pendingStickerToFloat = null
+                onProceed = {
+                    if (canFloatSticker()) {
+                        pendingStickerToFloat = null
+                        onStickerSelected(item)
+                    }
                 }
             )
             return
@@ -172,8 +170,7 @@ class StickerDisplayFragment : Fragment() {
         super.onResume()
         val pending = pendingStickerToFloat
         if (pending != null) {
-            val isAccess = com.asim.jhbatteryapp.service.StatusBarAccessibilityService.isAccessibilityServiceEnabled(requireContext())
-            if (isAccess) {
+            if (canFloatSticker()) {
                 pendingStickerToFloat = null
                 onStickerSelected(pending)
             }
@@ -203,14 +200,16 @@ class StickerDisplayFragment : Fragment() {
                     return@interstitial
                 }
 
-                val isAccessibilityEnabled = com.asim.jhbatteryapp.service.StatusBarAccessibilityService.isAccessibilityServiceEnabled(requireContext())
-
-                if (!isAccessibilityEnabled) {
+                if (!canFloatSticker()) {
                     pendingStickerToFloat = active
-                    com.asim.jhbatteryapp.presentation.common.StatusBarPermissionHelper.showAccessibilityDialog(
+                    com.asim.jhbatteryapp.presentation.common.StatusBarPermissionHelper.showPermissionDialog(
                         context = requireContext(),
-                        onSettingsOpened = {},
-                        onDismissed = { pendingStickerToFloat = null }
+                        onProceed = {
+                            if (canFloatSticker()) {
+                                pendingStickerToFloat = null
+                                onStickerSelected(active)
+                            }
+                        }
                     )
                     return@interstitial
                 }
@@ -250,6 +249,17 @@ class StickerDisplayFragment : Fragment() {
         }
     }
 
+    /**
+     * The floating sticker sits anywhere on screen, not over the status bar, so "Display over other
+     * apps" alone is enough: FloatingStickerService draws it as TYPE_APPLICATION_OVERLAY. Accessibility
+     * is only preferred when it is already on.
+     */
+    private fun canFloatSticker(): Boolean {
+        val ctx = requireContext()
+        return com.asim.jhbatteryapp.service.StatusBarAccessibilityService.isAccessibilityServiceEnabled(ctx) ||
+                com.asim.jhbatteryapp.presentation.common.StatusBarPermissionHelper.hasOverlayPermission(ctx)
+    }
+
     private fun openAdjustmentDialog(sticker: StickerItem) {
         StickerAdjustmentDialog(
             context = requireContext(),
@@ -271,9 +281,7 @@ class StickerDisplayFragment : Fragment() {
                     pref.setFloatingStickerY(curY)
                 }
 
-                val isAccessibility = com.asim.jhbatteryapp.service.StatusBarAccessibilityService.isAccessibilityServiceEnabled(requireContext())
-
-                if (isAccessibility) {
+                if (canFloatSticker()) {
                     com.asim.jhbatteryapp.service.FloatingStickerService.start(
                         context = requireContext(),
                         drawableRes = sticker.drawableRes,

@@ -10,6 +10,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
+import com.asim.jhbatteryapp.ads.AppAds
 import com.asim.jhbatteryapp.data.datasource.PreferenceLocalDataSource
 import com.asim.jhbatteryapp.data.remote.RemoteAssetPreloader
 import com.asim.jhbatteryapp.databinding.ActivitySplashBinding
@@ -54,6 +55,15 @@ class SplashActivity : AppCompatActivity() {
 
         binding.btnContinue.setOnClickListener {
             onContinueClicked()
+        }
+
+        if (!AppAds.ADS_ENABLED) {
+            // Ads off: no consent, no ad slots, no Continue button - straight on after the branding delay
+            lifecycleScope.launch {
+                delay(SPLASH_DURATION_MS)
+                routeOnwards()
+            }
+            return
         }
 
         lifecycleScope.launch {

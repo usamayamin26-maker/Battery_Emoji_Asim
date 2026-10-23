@@ -187,6 +187,11 @@
     <string name="how_to_use_step_3"><![CDATA[3. Turn On.]]></string>
     <string name="how_to_use_step_4"><![CDATA[4. Click <font color="#9333EA"><b>Allow.</b></font>]]></string>
     <string name="go_to_settings">Go to Settings</string>
+    <string name="restricted_settings_title">Switch greyed out or \"Restricted setting\"?</string>
+    <string name="restricted_settings_desc">On Android 13 and newer, Android blocks Accessibility for apps installed from an APK file until you allow it. This is an Android security feature: the app cannot turn it off for you, only you can.</string>
+    <string name="restricted_settings_steps"><![CDATA[1. Tap <b>Go to Settings</b> and try to turn the service on once, so Android shows the <b>Restricted setting</b> message.<br/>2. Come back and tap <b>Open App Info</b>.<br/>3. Tap the <b>⋮</b> menu in the top-right corner.<br/>4. Tap <b>Allow restricted settings</b> and confirm with your PIN or fingerprint.<br/>5. Tap <b>Go to Settings</b> again and turn the service on.]]></string>
+    <string name="open_app_info">Open App Info</string>
+    <string name="app_info_open_failed">Couldn\'t open App Info. Open Settings › Apps › Emoji Battery manually.</string>
 
     <!-- Exit Dialog -->
     <string name="exit_dialog_title">Are you sure you want to exit?</string>

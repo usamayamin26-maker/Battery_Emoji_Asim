@@ -180,6 +180,11 @@
     <string name="how_to_use_step_3"><![CDATA[3. آن کریں۔]]></string>
     <string name="how_to_use_step_4"><![CDATA[4. <font color="#9333EA"><b>اجازت دیں</b></font> پر کلک کریں۔]]></string>
     <string name="go_to_settings">سیٹنگز میں جائیں</string>
+    <string name="restricted_settings_title">سوئچ بند (grey) ہے یا \"Restricted setting\" لکھا آ رہا ہے؟</string>
+    <string name="restricted_settings_desc">Android 13 اور اس سے نئے ورژن پر، APK فائل سے انسٹال کی گئی ایپس کے لیے Android ایکسیسبلٹی کو تب تک روکے رکھتا ہے جب تک آپ خود اجازت نہ دیں۔ یہ Android کا سیکیورٹی فیچر ہے: ایپ اسے آپ کے لیے بند نہیں کر سکتی، صرف آپ کر سکتے ہیں۔</string>
+    <string name="restricted_settings_steps"><![CDATA[1. <b>سیٹنگز میں جائیں</b> دبائیں اور ایک بار سروس آن کرنے کی کوشش کریں، تاکہ Android <b>Restricted setting</b> کا پیغام دکھائے۔<br/>2. واپس آئیں اور <b>ایپ کی معلومات کھولیں</b> دبائیں۔<br/>3. اوپر دائیں کونے میں <b>⋮</b> مینیو دبائیں۔<br/>4. <b>Allow restricted settings</b> دبائیں اور PIN یا فنگر پرنٹ سے تصدیق کریں۔<br/>5. دوبارہ <b>سیٹنگز میں جائیں</b> دبائیں اور سروس آن کریں۔]]></string>
+    <string name="open_app_info">ایپ کی معلومات کھولیں</string>
+    <string name="app_info_open_failed">ایپ کی معلومات نہیں کھل سکی۔ Settings › Apps › Emoji Battery خود کھولیں۔</string>
     <string name="continue_text">جاری رکھیں ←</string>
 
     <!-- Exit Dialog -->

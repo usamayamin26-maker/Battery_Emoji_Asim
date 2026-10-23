@@ -33,6 +33,69 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <!-- Android 13+ restricted settings guide: shown only when the install source may be restricted -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardRestrictedSettings"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:visibility="gone"
+                app:cardBackgroundColor="#FFFBEB"
+                app:cardCornerRadius="@dimen/_14sdp"
+                app:cardElevation="0dp"
+                app:strokeColor="#FCD34D"
+                app:strokeWidth="1.2dp"
+                tools:visibility="visible">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/_12sdp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/restricted_settings_title"
+                        android:textColor="#92400E"
+                        android:textSize="@dimen/_13ssp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_4sdp"
+                        android:lineSpacingExtra="@dimen/_2sdp"
+                        android:text="@string/restricted_settings_desc"
+                        android:textColor="#374151"
+                        android:textSize="@dimen/_11ssp" />
+
+                    <TextView
+                        android:id="@+id/tvRestrictedSteps"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:lineSpacingExtra="@dimen/_3sdp"
+                        android:textColor="#374151"
+                        android:textSize="@dimen/_12ssp"
+                        tools:text="1. Tap Go to Settings once…" />
+
+                    <TextView
+                        android:id="@+id/btnOpenAppInfo"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_38sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:background="@drawable/bg_btn_apply"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:gravity="center"
+                        android:text="@string/open_app_info"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_12ssp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
             <!-- Card 1: Step 1 -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"

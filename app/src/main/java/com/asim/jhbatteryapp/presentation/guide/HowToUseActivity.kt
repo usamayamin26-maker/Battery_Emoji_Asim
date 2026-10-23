@@ -4,18 +4,22 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.text.Html
+import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import com.asim.jhbatteryapp.R
 import com.asim.jhbatteryapp.databinding.ActivityHowToUseBinding
-import com.asim.jhbatteryapp.databinding.ActivityMainBinding
-import com.asim.jhbatteryapp.service.StatusBarAccessibilityService
+import com.asim.jhbatteryapp.domain.model.AccessibilityPermissionStatus
+import com.asim.jhbatteryapp.presentation.common.PermissionSettingsNavigator
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class HowToUseActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityHowToUseBinding
+    private val viewModel: AccessibilityPermissionViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,6 +38,7 @@ class HowToUseActivity : AppCompatActivity() {
 
         setupStepTexts()
         setupClickListeners()
+        viewModel.status.observe(this, ::render)
     }
 
     private fun setupStepTexts() {
@@ -53,6 +58,10 @@ class HowToUseActivity : AppCompatActivity() {
             getString(R.string.how_to_use_step_4),
             Html.FROM_HTML_MODE_COMPACT
         )
+        binding.tvRestrictedSteps.text = Html.fromHtml(
+            getString(R.string.restricted_settings_steps),
+            Html.FROM_HTML_MODE_COMPACT
+        )
     }
 
     private fun setupClickListeners() {
@@ -69,16 +78,30 @@ class HowToUseActivity : AppCompatActivity() {
         })
 
         binding.btnGoToSettings.setOnClickListener {
-            StatusBarAccessibilityService.openAccessibilitySettings(this)
+            PermissionSettingsNavigator.openAccessibilitySettings(this)
+        }
+
+        binding.btnOpenAppInfo.setOnClickListener {
+            if (!PermissionSettingsNavigator.openAppInfo(this)) {
+                Toast.makeText(this, R.string.app_info_open_failed, Toast.LENGTH_LONG).show()
+            }
         }
     }
 
     override fun onResume() {
         super.onResume()
-        // If accessibility permission is granted while in settings and user returns, finish this guide
-        if (StatusBarAccessibilityService.isAccessibilityServiceEnabled(this)) {
+        // Back from Settings / App Info: re-read the state, the UI follows through render()
+        viewModel.refresh()
+    }
+
+    private fun render(status: AccessibilityPermissionStatus) {
+        // Granted while in Settings: the guide has done its job
+        if (status.isServiceEnabled) {
             finish()
+            return
         }
+        binding.cardRestrictedSettings.visibility =
+            if (status.mayNeedRestrictedSettings) View.VISIBLE else View.GONE
     }
 
     companion object {

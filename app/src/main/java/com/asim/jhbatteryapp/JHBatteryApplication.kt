@@ -8,10 +8,13 @@ import com.asim.jhbatteryapp.BuildConfig
 import com.asim.jhbatteryapp.ads.AppAds
 import com.asim.jhbatteryapp.ads.RemoteConfigManager
 import com.asim.jhbatteryapp.data.remote.RemoteImageLoader
+import com.asim.jhbatteryapp.di.appModule
 import com.asim.jhbatteryapp.presentation.splash.SplashActivity
 import com.asim.jhbatteryapp.presentation.welcome.WelcomeActivity
 import com.universal.remote.ads.AdsController
 import com.universal.remote.ads.AdsSetup
+import org.koin.android.ext.koin.androidContext
+import org.koin.core.context.startKoin
 
 class JHBatteryApplication : Application() {
 
@@ -29,6 +32,11 @@ class JHBatteryApplication : Application() {
     override fun onCreate() {
         super.onCreate()
         instance = this
+
+        startKoin {
+            androidContext(this@JHBatteryApplication)
+            modules(appModule)
+        }
 
         registerActivityLifecycleCallbacks(object : ActivityLifecycleCallbacks {
             override fun onActivityCreated(activity: Activity, savedInstanceState: Bundle?) {}

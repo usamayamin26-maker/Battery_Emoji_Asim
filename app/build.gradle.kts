@@ -99,6 +99,9 @@ dependencies {
     // SVG decoding for remote assets (BitmapFactory cannot decode SVG)
     implementation(libs.androidsvg)
 
+    // Dependency injection
+    implementation(libs.koin.android)
+
     // ---------- AdMob mediation ----------
     implementation("com.unity3d.ads:unity-ads:4.21.0")
     implementation("com.google.ads.mediation:unity:4.21.0.0")

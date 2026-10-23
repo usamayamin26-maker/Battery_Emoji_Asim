@@ -60,6 +60,9 @@ object RemoteConfigManager {
         coerceInputValues = true
     }
 
+    /** Every flag 0 and every unit blank: what [current] returns while [AppAds.ADS_ENABLED] is false. */
+    private val ADS_OFF = AdsConfig()
+
     @Volatile
     private var cachedConfig: AdsConfig? = null
 
@@ -68,7 +71,7 @@ object RemoteConfigManager {
      * process death and splash didn't run), falls back to the values Firebase activated in an
      * earlier session, and only then to the default JSON.
      */
-    fun current(): AdsConfig = cachedConfig ?: run {
+    fun current(): AdsConfig = if (!AppAds.ADS_ENABLED) ADS_OFF else cachedConfig ?: run {
         val payload = withRemoteConfig { it.getString(configKey) }.orEmpty()
         parse(payload.ifBlank { defaultJson })
     }.also { cachedConfig = it }
@@ -85,6 +88,10 @@ object RemoteConfigManager {
      * a launch after that, even offline, gets the values Firebase activated and persisted last time.
      */
     fun fetchAndActivate(onComplete: (AdsConfig) -> Unit) {
+        if (!AppAds.ADS_ENABLED) {
+            onComplete(ADS_OFF)
+            return
+        }
         val remoteConfig = withRemoteConfig { it }
         if (remoteConfig == null) {
             val config = parse(defaultJson)

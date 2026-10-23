@@ -361,6 +361,9 @@ object StatusBarPermissionHelper {
                 context.getString(R.string.accessibility_usage_bullet_2),
                 android.text.Html.FROM_HTML_MODE_COMPACT
             )
+            // The service performs no global actions (Home / Back / Recents), so a disclosure saying
+            // it does would be misleading: keep only the bullet that describes what it really does
+            binding.llBullet2.visibility = View.GONE
             binding.tvTerms.text = android.text.Html.fromHtml(
                 context.getString(R.string.accessibility_usage_terms),
                 android.text.Html.FROM_HTML_MODE_COMPACT
