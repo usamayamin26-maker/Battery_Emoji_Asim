@@ -169,21 +169,21 @@ class StatusBarCustomViewModel(
 
         // 10 Status Bar Icons from snippet
         _statusIcons.value = listOf(
-            CustomStatusIconItem("airplane", "Airplane", R.drawable.ic_airplane),
-            CustomStatusIconItem("ringer", "Ringer", R.drawable.ic_ringer_silent),
-            CustomStatusIconItem("calendar", "Date & Time", R.drawable.ic_calendar),
-            CustomStatusIconItem("hotspot", "Hotspot", R.drawable.ic_hotspot),
-            CustomStatusIconItem("emotion", "Emotion", R.drawable.ic_emotion),
-            CustomStatusIconItem("wifi", "Wi-Fi", R.drawable.ic_status_wifi),
-            CustomStatusIconItem("signal", "SIM / Signal", R.drawable.ic_status_signal),
-            CustomStatusIconItem("data", "Data", R.drawable.ic_data_swap),
-            CustomStatusIconItem("animation", "Animation", R.drawable.ic_sparkle),
-            CustomStatusIconItem("charge", "Charge", R.drawable.ic_status_bolt)
+            CustomStatusIconItem("airplane", "Airplane", R.drawable.ic_airplane, titleRes = R.string.icon_airplane),
+            CustomStatusIconItem("ringer", "Ringer", R.drawable.ic_ringer_silent, titleRes = R.string.icon_ringer),
+            CustomStatusIconItem("calendar", "Date & Time", R.drawable.ic_calendar, titleRes = R.string.icon_date_time),
+            CustomStatusIconItem("hotspot", "Hotspot", R.drawable.ic_hotspot, titleRes = R.string.icon_hotspot),
+            CustomStatusIconItem("emotion", "Emotion", R.drawable.ic_emotion, titleRes = R.string.icon_emotion),
+            CustomStatusIconItem("wifi", "Wi-Fi", R.drawable.ic_status_wifi, titleRes = R.string.icon_wifi),
+            CustomStatusIconItem("signal", "SIM / Signal", R.drawable.ic_status_signal, titleRes = R.string.icon_sim_signal),
+            CustomStatusIconItem("data", "Data", R.drawable.ic_data_swap, titleRes = R.string.icon_data),
+            CustomStatusIconItem("animation", "Animation", R.drawable.ic_sparkle, titleRes = R.string.animation),
+            CustomStatusIconItem("charge", "Charge", R.drawable.ic_status_bolt, titleRes = R.string.icon_charge)
         )
 
         // Left Status Emojis (shows beside time on the left side of status bar)
         localLeftEmojis = listOf(
-            CustomStatusEmojiItem("none", "None", 0, isNone = true),
+            CustomStatusEmojiItem("none", "None", 0, isNone = true, titleRes = R.string.label_none),
             CustomStatusEmojiItem("emojie1", "Emoji 1", R.drawable.emojie1),
             CustomStatusEmojiItem("emojie2", "Emoji 2", R.drawable.emojie2),
             CustomStatusEmojiItem("emojie3", "Emoji 3", R.drawable.emojie3),
@@ -192,21 +192,21 @@ class StatusBarCustomViewModel(
             CustomStatusEmojiItem("emojie7", "Emoji 7", R.drawable.emojie7),
             CustomStatusEmojiItem("emojie8", "Emoji 8", R.drawable.emojie8),
             CustomStatusEmojiItem("emojie9", "Emoji 9", R.drawable.emojie9),
-            CustomStatusEmojiItem("bunny", "Bunny", R.drawable.ic_blueprint_bunny_blue),
+            CustomStatusEmojiItem("bunny", "Bunny", R.drawable.ic_blueprint_bunny_blue, titleRes = R.string.emoji_bunny),
             CustomStatusEmojiItem("girl", "Blossom", R.drawable.ic_blueprint_girl_pink),
-            CustomStatusEmojiItem("cat", "Cat", R.drawable.ic_blueprint_cat_gray),
-            CustomStatusEmojiItem("frog", "Frog", R.drawable.ic_blueprint_frog_green),
+            CustomStatusEmojiItem("cat", "Cat", R.drawable.ic_blueprint_cat_gray, titleRes = R.string.emoji_cat),
+            CustomStatusEmojiItem("frog", "Frog", R.drawable.ic_blueprint_frog_green, titleRes = R.string.emoji_frog),
             CustomStatusEmojiItem("stitch", "Stitch", R.drawable.ic_blueprint_stitch_yellow),
             CustomStatusEmojiItem("melody", "Melody", R.drawable.poke),
-            CustomStatusEmojiItem("puppy", "Puppy", R.drawable.poke_imojee),
-            CustomStatusEmojiItem("bear", "Bear", R.drawable.ic_blueprint_bear_sleeping),
-            CustomStatusEmojiItem("love", "Love", R.drawable.ic_reaction_love),
-            CustomStatusEmojiItem("happy", "Happy", R.drawable.ic_reaction_happy),
-            CustomStatusEmojiItem("sad", "Sad", R.drawable.ic_reaction_sad),
-            CustomStatusEmojiItem("sparkle", "Sparkle", R.drawable.ic_sparkle),
-            CustomStatusEmojiItem("star", "Star", R.drawable.ic_star_twinkle),
-            CustomStatusEmojiItem("heart", "Heart", R.drawable.ic_heart),
-            CustomStatusEmojiItem("emoji", "Emoji", R.drawable.ic_emojee)
+            CustomStatusEmojiItem("puppy", "Puppy", R.drawable.poke_imojee, titleRes = R.string.emoji_puppy),
+            CustomStatusEmojiItem("bear", "Bear", R.drawable.ic_blueprint_bear_sleeping, titleRes = R.string.emoji_bear),
+            CustomStatusEmojiItem("love", "Love", R.drawable.ic_reaction_love, titleRes = R.string.emoji_love),
+            CustomStatusEmojiItem("happy", "Happy", R.drawable.ic_reaction_happy, titleRes = R.string.emoji_happy),
+            CustomStatusEmojiItem("sad", "Sad", R.drawable.ic_reaction_sad, titleRes = R.string.emoji_sad),
+            CustomStatusEmojiItem("sparkle", "Sparkle", R.drawable.ic_sparkle, titleRes = R.string.emoji_sparkle),
+            CustomStatusEmojiItem("star", "Star", R.drawable.ic_star_twinkle, titleRes = R.string.emoji_star),
+            CustomStatusEmojiItem("heart", "Heart", R.drawable.ic_heart, titleRes = R.string.chip_heart),
+            CustomStatusEmojiItem("emoji", "Emoji", R.drawable.ic_emojee, titleRes = R.string.label_emoji)
         )
 
         _leftStatusEmojis.value = localLeftEmojis

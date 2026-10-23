@@ -51,7 +51,7 @@ object AppAds {
           "is_show_onboarding_screen": 0,
           "is_show_onboarding_screen_first_session": 1,
           "is_show_admob_onboarding_skip_btn_inter": 0,
-          "is_show_admob_onboarding_full_screen_native": 0,
+          "is_show_admob_onboarding_full_screen_native": 1,
           "is_show_admob_onboarding_get_started_inter": 0,
           "onboarding1_top_banner": 0,
           "onboarding1_top_native": 0,

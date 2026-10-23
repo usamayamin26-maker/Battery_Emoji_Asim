@@ -59,6 +59,12 @@ class FloatingStickerService : Service() {
         isRunning = true
         startForegroundServiceWithNotification()
 
+        // The accessibility service already shows the sticker; a second copy would show twice
+        if (StatusBarAccessibilityService.isRunning) {
+            stopSelf()
+            return
+        }
+
         loadSavedState()
 
         if (StatusBarPermissionHelper.hasOverlayPermission(this)) {
@@ -86,7 +92,7 @@ class FloatingStickerService : Service() {
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         val action = intent?.action
-        if (action == ACTION_STOP) {
+        if (action == ACTION_STOP || StatusBarAccessibilityService.isRunning) {
             stopSelf()
             return START_NOT_STICKY
         }
@@ -317,10 +323,10 @@ class FloatingStickerService : Service() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val channel = NotificationChannel(
                 channelId,
-                "Screen Sticker Display",
+                getString(R.string.notif_channel_sticker_name),
                 NotificationManager.IMPORTANCE_LOW
             ).apply {
-                description = "Shows live sticker overlay on screen"
+                description = getString(R.string.notif_channel_sticker_desc)
                 setShowBadge(false)
             }
             val manager = getSystemService(NotificationManager::class.java)
@@ -336,8 +342,8 @@ class FloatingStickerService : Service() {
         )
 
         val notification: Notification = NotificationCompat.Builder(this, channelId)
-            .setContentTitle("JH Screen Sticker")
-            .setContentText("Sticker is active on display screen")
+            .setContentTitle(getString(R.string.notif_sticker_title))
+            .setContentText(getString(R.string.notif_sticker_text))
             .setSmallIcon(R.drawable.ic_sparkle)
             .setContentIntent(pendingIntent)
             .setOngoing(true)
@@ -362,7 +368,8 @@ class FloatingStickerService : Service() {
     override fun onTaskRemoved(rootIntent: Intent?) {
         super.onTaskRemoved(rootIntent)
         // If floating sticker is enabled, keep it running when app is closed
-        if (preferenceRepository.isFloatingStickerEnabled()) {
+        // (unless the accessibility service shows it; it outlives the app on its own)
+        if (preferenceRepository.isFloatingStickerEnabled() && !StatusBarAccessibilityService.isRunning) {
             val restartIntent = Intent(applicationContext, FloatingStickerService::class.java)
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 applicationContext.startForegroundService(restartIntent)
@@ -419,6 +426,7 @@ class FloatingStickerService : Service() {
             if (StatusBarAccessibilityService.isAccessibilityServiceEnabled(context) &&
                 StatusBarAccessibilityService.instance != null
             ) {
+                handOverToAccessibility()
                 // No sticker passed (e.g. restore on app start): keep the saved one instead of
                 // resetting to the default, so a remote sticker survives relaunch
                 val prefs = PreferenceRepositoryImpl()
@@ -476,6 +484,14 @@ class FloatingStickerService : Service() {
             } catch (e: Exception) {
                 e.printStackTrace()
             }
+        }
+
+        /**
+         * Stops this fallback once the accessibility service shows the sticker. Unlike [stop] it
+         * leaves the "sticker enabled" setting and the accessibility sticker alone.
+         */
+        fun handOverToAccessibility() {
+            instance?.stopSelf()
         }
 
         fun stop(context: Context) {

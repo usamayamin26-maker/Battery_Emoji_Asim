@@ -11,5 +11,7 @@ data class HardwareState(
     val isMobileDataConnected: Boolean = false,
     val isHotspotActive: Boolean = false,
     val isCharging: Boolean = false,
-    val batteryLevel: Int = 58
+    val batteryLevel: Int = 58,
+    /** Cellular signal bars 0..4 from the system, or -1 when unknown (no SIM / not reported yet). */
+    val signalLevel: Int = -1
 )

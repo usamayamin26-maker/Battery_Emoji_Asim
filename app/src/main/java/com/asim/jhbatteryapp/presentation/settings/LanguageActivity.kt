@@ -108,6 +108,9 @@ class LanguageActivity : AppCompatActivity() {
         adapter = LanguageAdapter(languages) { _ ->
             // Selected language item updated in adapter
         }
+        binding.rvLanguages.setHasFixedSize(true)
+        // Selection only swaps the card background; skip the default cross-fade that made it flicker
+        (binding.rvLanguages.itemAnimator as? androidx.recyclerview.widget.SimpleItemAnimator)?.supportsChangeAnimations = false
         binding.rvLanguages.adapter = adapter
     }
 
@@ -137,12 +140,6 @@ class LanguageActivity : AppCompatActivity() {
             val preferences = PreferenceLocalDataSource(this)
             preferences.setLanguageSelected(true)
 
-            if (isLanguageChanged) {
-                AppCompatDelegate.setApplicationLocales(
-                    LocaleListCompat.forLanguageTags(targetLocaleCode)
-                )
-            }
-
             com.universal.remote.ads.AdsController.launchInterstitial(
                 activity = this,
                 flag = "is_show_admob_language_done_btn_inter",
@@ -154,6 +151,7 @@ class LanguageActivity : AppCompatActivity() {
                     } else {
                         OnboardingActivity::class.java
                     }
+                    applyLocaleIfChanged(isLanguageChanged, targetLocaleCode)
                     startActivity(Intent(this, nextActivity))
                     finish()
                 } else {
@@ -161,11 +159,23 @@ class LanguageActivity : AppCompatActivity() {
                         flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
                         putExtra("START_DESTINATION", "settingsFragment")
                     }
+                    applyLocaleIfChanged(isLanguageChanged, targetLocaleCode)
                     startActivity(intent)
                     finish()
                 }
             }
         }
+    }
+
+    /**
+     * Switches the app language only once the interstitial is done, right before leaving.
+     * Doing it earlier recreated screens behind the ad (a visible flash, and the ad callback ran
+     * on a destroyed activity). This screen declares configChanges="locale|layoutDirection" in the
+     * manifest, so it is not recreated while it closes; the next screen opens in the new language.
+     */
+    private fun applyLocaleIfChanged(isLanguageChanged: Boolean, targetLocaleCode: String) {
+        if (!isLanguageChanged) return
+        AppCompatDelegate.setApplicationLocales(LocaleListCompat.forLanguageTags(targetLocaleCode))
     }
 
     private fun setupBackPressHandler() {

@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.util.Log
+import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowCompat
@@ -75,6 +76,14 @@ class WelcomeActivity : AppCompatActivity() {
         binding.root.setOnClickListener {
             onUserProceed()
         }
+
+        // Back must not close the welcome screen: that skipped the resume App Open ad and dropped
+        // the user straight on Home. The screen leaves on its own (ad shown, or the 3.5s timeout).
+        onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                Log.d(TAG, "Back ignored while welcome screen waits for the App Open ad")
+            }
+        })
 
         // Initialize MobileAds SDK if not already done, then load App Open Ad
         AdsInitializer.initializeIfNeeded(this) {

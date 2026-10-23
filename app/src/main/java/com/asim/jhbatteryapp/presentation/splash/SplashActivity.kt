@@ -11,6 +11,7 @@ import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
 import com.asim.jhbatteryapp.data.datasource.PreferenceLocalDataSource
+import com.asim.jhbatteryapp.data.remote.RemoteAssetPreloader
 import com.asim.jhbatteryapp.databinding.ActivitySplashBinding
 import com.asim.jhbatteryapp.presentation.home.MainActivity
 import com.asim.jhbatteryapp.presentation.onboarding.OnboardingActivity
@@ -34,6 +35,8 @@ class SplashActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        // Fetch the remote manifest (and Home's first thumbnails) while the splash is on screen
+        RemoteAssetPreloader.start()
         WindowCompat.setDecorFitsSystemWindows(window, true)
 
         binding = ActivitySplashBinding.inflate(layoutInflater)

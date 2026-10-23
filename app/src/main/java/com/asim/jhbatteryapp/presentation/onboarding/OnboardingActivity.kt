@@ -25,6 +25,9 @@ class OnboardingActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityOnboardingBinding
 
+    /** The full-screen native after the 2nd slide is shown once, whether the user taps Next or swipes. */
+    private var hasShownFullScreenNative = false
+
     // Easily add or modify your drawable images and strings here!
     private val onboardingSlides by lazy {
         listOf(
@@ -72,6 +75,11 @@ class OnboardingActivity : AppCompatActivity() {
                 super.onPageSelected(position)
                 updateIndicators(position)
 
+                // Swiped past the 2nd slide (Next already showed it before moving on)
+                if (position == FULL_SCREEN_NATIVE_AFTER_INDEX + 1 && !hasShownFullScreenNative) {
+                    showFullScreenNative {}
+                }
+
                 // Update button text on last slide
                 if (position == onboardingSlides.size - 1) {
                    // binding.llPageIndicators.visibility = ViewGroup.GONE
@@ -96,7 +104,11 @@ class OnboardingActivity : AppCompatActivity() {
 
         binding.btnGetStarted.setOnClickListener {
             val currentItem = binding.vpOnboarding.currentItem
-            if (currentItem < onboardingSlides.size - 1) {
+            if (currentItem == FULL_SCREEN_NATIVE_AFTER_INDEX && !hasShownFullScreenNative) {
+                showFullScreenNative {
+                    binding.vpOnboarding.setCurrentItem(currentItem + 1, true)
+                }
+            } else if (currentItem < onboardingSlides.size - 1) {
                 binding.vpOnboarding.setCurrentItem(currentItem + 1, true)
             } else {
                 com.universal.remote.ads.AdsController.launchInterstitial(
@@ -108,6 +120,17 @@ class OnboardingActivity : AppCompatActivity() {
                 }
             }
         }
+    }
+
+    /** Full-screen native between the 2nd and 3rd slides; [onDone] runs once it closes (or is off). */
+    private fun showFullScreenNative(onDone: () -> Unit) {
+        hasShownFullScreenNative = true
+        com.universal.remote.ads.AdsController.fullScreenNative(
+            activity = this,
+            flag = "is_show_admob_onboarding_full_screen_native",
+            unitKey = "admob_onboarding_full_screen_native_id",
+            onDone = onDone
+        )
     }
 
     private fun navigateToHome() {
@@ -132,6 +155,11 @@ class OnboardingActivity : AppCompatActivity() {
             }
             dot.layoutParams = lp
         }
+    }
+
+    private companion object {
+        /** Index of the 2nd slide; the full-screen native shows when leaving it. */
+        const val FULL_SCREEN_NATIVE_AFTER_INDEX = 1
     }
 
     // Simple Adapter for Onboarding ViewPager2

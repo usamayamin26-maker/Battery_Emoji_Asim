@@ -5,6 +5,10 @@ import android.content.res.ColorStateList
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.GradientDrawable
+import android.os.Build
+import android.transition.AutoTransition
+import android.transition.TransitionManager
+import android.view.RoundedCorner
 import android.view.View
 import android.view.WindowManager
 import androidx.core.content.ContextCompat
@@ -23,19 +27,43 @@ import java.util.Locale
  */
 class StatusBarOverlayRenderer {
 
+    /** Hardware state of the previous render; icons only animate in/out when this changes. */
+    private var lastHardwareState: HardwareState? = null
+
+    /**
+     * @param suppressAnimation true while the bar is faded out (full screen / landscape): the
+     *   Lottie animation is left paused instead of being restarted.
+     */
     fun render(
         context: Context,
         binding: LayoutStatusBarOverlayBinding,
         settings: StatusBarSettings,
         hardwareState: HardwareState,
         windowManager: WindowManager?,
-        systemStatusBarHeight: Int
+        systemStatusBarHeight: Int,
+        suppressAnimation: Boolean = false
     ) {
         if (!settings.isEmojiBatteryEnabled) {
             binding.clOverlayRoot.visibility = View.GONE
+            lastHardwareState = null
             return
         }
+        val wasVisible = binding.clOverlayRoot.visibility == View.VISIBLE
         binding.clOverlayRoot.visibility = View.VISIBLE
+
+        // Icons appearing/disappearing because the phone's state changed (charger plugged in,
+        // Wi-Fi lost, airplane mode...) slide and fade instead of popping. Settings changes from
+        // the sliders apply instantly so they track the finger.
+        val previousHardware = lastHardwareState
+        lastHardwareState = hardwareState
+        if (wasVisible && previousHardware != null && previousHardware != hardwareState &&
+            binding.clOverlayRoot.isLaidOut && binding.clOverlayRoot.alpha > 0f
+        ) {
+            TransitionManager.beginDelayedTransition(
+                binding.clOverlayRoot,
+                AutoTransition().apply { duration = ICON_TRANSITION_MS }
+            )
+        }
 
         val density = context.resources.displayMetrics.density
 
@@ -77,9 +105,10 @@ class StatusBarOverlayRenderer {
             effectiveContentColor = settings.iconColor
         }
 
-        // 3. Margins
-        val lmPx = (settings.leftMarginDp * density).toInt()
-        val rmPx = (settings.rightMarginDp * density).toInt()
+        // 3. Margins (plus room for a corner punch-hole camera and rounded screen corners)
+        val safe = safeSideInsets(binding.clOverlayRoot)
+        val lmPx = (settings.leftMarginDp * density).toInt() + safe.first
+        val rmPx = (settings.rightMarginDp * density).toInt() + safe.second
         binding.clOverlayRoot.setPadding(lmPx, 0, rmPx, 0)
 
         // 4. Base Typography & Percentage
@@ -217,7 +246,7 @@ class StatusBarOverlayRenderer {
                 binding.lottieOverlayLeftAnimation.tag = settings.appliedAnimationRawRes
                 binding.lottieOverlayLeftAnimation.setAnimation(settings.appliedAnimationRawRes)
                 binding.lottieOverlayLeftAnimation.playAnimation()
-            } else if (!binding.lottieOverlayLeftAnimation.isAnimating) {
+            } else if (!binding.lottieOverlayLeftAnimation.isAnimating && !suppressAnimation) {
                 binding.lottieOverlayLeftAnimation.playAnimation()
             }
         } else {
@@ -225,6 +254,8 @@ class StatusBarOverlayRenderer {
             binding.lottieOverlayLeftAnimation.cancelAnimation()
             binding.lottieOverlayLeftAnimation.tag = null
         }
+
+        if (suppressAnimation) binding.lottieOverlayLeftAnimation.pauseAnimation()
 
         // Left: Animation Sparkle (Deprecated redundant widget; replaced by left status bar animation)
         binding.ivOverlayAnimation.visibility = View.GONE
@@ -265,6 +296,10 @@ class StatusBarOverlayRenderer {
         val showSignal = isSimEnabled || !hardwareState.isAirplaneActive
         if (showSignal) {
             binding.ivOverlaySignal.visibility = View.VISIBLE
+            // Live bars from the system; full bars until the first reading arrives
+            binding.ivOverlaySignal.setImageLevel(
+                if (hardwareState.signalLevel in 0..4) hardwareState.signalLevel else 4
+            )
             val signalColor = if (isSimEnabled) settings.getEffectiveIconColor("signal") else effectiveContentColor
             binding.ivOverlaySignal.imageTintList = ColorStateList.valueOf(signalColor)
             val s = if (isSimEnabled) {
@@ -329,7 +364,43 @@ class StatusBarOverlayRenderer {
         }
     }
 
+    /**
+     * Extra left/right padding so the time and battery don't sit under a corner punch-hole camera
+     * or get clipped by rounded screen corners, like the system status bar. Zero until the window
+     * has insets (the services re-render once they arrive).
+     */
+    private fun safeSideInsets(root: View): Pair<Int, Int> {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.P) return 0 to 0
+        val insets = root.rootWindowInsets ?: return 0 to 0
+        val width = root.resources.displayMetrics.widthPixels
+        val gap = (4 * root.resources.displayMetrics.density).toInt()
+        var left = 0
+        var right = 0
+
+        insets.displayCutout?.boundingRects?.forEach { rect ->
+            if (rect.top > 0 || rect.isEmpty) return@forEach
+            when {
+                rect.centerX() < width / 3 -> left = maxOf(left, rect.right + gap)
+                rect.centerX() > width * 2 / 3 -> right = maxOf(right, width - rect.left + gap)
+            }
+        }
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            // The corner curve only bites into the first part of its radius at status bar height
+            insets.getRoundedCorner(RoundedCorner.POSITION_TOP_LEFT)?.let {
+                left = maxOf(left, (it.radius * CORNER_INSET_FRACTION).toInt())
+            }
+            insets.getRoundedCorner(RoundedCorner.POSITION_TOP_RIGHT)?.let {
+                right = maxOf(right, (it.radius * CORNER_INSET_FRACTION).toInt())
+            }
+        }
+        return left to right
+    }
+
     companion object {
+        private const val ICON_TRANSITION_MS = 180L
+        private const val CORNER_INSET_FRACTION = 0.35f
+
         fun getOverlayRectDrawable(themeRes: Int): Int {
             return when (themeRes) {
                 R.drawable.bg_theme_grad_pink -> R.drawable.bg_theme_grad_pink_rect

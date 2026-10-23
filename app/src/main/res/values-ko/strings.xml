@@ -32,7 +32,7 @@
     <string name="tab_hot">🔥 인기</string>
     <string name="tab_pokemon">포켓몬</string>
     <string name="tab_sanrio">산리오</string>
-    <string name="tab_anime">애니메이션</string>
+    <string name="tab_anime">카툰</string>
 
     <!-- Filter Chips -->
     <string name="chip_all">전체</string>
@@ -180,7 +180,7 @@
     <string name="how_to_use_step_3"><![CDATA[3. 켜기를 누르세요.]]></string>
     <string name="how_to_use_step_4"><![CDATA[4. <font color="#9333EA"><b>허용</b></font>을 누르세요.]]></string>
     <string name="go_to_settings">설정으로 이동</string>
-    <string name="continue_text">계속하기</string>
+    <string name="continue_text">계속하기 →</string>
 
     <!-- Exit Dialog -->
     <string name="exit_dialog_title">정말 종료하시겠습니까?</string>
@@ -242,4 +242,47 @@
     <string name="no_connection_msg">인터넷 연결이 없습니다. 확인 후 다시 시도해 주세요.</string>
     <string name="cd_back">뒤로</string>
     <string name="cd_clear">지우기</string>
+
+    <!-- Added: strings that were missing or hardcoded in code -->
+    <string name="lang_spanish">스페인어</string>
+    <string name="lang_thai">태국어</string>
+    <string name="lang_ukrainian">우크라이나어</string>
+    <string name="remote_asset_download_failed">이 항목을 다운로드할 수 없습니다. 인터넷 연결을 확인하고 다시 시도하세요.</string>
+    <string name="ad_attribution">광고</string>
+    <string name="ad_loading_dialog_message">광고 로드 중…</string>
+    <string name="ad_loading_placeholder">광고 로드 중…</string>
+    <string name="ad_close">닫기</string>
+    <string name="icon_airplane">비행기 모드</string>
+    <string name="icon_ringer">벨소리</string>
+    <string name="icon_date_time">날짜 및 시간</string>
+    <string name="icon_hotspot">핫스팟</string>
+    <string name="icon_emotion">감정</string>
+    <string name="icon_wifi">Wi-Fi</string>
+    <string name="icon_sim_signal">SIM / 신호</string>
+    <string name="icon_data">데이터</string>
+    <string name="icon_charge">충전</string>
+    <string name="label_none">없음</string>
+    <string name="emoji_bunny">토끼</string>
+    <string name="emoji_cat">고양이</string>
+    <string name="emoji_frog">개구리</string>
+    <string name="emoji_puppy">강아지</string>
+    <string name="emoji_bear">곰</string>
+    <string name="emoji_love">사랑</string>
+    <string name="emoji_happy">행복</string>
+    <string name="emoji_sad">슬픔</string>
+    <string name="emoji_sparkle">반짝임</string>
+    <string name="emoji_star">별</string>
+    <string name="sticker_fixed_on_screen">스티커가 화면에 고정되었습니다! 앱을 닫아도 계속 표시됩니다.</string>
+    <string name="sticker_adjusted_fixed">스티커가 조정되어 화면에 고정되었습니다!</string>
+    <string name="notif_channel_sticker_name">화면 스티커 표시</string>
+    <string name="notif_channel_sticker_desc">화면 위에 실시간 스티커를 표시합니다</string>
+    <string name="notif_sticker_title">JH 화면 스티커</string>
+    <string name="notif_sticker_text">스티커가 화면에서 활성화되어 있습니다</string>
+    <string name="notif_channel_overlay_name">상태 표시줄 오버레이 서비스</string>
+    <string name="notif_channel_overlay_desc">상태 표시줄 위에 테마와 이모지 배터리 꾸미기를 실시간으로 표시합니다</string>
+    <string name="notif_overlay_title">이모지 배터리 아이콘</string>
+    <string name="notif_overlay_text">이모지 배터리 및 상태 표시줄 활성화됨</string>
+    <string name="lang_spanish_native">Español</string>
+    <string name="lang_thai_native">ไทย</string>
+    <string name="lang_ukrainian_native">Українська</string>
 </resources>

@@ -54,8 +54,9 @@ class MainActivity : AppCompatActivity() {
             com.asim.jhbatteryapp.service.FloatingStickerService.start(this)
         }
 
-        // Only start fallback overlay foreground service if accessibility service is NOT enabled
-        if (!isAccessibilityEnabled && hasOverlay && (prefRepo.isEmojiBatteryEnabled() || prefRepo.isFloatingStickerEnabled())) {
+        // Foreground service: draws the bar when accessibility is off, and otherwise keeps the
+        // process alive so the accessibility overlay survives the app being swiped away
+        if ((isAccessibilityEnabled || hasOverlay) && (prefRepo.isEmojiBatteryEnabled() || prefRepo.isFloatingStickerEnabled())) {
             com.asim.jhbatteryapp.service.StatusBarOverlayService.start(this)
         }
     }

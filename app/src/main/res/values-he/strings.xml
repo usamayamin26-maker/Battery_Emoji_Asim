@@ -32,7 +32,7 @@
     <string name="tab_hot">🔥 לוהט</string>
     <string name="tab_pokemon">פוקימון</string>
     <string name="tab_sanrio">סנריו</string>
-    <string name="tab_anime">אנימה</string>
+    <string name="tab_anime">קריקטורה</string>
 
     <!-- Filter Chips -->
     <string name="chip_all">הכל</string>
@@ -180,7 +180,7 @@
     <string name="how_to_use_step_3"><![CDATA[3. הפעל.]]></string>
     <string name="how_to_use_step_4"><![CDATA[4. לחץ <font color="#9333EA"><b>אפשר.</b></font>]]></string>
     <string name="go_to_settings">עבור להגדרות</string>
-    <string name="continue_text">המשך</string>
+    <string name="continue_text">המשך ←</string>
 
     <!-- Exit Dialog -->
     <string name="exit_dialog_title">האם אתה בטוח שברצונך לצאת?</string>
@@ -242,4 +242,47 @@
     <string name="no_connection_msg">אין חיבור. אנא בדוק את האינטרנט ונסה שוב.</string>
     <string name="cd_back">חזרה</string>
     <string name="cd_clear">נקה</string>
+
+    <!-- Added: strings that were missing or hardcoded in code -->
+    <string name="lang_spanish">ספרדית</string>
+    <string name="lang_thai">תאית</string>
+    <string name="lang_ukrainian">אוקראינית</string>
+    <string name="remote_asset_download_failed">לא ניתן היה להוריד את הפריט. בדקו את חיבור האינטרנט ונסו שוב.</string>
+    <string name="ad_attribution">מודעה</string>
+    <string name="ad_loading_dialog_message">טוען מודעה…</string>
+    <string name="ad_loading_placeholder">טוען מודעה…</string>
+    <string name="ad_close">סגירה</string>
+    <string name="icon_airplane">מצב טיסה</string>
+    <string name="icon_ringer">צלצול</string>
+    <string name="icon_date_time">תאריך ושעה</string>
+    <string name="icon_hotspot">נקודה חמה</string>
+    <string name="icon_emotion">רגש</string>
+    <string name="icon_wifi">Wi-Fi</string>
+    <string name="icon_sim_signal">SIM / קליטה</string>
+    <string name="icon_data">נתונים</string>
+    <string name="icon_charge">טעינה</string>
+    <string name="label_none">ללא</string>
+    <string name="emoji_bunny">ארנב</string>
+    <string name="emoji_cat">חתול</string>
+    <string name="emoji_frog">צפרדע</string>
+    <string name="emoji_puppy">גור</string>
+    <string name="emoji_bear">דוב</string>
+    <string name="emoji_love">אהבה</string>
+    <string name="emoji_happy">שמח</string>
+    <string name="emoji_sad">עצוב</string>
+    <string name="emoji_sparkle">נצנוץ</string>
+    <string name="emoji_star">כוכב</string>
+    <string name="sticker_fixed_on_screen">המדבקה קובעה במסך! היא נשארת גלויה גם כשהאפליקציה סגורה.</string>
+    <string name="sticker_adjusted_fixed">המדבקה הותאמה וקובעה במסך!</string>
+    <string name="notif_channel_sticker_name">תצוגת מדבקת מסך</string>
+    <string name="notif_channel_sticker_desc">מציג מדבקה חיה מעל המסך</string>
+    <string name="notif_sticker_title">מדבקת מסך JH</string>
+    <string name="notif_sticker_text">המדבקה פעילה במסך</string>
+    <string name="notif_channel_overlay_name">שירות שכבת שורת המצב</string>
+    <string name="notif_channel_overlay_desc">מציג ערכת נושא וסוללת אימוג\'י בזמן אמת מעל שורת המצב</string>
+    <string name="notif_overlay_title">סמל סוללת אימוג\'י</string>
+    <string name="notif_overlay_text">סוללת האימוג\'י ושורת המצב פעילות</string>
+    <string name="lang_spanish_native">Español</string>
+    <string name="lang_thai_native">ไทย</string>
+    <string name="lang_ukrainian_native">Українська</string>
 </resources>

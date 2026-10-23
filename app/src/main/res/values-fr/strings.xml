@@ -32,7 +32,7 @@
     <string name="tab_hot">🔥 Tendance</string>
     <string name="tab_pokemon">Pokémon</string>
     <string name="tab_sanrio">Sanrio</string>
-    <string name="tab_anime">Anime</string>
+    <string name="tab_anime">Dessins animés</string>
 
     <!-- Filter Chips -->
     <string name="chip_all">Tous</string>
@@ -180,7 +180,7 @@
     <string name="how_to_use_step_3"><![CDATA[3. Activez.]]></string>
     <string name="how_to_use_step_4"><![CDATA[4. Cliquez sur <font color="#9333EA"><b>Autoriser.</b></font>]]></string>
     <string name="go_to_settings">Aller aux paramètres</string>
-    <string name="continue_text">Continuer</string>
+    <string name="continue_text">Continuer →</string>
 
     <!-- Exit Dialog -->
     <string name="exit_dialog_title">Voulez-vous vraiment quitter ?</string>
@@ -242,4 +242,47 @@
     <string name="no_connection_msg">Pas de connexion. Veuillez vérifier votre accès Internet et réessayer.</string>
     <string name="cd_back">Retour</string>
     <string name="cd_clear">Effacer</string>
+
+    <!-- Added: strings that were missing or hardcoded in code -->
+    <string name="lang_spanish">Espagnol</string>
+    <string name="lang_thai">Thaï</string>
+    <string name="lang_ukrainian">Ukrainien</string>
+    <string name="remote_asset_download_failed">Impossible de télécharger cet élément. Vérifiez votre connexion Internet et réessayez.</string>
+    <string name="ad_attribution">Annonce</string>
+    <string name="ad_loading_dialog_message">Chargement de l\'annonce…</string>
+    <string name="ad_loading_placeholder">Chargement de l\'annonce…</string>
+    <string name="ad_close">Fermer</string>
+    <string name="icon_airplane">Mode avion</string>
+    <string name="icon_ringer">Sonnerie</string>
+    <string name="icon_date_time">Date et heure</string>
+    <string name="icon_hotspot">Point d\'accès</string>
+    <string name="icon_emotion">Émotion</string>
+    <string name="icon_wifi">Wi-Fi</string>
+    <string name="icon_sim_signal">SIM / Signal</string>
+    <string name="icon_data">Données</string>
+    <string name="icon_charge">Charge</string>
+    <string name="label_none">Aucun</string>
+    <string name="emoji_bunny">Lapin</string>
+    <string name="emoji_cat">Chat</string>
+    <string name="emoji_frog">Grenouille</string>
+    <string name="emoji_puppy">Chiot</string>
+    <string name="emoji_bear">Ours</string>
+    <string name="emoji_love">Amour</string>
+    <string name="emoji_happy">Joyeux</string>
+    <string name="emoji_sad">Triste</string>
+    <string name="emoji_sparkle">Éclat</string>
+    <string name="emoji_star">Étoile</string>
+    <string name="sticker_fixed_on_screen">Sticker fixé à l\'écran ! Il reste visible même lorsque l\'application est fermée.</string>
+    <string name="sticker_adjusted_fixed">Sticker ajusté et fixé à l\'écran !</string>
+    <string name="notif_channel_sticker_name">Affichage du sticker à l\'écran</string>
+    <string name="notif_channel_sticker_desc">Affiche un sticker en direct sur l\'écran</string>
+    <string name="notif_sticker_title">JH Sticker d\'écran</string>
+    <string name="notif_sticker_text">Le sticker est actif à l\'écran</string>
+    <string name="notif_channel_overlay_name">Service de superposition de la barre d\'état</string>
+    <string name="notif_channel_overlay_desc">Affiche en direct le thème et la batterie emoji sur la barre d\'état</string>
+    <string name="notif_overlay_title">Icône de batterie emoji</string>
+    <string name="notif_overlay_text">Batterie emoji et barre d\'état actives</string>
+    <string name="lang_spanish_native">Español</string>
+    <string name="lang_thai_native">ไทย</string>
+    <string name="lang_ukrainian_native">Українська</string>
 </resources>

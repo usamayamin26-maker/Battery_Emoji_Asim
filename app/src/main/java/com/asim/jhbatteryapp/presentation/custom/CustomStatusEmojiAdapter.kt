@@ -17,7 +17,9 @@ data class CustomStatusEmojiItem(
     val drawableRes: Int,
     val isNone: Boolean = false,
     /** Set for an emoji from the remote manifest (type "status_emoji"); [drawableRes] is then 0. */
-    val remote: RemoteAssetItem? = null
+    val remote: RemoteAssetItem? = null,
+    /** Translated title; when set it is shown instead of [title]. */
+    val titleRes: Int = 0
 )
 
 class CustomStatusEmojiAdapter(
@@ -82,7 +84,7 @@ class CustomStatusEmojiAdapter(
             }
             binding.clIconCard.setBackgroundResource(bgRes)
             binding.ivIconCardCheck.visibility = if (isSelected) View.VISIBLE else View.GONE
-            binding.tvCustomStatusIconTitle.text = item.title
+            binding.tvCustomStatusIconTitle.text = if (item.titleRes != 0) binding.root.context.getString(item.titleRes) else item.title
 
             if (item.remote != null) {
                 RemoteImageLoader.loadImage(item.remote, binding.ivCustomStatusIcon)

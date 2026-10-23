@@ -3,6 +3,7 @@ package com.asim.jhbatteryapp.service
 import android.accessibilityservice.AccessibilityService
 import android.content.Context
 import android.content.Intent
+import android.content.res.Configuration
 import android.graphics.PixelFormat
 import android.os.Build
 import android.provider.Settings
@@ -56,6 +57,7 @@ class StatusBarAccessibilityService : AccessibilityService() {
 
     private val hardwareObserver = SystemHardwareStateObserver()
     private val overlayRenderer = StatusBarOverlayRenderer()
+    private var autoHider: OverlayAutoHider? = null
 
     override fun onServiceConnected() {
         super.onServiceConnected()
@@ -76,6 +78,12 @@ class StatusBarAccessibilityService : AccessibilityService() {
             if (preferenceRepository.isFloatingStickerEnabled()) {
                 initFloatingStickerView()
             }
+
+            // This service now draws the bar and the sticker: drop the fallback copies so they
+            // don't show twice. The status bar service itself stays as the keep-alive.
+            StatusBarOverlayService.releaseOverlayToAccessibility()
+            FloatingStickerService.handOverToAccessibility()
+            ensureKeepAlive()
         } catch (e: Exception) {
             e.printStackTrace()
         }
@@ -117,6 +125,12 @@ class StatusBarAccessibilityService : AccessibilityService() {
 
             wm.addView(binding?.root, layoutParams)
             isViewAttached = true
+
+            binding?.let { b ->
+                autoHider = OverlayAutoHider(b.root, b.lottieOverlayLeftAnimation) {
+                    renderCurrentSettings()
+                }.also { it.attach() }
+            }
 
             // Trigger initial hardware state refresh
             hardwareObserver.refreshState(this, null)
@@ -344,6 +358,18 @@ class StatusBarAccessibilityService : AccessibilityService() {
 
     fun applyCustomSettings() {
         renderCurrentSettings(hardwareObserver.currentState)
+        ensureKeepAlive()
+    }
+
+    /**
+     * Keeps the foreground service running while the bar or sticker is on, so phones that kill
+     * swiped-away apps don't take this overlay down with the app.
+     */
+    private fun ensureKeepAlive() {
+        if (StatusBarOverlayService.isRunning) return
+        if (preferenceRepository.isEmojiBatteryEnabled() || preferenceRepository.isFloatingStickerEnabled()) {
+            StatusBarOverlayService.start(this)
+        }
     }
 
     private fun renderCurrentSettings(hardwareState: HardwareState = hardwareObserver.currentState) {
@@ -355,8 +381,15 @@ class StatusBarAccessibilityService : AccessibilityService() {
             settings = settings,
             hardwareState = hardwareState,
             windowManager = windowManager,
-            systemStatusBarHeight = getStatusBarHeight()
+            systemStatusBarHeight = getStatusBarHeight(),
+            suppressAnimation = autoHider?.hidden == true
         )
+    }
+
+    override fun onConfigurationChanged(newConfig: Configuration) {
+        super.onConfigurationChanged(newConfig)
+        autoHider?.onConfigurationChanged(newConfig)
+        renderCurrentSettings()
     }
 
     fun applyTheme(
@@ -389,6 +422,10 @@ class StatusBarAccessibilityService : AccessibilityService() {
             if (!isViewAttached || binding == null) {
                 initAccessibilityOverlayView()
                 applyCustomSettings()
+            } else {
+                // Another app came to the front: re-read whether it hides the status bar, so the
+                // auto-hide never stays stuck from the previous app
+                binding?.root?.requestApplyInsets()
             }
             if (preferenceRepository.isFloatingStickerEnabled() && (!isStickerAttached || stickerBinding == null)) {
                 initFloatingStickerView()
@@ -431,8 +468,27 @@ class StatusBarAccessibilityService : AccessibilityService() {
         }
         binding = null
         isViewAttached = false
+        autoHider = null
 
         removeFloatingSticker()
+
+        // Accessibility was turned off: hand the bar and sticker back to the overlay services
+        restoreFallbackOverlays()
+    }
+
+    private fun restoreFallbackOverlays() {
+        try {
+            if (!com.asim.jhbatteryapp.presentation.common.StatusBarPermissionHelper.hasOverlayPermission(this)) return
+            if (preferenceRepository.isEmojiBatteryEnabled()) {
+                StatusBarOverlayService.start(this)
+            }
+            if (preferenceRepository.isFloatingStickerEnabled()) {
+                FloatingStickerService.start(this)
+            }
+        } catch (e: Exception) {
+            // Android 12+ may refuse a background start; MainActivity restores them on next open
+            e.printStackTrace()
+        }
     }
 
     companion object {

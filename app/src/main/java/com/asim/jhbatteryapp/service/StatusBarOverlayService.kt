@@ -7,6 +7,7 @@ import android.app.PendingIntent
 import android.app.Service
 import android.content.Context
 import android.content.Intent
+import android.content.res.Configuration
 import android.graphics.PixelFormat
 import android.os.Build
 import android.os.IBinder
@@ -38,11 +39,13 @@ class StatusBarOverlayService : Service() {
 
     private val overlayRenderer = StatusBarOverlayRenderer()
     private val hardwareObserver = SystemHardwareStateObserver()
+    private var autoHider: OverlayAutoHider? = null
 
     override fun onBind(intent: Intent?): IBinder? = null
 
     override fun onCreate() {
         super.onCreate()
+        instance = this
         isRunning = true
         startForegroundServiceWithNotification()
 
@@ -58,16 +61,12 @@ class StatusBarOverlayService : Service() {
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
-        // If accessibility service is handling the overlays, remove any duplicate overlay view,
-        // but KEEP this Foreground Service running to protect the process from being killed!
+        // The accessibility service draws the bar: drop this service's copy so it doesn't show
+        // twice, but KEEP running. Many phones (Xiaomi, Oppo, Vivo...) kill the whole process when
+        // the app is swiped from recents unless a foreground service is running, and that takes
+        // the accessibility overlay down with it.
         if (StatusBarAccessibilityService.isRunning) {
-            if (isViewAttached && binding != null) {
-                try {
-                    windowManager?.removeView(binding?.root)
-                } catch (_: Exception) {}
-                binding = null
-                isViewAttached = false
-            }
+            removeOverlayView()
             return START_STICKY
         }
 
@@ -133,6 +132,12 @@ class StatusBarOverlayService : Service() {
             windowManager?.addView(binding?.root, layoutParams)
             isViewAttached = true
 
+            binding?.let { b ->
+                autoHider = OverlayAutoHider(b.root, b.lottieOverlayLeftAnimation) {
+                    renderOverlay()
+                }.also { it.attach() }
+            }
+
             hardwareObserver.refreshState(this, null)
             renderOverlay(hardwareObserver.currentState)
         } catch (e: SecurityException) {
@@ -164,8 +169,15 @@ class StatusBarOverlayService : Service() {
             settings = currentSettings,
             hardwareState = hardwareObserver.currentState,
             windowManager = windowManager,
-            systemStatusBarHeight = getStatusBarHeight()
+            systemStatusBarHeight = getStatusBarHeight(),
+            suppressAnimation = autoHider?.hidden == true
         )
+    }
+
+    override fun onConfigurationChanged(newConfig: Configuration) {
+        super.onConfigurationChanged(newConfig)
+        autoHider?.onConfigurationChanged(newConfig)
+        renderOverlay()
     }
 
     private fun renderOverlay(hardwareState: HardwareState = hardwareObserver.currentState) {
@@ -177,7 +189,8 @@ class StatusBarOverlayService : Service() {
             settings = settings,
             hardwareState = hardwareState,
             windowManager = windowManager,
-            systemStatusBarHeight = getStatusBarHeight()
+            systemStatusBarHeight = getStatusBarHeight(),
+            suppressAnimation = autoHider?.hidden == true
         )
     }
 
@@ -197,10 +210,10 @@ class StatusBarOverlayService : Service() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val channel = NotificationChannel(
                 channelId,
-                "Status Bar Overlay Service",
+                getString(R.string.notif_channel_overlay_name),
                 NotificationManager.IMPORTANCE_LOW
             ).apply {
-                description = "Shows live theme and emoji battery customization over status bar"
+                description = getString(R.string.notif_channel_overlay_desc)
                 setShowBadge(false)
             }
             val manager = getSystemService(NotificationManager::class.java)
@@ -216,8 +229,8 @@ class StatusBarOverlayService : Service() {
         )
 
         val notification: Notification = NotificationCompat.Builder(this, channelId)
-            .setContentTitle("Emoji Battery Icon")
-            .setContentText("Emoji battery & status bar active")
+            .setContentTitle(getString(R.string.notif_overlay_title))
+            .setContentText(getString(R.string.notif_overlay_text))
             .setSmallIcon(R.drawable.ic_status_bolt)
             .setContentIntent(pendingIntent)
             .setOngoing(true)
@@ -248,8 +261,21 @@ class StatusBarOverlayService : Service() {
         }
     }
 
+    /** Removes this service's bar (the accessibility service shows its own); the service keeps running. */
+    private fun removeOverlayView() {
+        if (isViewAttached && binding != null) {
+            try {
+                windowManager?.removeView(binding?.root)
+            } catch (_: Exception) {}
+        }
+        binding = null
+        isViewAttached = false
+        autoHider = null
+    }
+
     override fun onDestroy() {
         super.onDestroy()
+        if (instance === this) instance = null
         isRunning = false
         hardwareObserver.stopObserving(this)
 
@@ -262,12 +288,20 @@ class StatusBarOverlayService : Service() {
         }
         binding = null
         isViewAttached = false
+        autoHider = null
     }
 
     companion object {
         private const val NOTIFICATION_ID = 2001
         var isRunning: Boolean = false
             private set
+
+        private var instance: StatusBarOverlayService? = null
+
+        /** The accessibility service took over drawing the bar: hide this copy, keep the service. */
+        fun releaseOverlayToAccessibility() {
+            instance?.removeOverlayView()
+        }
 
         const val EXTRA_THEME_RES = "extra_theme_res"
         const val EXTRA_IS_GRADIENT = "extra_is_gradient"

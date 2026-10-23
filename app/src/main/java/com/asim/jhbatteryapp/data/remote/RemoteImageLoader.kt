@@ -12,6 +12,7 @@ import com.airbnb.lottie.LottieAnimationView
 import com.caverock.androidsvg.SVG
 import com.asim.jhbatteryapp.JHBatteryApplication
 import com.asim.jhbatteryapp.R
+import com.asim.jhbatteryapp.core.Utils.LoadingShimmerDrawable
 import com.asim.jhbatteryapp.data.repository.PreferenceRepositoryImpl
 import com.asim.jhbatteryapp.domain.model.RemoteAssetItem
 import kotlinx.coroutines.CoroutineScope
@@ -80,7 +81,7 @@ object RemoteImageLoader {
             view.setImageBitmap(it)
             return
         }
-        view.setImageResource(R.drawable.ic_remote_placeholder)
+        showLoading(view)
 
         viewJobs[view] = loaderScope.launch {
             val file = RemoteAssetFileStore.getOrDownload(asset)
@@ -98,6 +99,12 @@ object RemoteImageLoader {
         }
     }
 
+    /** Animated shimmer shown in [view] until its remote file is downloaded and decoded. */
+    private fun showLoading(view: ImageView) {
+        val radius = 10f * view.resources.displayMetrics.density
+        view.setImageDrawable(LoadingShimmerDrawable(radius))
+    }
+
     /**
      * Loads a remote Lottie JSON animation into a [LottieAnimationView] from the disk cache,
      * downloading it first when needed.
@@ -113,7 +120,7 @@ object RemoteImageLoader {
         view.tag = asset.id
         viewJobs.remove(view)?.cancel()
         view.cancelAnimation()
-        view.setImageResource(R.drawable.ic_remote_placeholder)
+        showLoading(view)
 
         viewJobs[view] = loaderScope.launch {
             val file = RemoteAssetFileStore.getOrDownload(asset)

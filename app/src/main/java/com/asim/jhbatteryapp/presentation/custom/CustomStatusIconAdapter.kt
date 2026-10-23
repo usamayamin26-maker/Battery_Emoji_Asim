@@ -12,7 +12,9 @@ data class CustomStatusIconItem(
     val id: String,
     val title: String,
     val iconRes: Int,
-    var isSelected: Boolean = false
+    var isSelected: Boolean = false,
+    /** Translated title; when set it is shown instead of [title]. */
+    val titleRes: Int = 0
 )
 
 class CustomStatusIconAdapter(
@@ -65,7 +67,7 @@ class CustomStatusIconAdapter(
             }
             binding.clIconCard.setBackgroundResource(bgRes)
             binding.ivCustomStatusIcon.setImageResource(item.iconRes)
-            binding.tvCustomStatusIconTitle.text = item.title
+            binding.tvCustomStatusIconTitle.text = if (item.titleRes != 0) binding.root.context.getString(item.titleRes) else item.title
             binding.ivIconCardCheck.visibility = if (isSelected) View.VISIBLE else View.GONE
 
             val tintColor = if (isSelected) {

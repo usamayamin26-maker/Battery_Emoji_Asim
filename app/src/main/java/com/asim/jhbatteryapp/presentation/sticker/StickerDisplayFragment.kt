@@ -242,7 +242,7 @@ class StickerDisplayFragment : Fragment() {
 
                 Toast.makeText(
                     requireContext(),
-                    "Sticker fixed on screen! It stays visible even when app is closed.",
+                    R.string.sticker_fixed_on_screen,
                     Toast.LENGTH_SHORT
                 ).show()
                 findNavController().navigateUp()
@@ -287,7 +287,7 @@ class StickerDisplayFragment : Fragment() {
 
                 Toast.makeText(
                     requireContext(),
-                    "Sticker adjusted and fixed on screen!",
+                    R.string.sticker_adjusted_fixed,
                     Toast.LENGTH_SHORT
                 ).show()
             }
@@ -297,7 +297,14 @@ class StickerDisplayFragment : Fragment() {
     private fun observeViewModel() {
         viewModel.tabs.observe(viewLifecycleOwner) { tabs ->
             val currentKey = viewModel.selectedTab.value ?: "hot"
-            tabAdapter.setTabs(tabs, currentKey)
+            // Show translated tab names; unknown keys keep the label from the view model
+            val labelRes = mapOf(
+                "hot" to R.string.tab_hot,
+                "poke" to R.string.tab_pokemon,
+                "sanrio" to R.string.tab_sanrio,
+                "anime" to R.string.tab_anime
+            )
+            tabAdapter.setTabs(tabs.map { (key, label) -> key to (labelRes[key]?.let(::getString) ?: label) }, currentKey)
         }
 
         viewModel.selectedTab.observe(viewLifecycleOwner) { key ->

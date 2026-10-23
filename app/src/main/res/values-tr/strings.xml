@@ -32,7 +32,7 @@
     <string name="tab_hot">🔥 Popüler</string>
     <string name="tab_pokemon">Pokemon</string>
     <string name="tab_sanrio">Sanrio</string>
-    <string name="tab_anime">Anime</string>
+    <string name="tab_anime">Çizgi film</string>
 
     <!-- Filter Chips -->
     <string name="chip_all">Tümü</string>
@@ -180,7 +180,7 @@
     <string name="how_to_use_step_3"><![CDATA[3. Açın.]]></string>
     <string name="how_to_use_step_4"><![CDATA[4. <font color="#9333EA"><b>İzin Ver</b></font> seçeneğine tıklayın.]]></string>
     <string name="go_to_settings">Ayarlara Git</string>
-    <string name="continue_text">Devam Et</string>
+    <string name="continue_text">Devam Et →</string>
 
     <!-- Exit Dialog -->
     <string name="exit_dialog_title">Çıkmak istediğinizden emin misiniz?</string>
@@ -242,4 +242,47 @@
     <string name="no_connection_msg">Bağlantı yok. Lütfen internetinizi kontrol edip tekrar deneyin.</string>
     <string name="cd_back">Geri</string>
     <string name="cd_clear">Temizle</string>
+
+    <!-- Added: strings that were missing or hardcoded in code -->
+    <string name="lang_spanish">İspanyolca</string>
+    <string name="lang_thai">Tayca</string>
+    <string name="lang_ukrainian">Ukraynaca</string>
+    <string name="remote_asset_download_failed">Bu öğe indirilemedi. İnternet bağlantınızı kontrol edip tekrar deneyin.</string>
+    <string name="ad_attribution">Reklam</string>
+    <string name="ad_loading_dialog_message">Reklam yükleniyor…</string>
+    <string name="ad_loading_placeholder">Reklam yükleniyor…</string>
+    <string name="ad_close">Kapat</string>
+    <string name="icon_airplane">Uçak modu</string>
+    <string name="icon_ringer">Zil</string>
+    <string name="icon_date_time">Tarih ve Saat</string>
+    <string name="icon_hotspot">Hotspot</string>
+    <string name="icon_emotion">Duygu</string>
+    <string name="icon_wifi">Wi-Fi</string>
+    <string name="icon_sim_signal">SIM / Sinyal</string>
+    <string name="icon_data">Veri</string>
+    <string name="icon_charge">Şarj</string>
+    <string name="label_none">Yok</string>
+    <string name="emoji_bunny">Tavşan</string>
+    <string name="emoji_cat">Kedi</string>
+    <string name="emoji_frog">Kurbağa</string>
+    <string name="emoji_puppy">Yavru köpek</string>
+    <string name="emoji_bear">Ayı</string>
+    <string name="emoji_love">Aşk</string>
+    <string name="emoji_happy">Mutlu</string>
+    <string name="emoji_sad">Üzgün</string>
+    <string name="emoji_sparkle">Parıltı</string>
+    <string name="emoji_star">Yıldız</string>
+    <string name="sticker_fixed_on_screen">Çıkartma ekrana sabitlendi! Uygulama kapalıyken bile görünür kalır.</string>
+    <string name="sticker_adjusted_fixed">Çıkartma ayarlandı ve ekrana sabitlendi!</string>
+    <string name="notif_channel_sticker_name">Ekran Çıkartması Gösterimi</string>
+    <string name="notif_channel_sticker_desc">Ekranın üzerinde canlı çıkartma gösterir</string>
+    <string name="notif_sticker_title">JH Ekran Çıkartması</string>
+    <string name="notif_sticker_text">Çıkartma ekranda etkin</string>
+    <string name="notif_channel_overlay_name">Durum Çubuğu Katman Hizmeti</string>
+    <string name="notif_channel_overlay_desc">Durum çubuğunun üzerinde canlı tema ve emoji pil özelleştirmesi gösterir</string>
+    <string name="notif_overlay_title">Emoji Pil Simgesi</string>
+    <string name="notif_overlay_text">Emoji pil ve durum çubuğu etkin</string>
+    <string name="lang_spanish_native">Español</string>
+    <string name="lang_thai_native">ไทย</string>
+    <string name="lang_ukrainian_native">Українська</string>
 </resources>

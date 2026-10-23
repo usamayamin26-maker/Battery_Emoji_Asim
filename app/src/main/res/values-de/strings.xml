@@ -32,7 +32,7 @@
     <string name="tab_hot">🔥 Beliebt</string>
     <string name="tab_pokemon">Pokemon</string>
     <string name="tab_sanrio">Sanrio</string>
-    <string name="tab_anime">Anime</string>
+    <string name="tab_anime">Cartoon</string>
 
     <!-- Filter Chips -->
     <string name="chip_all">Alle</string>
@@ -180,7 +180,7 @@
     <string name="how_to_use_step_3"><![CDATA[3. Einschalten.]]></string>
     <string name="how_to_use_step_4"><![CDATA[4. Klicke auf <font color="#9333EA"><b>Zulassen.</b></font>]]></string>
     <string name="go_to_settings">Zu den Einstellungen</string>
-    <string name="continue_text">Fortfahren</string>
+    <string name="continue_text">Fortfahren →</string>
 
     <!-- Exit Dialog -->
     <string name="exit_dialog_title">Möchtest du wirklich beenden?</string>
@@ -242,4 +242,47 @@
     <string name="no_connection_msg">Keine Verbindung. Bitte Internet prüfen und erneut versuchen.</string>
     <string name="cd_back">Zurück</string>
     <string name="cd_clear">Löschen</string>
+
+    <!-- Added: strings that were missing or hardcoded in code -->
+    <string name="lang_spanish">Spanisch</string>
+    <string name="lang_thai">Thailändisch</string>
+    <string name="lang_ukrainian">Ukrainisch</string>
+    <string name="remote_asset_download_failed">Dieses Element konnte nicht heruntergeladen werden. Überprüfe deine Internetverbindung und versuche es erneut.</string>
+    <string name="ad_attribution">Anzeige</string>
+    <string name="ad_loading_dialog_message">Anzeige wird geladen…</string>
+    <string name="ad_loading_placeholder">Anzeige wird geladen…</string>
+    <string name="ad_close">Schließen</string>
+    <string name="icon_airplane">Flugmodus</string>
+    <string name="icon_ringer">Klingelton</string>
+    <string name="icon_date_time">Datum &amp; Uhrzeit</string>
+    <string name="icon_hotspot">Hotspot</string>
+    <string name="icon_emotion">Emotion</string>
+    <string name="icon_wifi">WLAN</string>
+    <string name="icon_sim_signal">SIM / Signal</string>
+    <string name="icon_data">Daten</string>
+    <string name="icon_charge">Laden</string>
+    <string name="label_none">Keine</string>
+    <string name="emoji_bunny">Hase</string>
+    <string name="emoji_cat">Katze</string>
+    <string name="emoji_frog">Frosch</string>
+    <string name="emoji_puppy">Welpe</string>
+    <string name="emoji_bear">Bär</string>
+    <string name="emoji_love">Liebe</string>
+    <string name="emoji_happy">Fröhlich</string>
+    <string name="emoji_sad">Traurig</string>
+    <string name="emoji_sparkle">Funkeln</string>
+    <string name="emoji_star">Stern</string>
+    <string name="sticker_fixed_on_screen">Sticker auf dem Bildschirm fixiert! Er bleibt sichtbar, auch wenn die App geschlossen ist.</string>
+    <string name="sticker_adjusted_fixed">Sticker angepasst und auf dem Bildschirm fixiert!</string>
+    <string name="notif_channel_sticker_name">Bildschirm-Sticker-Anzeige</string>
+    <string name="notif_channel_sticker_desc">Zeigt einen Live-Sticker über dem Bildschirm an</string>
+    <string name="notif_sticker_title">JH Bildschirm-Sticker</string>
+    <string name="notif_sticker_text">Sticker ist auf dem Bildschirm aktiv</string>
+    <string name="notif_channel_overlay_name">Statusleisten-Overlay-Dienst</string>
+    <string name="notif_channel_overlay_desc">Zeigt Live-Design und Emoji-Akku-Anpassung über der Statusleiste an</string>
+    <string name="notif_overlay_title">Emoji-Akku-Symbol</string>
+    <string name="notif_overlay_text">Emoji-Akku &amp; Statusleiste aktiv</string>
+    <string name="lang_spanish_native">Español</string>
+    <string name="lang_thai_native">ไทย</string>
+    <string name="lang_ukrainian_native">Українська</string>
 </resources>

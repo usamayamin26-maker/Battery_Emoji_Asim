@@ -32,7 +32,7 @@
     <string name="tab_hot">🔥 Populer</string>
     <string name="tab_pokemon">Pokemon</string>
     <string name="tab_sanrio">Sanrio</string>
-    <string name="tab_anime">Anime</string>
+    <string name="tab_anime">Kartun</string>
 
     <!-- Filter Chips -->
     <string name="chip_all">Semua</string>
@@ -180,7 +180,7 @@
     <string name="how_to_use_step_3"><![CDATA[3. Nyalakan.]]></string>
     <string name="how_to_use_step_4"><![CDATA[4. Klik <font color="#9333EA"><b>Izinkan.</b></font>]]></string>
     <string name="go_to_settings">Buka Pengaturan</string>
-    <string name="continue_text">Lanjutkan</string>
+    <string name="continue_text">Lanjutkan →</string>
 
     <!-- Exit Dialog -->
     <string name="exit_dialog_title">Apakah Anda yakin ingin keluar?</string>
@@ -242,4 +242,47 @@
     <string name="no_connection_msg">Tidak ada koneksi. Harap periksa internet dan coba lagi.</string>
     <string name="cd_back">Kembali</string>
     <string name="cd_clear">Hapus</string>
+
+    <!-- Added: strings that were missing or hardcoded in code -->
+    <string name="lang_spanish">Spanyol</string>
+    <string name="lang_thai">Thailand</string>
+    <string name="lang_ukrainian">Ukraina</string>
+    <string name="remote_asset_download_failed">Tidak dapat mengunduh item ini. Periksa koneksi internet Anda dan coba lagi.</string>
+    <string name="ad_attribution">Iklan</string>
+    <string name="ad_loading_dialog_message">Memuat iklan…</string>
+    <string name="ad_loading_placeholder">Memuat iklan…</string>
+    <string name="ad_close">Tutup</string>
+    <string name="icon_airplane">Mode pesawat</string>
+    <string name="icon_ringer">Dering</string>
+    <string name="icon_date_time">Tanggal &amp; Waktu</string>
+    <string name="icon_hotspot">Hotspot</string>
+    <string name="icon_emotion">Emosi</string>
+    <string name="icon_wifi">Wi-Fi</string>
+    <string name="icon_sim_signal">SIM / Sinyal</string>
+    <string name="icon_data">Data</string>
+    <string name="icon_charge">Pengisian</string>
+    <string name="label_none">Tidak ada</string>
+    <string name="emoji_bunny">Kelinci</string>
+    <string name="emoji_cat">Kucing</string>
+    <string name="emoji_frog">Katak</string>
+    <string name="emoji_puppy">Anak anjing</string>
+    <string name="emoji_bear">Beruang</string>
+    <string name="emoji_love">Cinta</string>
+    <string name="emoji_happy">Senang</string>
+    <string name="emoji_sad">Sedih</string>
+    <string name="emoji_sparkle">Kilau</string>
+    <string name="emoji_star">Bintang</string>
+    <string name="sticker_fixed_on_screen">Stiker terpasang di layar! Tetap terlihat meski aplikasi ditutup.</string>
+    <string name="sticker_adjusted_fixed">Stiker disesuaikan dan terpasang di layar!</string>
+    <string name="notif_channel_sticker_name">Tampilan Stiker Layar</string>
+    <string name="notif_channel_sticker_desc">Menampilkan stiker langsung di atas layar</string>
+    <string name="notif_sticker_title">JH Stiker Layar</string>
+    <string name="notif_sticker_text">Stiker aktif di layar</string>
+    <string name="notif_channel_overlay_name">Layanan Overlay Bilah Status</string>
+    <string name="notif_channel_overlay_desc">Menampilkan tema dan baterai emoji secara langsung di atas bilah status</string>
+    <string name="notif_overlay_title">Ikon Baterai Emoji</string>
+    <string name="notif_overlay_text">Baterai emoji &amp; bilah status aktif</string>
+    <string name="lang_spanish_native">Español</string>
+    <string name="lang_thai_native">ไทย</string>
+    <string name="lang_ukrainian_native">Українська</string>
 </resources>

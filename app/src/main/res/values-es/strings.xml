@@ -32,7 +32,7 @@
     <string name="tab_hot">🔥 HOT</string>
     <string name="tab_pokemon">Pokémon</string>
     <string name="tab_sanrio">Sanrio</string>
-    <string name="tab_anime">Anime</string>
+    <string name="tab_anime">Dibujos animados</string>
 
     <!-- Filter Chips -->
     <string name="chip_all">Todos</string>
@@ -186,7 +186,7 @@
     <string name="how_to_use_step_3"><![CDATA[3. Actívalo.]]></string>
     <string name="how_to_use_step_4"><![CDATA[4. Haz clic en <font color="#9333EA"><b>Permitir.</b></font>]]></string>
     <string name="go_to_settings">Ir a Ajustes</string>
-    <string name="continue_text">Continuar</string>
+    <string name="continue_text">Continuar →</string>
 
     <!-- Exit Dialog -->
     <string name="exit_dialog_title">¿Estás seguro de que deseas salir?</string>
@@ -248,4 +248,41 @@
     <string name="no_connection_msg">Sin conexión. Verifica tu internet e inténtalo de nuevo.</string>
     <string name="cd_back">Atrás</string>
     <string name="cd_clear">Borrar</string>
+
+    <!-- Added: strings that were missing or hardcoded in code -->
+    <string name="remote_asset_download_failed">No se pudo descargar este elemento. Comprueba tu conexión a internet e inténtalo de nuevo.</string>
+    <string name="ad_attribution">Anuncio</string>
+    <string name="ad_loading_dialog_message">Cargando anuncio…</string>
+    <string name="ad_loading_placeholder">Cargando anuncio…</string>
+    <string name="ad_close">Cerrar</string>
+    <string name="icon_airplane">Modo avión</string>
+    <string name="icon_ringer">Timbre</string>
+    <string name="icon_date_time">Fecha y hora</string>
+    <string name="icon_hotspot">Punto de acceso</string>
+    <string name="icon_emotion">Emoción</string>
+    <string name="icon_wifi">Wi-Fi</string>
+    <string name="icon_sim_signal">SIM / Señal</string>
+    <string name="icon_data">Datos</string>
+    <string name="icon_charge">Carga</string>
+    <string name="label_none">Ninguno</string>
+    <string name="emoji_bunny">Conejito</string>
+    <string name="emoji_cat">Gato</string>
+    <string name="emoji_frog">Rana</string>
+    <string name="emoji_puppy">Cachorro</string>
+    <string name="emoji_bear">Oso</string>
+    <string name="emoji_love">Amor</string>
+    <string name="emoji_happy">Feliz</string>
+    <string name="emoji_sad">Triste</string>
+    <string name="emoji_sparkle">Destello</string>
+    <string name="emoji_star">Estrella</string>
+    <string name="sticker_fixed_on_screen">¡Sticker fijado en la pantalla! Seguirá visible aunque cierres la app.</string>
+    <string name="sticker_adjusted_fixed">¡Sticker ajustado y fijado en la pantalla!</string>
+    <string name="notif_channel_sticker_name">Sticker en pantalla</string>
+    <string name="notif_channel_sticker_desc">Muestra un sticker en vivo sobre la pantalla</string>
+    <string name="notif_sticker_title">JH Sticker en pantalla</string>
+    <string name="notif_sticker_text">El sticker está activo en la pantalla</string>
+    <string name="notif_channel_overlay_name">Servicio de superposición de la barra de estado</string>
+    <string name="notif_channel_overlay_desc">Muestra en vivo el tema y la batería emoji sobre la barra de estado</string>
+    <string name="notif_overlay_title">Icono de batería emoji</string>
+    <string name="notif_overlay_text">Batería emoji y barra de estado activas</string>
 </resources>

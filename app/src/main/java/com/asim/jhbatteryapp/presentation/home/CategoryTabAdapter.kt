@@ -51,7 +51,7 @@ class CategoryTabAdapter(
 
         fun bind(category: CategoryItem) {
             val isSelected = category.id == selectedCategoryId
-            binding.tvTabTitle.text = category.title
+            binding.tvTabTitle.text = if (category.titleRes != 0) binding.root.context.getString(category.titleRes) else category.title
 
             val context = binding.root.context
             if (isSelected) {

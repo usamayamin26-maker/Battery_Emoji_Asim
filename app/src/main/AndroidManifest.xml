@@ -13,14 +13,16 @@
 
     <application
         android:name=".JHBatteryApplication"
-        android:allowBackup="true"
+        android:allowBackup="false"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:localeConfig="@xml/locales_config"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.JHBatteryApp">
+        android:theme="@style/Theme.JHBatteryApp"
+        tools:targetApi="33">
 
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
@@ -45,6 +47,7 @@
         <!-- Language Activity -->
         <activity
             android:name=".presentation.settings.LanguageActivity"
+            android:configChanges="locale|layoutDirection"
             android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.JHBatteryApp" />
@@ -114,6 +117,16 @@
             <property
                 android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
                 android:value="Floating screen sticker display overlay" />
+        </service>
+
+        <!-- Persists the in-app language (AppCompatDelegate.setApplicationLocales) on Android 12 and below -->
+        <service
+            android:name="androidx.appcompat.app.AppLocalesMetadataHolderService"
+            android:enabled="false"
+            android:exported="false">
+            <meta-data
+                android:name="autoStoreLocales"
+                android:value="true" />
         </service>
 
     </application>

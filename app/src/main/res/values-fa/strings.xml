@@ -32,7 +32,7 @@
     <string name="tab_hot">🔥 محبوب</string>
     <string name="tab_pokemon">پوکمون</string>
     <string name="tab_sanrio">سانریو</string>
-    <string name="tab_anime">انیمه</string>
+    <string name="tab_anime">کارتون</string>
 
     <!-- Filter Chips -->
     <string name="chip_all">همه</string>
@@ -180,7 +180,7 @@
     <string name="how_to_use_step_3"><![CDATA[3. روشن کنید.]]></string>
     <string name="how_to_use_step_4"><![CDATA[4. روی <font color="#9333EA"><b>اجازه دادن</b></font> کلیک کنید.]]></string>
     <string name="go_to_settings">رفتن به تنظیمات</string>
-    <string name="continue_text">ادامه</string>
+    <string name="continue_text">ادامه ←</string>
 
     <!-- Exit Dialog -->
     <string name="exit_dialog_title">آیا مطمئن هستید که می‌خواهید خارج شوید؟</string>
@@ -242,4 +242,47 @@
     <string name="no_connection_msg">اتصال وجود ندارد. لطفاً اینترنت خود را بررسی و دوباره تلاش کنید.</string>
     <string name="cd_back">بازگشت</string>
     <string name="cd_clear">پاک کردن</string>
+
+    <!-- Added: strings that were missing or hardcoded in code -->
+    <string name="lang_spanish">اسپانیایی</string>
+    <string name="lang_thai">تایلندی</string>
+    <string name="lang_ukrainian">اوکراینی</string>
+    <string name="remote_asset_download_failed">دانلود این مورد ممکن نشد. اتصال اینترنت خود را بررسی کنید و دوباره امتحان کنید.</string>
+    <string name="ad_attribution">تبلیغ</string>
+    <string name="ad_loading_dialog_message">در حال بارگیری تبلیغ…</string>
+    <string name="ad_loading_placeholder">در حال بارگیری تبلیغ…</string>
+    <string name="ad_close">بستن</string>
+    <string name="icon_airplane">حالت هواپیما</string>
+    <string name="icon_ringer">زنگ</string>
+    <string name="icon_date_time">تاریخ و زمان</string>
+    <string name="icon_hotspot">نقطه اتصال</string>
+    <string name="icon_emotion">احساس</string>
+    <string name="icon_wifi">Wi-Fi</string>
+    <string name="icon_sim_signal">سیم‌کارت / سیگنال</string>
+    <string name="icon_data">داده</string>
+    <string name="icon_charge">شارژ</string>
+    <string name="label_none">هیچ‌کدام</string>
+    <string name="emoji_bunny">خرگوش</string>
+    <string name="emoji_cat">گربه</string>
+    <string name="emoji_frog">قورباغه</string>
+    <string name="emoji_puppy">توله‌سگ</string>
+    <string name="emoji_bear">خرس</string>
+    <string name="emoji_love">عشق</string>
+    <string name="emoji_happy">شاد</string>
+    <string name="emoji_sad">غمگین</string>
+    <string name="emoji_sparkle">درخشش</string>
+    <string name="emoji_star">ستاره</string>
+    <string name="sticker_fixed_on_screen">استیکر روی صفحه ثابت شد! حتی وقتی برنامه بسته باشد قابل مشاهده می‌ماند.</string>
+    <string name="sticker_adjusted_fixed">استیکر تنظیم و روی صفحه ثابت شد!</string>
+    <string name="notif_channel_sticker_name">نمایش استیکر صفحه</string>
+    <string name="notif_channel_sticker_desc">یک استیکر زنده را روی صفحه نمایش می‌دهد</string>
+    <string name="notif_sticker_title">استیکر صفحه JH</string>
+    <string name="notif_sticker_text">استیکر روی صفحه فعال است</string>
+    <string name="notif_channel_overlay_name">سرویس پوشش نوار وضعیت</string>
+    <string name="notif_channel_overlay_desc">تم و باتری ایموجی را به‌صورت زنده روی نوار وضعیت نمایش می‌دهد</string>
+    <string name="notif_overlay_title">آیکون باتری ایموجی</string>
+    <string name="notif_overlay_text">باتری ایموجی و نوار وضعیت فعال است</string>
+    <string name="lang_spanish_native">Español</string>
+    <string name="lang_thai_native">ไทย</string>
+    <string name="lang_ukrainian_native">Українська</string>
 </resources>

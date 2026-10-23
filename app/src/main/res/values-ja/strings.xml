@@ -32,7 +32,7 @@
     <string name="tab_hot">🔥 人気</string>
     <string name="tab_pokemon">ポケモン</string>
     <string name="tab_sanrio">サンリオ</string>
-    <string name="tab_anime">アニメ</string>
+    <string name="tab_anime">カートゥーン</string>
 
     <!-- Filter Chips -->
     <string name="chip_all">すべて</string>
@@ -180,7 +180,7 @@
     <string name="how_to_use_step_3"><![CDATA[3. オンにします。]]></string>
     <string name="how_to_use_step_4"><![CDATA[4. <font color="#9333EA"><b>許可</b></font>をクリックします。]]></string>
     <string name="go_to_settings">設定へ移動</string>
-    <string name="continue_text">続ける</string>
+    <string name="continue_text">続ける →</string>
 
     <!-- Exit Dialog -->
     <string name="exit_dialog_title">本当に終了しますか？</string>
@@ -242,4 +242,47 @@
     <string name="no_connection_msg">接続がありません。インターネットを確認して再試行してください。</string>
     <string name="cd_back">戻る</string>
     <string name="cd_clear">クリア</string>
+
+    <!-- Added: strings that were missing or hardcoded in code -->
+    <string name="lang_spanish">スペイン語</string>
+    <string name="lang_thai">タイ語</string>
+    <string name="lang_ukrainian">ウクライナ語</string>
+    <string name="remote_asset_download_failed">このアイテムをダウンロードできませんでした。インターネット接続を確認して、もう一度お試しください。</string>
+    <string name="ad_attribution">広告</string>
+    <string name="ad_loading_dialog_message">広告を読み込み中…</string>
+    <string name="ad_loading_placeholder">広告を読み込み中…</string>
+    <string name="ad_close">閉じる</string>
+    <string name="icon_airplane">機内モード</string>
+    <string name="icon_ringer">着信音</string>
+    <string name="icon_date_time">日付と時刻</string>
+    <string name="icon_hotspot">テザリング</string>
+    <string name="icon_emotion">感情</string>
+    <string name="icon_wifi">Wi-Fi</string>
+    <string name="icon_sim_signal">SIM / 電波</string>
+    <string name="icon_data">データ</string>
+    <string name="icon_charge">充電</string>
+    <string name="label_none">なし</string>
+    <string name="emoji_bunny">うさぎ</string>
+    <string name="emoji_cat">ねこ</string>
+    <string name="emoji_frog">カエル</string>
+    <string name="emoji_puppy">子犬</string>
+    <string name="emoji_bear">クマ</string>
+    <string name="emoji_love">ラブ</string>
+    <string name="emoji_happy">うれしい</string>
+    <string name="emoji_sad">かなしい</string>
+    <string name="emoji_sparkle">キラキラ</string>
+    <string name="emoji_star">星</string>
+    <string name="sticker_fixed_on_screen">ステッカーを画面に固定しました！アプリを閉じても表示されたままです。</string>
+    <string name="sticker_adjusted_fixed">ステッカーを調整して画面に固定しました！</string>
+    <string name="notif_channel_sticker_name">画面ステッカー表示</string>
+    <string name="notif_channel_sticker_desc">画面上にライブステッカーを表示します</string>
+    <string name="notif_sticker_title">JH 画面ステッカー</string>
+    <string name="notif_sticker_text">ステッカーが画面で有効になっています</string>
+    <string name="notif_channel_overlay_name">ステータスバー オーバーレイ サービス</string>
+    <string name="notif_channel_overlay_desc">ステータスバー上にテーマと絵文字バッテリーのカスタマイズをライブ表示します</string>
+    <string name="notif_overlay_title">絵文字バッテリーアイコン</string>
+    <string name="notif_overlay_text">絵文字バッテリーとステータスバーが有効です</string>
+    <string name="lang_spanish_native">Español</string>
+    <string name="lang_thai_native">ไทย</string>
+    <string name="lang_ukrainian_native">Українська</string>
 </resources>

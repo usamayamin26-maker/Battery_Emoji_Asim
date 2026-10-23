@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Status bar signal with 2 of 4 bars lit (unlit bars dimmed); picked by ic_status_signal_level -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="16dp"
+    android:height="16dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <path
+        android:fillAlpha="1"
+        android:fillColor="#221A3A"
+        android:pathData="M2,18 L5,18 L5,22 L2,22 Z" />
+    <path
+        android:fillAlpha="1"
+        android:fillColor="#221A3A"
+        android:pathData="M8,14 L11,14 L11,22 L8,22 Z" />
+    <path
+        android:fillAlpha="0.3"
+        android:fillColor="#221A3A"
+        android:pathData="M14,10 L17,10 L17,22 L14,22 Z" />
+    <path
+        android:fillAlpha="0.3"
+        android:fillColor="#221A3A"
+        android:pathData="M20,6 L23,6 L23,22 L20,22 Z" />
+</vector>

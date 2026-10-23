@@ -32,7 +32,7 @@
     <string name="tab_hot">🔥 Thịnh hành</string>
     <string name="tab_pokemon">Pokemon</string>
     <string name="tab_sanrio">Sanrio</string>
-    <string name="tab_anime">Anime</string>
+    <string name="tab_anime">Hoạt hình</string>
 
     <!-- Filter Chips -->
     <string name="chip_all">Tất cả</string>
@@ -180,7 +180,7 @@
     <string name="how_to_use_step_3"><![CDATA[3. Bật công tắc.]]></string>
     <string name="how_to_use_step_4"><![CDATA[4. Nhấn <font color="#9333EA"><b>Cho phép.</b></font>]]></string>
     <string name="go_to_settings">Đến phần Cài đặt</string>
-    <string name="continue_text">Tiếp tục</string>
+    <string name="continue_text">Tiếp tục →</string>
 
     <!-- Exit Dialog -->
     <string name="exit_dialog_title">Bạn có chắc chắn muốn thoát?</string>
@@ -242,4 +242,47 @@
     <string name="no_connection_msg">Không có mạng. Vui lòng kiểm tra kết nối và thử lại.</string>
     <string name="cd_back">Quay lại</string>
     <string name="cd_clear">Xóa</string>
+
+    <!-- Added: strings that were missing or hardcoded in code -->
+    <string name="lang_spanish">Tiếng Tây Ban Nha</string>
+    <string name="lang_thai">Tiếng Thái</string>
+    <string name="lang_ukrainian">Tiếng Ukraina</string>
+    <string name="remote_asset_download_failed">Không thể tải xuống mục này. Hãy kiểm tra kết nối internet và thử lại.</string>
+    <string name="ad_attribution">Quảng cáo</string>
+    <string name="ad_loading_dialog_message">Đang tải quảng cáo…</string>
+    <string name="ad_loading_placeholder">Đang tải quảng cáo…</string>
+    <string name="ad_close">Đóng</string>
+    <string name="icon_airplane">Chế độ máy bay</string>
+    <string name="icon_ringer">Chuông</string>
+    <string name="icon_date_time">Ngày và giờ</string>
+    <string name="icon_hotspot">Điểm phát sóng</string>
+    <string name="icon_emotion">Cảm xúc</string>
+    <string name="icon_wifi">Wi-Fi</string>
+    <string name="icon_sim_signal">SIM / Tín hiệu</string>
+    <string name="icon_data">Dữ liệu</string>
+    <string name="icon_charge">Sạc</string>
+    <string name="label_none">Không có</string>
+    <string name="emoji_bunny">Thỏ</string>
+    <string name="emoji_cat">Mèo</string>
+    <string name="emoji_frog">Ếch</string>
+    <string name="emoji_puppy">Cún con</string>
+    <string name="emoji_bear">Gấu</string>
+    <string name="emoji_love">Yêu thương</string>
+    <string name="emoji_happy">Vui vẻ</string>
+    <string name="emoji_sad">Buồn</string>
+    <string name="emoji_sparkle">Lấp lánh</string>
+    <string name="emoji_star">Ngôi sao</string>
+    <string name="sticker_fixed_on_screen">Đã ghim nhãn dán lên màn hình! Nhãn dán vẫn hiển thị ngay cả khi đóng ứng dụng.</string>
+    <string name="sticker_adjusted_fixed">Đã điều chỉnh và ghim nhãn dán lên màn hình!</string>
+    <string name="notif_channel_sticker_name">Hiển thị nhãn dán trên màn hình</string>
+    <string name="notif_channel_sticker_desc">Hiển thị nhãn dán trực tiếp trên màn hình</string>
+    <string name="notif_sticker_title">JH Nhãn dán màn hình</string>
+    <string name="notif_sticker_text">Nhãn dán đang hoạt động trên màn hình</string>
+    <string name="notif_channel_overlay_name">Dịch vụ lớp phủ thanh trạng thái</string>
+    <string name="notif_channel_overlay_desc">Hiển thị trực tiếp chủ đề và pin emoji trên thanh trạng thái</string>
+    <string name="notif_overlay_title">Biểu tượng pin emoji</string>
+    <string name="notif_overlay_text">Pin emoji và thanh trạng thái đang hoạt động</string>
+    <string name="lang_spanish_native">Español</string>
+    <string name="lang_thai_native">ไทย</string>
+    <string name="lang_ukrainian_native">Українська</string>
 </resources>

@@ -261,4 +261,36 @@
 
     <!-- Spoken label of the full-screen native ad's close button -->
     <string name="ad_close">Close</string>
+
+    <!-- Added: strings that were missing or hardcoded in code -->
+    <string name="icon_airplane">Airplane</string>
+    <string name="icon_ringer">Ringer</string>
+    <string name="icon_date_time">Date &amp; Time</string>
+    <string name="icon_hotspot">Hotspot</string>
+    <string name="icon_emotion">Emotion</string>
+    <string name="icon_wifi">Wi-Fi</string>
+    <string name="icon_sim_signal">SIM / Signal</string>
+    <string name="icon_data">Data</string>
+    <string name="icon_charge">Charge</string>
+    <string name="label_none">None</string>
+    <string name="emoji_bunny">Bunny</string>
+    <string name="emoji_cat">Cat</string>
+    <string name="emoji_frog">Frog</string>
+    <string name="emoji_puppy">Puppy</string>
+    <string name="emoji_bear">Bear</string>
+    <string name="emoji_love">Love</string>
+    <string name="emoji_happy">Happy</string>
+    <string name="emoji_sad">Sad</string>
+    <string name="emoji_sparkle">Sparkle</string>
+    <string name="emoji_star">Star</string>
+    <string name="sticker_fixed_on_screen">Sticker fixed on screen! It stays visible even when app is closed.</string>
+    <string name="sticker_adjusted_fixed">Sticker adjusted and fixed on screen!</string>
+    <string name="notif_channel_sticker_name">Screen Sticker Display</string>
+    <string name="notif_channel_sticker_desc">Shows live sticker overlay on screen</string>
+    <string name="notif_sticker_title">JH Screen Sticker</string>
+    <string name="notif_sticker_text">Sticker is active on display screen</string>
+    <string name="notif_channel_overlay_name">Status Bar Overlay Service</string>
+    <string name="notif_channel_overlay_desc">Shows live theme and emoji battery customization over status bar</string>
+    <string name="notif_overlay_title">Emoji Battery Icon</string>
+    <string name="notif_overlay_text">Emoji battery &amp; status bar active</string>
 </resources>

@@ -179,7 +179,7 @@
     <string name="how_to_use_step_3"><![CDATA[৩. অন কৰক।]]></string>
     <string name="how_to_use_step_4"><![CDATA[৪. <font color="#9333EA"><b>অনুমতি দিয়ক</b></font> ক্লিক কৰক।]]></string>
     <string name="go_to_settings">ছেটিংছলৈ যাওক</string>
-    <string name="continue_text">অব্যাহত ৰাখক</string>
+    <string name="continue_text">অব্যাহত ৰাখক →</string>
 
     <!-- Exit Dialog -->
     <string name="exit_dialog_title">আপুনি নিশ্চিতভাৱে প্ৰস্থান কৰিব বিচাৰেনে?</string>
@@ -241,4 +241,48 @@
     <string name="no_connection_msg">কোনো সংযোগ নাই। অনুগ্ৰহ কৰি ইণ্টাৰনেট পৰীক্ষা কৰক আৰু পুনৰ চেষ্টা কৰক।</string>
     <string name="cd_back">পিছলৈ</string>
     <string name="cd_clear">মচি পেলাওক</string>
+
+    <!-- Added: strings that were missing or hardcoded in code -->
+    <string name="tab_anime">কাৰ্টুন</string>
+    <string name="lang_spanish">স্পেনিছ</string>
+    <string name="lang_thai">থাই</string>
+    <string name="lang_ukrainian">ইউক্ৰেইনীয়</string>
+    <string name="remote_asset_download_failed">এই বস্তুটো ডাউনল\'ড কৰিব পৰা নগ\'ল। আপোনাৰ ইণ্টাৰনেট সংযোগ পৰীক্ষা কৰি পুনৰ চেষ্টা কৰক।</string>
+    <string name="ad_attribution">বিজ্ঞাপন</string>
+    <string name="ad_loading_dialog_message">বিজ্ঞাপন লোড হৈ আছে…</string>
+    <string name="ad_loading_placeholder">বিজ্ঞাপন লোড হৈ আছে…</string>
+    <string name="ad_close">বন্ধ কৰক</string>
+    <string name="icon_airplane">এয়াৰপ্লেন</string>
+    <string name="icon_ringer">ৰিংগাৰ</string>
+    <string name="icon_date_time">তাৰিখ আৰু সময়</string>
+    <string name="icon_hotspot">হটস্পট</string>
+    <string name="icon_emotion">আৱেগ</string>
+    <string name="icon_wifi">Wi-Fi</string>
+    <string name="icon_sim_signal">ছিম / ছিগনেল</string>
+    <string name="icon_data">ডাটা</string>
+    <string name="icon_charge">চাৰ্জ</string>
+    <string name="label_none">একো নাই</string>
+    <string name="emoji_bunny">শহাপহু</string>
+    <string name="emoji_cat">মেকুৰী</string>
+    <string name="emoji_frog">ভেকুলী</string>
+    <string name="emoji_puppy">কুকুৰ পোৱালি</string>
+    <string name="emoji_bear">ভালুক</string>
+    <string name="emoji_love">প্ৰেম</string>
+    <string name="emoji_happy">সুখী</string>
+    <string name="emoji_sad">দুখী</string>
+    <string name="emoji_sparkle">জিলিকনি</string>
+    <string name="emoji_star">তৰা</string>
+    <string name="sticker_fixed_on_screen">ষ্টিকাৰ স্ক্ৰীণত স্থাপন কৰা হ\'ল! এপ বন্ধ কৰিলেও ই দেখা থাকিব।</string>
+    <string name="sticker_adjusted_fixed">ষ্টিকাৰ মিলাই স্ক্ৰীণত স্থাপন কৰা হ\'ল!</string>
+    <string name="notif_channel_sticker_name">স্ক্ৰীণ ষ্টিকাৰ প্ৰদৰ্শন</string>
+    <string name="notif_channel_sticker_desc">স্ক্ৰীণত লাইভ ষ্টিকাৰ দেখুৱায়</string>
+    <string name="notif_sticker_title">JH স্ক্ৰীণ ষ্টিকাৰ</string>
+    <string name="notif_sticker_text">ষ্টিকাৰ স্ক্ৰীণত সক্ৰিয় হৈ আছে</string>
+    <string name="notif_channel_overlay_name">ষ্টেটাছ বাৰ অভাৰলে সেৱা</string>
+    <string name="notif_channel_overlay_desc">ষ্টেটাছ বাৰত লাইভ থীম আৰু ইম\'জি বেটাৰী কাষ্টমাইজেশ্বন দেখুৱায়</string>
+    <string name="notif_overlay_title">ইম\'জি বেটাৰী আইকন</string>
+    <string name="notif_overlay_text">ইম\'জি বেটাৰী আৰু ষ্টেটাছ বাৰ সক্ৰিয়</string>
+    <string name="lang_spanish_native">Español</string>
+    <string name="lang_thai_native">ไทย</string>
+    <string name="lang_ukrainian_native">Українська</string>
 </resources>

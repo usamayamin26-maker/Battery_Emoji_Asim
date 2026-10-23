@@ -32,7 +32,7 @@
     <string name="tab_hot">🔥 लोकप्रिय</string>
     <string name="tab_pokemon">पोकेमॉन</string>
     <string name="tab_sanrio">सैनरियो</string>
-    <string name="tab_anime">एनीमे</string>
+    <string name="tab_anime">कार्टून</string>
 
     <!-- Filter Chips -->
     <string name="chip_all">सभी</string>
@@ -180,7 +180,7 @@
     <string name="how_to_use_step_3"><![CDATA[3. चालू करें।]]></string>
     <string name="how_to_use_step_4"><![CDATA[4. <font color="#9333EA"><b>अनुमति दें</b></font> पर क्लिक करें।]]></string>
     <string name="go_to_settings">सेटिंग्स पर जाएं</string>
-    <string name="continue_text">जारी रखें</string>
+    <string name="continue_text">जारी रखें →</string>
 
     <!-- Exit Dialog -->
     <string name="exit_dialog_title">क्या आप वाकई बाहर निकलना चाहते हैं?</string>
@@ -242,4 +242,47 @@
     <string name="no_connection_msg">कोई कनेक्शन नहीं है। कृपया इंटरनेट जांचें और पुनः प्रयास करें।</string>
     <string name="cd_back">वापस</string>
     <string name="cd_clear">साफ़ करें</string>
+
+    <!-- Added: strings that were missing or hardcoded in code -->
+    <string name="lang_spanish">स्पेनिश</string>
+    <string name="lang_thai">थाई</string>
+    <string name="lang_ukrainian">यूक्रेनी</string>
+    <string name="remote_asset_download_failed">यह आइटम डाउनलोड नहीं हो सका। अपना इंटरनेट कनेक्शन जांचें और फिर से कोशिश करें।</string>
+    <string name="ad_attribution">विज्ञापन</string>
+    <string name="ad_loading_dialog_message">विज्ञापन लोड हो रहा है…</string>
+    <string name="ad_loading_placeholder">विज्ञापन लोड हो रहा है…</string>
+    <string name="ad_close">बंद करें</string>
+    <string name="icon_airplane">हवाई जहाज़ मोड</string>
+    <string name="icon_ringer">रिंगर</string>
+    <string name="icon_date_time">तारीख और समय</string>
+    <string name="icon_hotspot">हॉटस्पॉट</string>
+    <string name="icon_emotion">भावना</string>
+    <string name="icon_wifi">वाई-फ़ाई</string>
+    <string name="icon_sim_signal">सिम / सिग्नल</string>
+    <string name="icon_data">डेटा</string>
+    <string name="icon_charge">चार्ज</string>
+    <string name="label_none">कोई नहीं</string>
+    <string name="emoji_bunny">खरगोश</string>
+    <string name="emoji_cat">बिल्ली</string>
+    <string name="emoji_frog">मेंढक</string>
+    <string name="emoji_puppy">पिल्ला</string>
+    <string name="emoji_bear">भालू</string>
+    <string name="emoji_love">प्यार</string>
+    <string name="emoji_happy">खुश</string>
+    <string name="emoji_sad">उदास</string>
+    <string name="emoji_sparkle">चमक</string>
+    <string name="emoji_star">तारा</string>
+    <string name="sticker_fixed_on_screen">स्टिकर स्क्रीन पर लग गया! ऐप बंद होने पर भी यह दिखता रहेगा।</string>
+    <string name="sticker_adjusted_fixed">स्टिकर एडजस्ट होकर स्क्रीन पर लग गया!</string>
+    <string name="notif_channel_sticker_name">स्क्रीन स्टिकर डिस्प्ले</string>
+    <string name="notif_channel_sticker_desc">स्क्रीन पर लाइव स्टिकर दिखाता है</string>
+    <string name="notif_sticker_title">JH स्क्रीन स्टिकर</string>
+    <string name="notif_sticker_text">स्टिकर स्क्रीन पर सक्रिय है</string>
+    <string name="notif_channel_overlay_name">स्टेटस बार ओवरले सेवा</string>
+    <string name="notif_channel_overlay_desc">स्टेटस बार पर लाइव थीम और इमोजी बैटरी कस्टमाइज़ेशन दिखाता है</string>
+    <string name="notif_overlay_title">इमोजी बैटरी आइकन</string>
+    <string name="notif_overlay_text">इमोजी बैटरी और स्टेटस बार सक्रिय</string>
+    <string name="lang_spanish_native">Español</string>
+    <string name="lang_thai_native">ไทย</string>
+    <string name="lang_ukrainian_native">Українська</string>
 </resources>

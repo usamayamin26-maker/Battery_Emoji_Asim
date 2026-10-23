@@ -32,7 +32,7 @@
     <string name="tab_hot">🔥 Гаряче</string>
     <string name="tab_pokemon">Покемон</string>
     <string name="tab_sanrio">Санріо</string>
-    <string name="tab_anime">Аніме</string>
+    <string name="tab_anime">Мультфільми</string>
 
     <!-- Filter Chips -->
     <string name="chip_all">Все</string>
@@ -186,7 +186,7 @@
     <string name="how_to_use_step_3"><![CDATA[3. Увімкніть.]]></string>
     <string name="how_to_use_step_4"><![CDATA[4. Натисніть <font color="#9333EA"><b>Дозволити.</b></font>]]></string>
     <string name="go_to_settings">Перейти в налаштування</string>
-    <string name="continue_text">Продовжити</string>
+    <string name="continue_text">Продовжити →</string>
 
     <!-- Exit Dialog -->
     <string name="exit_dialog_title">Ви впевнені, що хочете вийти?</string>
@@ -248,4 +248,41 @@
     <string name="no_connection_msg">Немає з\'єднання. Перевірте Інтернет і повторіть спробу.</string>
     <string name="cd_back">Назад</string>
     <string name="cd_clear">Очистити</string>
+
+    <!-- Added: strings that were missing or hardcoded in code -->
+    <string name="remote_asset_download_failed">Не вдалося завантажити цей елемент. Перевірте підключення до інтернету та спробуйте ще раз.</string>
+    <string name="ad_attribution">Реклама</string>
+    <string name="ad_loading_dialog_message">Завантаження реклами…</string>
+    <string name="ad_loading_placeholder">Завантаження реклами…</string>
+    <string name="ad_close">Закрити</string>
+    <string name="icon_airplane">Режим польоту</string>
+    <string name="icon_ringer">Дзвінок</string>
+    <string name="icon_date_time">Дата й час</string>
+    <string name="icon_hotspot">Точка доступу</string>
+    <string name="icon_emotion">Емоція</string>
+    <string name="icon_wifi">Wi-Fi</string>
+    <string name="icon_sim_signal">SIM / Сигнал</string>
+    <string name="icon_data">Дані</string>
+    <string name="icon_charge">Заряджання</string>
+    <string name="label_none">Немає</string>
+    <string name="emoji_bunny">Зайчик</string>
+    <string name="emoji_cat">Кіт</string>
+    <string name="emoji_frog">Жаба</string>
+    <string name="emoji_puppy">Цуценя</string>
+    <string name="emoji_bear">Ведмідь</string>
+    <string name="emoji_love">Кохання</string>
+    <string name="emoji_happy">Радість</string>
+    <string name="emoji_sad">Сум</string>
+    <string name="emoji_sparkle">Блиск</string>
+    <string name="emoji_star">Зірка</string>
+    <string name="sticker_fixed_on_screen">Стікер закріплено на екрані! Він залишається видимим, навіть коли застосунок закрито.</string>
+    <string name="sticker_adjusted_fixed">Стікер налаштовано й закріплено на екрані!</string>
+    <string name="notif_channel_sticker_name">Стікер на екрані</string>
+    <string name="notif_channel_sticker_desc">Показує живий стікер поверх екрана</string>
+    <string name="notif_sticker_title">JH Стікер на екрані</string>
+    <string name="notif_sticker_text">Стікер активний на екрані</string>
+    <string name="notif_channel_overlay_name">Служба накладання рядка стану</string>
+    <string name="notif_channel_overlay_desc">Показує тему та емодзі-батарею поверх рядка стану в реальному часі</string>
+    <string name="notif_overlay_title">Значок емодзі-батареї</string>
+    <string name="notif_overlay_text">Емодзі-батарея та рядок стану активні</string>
 </resources>

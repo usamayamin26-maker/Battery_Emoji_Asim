@@ -32,7 +32,7 @@
     <string name="tab_hot">🔥 Популярное</string>
     <string name="tab_pokemon">Покемон</string>
     <string name="tab_sanrio">Санрио</string>
-    <string name="tab_anime">Аниме</string>
+    <string name="tab_anime">Мультфильмы</string>
 
     <!-- Filter Chips -->
     <string name="chip_all">Все</string>
@@ -180,7 +180,7 @@
     <string name="how_to_use_step_3"><![CDATA[3. Включите.]]></string>
     <string name="how_to_use_step_4"><![CDATA[4. Нажмите <font color="#9333EA"><b>Разрешить.</b></font>]]></string>
     <string name="go_to_settings">Перейти в настройки</string>
-    <string name="continue_text">Продолжить</string>
+    <string name="continue_text">Продолжить →</string>
 
     <!-- Exit Dialog -->
     <string name="exit_dialog_title">Вы уверены, что хотите выйти?</string>
@@ -242,4 +242,47 @@
     <string name="no_connection_msg">Нет связи. Проверьте подключение к сети и повторите попытку.</string>
     <string name="cd_back">Назад</string>
     <string name="cd_clear">Очистить</string>
+
+    <!-- Added: strings that were missing or hardcoded in code -->
+    <string name="lang_spanish">Испанский</string>
+    <string name="lang_thai">Тайский</string>
+    <string name="lang_ukrainian">Украинский</string>
+    <string name="remote_asset_download_failed">Не удалось загрузить этот элемент. Проверьте подключение к интернету и повторите попытку.</string>
+    <string name="ad_attribution">Реклама</string>
+    <string name="ad_loading_dialog_message">Загрузка рекламы…</string>
+    <string name="ad_loading_placeholder">Загрузка рекламы…</string>
+    <string name="ad_close">Закрыть</string>
+    <string name="icon_airplane">Режим полёта</string>
+    <string name="icon_ringer">Звонок</string>
+    <string name="icon_date_time">Дата и время</string>
+    <string name="icon_hotspot">Точка доступа</string>
+    <string name="icon_emotion">Эмоция</string>
+    <string name="icon_wifi">Wi-Fi</string>
+    <string name="icon_sim_signal">SIM / Сигнал</string>
+    <string name="icon_data">Данные</string>
+    <string name="icon_charge">Зарядка</string>
+    <string name="label_none">Нет</string>
+    <string name="emoji_bunny">Зайчик</string>
+    <string name="emoji_cat">Кошка</string>
+    <string name="emoji_frog">Лягушка</string>
+    <string name="emoji_puppy">Щенок</string>
+    <string name="emoji_bear">Медведь</string>
+    <string name="emoji_love">Любовь</string>
+    <string name="emoji_happy">Радость</string>
+    <string name="emoji_sad">Грусть</string>
+    <string name="emoji_sparkle">Блеск</string>
+    <string name="emoji_star">Звезда</string>
+    <string name="sticker_fixed_on_screen">Стикер закреплён на экране! Он останется видимым, даже если приложение закрыто.</string>
+    <string name="sticker_adjusted_fixed">Стикер настроен и закреплён на экране!</string>
+    <string name="notif_channel_sticker_name">Стикер на экране</string>
+    <string name="notif_channel_sticker_desc">Показывает живой стикер поверх экрана</string>
+    <string name="notif_sticker_title">JH Стикер на экране</string>
+    <string name="notif_sticker_text">Стикер активен на экране</string>
+    <string name="notif_channel_overlay_name">Служба наложения строки состояния</string>
+    <string name="notif_channel_overlay_desc">Показывает тему и эмодзи-батарею поверх строки состояния в реальном времени</string>
+    <string name="notif_overlay_title">Значок эмодзи-батареи</string>
+    <string name="notif_overlay_text">Эмодзи-батарея и строка состояния активны</string>
+    <string name="lang_spanish_native">Español</string>
+    <string name="lang_thai_native">ไทย</string>
+    <string name="lang_ukrainian_native">Українська</string>
 </resources>

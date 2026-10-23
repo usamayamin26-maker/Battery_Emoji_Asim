@@ -125,16 +125,16 @@ class CustomIconDetailFragment : Fragment() {
 
     private fun setupTopBar() {
         val title = when (iconId) {
-            "airplane" -> "Airplane"
-            "ringer" -> "Ringer"
-            "calendar" -> "Date & Time"
-            "hotspot" -> "Hotspot"
-            "emotion" -> "Emotion"
-            "wifi" -> "Wi-Fi"
-            "signal", "sim" -> "SIM / Signal"
-            "data" -> "Data"
-            "animation" -> "Animation"
-            "charge" -> "Charge"
+            "airplane" -> getString(R.string.icon_airplane)
+            "ringer" -> getString(R.string.icon_ringer)
+            "calendar" -> getString(R.string.icon_date_time)
+            "hotspot" -> getString(R.string.icon_hotspot)
+            "emotion" -> getString(R.string.icon_emotion)
+            "wifi" -> getString(R.string.icon_wifi)
+            "signal", "sim" -> getString(R.string.icon_sim_signal)
+            "data" -> getString(R.string.icon_data)
+            "animation" -> getString(R.string.animation)
+            "charge" -> getString(R.string.icon_charge)
             else -> iconId.replaceFirstChar { it.uppercase() }
         }
 

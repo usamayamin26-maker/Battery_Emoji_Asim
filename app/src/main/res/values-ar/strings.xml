@@ -179,7 +179,7 @@
     <string name="how_to_use_step_3"><![CDATA[3. تشغيل.]]></string>
     <string name="how_to_use_step_4"><![CDATA[4. انقر فوق <font color="#9333EA"><b>سماح.</b></font>]]></string>
     <string name="go_to_settings">الانتقال إلى الإعدادات</string>
-    <string name="continue_text">متابعة</string>
+    <string name="continue_text">متابعة ←</string>
 
     <!-- Exit Dialog -->
     <string name="exit_dialog_title">هل أنت متأكد من الخروج؟</string>
@@ -241,4 +241,48 @@
     <string name="no_connection_msg">لا يوجد اتصال. يرجى التحقق من الإنترنت وإعادة المحاولة.</string>
     <string name="cd_back">رجوع</string>
     <string name="cd_clear">مسح</string>
+
+    <!-- Added: strings that were missing or hardcoded in code -->
+    <string name="tab_anime">كرتون</string>
+    <string name="lang_spanish">الإسبانية</string>
+    <string name="lang_thai">التايلاندية</string>
+    <string name="lang_ukrainian">الأوكرانية</string>
+    <string name="remote_asset_download_failed">تعذّر تنزيل هذا العنصر. تحقق من اتصالك بالإنترنت وحاول مرة أخرى.</string>
+    <string name="ad_attribution">إعلان</string>
+    <string name="ad_loading_dialog_message">جارٍ تحميل الإعلان…</string>
+    <string name="ad_loading_placeholder">جارٍ تحميل الإعلان…</string>
+    <string name="ad_close">إغلاق</string>
+    <string name="icon_airplane">وضع الطيران</string>
+    <string name="icon_ringer">الرنين</string>
+    <string name="icon_date_time">التاريخ والوقت</string>
+    <string name="icon_hotspot">نقطة الاتصال</string>
+    <string name="icon_emotion">المشاعر</string>
+    <string name="icon_wifi">Wi-Fi</string>
+    <string name="icon_sim_signal">الشريحة / الإشارة</string>
+    <string name="icon_data">البيانات</string>
+    <string name="icon_charge">الشحن</string>
+    <string name="label_none">لا شيء</string>
+    <string name="emoji_bunny">أرنب</string>
+    <string name="emoji_cat">قطة</string>
+    <string name="emoji_frog">ضفدع</string>
+    <string name="emoji_puppy">جرو</string>
+    <string name="emoji_bear">دب</string>
+    <string name="emoji_love">حب</string>
+    <string name="emoji_happy">سعيد</string>
+    <string name="emoji_sad">حزين</string>
+    <string name="emoji_sparkle">بريق</string>
+    <string name="emoji_star">نجمة</string>
+    <string name="sticker_fixed_on_screen">تم تثبيت الملصق على الشاشة! يبقى ظاهرًا حتى عند إغلاق التطبيق.</string>
+    <string name="sticker_adjusted_fixed">تم ضبط الملصق وتثبيته على الشاشة!</string>
+    <string name="notif_channel_sticker_name">عرض ملصق الشاشة</string>
+    <string name="notif_channel_sticker_desc">يعرض ملصقًا مباشرًا فوق الشاشة</string>
+    <string name="notif_sticker_title">ملصق الشاشة JH</string>
+    <string name="notif_sticker_text">الملصق نشط على الشاشة</string>
+    <string name="notif_channel_overlay_name">خدمة تراكب شريط الحالة</string>
+    <string name="notif_channel_overlay_desc">يعرض تخصيص السمة وبطارية الإيموجي مباشرةً فوق شريط الحالة</string>
+    <string name="notif_overlay_title">أيقونة بطارية الإيموجي</string>
+    <string name="notif_overlay_text">بطارية الإيموجي وشريط الحالة نشطان</string>
+    <string name="lang_spanish_native">Español</string>
+    <string name="lang_thai_native">ไทย</string>
+    <string name="lang_ukrainian_native">Українська</string>
 </resources>

@@ -32,7 +32,7 @@
     <string name="tab_hot">🔥 ยอดนิยม</string>
     <string name="tab_pokemon">โปเกมอน</string>
     <string name="tab_sanrio">ซานริโอ</string>
-    <string name="tab_anime">อนิเมะ</string>
+    <string name="tab_anime">การ์ตูน</string>
 
     <!-- Filter Chips -->
     <string name="chip_all">ทั้งหมด</string>
@@ -186,7 +186,7 @@
     <string name="how_to_use_step_3"><![CDATA[3. เปิดสวิตช์]]></string>
     <string name="how_to_use_step_4"><![CDATA[4. คลิก <font color="#9333EA"><b>อนุญาต</b></font>]]></string>
     <string name="go_to_settings">ไปที่การตั้งค่า</string>
-    <string name="continue_text">ดำเนินการต่อ</string>
+    <string name="continue_text">ดำเนินการต่อ →</string>
 
     <!-- Exit Dialog -->
     <string name="exit_dialog_title">คุณแน่ใจหรือไม่ว่าต้องการออก?</string>
@@ -248,4 +248,41 @@
     <string name="no_connection_msg">ไม่มีการเชื่อมต่อ โปรดตรวจสอบอินเทอร์เน็ตแล้วลองใหม่</string>
     <string name="cd_back">กลับ</string>
     <string name="cd_clear">ล้าง</string>
+
+    <!-- Added: strings that were missing or hardcoded in code -->
+    <string name="remote_asset_download_failed">ไม่สามารถดาวน์โหลดรายการนี้ได้ ตรวจสอบการเชื่อมต่ออินเทอร์เน็ตแล้วลองอีกครั้ง</string>
+    <string name="ad_attribution">โฆษณา</string>
+    <string name="ad_loading_dialog_message">กำลังโหลดโฆษณา…</string>
+    <string name="ad_loading_placeholder">กำลังโหลดโฆษณา…</string>
+    <string name="ad_close">ปิด</string>
+    <string name="icon_airplane">โหมดเครื่องบิน</string>
+    <string name="icon_ringer">เสียงเรียกเข้า</string>
+    <string name="icon_date_time">วันที่และเวลา</string>
+    <string name="icon_hotspot">ฮอตสปอต</string>
+    <string name="icon_emotion">อารมณ์</string>
+    <string name="icon_wifi">Wi-Fi</string>
+    <string name="icon_sim_signal">ซิม / สัญญาณ</string>
+    <string name="icon_data">ข้อมูล</string>
+    <string name="icon_charge">ชาร์จ</string>
+    <string name="label_none">ไม่มี</string>
+    <string name="emoji_bunny">กระต่าย</string>
+    <string name="emoji_cat">แมว</string>
+    <string name="emoji_frog">กบ</string>
+    <string name="emoji_puppy">ลูกสุนัข</string>
+    <string name="emoji_bear">หมี</string>
+    <string name="emoji_love">ความรัก</string>
+    <string name="emoji_happy">มีความสุข</string>
+    <string name="emoji_sad">เศร้า</string>
+    <string name="emoji_sparkle">ประกาย</string>
+    <string name="emoji_star">ดาว</string>
+    <string name="sticker_fixed_on_screen">ติดสติกเกอร์บนหน้าจอแล้ว! จะยังแสดงอยู่แม้ปิดแอป</string>
+    <string name="sticker_adjusted_fixed">ปรับและติดสติกเกอร์บนหน้าจอแล้ว!</string>
+    <string name="notif_channel_sticker_name">การแสดงสติกเกอร์บนหน้าจอ</string>
+    <string name="notif_channel_sticker_desc">แสดงสติกเกอร์สดบนหน้าจอ</string>
+    <string name="notif_sticker_title">JH สติกเกอร์หน้าจอ</string>
+    <string name="notif_sticker_text">สติกเกอร์กำลังทำงานบนหน้าจอ</string>
+    <string name="notif_channel_overlay_name">บริการโอเวอร์เลย์แถบสถานะ</string>
+    <string name="notif_channel_overlay_desc">แสดงธีมและแบตเตอรี่อีโมจิแบบสดบนแถบสถานะ</string>
+    <string name="notif_overlay_title">ไอคอนแบตเตอรี่อีโมจิ</string>
+    <string name="notif_overlay_text">แบตเตอรี่อีโมจิและแถบสถานะทำงานอยู่</string>
 </resources>

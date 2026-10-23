@@ -32,7 +32,7 @@
     <string name="tab_hot">🔥 Hangat</string>
     <string name="tab_pokemon">Pokemon</string>
     <string name="tab_sanrio">Sanrio</string>
-    <string name="tab_anime">Anime</string>
+    <string name="tab_anime">Kartun</string>
 
     <!-- Filter Chips -->
     <string name="chip_all">Semua</string>
@@ -180,7 +180,7 @@
     <string name="how_to_use_step_3"><![CDATA[3. Hidupkan.]]></string>
     <string name="how_to_use_step_4"><![CDATA[4. Klik <font color="#9333EA"><b>Benarkan.</b></font>]]></string>
     <string name="go_to_settings">Pergi ke Tetapan</string>
-    <string name="continue_text">Teruskan</string>
+    <string name="continue_text">Teruskan →</string>
 
     <!-- Exit Dialog -->
     <string name="exit_dialog_title">Adakah anda pasti mahu keluar?</string>
@@ -242,4 +242,47 @@
     <string name="no_connection_msg">Tiada sambungan. Sila periksa internet anda dan cuba lagi.</string>
     <string name="cd_back">Kembali</string>
     <string name="cd_clear">Kosongkan</string>
+
+    <!-- Added: strings that were missing or hardcoded in code -->
+    <string name="lang_spanish">Sepanyol</string>
+    <string name="lang_thai">Thai</string>
+    <string name="lang_ukrainian">Ukraine</string>
+    <string name="remote_asset_download_failed">Tidak dapat memuat turun item ini. Semak sambungan internet anda dan cuba lagi.</string>
+    <string name="ad_attribution">Iklan</string>
+    <string name="ad_loading_dialog_message">Memuatkan iklan…</string>
+    <string name="ad_loading_placeholder">Memuatkan iklan…</string>
+    <string name="ad_close">Tutup</string>
+    <string name="icon_airplane">Mod pesawat</string>
+    <string name="icon_ringer">Pendering</string>
+    <string name="icon_date_time">Tarikh &amp; Masa</string>
+    <string name="icon_hotspot">Tempat liputan</string>
+    <string name="icon_emotion">Emosi</string>
+    <string name="icon_wifi">Wi-Fi</string>
+    <string name="icon_sim_signal">SIM / Isyarat</string>
+    <string name="icon_data">Data</string>
+    <string name="icon_charge">Cas</string>
+    <string name="label_none">Tiada</string>
+    <string name="emoji_bunny">Arnab</string>
+    <string name="emoji_cat">Kucing</string>
+    <string name="emoji_frog">Katak</string>
+    <string name="emoji_puppy">Anak anjing</string>
+    <string name="emoji_bear">Beruang</string>
+    <string name="emoji_love">Cinta</string>
+    <string name="emoji_happy">Gembira</string>
+    <string name="emoji_sad">Sedih</string>
+    <string name="emoji_sparkle">Kilauan</string>
+    <string name="emoji_star">Bintang</string>
+    <string name="sticker_fixed_on_screen">Pelekat ditetapkan pada skrin! Ia kekal kelihatan walaupun apl ditutup.</string>
+    <string name="sticker_adjusted_fixed">Pelekat dilaraskan dan ditetapkan pada skrin!</string>
+    <string name="notif_channel_sticker_name">Paparan Pelekat Skrin</string>
+    <string name="notif_channel_sticker_desc">Memaparkan pelekat langsung di atas skrin</string>
+    <string name="notif_sticker_title">JH Pelekat Skrin</string>
+    <string name="notif_sticker_text">Pelekat aktif pada skrin</string>
+    <string name="notif_channel_overlay_name">Perkhidmatan Tindanan Bar Status</string>
+    <string name="notif_channel_overlay_desc">Memaparkan tema dan bateri emoji secara langsung di atas bar status</string>
+    <string name="notif_overlay_title">Ikon Bateri Emoji</string>
+    <string name="notif_overlay_text">Bateri emoji &amp; bar status aktif</string>
+    <string name="lang_spanish_native">Español</string>
+    <string name="lang_thai_native">ไทย</string>
+    <string name="lang_ukrainian_native">Українська</string>
 </resources>
