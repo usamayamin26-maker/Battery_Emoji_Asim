@@ -7,7 +7,7 @@
     android:padding="@dimen/_5sdp">
 
     <!-- Reusable Component: EmojiBatteryCardView -->
-    <com.asim.jhbatteryapp.presentation.components.EmojiBatteryCardView
+    <com.jhw.batteryemoji.presentation.components.EmojiBatteryCardView
         android:id="@+id/cardEmojiBattery"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_96sdp"

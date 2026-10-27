@@ -9,7 +9,7 @@
     android:focusableInTouchMode="true">
 
     <!-- Shared screen header -->
-    <com.asim.jhbatteryapp.presentation.components.TopHeaderView
+    <com.jhw.batteryemoji.presentation.components.TopHeaderView
         android:id="@+id/topHeader"
         android:layout_width="0dp"
         android:layout_height="wrap_content"

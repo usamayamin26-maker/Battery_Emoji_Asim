@@ -21,7 +21,7 @@
         app:nativeMarginHorizontal="@dimen/_14sdp"
         tools:visibility="visible" />
 
-    <com.asim.jhbatteryapp.presentation.components.GradientProgressView
+    <com.jhw.batteryemoji.presentation.components.GradientProgressView
         android:id="@+id/gradientProgressIndicator"
         android:layout_width="0dp"
         android:layout_height="@dimen/_6sdp"

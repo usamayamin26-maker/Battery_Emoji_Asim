@@ -15,7 +15,7 @@
         app:navGraph="@navigation/nav_graph" />
 
     <!-- REUSABLE COMPONENT: Floating Bottom Navigation Bar -->
-    <com.asim.jhbatteryapp.presentation.components.FloatingBottomBarView
+    <com.jhw.batteryemoji.presentation.components.FloatingBottomBarView
         android:id="@+id/floatingBottomNav"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

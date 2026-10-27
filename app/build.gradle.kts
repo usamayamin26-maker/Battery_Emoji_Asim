@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "com.asim.jhbatteryapp"
+    namespace = "com.jhw.batteryemoji"
     compileSdk {
         version = release(36) {
             minorApiLevel = 1
@@ -12,7 +12,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "com.asim.jhbatteryapp"
+        applicationId = "com.jhw.batteryemoji"
         minSdk = 24
         targetSdk = 36
         versionCode = 1

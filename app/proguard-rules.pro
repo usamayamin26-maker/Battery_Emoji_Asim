@@ -14,14 +14,14 @@
 # ── kotlinx.serialization: remote manifest + ads config models ────────────────
 # The library's rules cover generated serializers; these keep our @Serializable models and
 # their companions intact, so the Dropbox manifest and Remote Config JSON always parse.
--keepclassmembers @kotlinx.serialization.Serializable class com.asim.jhbatteryapp.** {
+-keepclassmembers @kotlinx.serialization.Serializable class com.jhw.batteryemoji.** {
     *** Companion;
     static ** INSTANCE;
     kotlinx.serialization.KSerializer serializer(...);
     <fields>;
 }
--keep,includedescriptorclasses class com.asim.jhbatteryapp.**$$serializer { *; }
--keepclasseswithmembers class com.asim.jhbatteryapp.** {
+-keep,includedescriptorclasses class com.jhw.batteryemoji.**$$serializer { *; }
+-keepclasseswithmembers class com.jhw.batteryemoji.** {
     kotlinx.serialization.KSerializer serializer(...);
 }
 
@@ -43,5 +43,5 @@
 
 # ── Services the system binds by class name ───────────────────────────────────
 # Accessibility/overlay services are compared by class name in Settings.Secure strings.
--keepnames class com.asim.jhbatteryapp.service.** extends android.app.Service
--keepnames class com.asim.jhbatteryapp.service.** extends android.accessibilityservice.AccessibilityService
+-keepnames class com.jhw.batteryemoji.service.** extends android.app.Service
+-keepnames class com.jhw.batteryemoji.service.** extends android.accessibilityservice.AccessibilityService

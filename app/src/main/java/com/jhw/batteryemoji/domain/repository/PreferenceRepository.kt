@@ -1,0 +1,95 @@
+package com.jhw.batteryemoji.domain.repository
+
+interface PreferenceRepository {
+    fun isOnboardingCompleted(): Boolean
+    fun setOnboardingCompleted(completed: Boolean)
+    fun isLanguageSelected(): Boolean
+    fun setLanguageSelected(selected: Boolean)
+    fun isEmojiBatteryEnabled(): Boolean
+    fun setEmojiBatteryEnabled(enabled: Boolean)
+    fun getAppliedThemeDrawableRes(): Int
+    fun setAppliedThemeDrawableRes(res: Int)
+    fun isAppliedThemeGradient(): Boolean
+    fun setAppliedThemeGradient(isGradient: Boolean)
+    fun getAppliedMascotDrawableRes(): Int
+    fun setAppliedMascotDrawableRes(res: Int)
+
+    // Status Bar Customization Settings
+    fun getCustomStatusBarHeight(): Int
+    fun setCustomStatusBarHeight(heightDp: Int)
+    fun getCustomLeftMargin(): Int
+    fun setCustomLeftMargin(marginDp: Int)
+    fun getCustomRightMargin(): Int
+    fun setCustomRightMargin(marginDp: Int)
+    fun getCustomBackgroundColor(): Int
+    fun setCustomBackgroundColor(color: Int)
+    fun getCustomIconColor(): Int
+    fun setCustomIconColor(color: Int)
+    fun getCustomBatteryTextSize(): Int
+    fun setCustomBatteryTextSize(sizeSp: Int)
+    fun getCustomBatteryStyle(): String
+    fun setCustomBatteryStyle(style: String)
+    fun getAppliedBatteryIconRes(): Int
+    fun setAppliedBatteryIconRes(res: Int)
+    fun isBatteryIconTintable(): Boolean
+    fun setBatteryIconTintable(isTintable: Boolean)
+    fun getCustomBatteryIconSize(): Int
+    fun setCustomBatteryIconSize(sizeDp: Int)
+
+    // Multi-Selected Custom Status Bar Icons & Specific Icon Settings
+    fun getEnabledCustomIcons(): Set<String>
+    fun setEnabledCustomIcons(icons: Set<String>)
+    fun isCustomIconEnabled(iconId: String): Boolean
+    fun setCustomIconEnabled(iconId: String, enabled: Boolean)
+    fun getCustomIconSize(iconId: String): Int
+    fun setCustomIconSize(iconId: String, sizeDp: Int)
+    fun getCustomIconColor(iconId: String): Int
+    fun setCustomIconColor(iconId: String, color: Int)
+    fun getEmotionStyle(): String
+    fun setEmotionStyle(style: String)
+    fun getDateFormat(): String
+    fun setDateFormat(format: String)
+    fun getDateStyle(): Int
+    fun setDateStyle(style: Int)
+    fun getLastAppliedThemeMode(): String
+    fun setLastAppliedThemeMode(mode: String)
+    fun getLeftStatusEmojiRes(): Int
+    fun setLeftStatusEmojiRes(res: Int)
+    fun getEmotionPath(): String
+    fun setEmotionPath(path: String)
+    fun getLeftStatusEmojiPath(): String
+    fun setLeftStatusEmojiPath(path: String)
+    fun getAppliedAnimationRawRes(): Int
+    fun setAppliedAnimationRawRes(res: Int)
+    fun isAppliedAnimationLottie(): Boolean
+    fun setAppliedAnimationLottie(isLottie: Boolean)
+
+    // Remote (downloaded) assets — honored only while the matching res value is 0
+    fun getAppliedBatteryIconPath(): String
+    fun setAppliedBatteryIconPath(path: String)
+    fun getAppliedAnimationPath(): String
+    fun setAppliedAnimationPath(path: String)
+
+    fun getMascotSize(): Int
+    fun setMascotSize(sizeDp: Int)
+
+    fun isFloatingStickerEnabled(): Boolean
+    fun setFloatingStickerEnabled(enabled: Boolean)
+    fun getFloatingStickerDrawableRes(): Int
+    fun setFloatingStickerDrawableRes(res: Int)
+    fun getFloatingStickerImagePath(): String
+    fun setFloatingStickerImagePath(path: String)
+    fun getFloatingStickerX(): Int
+    fun setFloatingStickerX(x: Int)
+    fun getFloatingStickerY(): Int
+    fun setFloatingStickerY(y: Int)
+    fun getFloatingStickerSize(): Int
+    fun setFloatingStickerSize(sizeDp: Int)
+    fun getFloatingStickerRotation(): Float
+    fun setFloatingStickerRotation(rotDeg: Float)
+
+    // Centralized Settings & Observable Stream
+    fun getStatusBarSettings(): com.jhw.batteryemoji.domain.model.StatusBarSettings
+    fun updateStatusBarSettings(settings: com.jhw.batteryemoji.domain.model.StatusBarSettings)
+    fun observeStatusBarSettings(): kotlinx.coroutines.flow.StateFlow<com.jhw.batteryemoji.domain.model.StatusBarSettings>
+}
