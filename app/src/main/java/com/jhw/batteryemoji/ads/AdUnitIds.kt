@@ -19,12 +19,12 @@ import com.jhw.batteryemoji.ads.AdsConfig
  */
 object AdUnitIds {
 
-    private const val TEST_BANNER = "ca-app-pub-3940256069942544/6300978111"
-    private const val TEST_BANNER_COLLAPSIBLE = "ca-app-pub-3940256069942544/2014213617"
+    private const val TEST_BANNER = "ca-app-pub-3940256099942544/6300978111"
+    private const val TEST_BANNER_COLLAPSIBLE = "ca-app-pub-3940256099942544/2014213617"
     private const val TEST_NATIVE = "ca-app-pub-3940256099942544/2247696110"
     private const val TEST_INTERSTITIAL = "ca-app-pub-3940256099942544/1033173712"
     private const val TEST_APP_OPEN = "ca-app-pub-3940256099942544/9257395921"
-    private const val TEST_REWARDED = "ca-app-pub-3940256069942544/5224354917"
+    private const val TEST_REWARDED = "ca-app-pub-3940256099942544/5224354917"
 
     /**
      * [mode] is the slot's <screen>_<position>_banner value: the collapsible modes need Google's own

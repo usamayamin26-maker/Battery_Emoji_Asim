@@ -8,10 +8,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="PLACEHOLDER" />
-                  <option name="mobileSdkAppId" value="" />
-                  <option name="projectId" value="" />
-                  <option name="projectNumber" value="" />
+                  <option name="appId" value="com.jhw.batteryemoji" />
+                  <option name="mobileSdkAppId" value="1:1084137025418:android:28e0461e43ed06c9016273" />
+                  <option name="projectId" value="battery-emoji-e7cbb" />
+                  <option name="projectNumber" value="1084137025418" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />

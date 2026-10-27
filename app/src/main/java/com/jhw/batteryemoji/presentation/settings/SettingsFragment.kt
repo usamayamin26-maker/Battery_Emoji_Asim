@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.jhw.batteryemoji.R
+import com.jhw.batteryemoji.core.Utils.Constants
 import com.jhw.batteryemoji.databinding.FragmentSettingsBinding
 import com.jhw.batteryemoji.presentation.home.HomeViewModel
 import com.universal.remote.ads.AdsController
@@ -139,7 +140,7 @@ class SettingsFragment : Fragment() {
         // 2. Privacy Policy Item
         binding.itemSettingPrivacy.setOnClickListener {
             try {
-                val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse("https://google.com"))
+                val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(Constants.PrivacyPolicyUrl))
                 startActivity(browserIntent)
             } catch (e: Exception) {
                 Toast.makeText(requireContext(), getString(R.string.opening_privacy_policy), Toast.LENGTH_SHORT).show()
@@ -151,10 +152,9 @@ class SettingsFragment : Fragment() {
             AppDialogs.showShareDialog(requireContext())
         }
 
-        // 4. Rate Us Item -> Show Rating / Feedback Dialog matching Image 2!
+        // 4. Rate Us Item -> 4-5 stars opens the Play Store, 1-3 stars asks for feedback
         binding.itemSettingRate.setOnClickListener {
             AppDialogs.showRateUsDialog(requireContext()) {
-                // Also optionally demonstrate the emoji reaction dialog
                 AppDialogs.showEmojiFeedbackDialog(requireContext())
             }
         }

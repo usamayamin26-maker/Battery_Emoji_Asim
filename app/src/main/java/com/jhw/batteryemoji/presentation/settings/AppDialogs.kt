@@ -1,13 +1,16 @@
 package com.jhw.batteryemoji.presentation.settings
 
 import android.app.Dialog
+import android.content.ActivityNotFoundException
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
+import android.content.Intent
+import android.net.Uri
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.view.LayoutInflater
-import android.view.Window
+import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.Toast
 import com.jhw.batteryemoji.R
@@ -24,15 +27,44 @@ object AppDialogs {
         com.jhw.batteryemoji.core.Utils.MyUtils.showShareDialog(context)
     }
 
+    /** Floating dialog in the app's dialog theme, 90% of the screen width (max 420dp), like the share dialog. */
+    private fun createDialog(context: Context, root: android.view.View): Dialog =
+        Dialog(context, R.style.Theme_JHBatteryApp_Dialog).apply {
+            setContentView(root)
+            setCancelable(true)
+            window?.apply {
+                setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+                val metrics = context.resources.displayMetrics
+                setLayout(
+                    (metrics.widthPixels * 0.90).toInt().coerceAtMost((420 * metrics.density).toInt()),
+                    ViewGroup.LayoutParams.WRAP_CONTENT
+                )
+            }
+        }
+
+    /** Opens the app's Play Store page, falling back to the browser when the Play Store app is missing. */
+    private fun openPlayStore(context: Context) {
+        val packageName = context.packageName
+        try {
+            context.startActivity(
+                Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=$packageName"))
+                    .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            )
+        } catch (e: ActivityNotFoundException) {
+            context.startActivity(
+                Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=$packageName"))
+                    .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            )
+        }
+    }
+
     /**
-     * Show 5-Star Rating Feedback Dialog matching Image 2
+     * 5-star rating dialog. 4-5 stars opens the Play Store page; 1-3 stars calls [onLowRating]
+     * (e.g. to ask for feedback instead).
      */
-    fun showRateUsDialog(context: Context, onFeedbackSubmitted: (() -> Unit)? = null) {
-        val dialog = Dialog(context)
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+    fun showRateUsDialog(context: Context, onLowRating: (() -> Unit)? = null) {
         val binding = DialogRateUsBinding.inflate(LayoutInflater.from(context))
-        dialog.setContentView(binding.root)
-        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        val dialog = createDialog(context, binding.root)
 
         var currentRating = 3
         val stars = listOf(binding.star1, binding.star2, binding.star3, binding.star4, binding.star5)
@@ -54,11 +86,18 @@ object AppDialogs {
             }
         }
 
+        updateStars(currentRating)
+
         // Done Action
         binding.btnRatingDone.setOnClickListener {
-            Toast.makeText(context, context.getString(R.string.feedback_submitted), Toast.LENGTH_SHORT).show()
             dialog.dismiss()
-            onFeedbackSubmitted?.invoke()
+            if (currentRating >= 4) {
+                openPlayStore(context)
+            } else if (onLowRating != null) {
+                onLowRating()
+            } else {
+                Toast.makeText(context, context.getString(R.string.feedback_submitted), Toast.LENGTH_SHORT).show()
+            }
         }
 
         dialog.show()
@@ -68,11 +107,8 @@ object AppDialogs {
      * Show Emoji Reaction Feedback Dialog matching Image 2 (with floating top emoji)
      */
     fun showEmojiFeedbackDialog(context: Context) {
-        val dialog = Dialog(context)
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
         val binding = DialogEmojiFeedbackBinding.inflate(LayoutInflater.from(context))
-        dialog.setContentView(binding.root)
-        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        val dialog = createDialog(context, binding.root)
 
         var selectedEmojiRes = R.drawable.ic_reaction_neutral
 
