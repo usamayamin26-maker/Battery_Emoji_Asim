@@ -7,14 +7,14 @@
 
     <!-- Onboarding Screen -->
     <string name="skip">تخطي</string>
-    <string name="onboarding_title_1">خصص كل\nتفصيل مع.</string>
-    <string name="onboarding_desc_1">الإيموجي، الحيوانات الأليفة، أنماط البطارية، أشرطة الحالة والخلفيات الجميلة.</string>
-    <string name="onboarding_title_2">اجعل بطاريتك\nممتعة.</string>
-    <string name="onboarding_desc_2">حوّل أيقونة بطاريتك إلى إيموجي لطيف. تفصيل صغير يمنحك الكثير من السعادة.</string>
-    <string name="onboarding_title_3">بطاريتك.\nخيالك.</string>
+    <string name="onboarding_title_1">اجعل بطاريتك\nممتعة.</string>
+    <string name="onboarding_desc_1">حوّل أيقونة بطاريتك إلى إيموجي لطيف. تفصيل صغير يمنحك الكثير من السعادة.</string>
+    <string name="onboarding_title_2">بطاريتك.\nخيالك.</string>
+    <string name="onboarding_desc_2">امزج الإيموجي والألوان المفضلة لديك لإنشاء بطارية تعبر عنك.</string>
+    <string name="onboarding_title_3">أكثر لطفًا قليلًا.\nوأقرب إليك أكثر.</string>
     <string name="help_title">ساعدنا على التحسين</string>
     <string name="help_desc_3">يرجى دعمنا من خلال التقييم والتوصية للآخرين على Google Play</string>
-    <string name="onboarding_desc_3">امزج الإيموجي والألوان المفضلة لديك لإنشاء بطارية تعبر عنك.</string>
+    <string name="onboarding_desc_3">امنح هاتفك لمسة شخصية مرحة،\nواحمل القليل من البهجة أينما ذهبت.</string>
     <string name="get_started">ابدأ الآن</string>
     <string name="next">التالي</string>
 
@@ -29,7 +29,7 @@
     <string name="themes">السمات</string>
 
     <!-- Category Tabs -->
-    <string name="tab_hot">🔥 شائع</string>
+    <string name="tab_hot">شائع</string>
     <string name="tab_pokemon">بوكيمون</string>
     <string name="tab_sanrio">سانريو</string>
 

@@ -6,7 +6,6 @@ import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
@@ -18,8 +17,10 @@ import com.jhw.batteryemoji.data.remote.RemoteImageLoader
 import com.jhw.batteryemoji.databinding.DialogBatteryPreviewBinding
 import com.jhw.batteryemoji.databinding.FragmentSearchBinding
 import com.jhw.batteryemoji.domain.model.BatteryEmojiItem
+import com.jhw.batteryemoji.domain.model.CategoryItem
 import com.jhw.batteryemoji.domain.model.RemoteAssetItem
 import com.jhw.batteryemoji.presentation.home.BatteryEmojiAdapter
+import com.jhw.batteryemoji.presentation.home.CategoryTabAdapter
 import com.jhw.batteryemoji.presentation.home.HomeViewModel
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.universal.remote.ads.AdsController
@@ -76,6 +77,21 @@ class SearchFragment : Fragment() {
     }
 
     private fun setupRecyclerViews() {
+        // Filter Tabs: the category id doubles as the search query ("" = all)
+        val tabAdapter = CategoryTabAdapter(initialSelectedId = "") { category ->
+            viewModel.search(category.id)
+        }
+        tabAdapter.setCategories(
+            listOf(
+                CategoryItem(id = "", title = getString(R.string.chip_all)),
+                CategoryItem(id = "heart", title = getString(R.string.chip_heart)),
+                CategoryItem(id = "cute", title = getString(R.string.chip_cute_emoji)),
+                CategoryItem(id = "anime", title = getString(R.string.tab_anime))
+            )
+        )
+        binding.rvSearchTabs.itemAnimator = null
+        binding.rvSearchTabs.adapter = tabAdapter
+
         // Recent Grid (3 columns)
         recentAdapter = BatteryEmojiAdapter(
             onRemoteItemClick = { remoteItem ->
@@ -139,33 +155,12 @@ class SearchFragment : Fragment() {
             }
             override fun afterTextChanged(s: Editable?) {}
         })
-
-        // Filter Chips (All, Heart, Cute Emoji, Animations, Anime)
-        binding.chipAll.setOnClickListener {
-            highlightChip(binding.chipAll)
-            viewModel.search("")
-        }
-        binding.chipHeart.setOnClickListener {
-            highlightChip(binding.chipHeart)
-            viewModel.search("heart")
-        }
-        binding.chipCuteEmoji.setOnClickListener {
-            highlightChip(binding.chipCuteEmoji)
-            viewModel.search("cute")
-        }
-        binding.chipAnimations.setOnClickListener {
-            highlightChip(binding.chipAnimations)
-            viewModel.search("anime")
-        }
-        binding.chipAnime.setOnClickListener {
-            highlightChip(binding.chipAnime)
-            viewModel.search("anime")
-        }
     }
 
     private fun observeViewModel() {
         viewModel.recentEmojis.observe(viewLifecycleOwner) { recentList ->
             recentAdapter.submitList(recentList)
+            updateSectionHeaders()
             com.jhw.batteryemoji.core.Utils.ImageLoaderUtils.preload(
                 context = requireContext(),
                 drawableResList = recentList.map { it.previewDrawableRes }
@@ -195,29 +190,10 @@ class SearchFragment : Fragment() {
 
     /** Hides a section's title when its grid has nothing to show. */
     private fun updateSectionHeaders() {
-        //binding.tvRecentHeader.visibility = if (recentAdapter.itemCount > 0) View.VISIBLE else View.GONE
+        val hasRecent = recentAdapter.itemCount > 0
+        binding.tvRecentHeader.visibility = if (hasRecent) View.VISIBLE else View.GONE
+        binding.rvRecentGrid.visibility = if (hasRecent) View.VISIBLE else View.GONE
         binding.tvTopPicksHeader.visibility = if (topPicksAdapter.itemCount > 0) View.VISIBLE else View.GONE
-    }
-
-    private fun highlightChip(activeChip: TextView) {
-        val chips = listOf(
-            binding.chipAll,
-            binding.chipHeart,
-            binding.chipCuteEmoji,
-            binding.chipAnimations,
-            binding.chipAnime
-        )
-        for (chip in chips) {
-            if (chip == activeChip) {
-                chip.setBackgroundResource(R.drawable.bg_chip_selected)
-                chip.setTextColor(ContextCompat.getColor(requireContext(), R.color.tab_indicator_purple))
-                chip.typeface = android.graphics.Typeface.DEFAULT_BOLD
-            } else {
-                chip.setBackgroundResource(R.drawable.bg_chip_unselected)
-                chip.setTextColor(ContextCompat.getColor(requireContext(), R.color.text_secondary))
-                chip.typeface = android.graphics.Typeface.DEFAULT
-            }
-        }
     }
 
     private fun showPreviewBottomSheet(item: BatteryEmojiItem) {
@@ -250,6 +226,7 @@ class SearchFragment : Fragment() {
                 prefRepo.setBatteryIconTintable(false)
                 prefRepo.setEmojiBatteryEnabled(true)
                 com.jhw.batteryemoji.service.StatusBarAccessibilityService.updateBatteryIcon(item.previewDrawableRes, isTintable = false)
+                viewModel.markRecent(item)
                 Toast.makeText(requireContext(), getString(R.string.item_applied_battery_format, item.title), Toast.LENGTH_SHORT).show()
                 dismiss()
             }
@@ -296,6 +273,7 @@ class SearchFragment : Fragment() {
                     prefRepo.setBatteryIconTintable(false)
                     prefRepo.setEmojiBatteryEnabled(true)
                     com.jhw.batteryemoji.service.StatusBarAccessibilityService.updateCustomSettings()
+                    viewModel.markRecent(item)
                     Toast.makeText(appContext, appContext.getString(R.string.item_applied_battery_format, item.name), Toast.LENGTH_SHORT).show()
                     dismiss()
                 }

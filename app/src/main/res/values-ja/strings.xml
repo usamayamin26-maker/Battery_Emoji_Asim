@@ -7,14 +7,14 @@
 
     <!-- Onboarding Screen -->
     <string name="skip">スキップ</string>
-    <string name="onboarding_title_1">細部まで\n自由にカスタマイズ。</string>
-    <string name="onboarding_desc_1">絵文字、ペット、バッテリースタイル、ステータスバー、美しい背景。</string>
-    <string name="onboarding_title_2">バッテリーを\nもっと楽しく。</string>
-    <string name="onboarding_desc_2">バッテリーアイコンを可愛い絵文字に。小さな変化で毎日がもっとハッピーに。</string>
-    <string name="onboarding_title_3">あなただけのバッテリー。\n自由なイマジネーション。</string>
+    <string name="onboarding_title_1">バッテリーを\nもっと楽しく。</string>
+    <string name="onboarding_desc_1">バッテリーアイコンを可愛い絵文字に。小さな変化で毎日がもっとハッピーに。</string>
+    <string name="onboarding_title_2">あなただけのバッテリー。\n自由なイマジネーション。</string>
+    <string name="onboarding_desc_2">お気に入りの絵文字と色を組み合わせて、あなたらしいバッテリーを作りましょう。</string>
+    <string name="onboarding_title_3">もう少しかわいく。\nもう少しあなたらしく。</string>
     <string name="help_title">改善にご協力ください</string>
     <string name="help_desc_3">Google Playでの評価やレビューでぜひ応援をお願いします</string>
-    <string name="onboarding_desc_3">お気に入りの絵文字と色を組み合わせて、あなたらしいバッテリーを作りましょう。</string>
+    <string name="onboarding_desc_3">スマホに遊び心のある自分らしさをプラスして、\nどこでも小さな喜びを持ち歩こう。</string>
     <string name="get_started">使ってみる</string>
     <string name="next">次へ</string>
 
@@ -29,7 +29,7 @@
     <string name="themes">テーマ</string>
 
     <!-- Category Tabs -->
-    <string name="tab_hot">🔥 人気</string>
+    <string name="tab_hot">人気</string>
     <string name="tab_pokemon">ポケモン</string>
     <string name="tab_sanrio">サンリオ</string>
     <string name="tab_anime">カートゥーン</string>

@@ -7,14 +7,14 @@
 
     <!-- Onboarding Screen -->
     <string name="skip">Пропустити</string>
-    <string name="onboarding_title_1">Персоналізуйте кожну\nдеталь за допомогою.</string>
-    <string name="onboarding_desc_1">емодзі, улюбленці, стилі батареї, панелі сповіщень і красиві фони.</string>
-    <string name="onboarding_title_2">Зробіть вашу\nбатарею веселою.</string>
-    <string name="onboarding_desc_2">Перетворіть значок батареї на милі емодзі. Крихітна деталь. Багато радості.</string>
-    <string name="onboarding_title_3">Ваша батарея.\nВаша уява.</string>
+    <string name="onboarding_title_1">Зробіть вашу\nбатарею веселою.</string>
+    <string name="onboarding_desc_1">Перетворіть значок батареї на милі емодзі. Крихітна деталь. Багато радості.</string>
+    <string name="onboarding_title_2">Ваша батарея.\nВаша уява.</string>
+    <string name="onboarding_desc_2">Поєднуйте улюблені емодзі та кольори, щоб створити батарею, яка підходить саме вам.</string>
+    <string name="onboarding_title_3">Трохи миліше.\nТрохи більше тебе.</string>
     <string name="help_title">Допоможіть нам стати кращими</string>
     <string name="help_desc_3">Будь ласка, підтримайте нас, оцінивши та порекомендувавши іншим у Google Play</string>
-    <string name="onboarding_desc_3">Поєднуйте улюблені емодзі та кольори, щоб створити батарею, яка підходить саме вам.</string>
+    <string name="onboarding_desc_3">Додай телефону грайливої індивідуальності\nй неси трохи радості всюди.</string>
     <string name="get_started">Розпочати</string>
     <string name="next">Далі</string>
 
@@ -29,7 +29,7 @@
     <string name="themes">Теми</string>
 
     <!-- Category Tabs -->
-    <string name="tab_hot">🔥 Гаряче</string>
+    <string name="tab_hot">Гаряче</string>
     <string name="tab_pokemon">Покемон</string>
     <string name="tab_sanrio">Санріо</string>
     <string name="tab_anime">Мультфільми</string>

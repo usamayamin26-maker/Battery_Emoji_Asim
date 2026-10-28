@@ -83,7 +83,7 @@ class HomeViewModel(
 
         val all = batteryRepository.getBatteryEmojis()
         _emojis.value = all
-        _recentEmojis.value = all.filter { it.isRecent }
+        _recentEmojis.value = recentOf(all)
         _topPickEmojis.value = all.filter { it.isTopPick }
     }
 
@@ -118,7 +118,7 @@ class HomeViewModel(
     fun search(query: String) {
         val results = batteryRepository.searchEmojis(query)
         _emojis.value = results
-        _recentEmojis.value = results.filter { it.isRecent }
+        _recentEmojis.value = recentOf(results)
         _topPickEmojis.value = results.filter { it.isTopPick }
         currentSearchQuery = query
         updateRemoteSearch(remoteAssetRepository.getAssetsByType(AssetConfig.Type.EMOJI, null))
@@ -132,9 +132,45 @@ class HomeViewModel(
                     item.category.lowercase().contains(trimmed) ||
                     item.tags.any { it.lowercase().contains(trimmed) }
         }
-        _remoteRecentEmojis.value = results.filter { it.isRecent }
+        _remoteRecentEmojis.value = recentOf(results)
         // Manifest emojis usually carry no flags, so anything not marked recent lands in Top Picks
         _remoteTopPickEmojis.value = results.filter { it.isTopPick || !it.isRecent }
+    }
+
+    // ── Recent emojis (stored locally, newest first) ───────────────────────────
+
+    /** Call after an emoji is applied so it shows up in the Search screen's Recent section. */
+    fun markRecent(item: BatteryEmojiItem) {
+        preferenceRepository.addRecentEmojiKey(RECENT_LOCAL_PREFIX + item.id)
+        refreshRecent()
+    }
+
+    fun markRecent(item: RemoteAssetItem) {
+        preferenceRepository.addRecentEmojiKey(RECENT_REMOTE_PREFIX + item.id)
+        refreshRecent()
+    }
+
+    /** Rebuilds only the Recent lists for the current search query, leaving the Home grid alone. */
+    private fun refreshRecent() {
+        _recentEmojis.value = recentOf(batteryRepository.searchEmojis(currentSearchQuery))
+        updateRemoteSearch(remoteAssetRepository.getAssetsByType(AssetConfig.Type.EMOJI, null))
+    }
+
+    @JvmName("recentOfLocal")
+    private fun recentOf(items: List<BatteryEmojiItem>): List<BatteryEmojiItem> {
+        val byId = items.associateBy { RECENT_LOCAL_PREFIX + it.id }
+        return preferenceRepository.getRecentEmojiKeys().mapNotNull { byId[it] }
+    }
+
+    @JvmName("recentOfRemote")
+    private fun recentOf(items: List<RemoteAssetItem>): List<RemoteAssetItem> {
+        val byId = items.associateBy { RECENT_REMOTE_PREFIX + it.id }
+        return preferenceRepository.getRecentEmojiKeys().mapNotNull { byId[it] }
+    }
+
+    private companion object {
+        const val RECENT_LOCAL_PREFIX = "local:"
+        const val RECENT_REMOTE_PREFIX = "remote:"
     }
 
     // ── New remote methods ─────────────────────────────────────────────────────

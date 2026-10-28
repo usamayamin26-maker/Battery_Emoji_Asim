@@ -7,14 +7,14 @@
 
     <!-- Onboarding Screen -->
     <string name="skip">건너뛰기</string>
-    <string name="onboarding_title_1">모든 디테일을\n나만의 스타일로.</string>
-    <string name="onboarding_desc_1">이모지, 반려동물, 배터리 스타일, 상태 표시줄 및 예쁜 배경.</string>
-    <string name="onboarding_title_2">배터리를 더욱\n즐겁게.</string>
-    <string name="onboarding_desc_2">배터리 아이콘을 귀여운 이모지로 바꿔보세요. 작은 디테일로 매일이 행복해집니다.</string>
-    <string name="onboarding_title_3">나만의 배터리.\n나만의 상상력.</string>
+    <string name="onboarding_title_1">배터리를 더욱\n즐겁게.</string>
+    <string name="onboarding_desc_1">배터리 아이콘을 귀여운 이모지로 바꿔보세요. 작은 디테일로 매일이 행복해집니다.</string>
+    <string name="onboarding_title_2">나만의 배터리.\n나만의 상상력.</string>
+    <string name="onboarding_desc_2">좋아하는 이모지와 색상을 조합하여 나에게 딱 맞는 배터리를 만드세요.</string>
+    <string name="onboarding_title_3">조금 더 귀엽게.\n조금 더 나답게.</string>
     <string name="help_title">개선에 도움을 주세요</string>
     <string name="help_desc_3">Google Play에서 평가와 추천으로 응원해 주세요</string>
-    <string name="onboarding_desc_3">좋아하는 이모지와 색상을 조합하여 나에게 딱 맞는 배터리를 만드세요.</string>
+    <string name="onboarding_desc_3">휴대폰에 재미있는 나만의 개성을 더하고,\n어디서나 작은 즐거움을 함께하세요.</string>
     <string name="get_started">시작하기</string>
     <string name="next">다음</string>
 
@@ -29,7 +29,7 @@
     <string name="themes">테마</string>
 
     <!-- Category Tabs -->
-    <string name="tab_hot">🔥 인기</string>
+    <string name="tab_hot">인기</string>
     <string name="tab_pokemon">포켓몬</string>
     <string name="tab_sanrio">산리오</string>
     <string name="tab_anime">카툰</string>

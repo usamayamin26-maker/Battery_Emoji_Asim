@@ -1,5 +1,7 @@
 package com.jhw.batteryemoji.presentation.settings
 
+import android.animation.Animator
+import android.animation.AnimatorListenerAdapter
 import android.app.Dialog
 import android.content.ActivityNotFoundException
 import android.content.ClipData
@@ -10,6 +12,7 @@ import android.net.Uri
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.Toast
@@ -59,7 +62,8 @@ object AppDialogs {
     }
 
     /**
-     * 5-star rating dialog. 4-5 stars opens the Play Store page; 1-3 stars calls [onLowRating]
+     * 5-star rating dialog. 3-5 stars plays the rate animation over the dialog, then opens the
+     * Play Store page; 1-2 stars calls [onLowRating]
      * (e.g. to ask for feedback instead).
      */
     fun showRateUsDialog(context: Context, onLowRating: (() -> Unit)? = null) {
@@ -90,10 +94,25 @@ object AppDialogs {
 
         // Done Action
         binding.btnRatingDone.setOnClickListener {
+            if (currentRating >= 3) {
+                // Fade the dialog, play the rate animation over it once, then open the Play Store
+                binding.btnRatingDone.isEnabled = false
+                stars.forEach { it.isEnabled = false }
+                dialog.setCancelable(false)
+                binding.cardRateContent.animate().alpha(0.45f).setDuration(200).start()
+                binding.lottieRateAnim.visibility = View.VISIBLE
+                binding.lottieRateAnim.addAnimatorListener(object : AnimatorListenerAdapter() {
+                    override fun onAnimationEnd(animation: Animator) {
+                        if (!dialog.isShowing) return
+                        dialog.dismiss()
+                        openPlayStore(context)
+                    }
+                })
+                binding.lottieRateAnim.playAnimation()
+                return@setOnClickListener
+            }
             dialog.dismiss()
-            if (currentRating >= 4) {
-                openPlayStore(context)
-            } else if (onLowRating != null) {
+            if (onLowRating != null) {
                 onLowRating()
             } else {
                 Toast.makeText(context, context.getString(R.string.feedback_submitted), Toast.LENGTH_SHORT).show()

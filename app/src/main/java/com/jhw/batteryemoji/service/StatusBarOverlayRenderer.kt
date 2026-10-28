@@ -221,7 +221,10 @@ class StatusBarOverlayRenderer {
         val isAnimEnabled = settings.isEmojiBatteryEnabled &&
                 (!settings.iconSizes.containsKey("animation") || settings.enabledCustomIcons.contains("animation"))
         val animMascotSizeDp = settings.iconSizes["animation"] ?: settings.mascotSizeDp
-        val mascotSize = (animMascotSizeDp * density).toInt().coerceIn((12 * density).toInt(), (60 * density).toInt())
+        val mascotSize = (animMascotSizeDp.coerceIn(
+            com.jhw.batteryemoji.domain.model.StatusBarSettings.MIN_ANIMATION_SIZE_DP,
+            com.jhw.batteryemoji.domain.model.StatusBarSettings.MAX_ANIMATION_SIZE_DP
+        ) * density).toInt()
 
         val remoteAnimPath = settings.remoteAnimationPath
         if (isAnimEnabled && remoteAnimPath != null) {

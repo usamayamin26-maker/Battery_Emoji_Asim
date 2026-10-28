@@ -7,14 +7,14 @@
 
     <!-- Onboarding Screen -->
     <string name="skip">Pular</string>
-    <string name="onboarding_title_1">Personalize cada\ndetalhe com.</string>
-    <string name="onboarding_desc_1">emojis, animais de estimação, estilos de bateria, barras de status e lindos fundos.</string>
-    <string name="onboarding_title_2">Torne sua\nbateria divertida.</string>
-    <string name="onboarding_desc_2">Transforme o ícone da sua bateria em emojis fofos. Um pequeno detalhe, muita felicidade.</string>
-    <string name="onboarding_title_3">Sua bateria.\nSua imaginação.</string>
+    <string name="onboarding_title_1">Torne sua\nbateria divertida.</string>
+    <string name="onboarding_desc_1">Transforme o ícone da sua bateria em emojis fofos. Um pequeno detalhe, muita felicidade.</string>
+    <string name="onboarding_title_2">Sua bateria.\nSua imaginação.</string>
+    <string name="onboarding_desc_2">Combine seus emojis e cores favoritos para criar uma bateria que é a sua cara.</string>
+    <string name="onboarding_title_3">Um pouco mais fofo.\nUm pouco mais você.</string>
     <string name="help_title">Ajude-nos a melhorar</string>
     <string name="help_desc_3">Por favor, apoie-nos avaliando e recomendando a outras pessoas no Google Play</string>
-    <string name="onboarding_desc_3">Combine seus emojis e cores favoritos para criar uma bateria que é a sua cara.</string>
+    <string name="onboarding_desc_3">Dê ao seu celular um toque pessoal e divertido,\ne leve um pouco de alegria para todo lugar.</string>
     <string name="get_started">Começar</string>
     <string name="next">Próximo</string>
 
@@ -29,7 +29,7 @@
     <string name="themes">Temas</string>
 
     <!-- Category Tabs -->
-    <string name="tab_hot">🔥 Em Alta</string>
+    <string name="tab_hot">Em Alta</string>
     <string name="tab_pokemon">Pokémon</string>
     <string name="tab_sanrio">Sanrio</string>
     <string name="tab_anime">Desenhos animados</string>

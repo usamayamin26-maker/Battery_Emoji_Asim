@@ -7,14 +7,14 @@
 
     <!-- Onboarding Screen -->
     <string name="skip">رد کردن</string>
-    <string name="onboarding_title_1">تمام جزئیات را\nشخصی‌سازی کنید.</string>
-    <string name="onboarding_desc_1">ایموجی‌ها، حیوانات خانگی، سبک‌های باتری، نوارهای وضعیت و پس‌زمینه‌های زیبا.</string>
-    <string name="onboarding_title_2">باتری خود را\nجذاب کنید.</string>
-    <string name="onboarding_desc_2">آیکون باتری خود را به ایموجی‌های بامزه تبدیل کنید. یک تغییر کوچک، یک دنیا شادی.</string>
-    <string name="onboarding_title_3">باتری شما.\nتخیل شما.</string>
+    <string name="onboarding_title_1">باتری خود را\nجذاب کنید.</string>
+    <string name="onboarding_desc_1">آیکون باتری خود را به ایموجی‌های بامزه تبدیل کنید. یک تغییر کوچک، یک دنیا شادی.</string>
+    <string name="onboarding_title_2">باتری شما.\nتخیل شما.</string>
+    <string name="onboarding_desc_2">ایموجی‌ها و رنگ‌های مورد علاقه خود را ترکیب کنید تا باتری مناسب خود را بسازید.</string>
+    <string name="onboarding_title_3">کمی بامزه‌تر.\nکمی بیشتر شبیه تو.</string>
     <string name="help_title">به بهبود ما کمک کنید</string>
     <string name="help_desc_3">لطفاً با امتیاز دادن و پیشنهاد به دیگران در Google Play از ما حمایت کنید</string>
-    <string name="onboarding_desc_3">ایموجی‌ها و رنگ‌های مورد علاقه خود را ترکیب کنید تا باتری مناسب خود را بسازید.</string>
+    <string name="onboarding_desc_3">به گوشی‌ات یک حس شخصی و بازیگوشانه بده\nو کمی شادی را همه‌جا با خودت ببر.</string>
     <string name="get_started">شروع کنید</string>
     <string name="next">بعدی</string>
 
@@ -29,7 +29,7 @@
     <string name="themes">تم‌ها</string>
 
     <!-- Category Tabs -->
-    <string name="tab_hot">🔥 محبوب</string>
+    <string name="tab_hot">محبوب</string>
     <string name="tab_pokemon">پوکمون</string>
     <string name="tab_sanrio">سانریو</string>
     <string name="tab_anime">کارتون</string>

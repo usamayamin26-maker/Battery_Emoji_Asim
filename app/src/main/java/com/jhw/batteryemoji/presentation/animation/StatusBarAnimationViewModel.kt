@@ -62,6 +62,8 @@ class StatusBarAnimationViewModel(
         val anims = repository.getStatusBarAnimations()
         _animations.value = anims
         _isBatteryActive.value = preferenceRepository.isEmojiBatteryEnabled()
+        // Start the slider at the applied size so re-applying doesn't reset it to the default
+        _dateSize.value = preferenceRepository.getStatusBarSettings().mascotSizeDp
 
         // Default to Cake Run or first item
         val currentAppliedAnimRes = preferenceRepository.getAppliedAnimationRawRes()

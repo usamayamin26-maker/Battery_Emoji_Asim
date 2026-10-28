@@ -65,6 +65,7 @@
     <color name="nav_item_inactive">#9CA3AF</color>
     <color name="tab_indicator_purple">#9333EA</color>
     <color name="tab_inactive_text">#78716C</color>
+    <color name="tab_inactive">#83818D</color>
     <color name="chip_bg_active">#F3E8FF</color>
     <color name="chip_bg_inactive">#F3F4F6</color>
     <color name="search_bar_bg">#F5F5F7</color>

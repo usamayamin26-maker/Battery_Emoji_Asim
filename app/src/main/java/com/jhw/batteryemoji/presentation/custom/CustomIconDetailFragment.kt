@@ -10,6 +10,7 @@ import android.widget.SeekBar
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.jhw.batteryemoji.R
@@ -19,9 +20,12 @@ import com.jhw.batteryemoji.data.repository.PreferenceRepositoryImpl
 import com.jhw.batteryemoji.data.repository.RemoteAssetRepositoryImpl
 import com.jhw.batteryemoji.databinding.FragmentCustomIconDetailBinding
 import com.jhw.batteryemoji.domain.model.AssetManifest
+import com.jhw.batteryemoji.domain.model.BatteryEmojiItem
 import com.jhw.batteryemoji.domain.model.RemoteAssetItem
 import com.jhw.batteryemoji.domain.model.StatusBarSettings
 import com.jhw.batteryemoji.domain.repository.PreferenceRepository
+import com.jhw.batteryemoji.presentation.animation.StatusBarAnimationAdapter
+import com.jhw.batteryemoji.presentation.animation.StatusBarAnimationViewModel
 import com.jhw.batteryemoji.service.StatusBarAccessibilityService
 import com.universal.remote.ads.AdsController
 import kotlinx.coroutines.launch
@@ -53,6 +57,12 @@ class CustomIconDetailFragment : Fragment() {
     private var selectedDateStyle: Int = 0
 
     private lateinit var colorAdapter: ColorSwatchAdapter
+
+    // Animation picker (iconId == "animation"): same list as the Animation screen, applied on Apply
+    private val animationViewModel: StatusBarAnimationViewModel by activityViewModels()
+    private var animationAdapter: StatusBarAnimationAdapter? = null
+    private var selectedLocalAnimation: BatteryEmojiItem? = null
+    private var selectedRemoteAnimation: RemoteAssetItem? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -106,7 +116,7 @@ class CustomIconDetailFragment : Fragment() {
         if (iconId == "animation") {
             val mSize = preferenceRepository.getMascotSize()
             val cSize = preferenceRepository.getCustomIconSize("animation")
-            selectedSizeDp = if (cSize in 10..80 && cSize != 16) cSize else if (mSize in 10..80) mSize else 30
+            selectedSizeDp = StatusBarSettings.resolveAnimationSizeDp(cSize, mSize)
         } else {
             selectedSizeDp = preferenceRepository.getCustomIconSize(iconId)
             if (selectedSizeDp < 10) selectedSizeDp = 20
@@ -169,7 +179,7 @@ class CustomIconDetailFragment : Fragment() {
     }
 
     private fun setupSizeSlider() {
-        binding.sbDetailSize.max = if (iconId == "animation") 70 else 36
+        binding.sbDetailSize.max = if (iconId == "animation") StatusBarSettings.MAX_ANIMATION_SIZE_DP else 36
         binding.sbDetailSize.progress = selectedSizeDp
         binding.tvDetailSizeValue.text = "${selectedSizeDp}dp"
 
@@ -291,8 +301,46 @@ class CustomIconDetailFragment : Fragment() {
 
         if (iconId == "animation") {
             binding.clDetailColorSection.visibility = View.GONE
+            binding.clDetailAnimationSection.visibility = View.VISIBLE
+            setupAnimationPicker()
         } else {
             binding.clDetailColorSection.visibility = View.VISIBLE
+            binding.clDetailAnimationSection.visibility = View.GONE
+        }
+    }
+
+    /** Animation grid shared with the Animation screen; the applied animation starts highlighted. */
+    private fun setupAnimationPicker() {
+        val adapter = StatusBarAnimationAdapter(
+            onRemoteItemClick = { remote ->
+                selectedLocalAnimation = null
+                selectedRemoteAnimation = remote
+                animationAdapter?.setSelectedId(remote.id)
+                updateLivePreview()
+            }
+        ) { item ->
+            selectedRemoteAnimation = null
+            selectedLocalAnimation = item
+            animationAdapter?.setSelectedId(item.id)
+            updateLivePreview()
+        }
+        animationAdapter = adapter
+        binding.rvDetailAnimations.adapter = adapter
+
+        animationViewModel.animations.observe(viewLifecycleOwner) { anims ->
+            val appliedRes = preferenceRepository.getAppliedAnimationRawRes()
+            val appliedId = anims.find { appliedRes != 0 && it.lottieRawRes == appliedRes }?.id ?: ""
+            adapter.setItems(anims, selectedLocalAnimation?.id ?: selectedRemoteAnimation?.id ?: appliedId)
+        }
+        animationViewModel.remoteAnimations.observe(viewLifecycleOwner) { remote ->
+            adapter.submitRemoteList(remote)
+            if (selectedLocalAnimation == null && selectedRemoteAnimation == null) {
+                // The applied remote file is named after its asset id
+                preferenceRepository.getStatusBarSettings().remoteAnimationPath?.let { path ->
+                    val appliedId = java.io.File(path).nameWithoutExtension
+                    if (remote.any { it.id == appliedId }) adapter.setSelectedId(appliedId)
+                }
+            }
         }
     }
 
@@ -370,6 +418,35 @@ class CustomIconDetailFragment : Fragment() {
 
         if (iconId == "animation") {
             binding.tvDetailDatePreview.visibility = View.GONE
+            val pendingRemote = selectedRemoteAnimation
+            val pendingLocal = selectedLocalAnimation
+            if (pendingRemote != null || (pendingLocal != null && pendingLocal.isLottie && pendingLocal.lottieRawRes != 0)) {
+                binding.ivDetailIconPreview.visibility = View.GONE
+                binding.lottieDetailAnimationPreview.visibility = View.VISIBLE
+                val p = binding.lottieDetailAnimationPreview.layoutParams
+                p.width = (sizePx * 1.35f).toInt()
+                p.height = sizePx
+                binding.lottieDetailAnimationPreview.layoutParams = p
+                if (pendingRemote != null) {
+                    RemoteImageLoader.loadLottie(pendingRemote, binding.lottieDetailAnimationPreview)
+                } else if (pendingLocal != null && binding.lottieDetailAnimationPreview.tag != pendingLocal.lottieRawRes) {
+                    binding.lottieDetailAnimationPreview.tag = pendingLocal.lottieRawRes
+                    binding.lottieDetailAnimationPreview.setAnimation(pendingLocal.lottieRawRes)
+                    binding.lottieDetailAnimationPreview.playAnimation()
+                }
+                return
+            }
+            if (pendingLocal != null) {
+                binding.lottieDetailAnimationPreview.visibility = View.GONE
+                binding.ivDetailIconPreview.visibility = View.VISIBLE
+                val p = binding.ivDetailIconPreview.layoutParams
+                p.width = (sizePx * 1.35f).toInt()
+                p.height = sizePx
+                binding.ivDetailIconPreview.layoutParams = p
+                binding.ivDetailIconPreview.setImageResource(pendingLocal.previewDrawableRes)
+                binding.ivDetailIconPreview.imageTintList = null
+                return
+            }
             val isLottie = preferenceRepository.isAppliedAnimationLottie()
             val animRes = preferenceRepository.getAppliedAnimationRawRes()
             val effectiveAnimRes = if (animRes != 0) animRes else R.raw.rabit
@@ -453,6 +530,10 @@ class CustomIconDetailFragment : Fragment() {
     }
 
     private fun saveAndApply() {
+        if (iconId == "animation") {
+            applySelectedAnimation()
+            return
+        }
         val remoteEmotion = selectedRemoteEmotion
         if (iconId != "emotion" || remoteEmotion == null) {
             save(remoteEmotionPath = null)
@@ -470,6 +551,35 @@ class CustomIconDetailFragment : Fragment() {
                 return@launch
             }
             save(path)
+        }
+    }
+
+    /** Applies the animation picked in the grid (if any), then saves size / enable like other icons. */
+    private fun applySelectedAnimation() {
+        selectedLocalAnimation?.let { local ->
+            animationViewModel.applyAnimation(local)
+            animationViewModel.selectAnimation(local)
+            save(remoteEmotionPath = null)
+            return
+        }
+        val remote = selectedRemoteAnimation
+        if (remote == null) {
+            save(remoteEmotionPath = null)
+            return
+        }
+        val appContext = requireContext().applicationContext
+        binding.btnApplyDetail.isEnabled = false
+        viewLifecycleOwner.lifecycleScope.launch {
+            val path = RemoteImageLoader.saveForApply(remote)
+            val b = _binding ?: return@launch
+            b.btnApplyDetail.isEnabled = true
+            if (path == null) {
+                Toast.makeText(appContext, R.string.remote_asset_download_failed, Toast.LENGTH_SHORT).show()
+                return@launch
+            }
+            animationViewModel.applyRemoteAnimation(path)
+            animationViewModel.selectRemoteAnimation(remote)
+            save(remoteEmotionPath = null)
         }
     }
 

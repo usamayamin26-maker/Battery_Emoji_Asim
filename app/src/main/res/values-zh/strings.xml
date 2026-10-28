@@ -7,14 +7,14 @@
 
     <!-- Onboarding Screen -->
     <string name="skip">跳过</string>
-    <string name="onboarding_title_1">个性化定制\n每一个细节。</string>
-    <string name="onboarding_desc_1">表情、宠物、电池样式、状态栏和精美背景。</string>
-    <string name="onboarding_title_2">让你的电池\n更有趣。</string>
-    <string name="onboarding_desc_2">将电池图标变成可爱的表情。小小细节，满满幸福。</string>
-    <string name="onboarding_title_3">你的电池。\n你的无限想象。</string>
+    <string name="onboarding_title_1">让你的电池\n更有趣。</string>
+    <string name="onboarding_desc_1">将电池图标变成可爱的表情。小小细节，满满幸福。</string>
+    <string name="onboarding_title_2">你的电池。\n你的无限想象。</string>
+    <string name="onboarding_desc_2">混合搭配喜爱的表情和颜色，打造专属于你的个性电池。</string>
+    <string name="onboarding_title_3">更可爱一点。\n更像你一点。</string>
     <string name="help_title">帮助我们改进</string>
     <string name="help_desc_3">请在 Google Play 上为我们评分并推荐给朋友，感谢支持！</string>
-    <string name="onboarding_desc_3">混合搭配喜爱的表情和颜色，打造专属于你的个性电池。</string>
+    <string name="onboarding_desc_3">为你的手机增添俏皮的个性，\n随时随地带着一点快乐。</string>
     <string name="get_started">立即开始</string>
     <string name="next">下一步</string>
 
@@ -29,7 +29,7 @@
     <string name="themes">主题</string>
 
     <!-- Category Tabs -->
-    <string name="tab_hot">🔥 热门</string>
+    <string name="tab_hot">热门</string>
     <string name="tab_pokemon">宝可梦</string>
     <string name="tab_sanrio">三丽鸥</string>
     <string name="tab_anime">卡通</string>

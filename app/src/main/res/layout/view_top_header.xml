@@ -28,7 +28,7 @@
         android:maxLines="1"
         android:textColor="@color/text_primary"
         android:textSize="@dimen/_18ssp"
-        android:textStyle="bold"
+        android:fontFamily="@font/outfit_bold"
         tools:text="Title" />
 
     <ImageView

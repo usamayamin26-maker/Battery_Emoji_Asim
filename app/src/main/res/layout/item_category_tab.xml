@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
@@ -7,17 +8,35 @@
     android:focusable="true"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    android:paddingHorizontal="@dimen/_14sdp"
-    android:paddingVertical="@dimen/_7sdp">
+    android:paddingHorizontal="@dimen/_18sdp">
 
-    <TextView
-        android:id="@+id/tvTabTitle"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/tab_indicator_purple"
-        android:textSize="@dimen/_14ssp"
-        android:textStyle="bold"
-        tools:text="🔥 HOT" />
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <!-- Only shown for the HOT category -->
+        <ImageView
+            android:id="@+id/ivTabIcon"
+            android:layout_width="@dimen/_14sdp"
+            android:layout_height="@dimen/_14sdp"
+            android:layout_marginEnd="@dimen/_5sdp"
+            android:contentDescription="@null"
+            android:src="@drawable/fire_ic"
+            android:visibility="gone"
+            app:tint="@color/tab_indicator_purple"
+            tools:visibility="visible" />
+
+        <TextView
+            android:id="@+id/tvTabTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/tab_indicator_purple"
+            android:textSize="@dimen/_12ssp"
+            android:fontFamily="@font/outfit_bold"
+            tools:text="HOT" />
+    </LinearLayout>
 
     <View
         android:id="@+id/vTabIndicator"

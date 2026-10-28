@@ -7,14 +7,14 @@
 
     <!-- Onboarding Screen -->
     <string name="skip">Langkau</string>
-    <string name="onboarding_title_1">Peribadikan setiap\nbutiran dengan.</string>
-    <string name="onboarding_desc_1">emoji, haiwan peliharaan, gaya bateri, bar status &amp; latar belakang yang cantik.</string>
-    <string name="onboarding_title_2">Jadikan bateri anda\nmenyeronokkan.</string>
-    <string name="onboarding_desc_2">Tukar ikon bateri anda kepada emoji comel. Perubahan kecil yang menceriakan hari anda.</string>
-    <string name="onboarding_title_3">Bateri anda.\nImaginasi anda.</string>
+    <string name="onboarding_title_1">Jadikan bateri anda\nmenyeronokkan.</string>
+    <string name="onboarding_desc_1">Tukar ikon bateri anda kepada emoji comel. Perubahan kecil yang menceriakan hari anda.</string>
+    <string name="onboarding_title_2">Bateri anda.\nImaginasi anda.</string>
+    <string name="onboarding_desc_2">Gabungkan emoji dan warna kegemaran anda untuk mencipta bateri yang sesuai dengan diri anda.</string>
+    <string name="onboarding_title_3">Sedikit lebih comel.\nSedikit lebih anda.</string>
     <string name="help_title">Bantu kami menambah baik</string>
     <string name="help_desc_3">Sila sokong kami dengan memberi penilaian dan mengesyorkan di Google Play</string>
-    <string name="onboarding_desc_3">Gabungkan emoji dan warna kegemaran anda untuk mencipta bateri yang sesuai dengan diri anda.</string>
+    <string name="onboarding_desc_3">Berikan telefon anda sentuhan peribadi yang ceria,\ndan bawa sedikit kegembiraan ke mana-mana.</string>
     <string name="get_started">Mula Sekarang</string>
     <string name="next">Seterusnya</string>
 
@@ -29,7 +29,7 @@
     <string name="themes">Tema</string>
 
     <!-- Category Tabs -->
-    <string name="tab_hot">🔥 Hangat</string>
+    <string name="tab_hot">Hangat</string>
     <string name="tab_pokemon">Pokemon</string>
     <string name="tab_sanrio">Sanrio</string>
     <string name="tab_anime">Kartun</string>

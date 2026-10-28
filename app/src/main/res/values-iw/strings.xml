@@ -7,14 +7,14 @@
 
     <!-- Onboarding Screen -->
     <string name="skip">דילוג</string>
-    <string name="onboarding_title_1">התאם אישית כל\nפרט עם.</string>
-    <string name="onboarding_desc_1">אימוג\'ים, חיות מחמד, סגנונות סוללה, שורות מצב ורקעים יפים.</string>
-    <string name="onboarding_title_2">הפוך את הסוללה\nשלך למהנה.</string>
-    <string name="onboarding_desc_2">הפוך את סמל הסוללה שלך לאימוג\'ים חמודים. פרט קטן.\nהמון שמחה.</string>
-    <string name="onboarding_title_3">הסוללה שלך.\nהדמיון שלך.</string>
+    <string name="onboarding_title_1">הפוך את הסוללה\nשלך למהנה.</string>
+    <string name="onboarding_desc_1">הפוך את סמל הסוללה שלך לאימוג\'ים חמודים. פרט קטן.\nהמון שמחה.</string>
+    <string name="onboarding_title_2">הסוללה שלך.\nהדמיון שלך.</string>
+    <string name="onboarding_desc_2">שלב את האימוג\'ים והצבעים האהובים עליך כדי ליצור\nסוללה שמרגישה בדיוק כמוך.</string>
+    <string name="onboarding_title_3">קצת יותר חמוד.\nקצת יותר אתה.</string>
     <string name="help_title">עזור לנו להשתפר</string>
     <string name="help_desc_3">אנא תמוך בנו על ידי דירוג ו-\nהמלצה לאחרים ב-Google Play</string>
-    <string name="onboarding_desc_3">שלב את האימוג\'ים והצבעים האהובים עליך כדי ליצור\nסוללה שמרגישה בדיוק כמוך.</string>
+    <string name="onboarding_desc_3">תן לטלפון שלך נגיעה אישית ושובבה,\nוקח איתך קצת שמחה לכל מקום.</string>
     <string name="get_started">בוא נתחיל</string>
     <string name="next">הבא</string>
 
@@ -29,7 +29,7 @@
     <string name="themes">ערכות נושא</string>
 
     <!-- Category Tabs -->
-    <string name="tab_hot">🔥 לוהט</string>
+    <string name="tab_hot">לוהט</string>
     <string name="tab_pokemon">פוקימון</string>
     <string name="tab_sanrio">סנריו</string>
     <string name="tab_anime">קריקטורה</string>

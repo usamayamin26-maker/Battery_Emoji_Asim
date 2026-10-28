@@ -44,7 +44,7 @@ class PreferenceRepositoryImpl(
         }
         val mascotSize = preferenceLocalDataSource.getMascotSize()
         val customAnimSize = sizes["animation"] ?: 16
-        val effectiveAnimSize = if (customAnimSize in 10..80 && customAnimSize != 16) customAnimSize else if (mascotSize in 10..80) mascotSize else 30
+        val effectiveAnimSize = StatusBarSettings.resolveAnimationSizeDp(customAnimSize, mascotSize)
         sizes["animation"] = effectiveAnimSize
 
         return StatusBarSettings(
@@ -460,5 +460,13 @@ class PreferenceRepositoryImpl(
 
     override fun setFloatingStickerRotation(rotDeg: Float) {
         preferenceLocalDataSource.setFloatingStickerRotation(rotDeg)
+    }
+
+    override fun getRecentEmojiKeys(): List<String> {
+        return preferenceLocalDataSource.getRecentEmojiKeys()
+    }
+
+    override fun addRecentEmojiKey(key: String) {
+        preferenceLocalDataSource.addRecentEmojiKey(key)
     }
 }

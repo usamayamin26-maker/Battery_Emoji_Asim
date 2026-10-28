@@ -7,14 +7,14 @@
 
     <!-- Onboarding Screen -->
     <string name="skip">Passer</string>
-    <string name="onboarding_title_1">Personnalisez chaque\ndétail avec.</string>
-    <string name="onboarding_desc_1">emojis, animaux de compagnie, styles de batterie, barres d\'état &amp; superbes arrière-plans.</string>
-    <string name="onboarding_title_2">Rendez votre\nbatterie amusante.</string>
-    <string name="onboarding_desc_2">Transformez votre icône de batterie en adorables emojis. Un petit détail, beaucoup de bonheur.</string>
-    <string name="onboarding_title_3">Votre batterie.\nVotre imagination.</string>
+    <string name="onboarding_title_1">Rendez votre\nbatterie amusante.</string>
+    <string name="onboarding_desc_1">Transformez votre icône de batterie en adorables emojis. Un petit détail, beaucoup de bonheur.</string>
+    <string name="onboarding_title_2">Votre batterie.\nVotre imagination.</string>
+    <string name="onboarding_desc_2">Combinez vos emojis et couleurs préférés pour créer une batterie qui vous ressemble.</string>
+    <string name="onboarding_title_3">Un peu plus mignon.\nUn peu plus toi.</string>
     <string name="help_title">Aidez-nous à nous améliorer</string>
     <string name="help_desc_3">Soutenez-nous en nous notant et en nous recommandant sur Google Play</string>
-    <string name="onboarding_desc_3">Combinez vos emojis et couleurs préférés pour créer une batterie qui vous ressemble.</string>
+    <string name="onboarding_desc_3">Donnez à votre téléphone une touche personnelle et ludique,\net emportez un peu de joie partout.</string>
     <string name="get_started">Commencer</string>
     <string name="next">Suivant</string>
 
@@ -29,7 +29,7 @@
     <string name="themes">Thèmes</string>
 
     <!-- Category Tabs -->
-    <string name="tab_hot">🔥 Tendance</string>
+    <string name="tab_hot">Tendance</string>
     <string name="tab_pokemon">Pokémon</string>
     <string name="tab_sanrio">Sanrio</string>
     <string name="tab_anime">Dessins animés</string>

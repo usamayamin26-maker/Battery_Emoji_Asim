@@ -100,15 +100,16 @@ class StatusBarAnimationFragment : Fragment() {
             }
         }
 
+        binding.sbDateSize.max = com.jhw.batteryemoji.domain.model.StatusBarSettings.MAX_ANIMATION_SIZE_DP
         binding.sbDateSize.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
-                val clampedProgress = progress.coerceIn(10, 100)
+                val clampedProgress = progress.coerceIn(com.jhw.batteryemoji.domain.model.StatusBarSettings.MIN_ANIMATION_SIZE_DP, com.jhw.batteryemoji.domain.model.StatusBarSettings.MAX_ANIMATION_SIZE_DP)
                 binding.tvDateSizeValue.text = "${clampedProgress}dp"
                 if (fromUser) {
                     viewModel.setDateSize(clampedProgress)
                 }
                 // Live scale preview
-                val scale = 0.6f + (clampedProgress / 100f) * 0.7f
+                val scale = previewScale(clampedProgress)
                 binding.ivPreviewMascot.scaleX = scale
                 binding.ivPreviewMascot.scaleY = scale
                 binding.lottiePreviewMascot.scaleX = scale
@@ -243,7 +244,7 @@ class StatusBarAnimationFragment : Fragment() {
         viewModel.dateSize.observe(viewLifecycleOwner) { size ->
             binding.sbDateSize.progress = size
             binding.tvDateSizeValue.text = "${size}dp"
-            val scale = 0.6f + (size / 100f) * 0.7f
+            val scale = previewScale(size)
             binding.ivPreviewMascot.scaleX = scale
             binding.ivPreviewMascot.scaleY = scale
             binding.lottiePreviewMascot.scaleX = scale
@@ -260,6 +261,10 @@ class StatusBarAnimationFragment : Fragment() {
             }
         }
     }
+
+    /** Preview mascot scale for a size on the slider (0.6x at the smallest up to 1.3x at the largest). */
+    private fun previewScale(sizeDp: Int): Float =
+        0.6f + (sizeDp.toFloat() / com.jhw.batteryemoji.domain.model.StatusBarSettings.MAX_ANIMATION_SIZE_DP) * 0.7f
 
     private fun pulsePreviewMascot() {
         val targetView = if (binding.lottiePreviewMascot.visibility == View.VISIBLE) {

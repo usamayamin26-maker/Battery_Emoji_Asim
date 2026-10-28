@@ -60,7 +60,11 @@ class AnimationSeeAllFragment : Fragment() {
     }
 
     private fun setupRecyclerView() {
-        animationAdapter = StatusBarAnimationAdapter { selectedItem ->
+        animationAdapter = StatusBarAnimationAdapter(
+            onRemoteItemClick = { remoteItem ->
+                viewModel.selectRemoteAnimation(remoteItem)
+            }
+        ) { selectedItem ->
             viewModel.selectAnimation(selectedItem)
         }
         binding.rvSeeAllGrid.adapter = animationAdapter
@@ -88,10 +92,20 @@ class AnimationSeeAllFragment : Fragment() {
             animationAdapter.setItems(anims, selectedId)
         }
 
+        // Remote animations from the JSON manifest, appended after local items (same as the Animation screen)
+        viewModel.remoteAnimations.observe(viewLifecycleOwner) { remote ->
+            animationAdapter.submitRemoteList(remote)
+        }
+
         viewModel.selectedAnimation.observe(viewLifecycleOwner) { mascot ->
             if (mascot != null) {
                 animationAdapter.setSelectedId(mascot.id)
             }
+        }
+
+        // Remote selection overrides the local one (registered after it on purpose)
+        viewModel.selectedRemoteAnimation.observe(viewLifecycleOwner) { remote ->
+            if (remote != null) animationAdapter.setSelectedId(remote.id)
         }
     }
 

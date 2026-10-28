@@ -88,6 +88,10 @@ interface PreferenceRepository {
     fun getFloatingStickerRotation(): Float
     fun setFloatingStickerRotation(rotDeg: Float)
 
+    // Recently applied emojis, newest first ("local:<id>" or "remote:<id>")
+    fun getRecentEmojiKeys(): List<String>
+    fun addRecentEmojiKey(key: String)
+
     // Centralized Settings & Observable Stream
     fun getStatusBarSettings(): com.jhw.batteryemoji.domain.model.StatusBarSettings
     fun updateStatusBarSettings(settings: com.jhw.batteryemoji.domain.model.StatusBarSettings)

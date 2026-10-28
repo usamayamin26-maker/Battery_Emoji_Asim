@@ -7,14 +7,14 @@
 
     <!-- Onboarding Screen -->
     <string name="skip">छोड़ें</string>
-    <string name="onboarding_title_1">हर विवरण को\nकस्टमाइज़ करें।</string>
-    <string name="onboarding_desc_1">इमोजी, पालतू जानवर, बैटरी शैलियाँ, स्टेटस बार और सुंदर पृष्ठभूमि।</string>
-    <string name="onboarding_title_2">अपनी बैटरी को\nमज़ेदार बनाएं।</string>
-    <string name="onboarding_desc_2">अपने बैटरी आइकन को प्यारे इमोजी में बदलें। एक छोटा सा विवरण, ढेर सारी खुशियाँ।</string>
-    <string name="onboarding_title_3">आपकी बैटरी।\nआपकी कल्पना।</string>
+    <string name="onboarding_title_1">अपनी बैटरी को\nमज़ेदार बनाएं।</string>
+    <string name="onboarding_desc_1">अपने बैटरी आइकन को प्यारे इमोजी में बदलें। एक छोटा सा विवरण, ढेर सारी खुशियाँ।</string>
+    <string name="onboarding_title_2">आपकी बैटरी।\nआपकी कल्पना।</string>
+    <string name="onboarding_desc_2">अपने पसंदीदा इमोजी और रंगों को मिलाकर एक ऐसी बैटरी बनाएं जो आपको पसंद आए।</string>
+    <string name="onboarding_title_3">थोड़ा और प्यारा।\nथोड़ा और आप जैसा।</string>
     <string name="help_title">सुधार में हमारी मदद करें</string>
     <string name="help_desc_3">कृपया Google Play पर रेटिंग देकर और दूसरों को सिफारिश करके हमारा समर्थन करें</string>
-    <string name="onboarding_desc_3">अपने पसंदीदा इमोजी और रंगों को मिलाकर एक ऐसी बैटरी बनाएं जो आपको पसंद आए।</string>
+    <string name="onboarding_desc_3">अपने फ़ोन को एक मज़ेदार निजी स्पर्श दें,\nऔर हर जगह थोड़ी खुशी साथ ले जाएँ।</string>
     <string name="get_started">शुरू करें</string>
     <string name="next">अगला</string>
 
@@ -29,7 +29,7 @@
     <string name="themes">थीम</string>
 
     <!-- Category Tabs -->
-    <string name="tab_hot">🔥 लोकप्रिय</string>
+    <string name="tab_hot">लोकप्रिय</string>
     <string name="tab_pokemon">पोकेमॉन</string>
     <string name="tab_sanrio">सैनरियो</string>
     <string name="tab_anime">कार्टून</string>

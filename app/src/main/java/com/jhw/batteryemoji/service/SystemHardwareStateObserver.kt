@@ -245,17 +245,12 @@ class SystemHardwareStateObserver {
         return try {
             val cm = context.getSystemService(Context.CONNECTIVITY_SERVICE) as? ConnectivityManager ?: return false
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                val activeNetwork = cm.activeNetwork
-                if (activeNetwork != null) {
-                    val caps = cm.getNetworkCapabilities(activeNetwork)
-                    if (caps != null && caps.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR)) {
-                        return true
-                    }
-                }
-                cm.allNetworks.any { net ->
-                    val caps = cm.getNetworkCapabilities(net)
-                    caps != null && caps.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR)
-                }
+                // Only the default network counts: carriers keep IMS/MMS cellular networks up even
+                // with mobile data off, so scanning allNetworks showed the data icon on Wi-Fi.
+                val activeNetwork = cm.activeNetwork ?: return false
+                val caps = cm.getNetworkCapabilities(activeNetwork) ?: return false
+                caps.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR) &&
+                        caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)
             } else {
                 @Suppress("DEPRECATION")
                 val info = cm.getNetworkInfo(ConnectivityManager.TYPE_MOBILE)

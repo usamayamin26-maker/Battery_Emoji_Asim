@@ -61,6 +61,24 @@ data class StatusBarSettings(
 
     companion object {
         const val EMOTION_STYLE_REMOTE = "remote"
+
+        // Status bar animation size range; the Animation and Customize icon sliders use the same one
+        const val MIN_ANIMATION_SIZE_DP = 10
+        const val MAX_ANIMATION_SIZE_DP = 60
+        private const val DEFAULT_ANIMATION_SIZE_DP = 30
+
+        /**
+         * Animation size to draw. The saved "animation" icon size wins unless it is the old 16dp
+         * default; out-of-range values (older builds allowed up to 100) are clamped, not reset.
+         */
+        fun resolveAnimationSizeDp(customAnimationSizeDp: Int, mascotSizeDp: Int): Int {
+            val size = when {
+                customAnimationSizeDp >= MIN_ANIMATION_SIZE_DP && customAnimationSizeDp != 16 -> customAnimationSizeDp
+                mascotSizeDp >= MIN_ANIMATION_SIZE_DP -> mascotSizeDp
+                else -> DEFAULT_ANIMATION_SIZE_DP
+            }
+            return size.coerceIn(MIN_ANIMATION_SIZE_DP, MAX_ANIMATION_SIZE_DP)
+        }
     }
 
     fun getEffectiveIconColor(iconId: String): Int {

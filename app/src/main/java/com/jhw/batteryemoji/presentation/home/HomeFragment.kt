@@ -100,15 +100,7 @@ class HomeFragment : Fragment() {
     private fun checkPermissionsOnHome() {
         if (!isAdded || isPermissionDialogShowing) return
 
-        val hasAccessibility = com.jhw.batteryemoji.service.StatusBarAccessibilityService.isAccessibilityServiceEnabled(requireContext())
-
-        // 1. Accessibility is required for the status bar & emoji battery: If OFF, show dialog again!
-        if (!hasAccessibility) {
-            checkAccessibilityPermissionOnHome()
-            return
-        }
-
-        // 2. Notification prompt (once per session when accessibility is enabled)
+        // 1. Notification prompt first (once per session)
         val hasNotification = NotificationPermissionDialog.hasNotificationPermission(requireContext())
         if (!hasNotification && !hasPromptedNotificationInSession) {
             hasPromptedNotificationInSession = true
@@ -121,9 +113,14 @@ class HomeFragment : Fragment() {
                 },
                 onMaybeLater = {
                     isPermissionDialogShowing = false
+                    checkAccessibilityPermissionOnHome()
                 }
             )
+            return
         }
+
+        // 2. Accessibility is required for the status bar & emoji battery: If OFF, show dialog again!
+        checkAccessibilityPermissionOnHome()
     }
 
     private fun showNotifyPermissionDialog() {
@@ -150,6 +147,7 @@ class HomeFragment : Fragment() {
             onNotNow = {
                 isPermissionDialogShowing = false
                 hasPromptedNotificationInSession = true
+                checkAccessibilityPermissionOnHome()
             }
         )
     }
@@ -322,6 +320,7 @@ class HomeFragment : Fragment() {
                 prefRepo.setBatteryIconTintable(false)
                 prefRepo.setEmojiBatteryEnabled(true)
                 com.jhw.batteryemoji.service.StatusBarAccessibilityService.updateBatteryIcon(item.previewDrawableRes, isTintable = false)
+                viewModel.markRecent(item)
                 Toast.makeText(requireContext(), getString(R.string.item_applied_battery_format, item.title), Toast.LENGTH_SHORT).show()
                 dismiss()
             }
@@ -368,6 +367,7 @@ class HomeFragment : Fragment() {
                     prefRepo.setBatteryIconTintable(false)
                     prefRepo.setEmojiBatteryEnabled(true)
                     com.jhw.batteryemoji.service.StatusBarAccessibilityService.updateCustomSettings()
+                    viewModel.markRecent(item)
                     Toast.makeText(appContext, appContext.getString(R.string.item_applied_battery_format, item.name), Toast.LENGTH_SHORT).show()
                     dismiss()
                 }

@@ -584,6 +584,39 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
+            <!-- ================= ANIMATION SPECIFIC: SAME GRID AS THE ANIMATION SCREEN ================= -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clDetailAnimationSection"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:visibility="gone"
+                app:layout_constraintTop_toBottomOf="@+id/clDetailDateSection">
+
+                <TextView
+                    android:id="@+id/tvDetailAnimationLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/animation_style"
+                    android:textColor="@color/text_primary"
+                    android:textSize="@dimen/_11ssp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvDetailAnimations"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:nestedScrollingEnabled="false"
+                    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                    app:layout_constraintTop_toBottomOf="@+id/tvDetailAnimationLabel"
+                    app:spanCount="3"
+                    tools:listitem="@layout/item_animation_card" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.core.widget.NestedScrollView>

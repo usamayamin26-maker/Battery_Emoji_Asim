@@ -7,14 +7,14 @@
 
     <!-- Onboarding Screen -->
     <string name="skip">Skip</string>
-    <string name="onboarding_title_1">Personalize every\ndetail with.</string>
-    <string name="onboarding_desc_1">emojis, pets, battery styles, status bars &amp; beautiful backgrounds.</string>
-    <string name="onboarding_title_2">Make your\nbattery fun.</string>
-    <string name="onboarding_desc_2">Turn your battery icon into cute emojis. A tiny\ndetail. A whole lot of happy.</string>
-    <string name="onboarding_title_3">Your battery.\nYour imagination.</string>
+    <string name="onboarding_title_3">A little cuter.\nA little more you.</string>
+    <string name="onboarding_desc_3">eGive your phone a playful personal touch,\nand take a little joy everywhere.</string>
+    <string name="onboarding_title_1">Make your\nbattery fun.</string>
+    <string name="onboarding_desc_1">Turn your battery icon into cute emojis. A tiny\ndetail. A whole lot of happy.</string>
+    <string name="onboarding_title_2">Your battery.\nYour imagination.</string>
     <string name="help_title">Help us improve</string>
     <string name="help_desc_3">Please support us by rating and\nrecommending to others on the Google Play</string>
-    <string name="onboarding_desc_3">Mix your favorite emojis and colors to create\na battery that feels like you.</string>
+    <string name="onboarding_desc_2">Mix your favorite emojis and colors to create\na battery that feels like you.</string>
     <string name="get_started">Get Started</string>
     <string name="next">Next</string>
 
@@ -29,7 +29,7 @@
     <string name="themes">Themes</string>
 
     <!-- Category Tabs -->
-    <string name="tab_hot">🔥 HOT</string>
+    <string name="tab_hot">HOT</string>
     <string name="tab_pokemon">Pokemon</string>
     <string name="tab_sanrio">Sanrio</string>
     <string name="tab_anime">Cartoon</string>

@@ -187,7 +187,7 @@ class StatusBarCustomFragment : Fragment() {
 
     private fun updateBatteryCategoryFilter(category: String) {
         val purple = ContextCompat.getColor(requireContext(), R.color.primary_purple)
-        val muted = ContextCompat.getColor(requireContext(), R.color.text_secondary)
+        val muted = ContextCompat.getColor(requireContext(), R.color.tab_inactive)
 
         binding.btnBatteryTabTrending.setTextColor(if (category == "trending") purple else muted)
         binding.btnBatteryTabHalloween.setTextColor(if (category == "halloween") purple else muted)
@@ -336,12 +336,12 @@ class StatusBarCustomFragment : Fragment() {
                 binding.btnSubTabIcon.setBackgroundResource(R.drawable.bg_tab_pill_active)
                 binding.btnSubTabIcon.setTextColor(ContextCompat.getColor(requireContext(), R.color.white))
                 binding.btnSubTabBackground.setBackgroundResource(R.drawable.bg_tab_pill_inactive)
-                binding.btnSubTabBackground.setTextColor(ContextCompat.getColor(requireContext(), R.color.primary_purple))
+                binding.btnSubTabBackground.setTextColor(ContextCompat.getColor(requireContext(), R.color.tab_inactive))
             } else {
                 binding.btnSubTabBackground.setBackgroundResource(R.drawable.bg_tab_pill_active)
                 binding.btnSubTabBackground.setTextColor(ContextCompat.getColor(requireContext(), R.color.white))
                 binding.btnSubTabIcon.setBackgroundResource(R.drawable.bg_tab_pill_inactive)
-                binding.btnSubTabIcon.setTextColor(ContextCompat.getColor(requireContext(), R.color.primary_purple))
+                binding.btnSubTabIcon.setTextColor(ContextCompat.getColor(requireContext(), R.color.tab_inactive))
             }
         }
 
@@ -640,10 +640,11 @@ class StatusBarCustomFragment : Fragment() {
         // Left Animation Preview (Sub se last on left side, towards center notch)
         val isAnimEnabled = viewModel.preferenceRepository.isEmojiBatteryEnabled() &&
                 (!viewModel.preferenceRepository.getStatusBarSettings().iconSizes.containsKey("animation") || enabledSet.contains("animation"))
-        val animSize = viewModel.preferenceRepository.getCustomIconSize("animation").let {
-            if (it in 10..80 && it != 16) it else viewModel.preferenceRepository.getMascotSize()
-        }
-        val animSizePx = (animSize * density).toInt().coerceIn((12 * density).toInt(), (60 * density).toInt())
+        val animSize = com.jhw.batteryemoji.domain.model.StatusBarSettings.resolveAnimationSizeDp(
+            viewModel.preferenceRepository.getCustomIconSize("animation"),
+            viewModel.preferenceRepository.getMascotSize()
+        )
+        val animSizePx = (animSize * density).toInt()
         val appliedAnimRes = viewModel.preferenceRepository.getAppliedAnimationRawRes()
         val isAppliedLottie = viewModel.preferenceRepository.isAppliedAnimationLottie()
 
@@ -725,7 +726,7 @@ class StatusBarCustomFragment : Fragment() {
 
     private fun renderTab(tab: StatusBarCustomViewModel.CustomTab) {
         val purple = ContextCompat.getColor(requireContext(), R.color.primary_purple)
-        val muted = ContextCompat.getColor(requireContext(), R.color.text_secondary)
+        val muted = ContextCompat.getColor(requireContext(), R.color.tab_inactive)
 
         // Reset indicators
         binding.vTabSizeIndicator.visibility = View.INVISIBLE

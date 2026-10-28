@@ -7,14 +7,14 @@
 
     <!-- Onboarding Screen -->
     <string name="skip">Geç</string>
-    <string name="onboarding_title_1">Her detayı\nözelleştirin.</string>
-    <string name="onboarding_desc_1">emojiler, evcil hayvanlar, pil stilleri, durum çubukları ve harika arka planlar.</string>
-    <string name="onboarding_title_2">Pilinizi eğlenceli\nhale getirin.</string>
-    <string name="onboarding_desc_2">Pil simgenizi sevimli emojilere dönüştürün. Küçük bir detay, büyük bir mutluluk.</string>
-    <string name="onboarding_title_3">Sizin piliniz.\nSizin hayal gücünüz.</string>
+    <string name="onboarding_title_1">Pilinizi eğlenceli\nhale getirin.</string>
+    <string name="onboarding_desc_1">Pil simgenizi sevimli emojilere dönüştürün. Küçük bir detay, büyük bir mutluluk.</string>
+    <string name="onboarding_title_2">Sizin piliniz.\nSizin hayal gücünüz.</string>
+    <string name="onboarding_desc_2">En sevdiğiniz emojileri ve renkleri birleştirerek size özel bir pil oluşturun.</string>
+    <string name="onboarding_title_3">Biraz daha sevimli.\nBiraz daha sen.</string>
     <string name="help_title">Gelişmemize yardım edin</string>
     <string name="help_desc_3">Lütfen Google Play\'de değerlendirerek ve önererek bizi destekleyin</string>
-    <string name="onboarding_desc_3">En sevdiğiniz emojileri ve renkleri birleştirerek size özel bir pil oluşturun.</string>
+    <string name="onboarding_desc_3">Telefonuna eğlenceli ve kişisel bir dokunuş kat,\nher yere biraz neşe taşı.</string>
     <string name="get_started">Başla</string>
     <string name="next">İleri</string>
 
@@ -29,7 +29,7 @@
     <string name="themes">Temalar</string>
 
     <!-- Category Tabs -->
-    <string name="tab_hot">🔥 Popüler</string>
+    <string name="tab_hot">Popüler</string>
     <string name="tab_pokemon">Pokemon</string>
     <string name="tab_sanrio">Sanrio</string>
     <string name="tab_anime">Çizgi film</string>

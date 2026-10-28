@@ -7,14 +7,14 @@
 
     <!-- Onboarding Screen -->
     <string name="skip">Lewati</string>
-    <string name="onboarding_title_1">Personalisasi setiap\ndetail dengan.</string>
-    <string name="onboarding_desc_1">emoji, hewan peliharaan, gaya baterai, bilah status &amp; latar belakang yang indah.</string>
-    <string name="onboarding_title_2">Jadikan baterai Anda\nmenyenangkan.</string>
-    <string name="onboarding_desc_2">Ubah ikon baterai menjadi emoji lucu. Detail kecil yang membawa banyak keceriaan.</string>
-    <string name="onboarding_title_3">Baterai Anda.\nImajinasi Anda.</string>
+    <string name="onboarding_title_1">Jadikan baterai Anda\nmenyenangkan.</string>
+    <string name="onboarding_desc_1">Ubah ikon baterai menjadi emoji lucu. Detail kecil yang membawa banyak keceriaan.</string>
+    <string name="onboarding_title_2">Baterai Anda.\nImajinasi Anda.</string>
+    <string name="onboarding_desc_2">Padukan emoji dan warna favorit untuk menciptakan baterai yang sesuai dengan Anda.</string>
+    <string name="onboarding_title_3">Sedikit lebih imut.\nSedikit lebih kamu.</string>
     <string name="help_title">Bantu kami meningkatkan</string>
     <string name="help_desc_3">Dukung kami dengan memberi peringkat dan merekomendasikan di Google Play</string>
-    <string name="onboarding_desc_3">Padukan emoji dan warna favorit untuk menciptakan baterai yang sesuai dengan Anda.</string>
+    <string name="onboarding_desc_3">Beri ponselmu sentuhan pribadi yang ceria,\ndan bawa sedikit kebahagiaan ke mana pun.</string>
     <string name="get_started">Mulai</string>
     <string name="next">Lanjut</string>
 
@@ -29,7 +29,7 @@
     <string name="themes">Tema</string>
 
     <!-- Category Tabs -->
-    <string name="tab_hot">🔥 Populer</string>
+    <string name="tab_hot">Populer</string>
     <string name="tab_pokemon">Pokemon</string>
     <string name="tab_sanrio">Sanrio</string>
     <string name="tab_anime">Kartun</string>

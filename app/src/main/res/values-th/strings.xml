@@ -7,14 +7,14 @@
 
     <!-- Onboarding Screen -->
     <string name="skip">ข้าม</string>
-    <string name="onboarding_title_1">ปรับแต่งทุก\nรายละเอียดด้วย.</string>
-    <string name="onboarding_desc_1">อิโมจิ สัตว์เลี้ยง สไตล์แบตเตอรี่ แถบสถานะ และพื้นหลังที่สวยงาม</string>
-    <string name="onboarding_title_2">ทำให้แบตเตอรี่\nของคุณสนุกสนาน</string>
-    <string name="onboarding_desc_2">เปลี่ยนไอคอนแบตเตอรี่ของคุณให้เป็นอิโมจิน่ารัก รายละเอียดเล็กๆ ที่สร้างความสุขมากมาย</string>
-    <string name="onboarding_title_3">แบตเตอรี่ของคุณ.\nจินตนาการของคุณ.</string>
+    <string name="onboarding_title_1">ทำให้แบตเตอรี่\nของคุณสนุกสนาน</string>
+    <string name="onboarding_desc_1">เปลี่ยนไอคอนแบตเตอรี่ของคุณให้เป็นอิโมจิน่ารัก รายละเอียดเล็กๆ ที่สร้างความสุขมากมาย</string>
+    <string name="onboarding_title_2">แบตเตอรี่ของคุณ.\nจินตนาการของคุณ.</string>
+    <string name="onboarding_desc_2">ผสมผสานอิโมจิและสีที่คุณชื่นชอบเพื่อสร้างแบตเตอรี่ที่เป็นตัวคุณ</string>
+    <string name="onboarding_title_3">น่ารักขึ้นอีกนิด\nเป็นตัวคุณมากขึ้นอีกหน่อย</string>
     <string name="help_title">ช่วยเราปรับปรุง</string>
     <string name="help_desc_3">โปรดสนับสนุนเราโดยการให้คะแนนและแนะนำแก่ผู้อื่นบน Google Play</string>
-    <string name="onboarding_desc_3">ผสมผสานอิโมจิและสีที่คุณชื่นชอบเพื่อสร้างแบตเตอรี่ที่เป็นตัวคุณ</string>
+    <string name="onboarding_desc_3">เติมความเป็นตัวเองแบบสนุกสนานให้มือถือของคุณ\nและพกความสุขเล็กๆ ไปได้ทุกที่</string>
     <string name="get_started">เริ่มต้นใช้งาน</string>
     <string name="next">ถัดไป</string>
 
@@ -29,7 +29,7 @@
     <string name="themes">ธีม</string>
 
     <!-- Category Tabs -->
-    <string name="tab_hot">🔥 ยอดนิยม</string>
+    <string name="tab_hot">ยอดนิยม</string>
     <string name="tab_pokemon">โปเกมอน</string>
     <string name="tab_sanrio">ซานริโอ</string>
     <string name="tab_anime">การ์ตูน</string>

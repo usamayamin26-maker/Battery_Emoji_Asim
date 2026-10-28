@@ -7,14 +7,14 @@
 
     <!-- Onboarding Screen -->
     <string name="skip">چھوڑیں</string>
-    <string name="onboarding_title_1">ہر تفصیل کو\nاپنی مرضی کے مطابق بنائیں۔</string>
-    <string name="onboarding_desc_1">ایموجیز، پالتو جانور، بیٹری اسٹائلز، اسٹیٹس بارز اور خوبصورت بیک گراؤنڈز۔</string>
-    <string name="onboarding_title_2">اپنی بیٹری کو\nپرلطف بنائیں۔</string>
-    <string name="onboarding_desc_2">اپنی بیٹری کے آئیکن کو پیارے ایموجیز میں تبدیل کریں۔ ایک چھوٹی سی تفصیل، بے شمار خوشیاں۔</string>
-    <string name="onboarding_title_3">آپ کی بیٹری۔\nآپ کا تخیل۔</string>
+    <string name="onboarding_title_1">اپنی بیٹری کو\nپرلطف بنائیں۔</string>
+    <string name="onboarding_desc_1">اپنی بیٹری کے آئیکن کو پیارے ایموجیز میں تبدیل کریں۔ ایک چھوٹی سی تفصیل، بے شمار خوشیاں۔</string>
+    <string name="onboarding_title_2">آپ کی بیٹری۔\nآپ کا تخیل۔</string>
+    <string name="onboarding_desc_2">اپنی پسند کے ایموجیز اور رنگ ملا کر ایسی بیٹری بنائیں جو آپ کے مزاج کے مطابق ہو۔</string>
+    <string name="onboarding_title_3">تھوڑا سا اور پیارا۔\nتھوڑا سا اور آپ جیسا۔</string>
     <string name="help_title">ہمیں بہتر بنانے میں مدد کریں</string>
     <string name="help_desc_3">براہ کرم گوگل پلے پر ریٹنگ اور دوسروں کو تجویز کرکے ہمارا ساتھ دیں</string>
-    <string name="onboarding_desc_3">اپنی پسند کے ایموجیز اور رنگ ملا کر ایسی بیٹری بنائیں جو آپ کے مزاج کے مطابق ہو۔</string>
+    <string name="onboarding_desc_3">اپنے فون کو ایک دلچسپ ذاتی انداز دیں،\nاور ہر جگہ تھوڑی سی خوشی ساتھ لے جائیں۔</string>
     <string name="get_started">شروع کریں</string>
     <string name="next">اگلا</string>
 
@@ -29,7 +29,7 @@
     <string name="themes">تھیمز</string>
 
     <!-- Category Tabs -->
-    <string name="tab_hot">🔥 مقبول</string>
+    <string name="tab_hot">مقبول</string>
     <string name="tab_pokemon">پوکیمون</string>
     <string name="tab_sanrio">سانریو</string>
     <string name="tab_anime">کارٹون</string>

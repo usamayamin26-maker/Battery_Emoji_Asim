@@ -7,14 +7,14 @@
 
     <!-- Onboarding Screen -->
     <string name="skip">এৰাই চলক</string>
-    <string name="onboarding_title_1">প্ৰতিটো বিৱৰণ\nব্যক্তিগত কৰক।</string>
-    <string name="onboarding_desc_1">ইমোজী, পোহনীয়া জীৱ, বেটাৰী শৈলী, স্থিতি দণ্ড আৰু সুন্দৰ পটভূমি।</string>
-    <string name="onboarding_title_2">আপোনাৰ বেটাৰী\nআনন্দদায়ক কৰক।</string>
-    <string name="onboarding_desc_2">আপোনাৰ বেটাৰী আইকনক মৰমলগা ইমোজীলৈ পৰিৱৰ্তন কৰক। এক সৰু বিৱৰণ, বহুত সুখ।</string>
-    <string name="onboarding_title_3">আপোনাৰ বেটাৰী।\nআপোনাৰ কল্পনা।</string>
+    <string name="onboarding_title_1">আপোনাৰ বেটাৰী\nআনন্দদায়ক কৰক।</string>
+    <string name="onboarding_desc_1">আপোনাৰ বেটাৰী আইকনক মৰমলগা ইমোজীলৈ পৰিৱৰ্তন কৰক। এক সৰু বিৱৰণ, বহুত সুখ।</string>
+    <string name="onboarding_title_2">আপোনাৰ বেটাৰী।\nআপোনাৰ কল্পনা।</string>
+    <string name="onboarding_desc_2">আপোনাৰ প্ৰিয় ইমোজী আৰু ৰং মিহলাই আপোনাৰ মনপচন্দ বেটাৰী তৈয়াৰ কৰক।</string>
+    <string name="onboarding_title_3">অলপ বেছি মৰমলগা।\nঅলপ বেছি আপোনাৰ দৰে।</string>
     <string name="help_title">উন্নতি কৰাত সহায় কৰক</string>
     <string name="help_desc_3">অনুগ্ৰহ কৰি Google Play-ত ৰেটিং দি আৰু আনক পৰামৰ্শ দি আমাক সমৰ্থন কৰক</string>
-    <string name="onboarding_desc_3">আপোনাৰ প্ৰিয় ইমোজী আৰু ৰং মিহলাই আপোনাৰ মনপচন্দ বেটাৰী তৈয়াৰ কৰক।</string>
+    <string name="onboarding_desc_3">আপোনাৰ ফোনটোক এটা খেলুৱৈ ব্যক্তিগত স্পৰ্শ দিয়ক,\nআৰু সকলোতে অলপ আনন্দ লৈ যাওক।</string>
     <string name="get_started">আৰম্ভ কৰক</string>
     <string name="next">পৰৱৰ্তী</string>
 
@@ -29,7 +29,7 @@
     <string name="themes">থিমসমূহ</string>
 
     <!-- Category Tabs -->
-    <string name="tab_hot">🔥 জনপ্ৰিয়</string>
+    <string name="tab_hot">জনপ্ৰিয়</string>
     <string name="tab_pokemon">পোকেমন</string>
     <string name="tab_sanrio">চানৰিঅ\'</string>
 

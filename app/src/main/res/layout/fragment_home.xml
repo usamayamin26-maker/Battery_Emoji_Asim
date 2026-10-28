@@ -280,9 +280,10 @@
                 android:layout_height="wrap_content"
                 android:background="@color/bg_home"
                 android:orientation="horizontal"
+                tools:listitem="@layout/item_category_tab"
                 android:paddingHorizontal="@dimen/_16sdp"
-                android:paddingTop="@dimen/_16sdp"
-                android:paddingBottom="@dimen/_8sdp"
+                android:paddingTop="@dimen/_9sdp"
+                android:paddingBottom="@dimen/_4sdp"
                 android:clipToPadding="false"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 

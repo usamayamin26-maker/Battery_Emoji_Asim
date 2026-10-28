@@ -134,6 +134,17 @@ class PreferenceLocalDataSource(
         prefs.edit().putString(KEY_APPLIED_BATTERY_ICON_PATH, path).apply()
     }
 
+    /** Keys of recently applied emojis, newest first ("local:<id>" or "remote:<id>"). */
+    fun getRecentEmojiKeys(): List<String> {
+        val raw = prefs.getString(KEY_RECENT_EMOJIS, "") ?: ""
+        return if (raw.isEmpty()) emptyList() else raw.split(RECENT_SEPARATOR)
+    }
+
+    fun addRecentEmojiKey(key: String) {
+        val updated = (listOf(key) + getRecentEmojiKeys().filter { it != key }).take(MAX_RECENT_EMOJIS)
+        prefs.edit().putString(KEY_RECENT_EMOJIS, updated.joinToString(RECENT_SEPARATOR)).apply()
+    }
+
     /** Absolute path of a downloaded remote animation; used only while the applied animation res is 0. */
     fun getAppliedAnimationPath(): String {
         return prefs.getString(KEY_APPLIED_ANIMATION_PATH, "") ?: ""
@@ -375,5 +386,8 @@ class PreferenceLocalDataSource(
         private const val KEY_LEFT_STATUS_EMOJI_RES = "key_left_status_emoji_res"
         private const val KEY_APPLIED_ANIMATION_RAW_RES = "key_applied_animation_raw_res"
         private const val KEY_IS_APPLIED_ANIMATION_LOTTIE = "key_is_applied_animation_lottie"
+        private const val KEY_RECENT_EMOJIS = "key_recent_emojis"
+        private const val RECENT_SEPARATOR = "|"
+        private const val MAX_RECENT_EMOJIS = 9
     }
 }

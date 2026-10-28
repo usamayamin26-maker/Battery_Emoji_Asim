@@ -11,7 +11,7 @@ class BatteryLocalDataSource {
 
     fun getCategories(): List<CategoryItem> {
         return listOf(
-            CategoryItem(id = "hot", title = "🔥 HOT", isSelected = true, titleRes = R.string.tab_hot),
+            CategoryItem(id = "hot", title = "HOT", isSelected = true, titleRes = R.string.tab_hot),
             CategoryItem(id = "pokemon", title = "Pokemon", isSelected = false, titleRes = R.string.tab_pokemon),
             CategoryItem(id = "sanrio", title = "Sanrio", isSelected = false, titleRes = R.string.tab_sanrio),
             CategoryItem(id = "anime", title = "Cartoons", isSelected = false, titleRes = R.string.tab_anime)

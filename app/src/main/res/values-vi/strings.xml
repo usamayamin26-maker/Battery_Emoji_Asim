@@ -7,14 +7,14 @@
 
     <!-- Onboarding Screen -->
     <string name="skip">Bỏ qua</string>
-    <string name="onboarding_title_1">Cá nhân hóa từng\nchi tiết với.</string>
-    <string name="onboarding_desc_1">emoji, thú cưng, kiểu pin, thanh trạng thái &amp; hình nền tuyệt đẹp.</string>
-    <string name="onboarding_title_2">Làm cho pin của bạn\nthật thú vị.</string>
-    <string name="onboarding_desc_2">Biến biểu tượng pin thành những emoji đáng yêu. Một chi tiết nhỏ mang lại nhiều niềm vui.</string>
-    <string name="onboarding_title_3">Pin của bạn.\nTrí tưởng tượng của bạn.</string>
+    <string name="onboarding_title_1">Làm cho pin của bạn\nthật thú vị.</string>
+    <string name="onboarding_desc_1">Biến biểu tượng pin thành những emoji đáng yêu. Một chi tiết nhỏ mang lại nhiều niềm vui.</string>
+    <string name="onboarding_title_2">Pin của bạn.\nTrí tưởng tượng của bạn.</string>
+    <string name="onboarding_desc_2">Kết hợp các emoji và màu sắc yêu thích để tạo nên phong cách pin riêng cho bạn.</string>
+    <string name="onboarding_title_3">Dễ thương hơn một chút.\nGiống bạn hơn một chút.</string>
     <string name="help_title">Giúp chúng tôi cải thiện</string>
     <string name="help_desc_3">Vui lòng ủng hộ chúng tôi bằng cách đánh giá và giới thiệu trên Google Play</string>
-    <string name="onboarding_desc_3">Kết hợp các emoji và màu sắc yêu thích để tạo nên phong cách pin riêng cho bạn.</string>
+    <string name="onboarding_desc_3">Tạo điểm nhấn cá nhân vui nhộn cho điện thoại,\nvà mang theo chút niềm vui khắp mọi nơi.</string>
     <string name="get_started">Bắt đầu ngay</string>
     <string name="next">Tiếp theo</string>
 
@@ -29,7 +29,7 @@
     <string name="themes">Chủ đề</string>
 
     <!-- Category Tabs -->
-    <string name="tab_hot">🔥 Thịnh hành</string>
+    <string name="tab_hot">Thịnh hành</string>
     <string name="tab_pokemon">Pokemon</string>
     <string name="tab_sanrio">Sanrio</string>
     <string name="tab_anime">Hoạt hình</string>
