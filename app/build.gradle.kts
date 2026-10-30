@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.serialization)
+    alias(libs.plugins.google.services)
+    alias(libs.plugins.firebase.crashlytics)
 }
 
 android {
@@ -52,7 +54,9 @@ android {
         targetCompatibility = JavaVersion.VERSION_11
     }
 }
-
+base {
+    archivesName = "Battery_emoji_Vcode_${android.defaultConfig.versionCode}_Vname_${android.defaultConfig.versionName}"
+}
 dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)

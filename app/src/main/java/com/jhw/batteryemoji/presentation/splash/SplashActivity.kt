@@ -53,7 +53,9 @@ class SplashActivity : AppCompatActivity() {
         binding.btnContinue.visibility = View.GONE
 
         if (!MyUtils.isNetworkAvailable(this)) {
+            Log.d("SplashActivity", "CHECK INTERNET")
             MyUtils.showNoInternetDialog(
+
                 context = this,
                 onRetry = {
                     RemoteAssetPreloader.start()
@@ -64,6 +66,7 @@ class SplashActivity : AppCompatActivity() {
                 }
             )
         } else {
+            Log.d("SplashActivity", "CHECK INTERNET ELSE")
             RemoteAssetPreloader.start()
             startSplashFlow()
         }

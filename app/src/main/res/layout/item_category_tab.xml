@@ -34,7 +34,7 @@
             android:layout_height="wrap_content"
             android:textColor="@color/tab_indicator_purple"
             android:textSize="@dimen/_13ssp"
-            android:fontFamily="@font/outfit_bold"
+            android:fontFamily="@font/outfit_semi_bold"
             tools:text="HOT" />
     </LinearLayout>
 

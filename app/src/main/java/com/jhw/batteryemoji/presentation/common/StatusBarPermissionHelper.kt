@@ -369,9 +369,9 @@ object StatusBarPermissionHelper {
                 android.text.Html.FROM_HTML_MODE_COMPACT
             )
 
-            binding.tvTerms.setOnClickListener {
-                binding.cbTerms.isChecked = !binding.cbTerms.isChecked
-            }
+//            binding.tvTerms.setOnClickListener {
+//                binding.cbTerms.isChecked = !binding.cbTerms.isChecked
+//            }
 
             // Set initial state for Continue button based on checkbox
             binding.btnAccessContinue.isEnabled = binding.cbTerms.isChecked

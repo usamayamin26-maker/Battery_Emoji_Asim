@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
-import com.google.firebase.crashlytics.internal.model.CrashlyticsReport.Session.Event.Log
 import com.jhw.batteryemoji.core.Utils.MyUtils
 import com.jhw.batteryemoji.databinding.FragmentAnimationSeeAllBinding
 import com.jhw.batteryemoji.presentation.remote.RemoteAssetUiState

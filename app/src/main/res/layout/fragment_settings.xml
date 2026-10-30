@@ -203,7 +203,7 @@
                 android:layout_marginTop="@dimen/_10sdp"
                 android:background="@drawable/bg_settings_card"
                 android:clickable="true"
-                android:visibility="visible"
+                android:visibility="gone"
                 android:focusable="true"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
@@ -249,7 +249,7 @@
                 android:background="@drawable/bg_settings_card"
                 android:clickable="true"
                 android:focusable="true"
-                android:visibility="visible"
+                android:visibility="gone"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
                 android:padding="@dimen/_12sdp">

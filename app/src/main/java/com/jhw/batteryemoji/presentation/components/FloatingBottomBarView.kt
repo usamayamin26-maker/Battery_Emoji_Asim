@@ -221,7 +221,7 @@ class FloatingBottomBarView @JvmOverloads constructor(
 
     private fun updateTabUi() {
         // Consistent grey for inactive tabs
-        val inactiveColor = ContextCompat.getColor(context, R.color.text_muted)
+        val inactiveColor = ContextCompat.getColor(context, R.color.text_secondary)
 
         val boldFont = ResourcesCompat.getFont(
             context,

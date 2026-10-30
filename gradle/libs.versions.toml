@@ -18,8 +18,8 @@ ssp = "1.1.1"
 
 # firebase
 firebaseBom = "34.19.0"
-googleServices = "4.5.0"
-firebaseCrashlyticsPlugin = "3.0.8"
+googleServices = "4.4.2"
+firebaseCrashlyticsPlugin = "3.0.3"
 kotlinxSerialization = "1.7.3"
 playAppUpdate = "2.1.0"
 playServicesAds = "25.5.0"
@@ -69,5 +69,7 @@ koin-android = { group = "io.insert-koin", name = "koin-android", version.ref = 
 android-application = { id = "com.android.application", version.ref = "agp" }
 android-library = { id = "com.android.library", version.ref = "agp" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+google-services = { id = "com.google.gms.google-services", version.ref = "googleServices" }
+firebase-crashlytics = { id = "com.google.firebase.crashlytics", version.ref = "firebaseCrashlyticsPlugin" }
 
 

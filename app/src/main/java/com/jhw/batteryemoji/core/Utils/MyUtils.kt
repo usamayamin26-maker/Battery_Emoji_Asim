@@ -81,34 +81,28 @@ object MyUtils {
      */
     fun isNetworkAvailable(context: Context): Boolean {
         return try {
-            val cm = context.getSystemService(Context.CONNECTIVITY_SERVICE) as? ConnectivityManager ?: return false
+            val cm = context.getSystemService(
+                Context.CONNECTIVITY_SERVICE
+            ) as ConnectivityManager
+
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                val activeNetwork = cm.activeNetwork
-                if (activeNetwork != null) {
-                    val caps = cm.getNetworkCapabilities(activeNetwork)
-                    if (caps != null && (
-                        caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET) ||
-                        caps.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) ||
-                        caps.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR) ||
-                        caps.hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET)
-                    )) {
-                        return true
-                    }
-                }
-                cm.allNetworks.any { network ->
-                    val caps = cm.getNetworkCapabilities(network)
-                    caps != null && (
-                        caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET) ||
-                        caps.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) ||
-                        caps.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR)
-                    )
-                }
+                val network = cm.activeNetwork ?: return false
+                val capabilities = cm.getNetworkCapabilities(network) ?: return false
+
+                capabilities.hasCapability(
+                    NetworkCapabilities.NET_CAPABILITY_INTERNET
+                ) &&
+                        capabilities.hasCapability(
+                            NetworkCapabilities.NET_CAPABILITY_VALIDATED
+                        )
             } else {
                 @Suppress("DEPRECATION")
-                val netInfo = cm.activeNetworkInfo
-                netInfo != null && netInfo.isConnected
+                val networkInfo = cm.activeNetworkInfo
+
+                @Suppress("DEPRECATION")
+                networkInfo?.isConnected == true
             }
-        } catch (_: Exception) {
+        } catch (e: Exception) {
             false
         }
     }
