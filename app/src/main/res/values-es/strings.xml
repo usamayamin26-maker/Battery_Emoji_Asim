@@ -285,4 +285,12 @@
     <string name="notif_channel_overlay_desc">Muestra en vivo el tema y la batería emoji sobre la barra de estado</string>
     <string name="notif_overlay_title">Icono de batería emoji</string>
     <string name="notif_overlay_text">Batería emoji y barra de estado activas</string>
+
+    <string name="get_start_title">Personaliza cada\ndetalle con</string>
+    <string name="get_start_subtitle">emojis, mascotas, estilos de batería, barras de estado y\nhermosos fondos.</string>
+    <string name="restricted_settings_title">¿Interruptor atenuado o \"Ajuste restringido\"?</string>
+    <string name="restricted_settings_desc">En Android 13 y versiones posteriores, Android bloquea la accesibilidad para las aplicaciones instaladas desde un archivo APK hasta que tú la permitas. Esta es una función de seguridad de Android: la aplicación no puede activarla por ti, solo tú puedes hacerlo.</string>
+    <string name="restricted_settings_steps"><![CDATA[1. Toca <b>Ir a Ajustes</b> e intenta activar el servicio una vez para que Android muestre el mensaje de <b>Ajuste restringido</b>.<br/>2. Regresa y toca <b>Abrir información de la app</b>.<br/>3. Toca el menú <b>⋮</b> en la esquina superior derecha.<br/>4. Toca <b>Permitir ajustes restringidos</b> y confirma con tu PIN o huella digital.<br/>5. Toca <b>Ir a Ajustes</b> de nuevo y activa el servicio.]]></string>
+    <string name="open_app_info">Abrir información de la app</string>
+    <string name="app_info_open_failed">No se pudo abrir la información de la app. Abre Ajustes › Aplicaciones › Emoji Battery manualmente.</string>
 </resources>

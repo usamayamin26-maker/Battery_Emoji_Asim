@@ -10,9 +10,9 @@
     <com.jhw.batteryemoji.presentation.components.EmojiBatteryCardView
         android:id="@+id/cardEmojiBattery"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_96sdp"
+        android:layout_height="@dimen/_86sdp"
         app:cardBackgroundColor="@color/card_bg_blue"
-        app:cardCornerRadius="@dimen/_20sdp"
+        app:cardCornerRadius="@dimen/_18sdp"
         app:emojiImage="@drawable/ic_blueprint_bunny_blue" />
 
 </FrameLayout>

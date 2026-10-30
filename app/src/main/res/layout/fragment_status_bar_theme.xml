@@ -27,8 +27,7 @@
         app:nativeMarginHorizontal="@dimen/_14sdp"
         app:layout_constraintTop_toBottomOf="@+id/topHeader"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:visibility="visible" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <!-- Segmented Tab Switcher (ConstraintLayout only) -->
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -92,6 +91,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/adSlotTop">
 
+        <ImageView
+            android:id="@+id/ivPreviewThemeBg"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:scaleType="centerCrop"
+            android:contentDescription="@null"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <!-- Time Label -->
         <TextView
             android:id="@+id/tvPreviewTime"
@@ -126,7 +136,7 @@
             android:layout_height="@dimen/_12sdp"
             android:layout_marginEnd="@dimen/_4sdp"
             android:contentDescription="@null"
-            android:src="@drawable/ic_status_wifi"
+            android:src="@drawable/wifi"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/tvPreviewBattery"
             app:layout_constraintTop_toTopOf="parent"
@@ -241,6 +251,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:visibility="visible" />
+         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

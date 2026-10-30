@@ -6,13 +6,17 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
+import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import com.jhw.batteryemoji.R
+import com.jhw.batteryemoji.ads.AppAds
+import com.jhw.batteryemoji.databinding.ActivityMainBinding
 import com.jhw.batteryemoji.databinding.ActivityOnboardingBinding
 import com.jhw.batteryemoji.databinding.ItemOnboardingPageBinding
 import com.jhw.batteryemoji.presentation.home.MainActivity
+import com.universal.remote.ads.AdsController
 
 // Simple Data Model for Onboarding Screen
 data class OnboardingSlide(
@@ -65,6 +69,43 @@ class OnboardingActivity : AppCompatActivity() {
 
         setupViewPager()
         setupListeners()
+
+        if (AppAds.ADS_ENABLED) {
+            bindAdSlotsForPage(0)
+        }
+    }
+
+    private fun bindAdSlotsForPage(position: Int) {
+        if (!AppAds.ADS_ENABLED) return
+        val pageNum = position + 1
+        val config = com.jhw.batteryemoji.ads.RemoteConfigManager.current()
+
+        val topKey = if (config.int("onboarding_${pageNum}_top_banner") > 0 || config.int("onboarding_${pageNum}_top_native") > 0) {
+            "onboarding_${pageNum}_top"
+        } else {
+            "onboarding_top"
+        }
+
+        val bottomKey = if (config.int("onboarding_${pageNum}_bottom_banner") > 0 || config.int("onboarding_${pageNum}_bottom_native") > 0) {
+            "onboarding_${pageNum}_bottom"
+        } else {
+            "onboarding_bottom"
+        }
+
+        AdsController.slot(
+            activity = this,
+            container = binding.adSlotTop,
+            slotKey = topKey,
+            units = "onboarding",
+            isCurrent = { binding.vpOnboarding.currentItem == position }
+        )
+        AdsController.slot(
+            activity = this,
+            container = binding.adSlotBottom,
+            slotKey = bottomKey,
+            units = "onboarding",
+            isCurrent = { binding.vpOnboarding.currentItem == position }
+        )
     }
 
     private fun setupViewPager() {
@@ -74,6 +115,7 @@ class OnboardingActivity : AppCompatActivity() {
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
                 updateIndicators(position)
+                bindAdSlotsForPage(position)
 
                 // Swiped past the 2nd slide (Next already showed it before moving on)
                 if (position == FULL_SCREEN_NATIVE_AFTER_INDEX + 1 && !hasShownFullScreenNative) {
@@ -160,6 +202,12 @@ class OnboardingActivity : AppCompatActivity() {
     private companion object {
         /** Index of the 2nd slide; the full-screen native shows when leaving it. */
         const val FULL_SCREEN_NATIVE_AFTER_INDEX = 1
+        const val SCREEN_KEY = "onboarding"
+    }
+
+    override fun onDestroy() {
+        AdsController.forgetSlots("onboarding", "onboarding_1", "onboarding_2", "onboarding_3")
+        super.onDestroy()
     }
 
     // Simple Adapter for Onboarding ViewPager2

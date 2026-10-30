@@ -69,6 +69,8 @@ interface PreferenceRepository {
     fun setAppliedBatteryIconPath(path: String)
     fun getAppliedAnimationPath(): String
     fun setAppliedAnimationPath(path: String)
+    fun getAppliedThemePath(): String
+    fun setAppliedThemePath(path: String)
 
     fun getMascotSize(): Int
     fun setMascotSize(sizeDp: Int)

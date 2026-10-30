@@ -290,4 +290,7 @@
     <string name="lang_spanish_native">Español</string>
     <string name="lang_thai_native">ไทย</string>
     <string name="lang_ukrainian_native">Українська</string>
+
+    <string name="get_start_title">ہر تفصیل کو\nاپنی پسند کے مطابق بنائیں</string>
+    <string name="get_start_subtitle">ایموجیز، پیٹس، بیٹری اسٹائلز، اسٹیٹس بارز اور\nخوبصورت بیک گراؤنڈز کے ساتھ۔</string>
 </resources>

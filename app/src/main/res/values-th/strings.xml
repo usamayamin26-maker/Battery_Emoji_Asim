@@ -285,4 +285,12 @@
     <string name="notif_channel_overlay_desc">แสดงธีมและแบตเตอรี่อีโมจิแบบสดบนแถบสถานะ</string>
     <string name="notif_overlay_title">ไอคอนแบตเตอรี่อีโมจิ</string>
     <string name="notif_overlay_text">แบตเตอรี่อีโมจิและแถบสถานะทำงานอยู่</string>
+
+    <string name="get_start_title">ปรับแต่งทุกรายละเอียด\nด้วย</string>
+    <string name="get_start_subtitle">อิโมจิ, สัตว์เลี้ยง, สไตล์แบตเตอรี่, แถบสถานะ และ\nพื้นหลังที่สวยงาม</string>
+    <string name="restricted_settings_title">สวิตช์เป็นสีเทาหรือขึ้นว่า \"การตั้งค่าที่จำกัด\" หรือไม่?</string>
+    <string name="restricted_settings_desc">ใน Android 13 ขึ้นไป Android จะบล็อกการเข้าถึงพิเศษสำหรับแอปที่ติดตั้งจากไฟล์ APK จนกว่าคุณจะอนุญาต นี่คือฟีเจอร์ความปลอดภัยของ Android: แอปไม่สามารถเปิดให้คุณได้ มีเพียงคุณเท่านั้นที่ทำได้</string>
+    <string name="restricted_settings_steps"><![CDATA[1. แตะ <b>ไปที่การตั้งค่า</b> และลองเปิดบริการหนึ่งครั้ง เพื่อให้ Android แสดงข้อความ <b>การตั้งค่าที่จำกัด</b><br/>2. กลับมาแล้วแตะ <b>เปิดข้อมูลแอป</b><br/>3. แตะเมนู <b>⋮</b> ที่มุมขวาบน<br/>4. แตะ <b>อนุญาตการตั้งค่าที่จำกัด</b> และยืนยันด้วย PIN หรือลายนิ้วมือของคุณ<br/>5. แตะ <b>ไปที่การตั้งค่า</b> อีกครั้งแล้วเปิดบริการ]]></string>
+    <string name="open_app_info">เปิดข้อมูลแอป</string>
+    <string name="app_info_open_failed">ไม่สามารถเปิดข้อมูลแอปได้ โปรดเปิด การตั้งค่า › แอป › Emoji Battery ด้วยตนเอง</string>
 </resources>

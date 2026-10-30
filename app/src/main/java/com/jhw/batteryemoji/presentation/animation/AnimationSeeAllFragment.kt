@@ -7,7 +7,10 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
+import com.google.firebase.crashlytics.internal.model.CrashlyticsReport.Session.Event.Log
+import com.jhw.batteryemoji.core.Utils.MyUtils
 import com.jhw.batteryemoji.databinding.FragmentAnimationSeeAllBinding
+import com.jhw.batteryemoji.presentation.remote.RemoteAssetUiState
 import com.universal.remote.ads.AdsController
 
 class AnimationSeeAllFragment : Fragment() {
@@ -39,6 +42,23 @@ class AnimationSeeAllFragment : Fragment() {
         setupListeners()
         observeViewModel()
         bindAdSlots()
+        checkAndFetchRemoteAnimations()
+    }
+
+    private fun checkAndFetchRemoteAnimations() {
+        android.util.Log.d("AnimationSeeAllFragment", "CHECK INTERNET")
+        if (viewModel.remoteAnimations.value.isNullOrEmpty()) {
+            if (MyUtils.isNetworkAvailable(requireContext())) {
+                viewModel.loadRemoteAnimations()
+                android.util.Log.d("AnimationSeeAllFragment", "CHECK INTERNET")
+            } else {
+                android.util.Log.d("AnimationSeeAllFragment", "CHECK INTERNET ELSE")
+                MyUtils.showNoInternetDialog(
+                    context = requireContext(),
+                    onRetry = { viewModel.loadRemoteAnimations() }
+                )
+            }
+        }
     }
 
     private fun bindAdSlots() {
@@ -95,6 +115,15 @@ class AnimationSeeAllFragment : Fragment() {
         // Remote animations from the JSON manifest, appended after local items (same as the Animation screen)
         viewModel.remoteAnimations.observe(viewLifecycleOwner) { remote ->
             animationAdapter.submitRemoteList(remote)
+        }
+
+        viewModel.remoteAnimationState.observe(viewLifecycleOwner) { state ->
+            if (state is RemoteAssetUiState.Error && !MyUtils.isNetworkAvailable(requireContext())) {
+                MyUtils.showNoInternetDialog(
+                    context = requireContext(),
+                    onRetry = { viewModel.loadRemoteAnimations() }
+                )
+            }
         }
 
         viewModel.selectedAnimation.observe(viewLifecycleOwner) { mascot ->

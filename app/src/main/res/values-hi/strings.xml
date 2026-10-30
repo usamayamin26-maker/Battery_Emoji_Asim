@@ -285,4 +285,12 @@
     <string name="lang_spanish_native">Español</string>
     <string name="lang_thai_native">ไทย</string>
     <string name="lang_ukrainian_native">Українська</string>
+
+    <string name="get_start_title">हर विवरण को\nपर्सनलाइज़ करें</string>
+    <string name="get_start_subtitle">इमोज़ी, पेट्स, बैटरी स्टाइल, स्टेटस बार और\nखूबसूरत बैकग्राउंड के साथ।</string>
+    <string name="restricted_settings_title">स्विच बंद (grey) है या \"प्रतिबंधित सेटिंग\" लिखा आ रहा है?</string>
+    <string name="restricted_settings_desc">Android 13 और नए वर्शन पर, APK फ़ाइल से इंस्टॉल किए गए ऐप्स के लिए Android तब तक एक्सेसिबिलिटी ब्लॉक रखता है जब तक आप अनुमति न दें। यह Android का सुरक्षा फ़ीचर है: ऐप इसे आपके लिए चालू नहीं कर सकता, केवल आप कर सकते हैं।</string>
+    <string name="restricted_settings_steps"><![CDATA[1. <b>सेटिंग्स पर जाएं</b> दबाएं और सर्विस चालू करने की कोशिश करें, ताकि Android <b>प्रतिबंधित सेटिंग</b> का मैसेज दिखाए।<br/>2. वापस आएं और <b>ऐप जानकारी खोलें</b> पर टैप करें।<br/>3. ऊपर दाईं ओर <b>⋮</b> मेनू पर टैप करें।<br/>4. <b>प्रतिबंधित सेटिंग्स की अनुमति दें</b> पर टैप करें और अपने पिन या फ़िंगरप्रिंट से पुष्टि करें।<br/>5. दोबारा <b>सेटिंग्स पर जाएं</b> दबाएं और सर्विस चालू करें।]]></string>
+    <string name="open_app_info">ऐप जानकारी खोलें</string>
+    <string name="app_info_open_failed">ऐप जानकारी नहीं खुल सकी। सेटिंग्स › ऐप्स › Emoji Battery मैन्युअल रूप से खोलें।</string>
 </resources>

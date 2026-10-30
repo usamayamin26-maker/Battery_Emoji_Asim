@@ -27,11 +27,21 @@
             android:layout_height="@dimen/_38sdp"
             android:layout_marginStart="@dimen/_8sdp"
             android:layout_marginEnd="@dimen/_8sdp"
-            android:background="@drawable/bg_theme_grad_pink"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/ivCapsuleBg"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:scaleType="centerCrop"
+                android:contentDescription="@null"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <!-- Time Label -->
             <TextView
@@ -67,7 +77,7 @@
                 android:layout_height="@dimen/_12sdp"
                 android:layout_marginEnd="@dimen/_3sdp"
                 android:contentDescription="@null"
-                android:src="@drawable/ic_status_wifi"
+                android:src="@drawable/wifi"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/tvThemeBattery"
                 app:layout_constraintTop_toTopOf="parent"

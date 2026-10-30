@@ -518,7 +518,7 @@ class CustomIconDetailFragment : Fragment() {
                 "airplane" -> R.drawable.ic_airplane
                 "ringer" -> R.drawable.ic_ringer_silent
                 "hotspot" -> R.drawable.ic_hotspot
-                "wifi" -> R.drawable.ic_status_wifi
+                "wifi" -> R.drawable.wifi
                 "signal", "sim" -> R.drawable.ic_status_signal
                 "data" -> R.drawable.ic_data_swap
                 "charge" -> R.drawable.ic_status_bolt
@@ -537,6 +537,13 @@ class CustomIconDetailFragment : Fragment() {
         val remoteEmotion = selectedRemoteEmotion
         if (iconId != "emotion" || remoteEmotion == null) {
             save(remoteEmotionPath = null)
+            return
+        }
+        if (!com.jhw.batteryemoji.core.Utils.MyUtils.isNetworkAvailable(requireContext())) {
+            com.jhw.batteryemoji.core.Utils.MyUtils.showNoInternetDialog(
+                context = requireContext(),
+                onRetry = { saveAndApply() }
+            )
             return
         }
         // A remote emotion is saved here (from the cache, downloading if needed) for the overlay
@@ -565,6 +572,13 @@ class CustomIconDetailFragment : Fragment() {
         val remote = selectedRemoteAnimation
         if (remote == null) {
             save(remoteEmotionPath = null)
+            return
+        }
+        if (!com.jhw.batteryemoji.core.Utils.MyUtils.isNetworkAvailable(requireContext())) {
+            com.jhw.batteryemoji.core.Utils.MyUtils.showNoInternetDialog(
+                context = requireContext(),
+                onRetry = { applySelectedAnimation() }
+            )
             return
         }
         val appContext = requireContext().applicationContext

@@ -3,6 +3,8 @@ package com.jhw.batteryemoji.service
 import android.content.Context
 import android.content.res.ColorStateList
 import android.graphics.Color
+import android.graphics.BitmapFactory
+import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.GradientDrawable
 import android.os.Build
@@ -84,15 +86,25 @@ class StatusBarOverlayRenderer {
         // 2. Background and Base Content Color
         val effectiveContentColor: Int
         if (settings.lastAppliedThemeMode == "theme") {
-            val rectRes = getOverlayRectDrawable(settings.appliedThemeDrawableRes)
-            val drawable = ContextCompat.getDrawable(context, rectRes)?.mutate()
-            if (drawable is GradientDrawable) {
-                drawable.cornerRadius = 0f
-            }
-            if (drawable != null) {
-                binding.clOverlayRoot.background = drawable
+            val remoteThemePath = settings.remoteThemePath
+            if (remoteThemePath != null && java.io.File(remoteThemePath).exists()) {
+                val bitmap = BitmapFactory.decodeFile(remoteThemePath)
+                if (bitmap != null) {
+                    binding.clOverlayRoot.background = BitmapDrawable(context.resources, bitmap)
+                } else {
+                    binding.clOverlayRoot.setBackgroundResource(R.drawable.bg_theme_grad_pink)
+                }
             } else {
-                binding.clOverlayRoot.setBackgroundResource(rectRes)
+                val rectRes = getOverlayRectDrawable(settings.appliedThemeDrawableRes)
+                val drawable = ContextCompat.getDrawable(context, rectRes)?.mutate()
+                if (drawable is GradientDrawable) {
+                    drawable.cornerRadius = 0f
+                }
+                if (drawable != null) {
+                    binding.clOverlayRoot.background = drawable
+                } else {
+                    binding.clOverlayRoot.setBackgroundResource(rectRes)
+                }
             }
             effectiveContentColor = if (settings.isAppliedThemeGradient) Color.WHITE else settings.iconColor
         } else {

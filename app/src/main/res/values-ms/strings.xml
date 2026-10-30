@@ -285,4 +285,12 @@
     <string name="lang_spanish_native">Español</string>
     <string name="lang_thai_native">ไทย</string>
     <string name="lang_ukrainian_native">Українська</string>
+
+    <string name="get_start_title">Peribadikan setiap\nbutiran dengan</string>
+    <string name="get_start_subtitle">emoji, haiwan peliharaan, gaya bateri, bar status &amp;\nlatar belakang yang cantik.</string>
+    <string name="restricted_settings_title">Suis kelabu atau \"Tetapan terhad\"?</string>
+    <string name="restricted_settings_desc">Pada Android 13 dan lebih baharu, Android menyekat Kebolehcapaian untuk apl yang dipasang daripada fail APK sehingga anda membenarkannya. Ini ialah ciri keselamatan Android: apl tidak boleh menghidupkannya untuk anda, hanya anda yang boleh.</string>
+    <string name="restricted_settings_steps"><![CDATA[1. Ketik <b>Pergi ke Tetapan</b> dan cuba hidupkan perkhidmatan sekali, supaya Android menunjukkan mesej <b>Tetapan terhad</b>.<br/>2. Kembali dan ketik <b>Buka Maklumat Apl</b>.<br/>3. Ketik menu <b>⋮</b> di penjuru kanan sebelah atas.<br/>4. Ketik <b>Benarkan tetapan terhad</b> dan sahkan dengan PIN atau cap jari anda.<br/>5. Ketik <b>Pergi ke Tetapan</b> sekali lagi dan hidupkan perkhidmatan.]]></string>
+    <string name="open_app_info">Buka Maklumat Apl</string>
+    <string name="app_info_open_failed">Tidak dapat membuka Maklumat Apl. Buka Tetapan › Apl › Emoji Battery secara manual.</string>
 </resources>

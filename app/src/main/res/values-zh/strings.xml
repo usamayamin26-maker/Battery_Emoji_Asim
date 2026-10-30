@@ -285,4 +285,12 @@
     <string name="lang_spanish_native">Español</string>
     <string name="lang_thai_native">ไทย</string>
     <string name="lang_ukrainian_native">Українська</string>
+
+    <string name="get_start_title">个性化每一个\n细节，尽在</string>
+    <string name="get_start_subtitle">表情符号、宠物、电池样式、状态栏与\n精美背景。</string>
+    <string name="restricted_settings_title">开关变灰或显示“受限设置”？</string>
+    <string name="restricted_settings_desc">在 Android 13 及更高版本上，Android 会阻止通过 APK 文件安装的应用使用无障碍功能，直到您手动允许。这是 Android 的安全功能：应用无法为您开启，只能由您亲自操作。</string>
+    <string name="restricted_settings_steps"><![CDATA[1. 点击<b>前往设置</b>并尝试开启一次服务，让 Android 显示<b>受限设置</b>提示。<br/>2. 返回并点击<b>打开应用信息</b>。<br/>3. 点击右上角的 <b>⋮</b> 菜单。<br/>4. 点击<b>允许受限设置</b>并通过 PIN 码或指纹进行确认。<br/>5. 再次点击<b>前往设置</b>并开启服务。]]></string>
+    <string name="open_app_info">打开应用信息</string>
+    <string name="app_info_open_failed">无法打开应用信息。请手动打开 设置 › 应用 › Emoji Battery。</string>
 </resources>

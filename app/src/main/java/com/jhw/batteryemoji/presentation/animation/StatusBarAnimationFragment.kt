@@ -13,8 +13,10 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.jhw.batteryemoji.R
+import com.jhw.batteryemoji.core.Utils.MyUtils
 import com.jhw.batteryemoji.data.remote.RemoteImageLoader
 import com.jhw.batteryemoji.databinding.FragmentStatusBarAnimationBinding
+import com.jhw.batteryemoji.presentation.remote.RemoteAssetUiState
 import com.universal.remote.ads.AdsController
 import kotlinx.coroutines.launch
 
@@ -47,6 +49,20 @@ class StatusBarAnimationFragment : Fragment() {
         setupListeners()
         observeViewModel()
         bindAdSlots()
+        checkAndFetchRemoteAnimations()
+    }
+
+    private fun checkAndFetchRemoteAnimations() {
+        if (viewModel.remoteAnimations.value.isNullOrEmpty()) {
+            if (MyUtils.isNetworkAvailable(requireContext())) {
+                viewModel.loadRemoteAnimations()
+            } else {
+                MyUtils.showNoInternetDialog(
+                    context = requireContext(),
+                    onRetry = { viewModel.loadRemoteAnimations() }
+                )
+            }
+        }
     }
 
     private fun bindAdSlots() {
@@ -168,6 +184,13 @@ class StatusBarAnimationFragment : Fragment() {
     /** Downloads the remote animation, saves it, then applies it like a local one. */
     private fun applyRemoteAnimation(item: com.jhw.batteryemoji.domain.model.RemoteAssetItem) {
         val appContext = requireContext().applicationContext
+        if (!com.jhw.batteryemoji.core.Utils.MyUtils.isNetworkAvailable(requireContext())) {
+            com.jhw.batteryemoji.core.Utils.MyUtils.showNoInternetDialog(
+                context = requireContext(),
+                onRetry = { applyRemoteAnimation(item) }
+            )
+            return
+        }
         binding.btnApplyAnimation.isEnabled = false
         viewLifecycleOwner.lifecycleScope.launch {
             val path = RemoteImageLoader.saveForApply(item)
@@ -211,6 +234,15 @@ class StatusBarAnimationFragment : Fragment() {
         // Remote animations from the JSON manifest, appended after local items
         viewModel.remoteAnimations.observe(viewLifecycleOwner) { remote ->
             animationAdapter.submitRemoteList(remote)
+        }
+
+        viewModel.remoteAnimationState.observe(viewLifecycleOwner) { state ->
+            if (state is RemoteAssetUiState.Error && !MyUtils.isNetworkAvailable(requireContext())) {
+                MyUtils.showNoInternetDialog(
+                    context = requireContext(),
+                    onRetry = { viewModel.loadRemoteAnimations() }
+                )
+            }
         }
 
         viewModel.selectedAnimation.observe(viewLifecycleOwner) { mascot ->

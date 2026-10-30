@@ -7,6 +7,7 @@ import com.google.firebase.remoteconfig.remoteConfig
 import com.google.firebase.remoteconfig.remoteConfigSettings
 import com.universal.remote.ads.AdsController
 import kotlinx.serialization.json.Json
+import kotlinx.serialization.json.JsonObject
 import kotlinx.serialization.json.decodeFromJsonElement
 import kotlinx.serialization.json.jsonObject
 
@@ -152,8 +153,13 @@ object RemoteConfigManager {
      * means the console's numbers must be written unquoted.
      */
     private fun parse(raw: String): AdsConfig = try {
-        val payload = json.parseToJsonElement(raw).jsonObject
-        json.decodeFromJsonElement<AdsConfig>(payload).copy(raw = payload)
+        val defaultMap = runCatching {
+            json.parseToJsonElement(defaultJson).jsonObject.toMutableMap()
+        }.getOrDefault(mutableMapOf())
+        val remoteMap = json.parseToJsonElement(raw).jsonObject
+        defaultMap.putAll(remoteMap)
+        val merged = JsonObject(defaultMap)
+        json.decodeFromJsonElement<AdsConfig>(merged).copy(raw = merged)
     } catch (e: Exception) {
         Log.e(TAG, "Failed to parse ads config JSON, every slot stays off", e)
         AdsConfig()

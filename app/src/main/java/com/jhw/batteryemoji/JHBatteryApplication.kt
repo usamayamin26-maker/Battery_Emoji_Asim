@@ -150,6 +150,7 @@ class JHBatteryApplication : Application() {
          */
         fun shouldShowWelcomeScreen(): Boolean {
             val config = RemoteConfigManager.current()
+            if (config.allAdsOn == 0) return false
             val welcomeFlag = config.int("is_show_welcome_screen", default = 1)
             val resumeAdFlag = config.isShowResumeAppOpen
             return welcomeFlag == 1 && resumeAdFlag == 1

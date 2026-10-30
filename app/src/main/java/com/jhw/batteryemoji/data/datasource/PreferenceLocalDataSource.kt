@@ -44,6 +44,14 @@ class PreferenceLocalDataSource(
         prefs.edit().putInt(KEY_APPLIED_THEME_RES, res).apply()
     }
 
+    fun getAppliedThemePath(): String {
+        return prefs.getString(KEY_APPLIED_THEME_PATH, "") ?: ""
+    }
+
+    fun setAppliedThemePath(path: String) {
+        prefs.edit().putString(KEY_APPLIED_THEME_PATH, path).apply()
+    }
+
     fun isAppliedThemeGradient(): Boolean {
         return prefs.getBoolean(KEY_APPLIED_THEME_IS_GRADIENT, true)
     }
@@ -350,6 +358,7 @@ class PreferenceLocalDataSource(
         private const val KEY_LANGUAGE_SELECTED = "key_language_selected"
         private const val KEY_EMOJI_BATTERY_ENABLED = "key_emoji_battery_enabled"
         private const val KEY_APPLIED_THEME_RES = "key_applied_theme_res"
+        private const val KEY_APPLIED_THEME_PATH = "key_applied_theme_path"
         private const val KEY_APPLIED_THEME_IS_GRADIENT = "key_applied_theme_is_gradient"
         private const val KEY_APPLIED_MASCOT_RES = "key_applied_mascot_res"
         private const val KEY_MASCOT_SIZE_DP = "key_mascot_size_dp"

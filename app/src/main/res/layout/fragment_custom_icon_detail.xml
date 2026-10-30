@@ -31,7 +31,7 @@
         app:layout_constraintTop_toBottomOf="@+id/topHeader"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:visibility="visible" />
+        />
 
     <!-- Scrollable Content Area -->
     <androidx.core.widget.NestedScrollView
@@ -665,6 +665,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:visibility="visible" />
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -318,7 +318,8 @@ object RemoteImageLoader {
             prefs.getAppliedAnimationPath(),
             prefs.getLeftStatusEmojiPath(),
             prefs.getEmotionPath(),
-            prefs.getFloatingStickerImagePath()
+            prefs.getFloatingStickerImagePath(),
+            prefs.getAppliedThemePath()
         ).filterTo(HashSet()) { it.isNotEmpty() }
     }
 

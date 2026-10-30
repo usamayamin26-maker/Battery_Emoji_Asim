@@ -285,4 +285,12 @@
     <string name="lang_spanish_native">Español</string>
     <string name="lang_thai_native">ไทย</string>
     <string name="lang_ukrainian_native">Українська</string>
+
+    <string name="get_start_title">Настройте каждую\nдеталь с помощью</string>
+    <string name="get_start_subtitle">эмодзи, питомцев, стилей батареи, строк состояния и\nкрасивых фонов.</string>
+    <string name="restricted_settings_title">Переключатель неактивен или «Ограниченная настройка»?</string>
+    <string name="restricted_settings_desc">В Android 13 и более новых версиях Android блокирует специальные возможности для приложений, установленных из APK-файла, пока вы не разрешите доступ. Это функция безопасности Android: приложение не может включить её за вас, только вы сами.</string>
+    <string name="restricted_settings_steps"><![CDATA[1. Нажмите <b>Перейти в настройки</b> и попробуйте включить службу один раз, чтобы Android показал сообщение <b>Ограниченная настройка</b>.<br/>2. Вернитесь назад и нажмите <b>О приложении</b>.<br/>3. Нажмите на меню <b>⋮</b> в правом верхнем углу.<br/>4. Нажмите <b>Разрешить ограниченные настройки</b> и подтвердите действие с помощью PIN-кода или отпечатка пальца.<br/>5. Снова нажмите <b>Перейти в настройки</b> и включите службу.]]></string>
+    <string name="open_app_info">О приложении</string>
+    <string name="app_info_open_failed">Не удалось открыть сведения о приложении. Откройте Настройки › Приложения › Emoji Battery вручную.</string>
 </resources>

@@ -52,16 +52,16 @@ internal object AdSlots {
         isCurrent: (() -> Boolean)?,
         onResult: (Boolean) -> Unit,
     ) {
-        if (container !is AdSlotView) container.visibility = View.VISIBLE
-        val claimed = claimSlot(container, slotKey)
-        val stillCurrent = if (isCurrent == null) claimed else ({ claimed() && isCurrent() })
-
-        // Early: the part the config already in hand asks for, sized and shimmering, so the slot
-        // does not jump when the bootstrap is ready. The final pick is made again after the fetch.
         val config = RemoteConfigManager.current()
-        val layoutNow = config.int("${slotKey}_native")
-        val modeNow = config.int("${slotKey}_banner")
+        val allAdsOn = config.allAdsOn == 1
+        val layoutNow = if (allAdsOn) config.int("${slotKey}_native") else AdsConfig.NATIVE_LAYOUT_NONE
+        val modeNow = if (allAdsOn) config.int("${slotKey}_banner") else AdsConfig.BANNER_MODE_NONE
         val slotIsOn = mayShowAnAd(config, slotKey, units)
+
+        if (allAdsOn && container !is AdSlotView) {
+            container.visibility = View.VISIBLE
+        }
+
         when {
             layoutNow > AdsConfig.NATIVE_LAYOUT_NONE -> {
                 val views = nativeViews(activity, container)
@@ -77,15 +77,20 @@ internal object AdSlots {
             }
             // An AdSlotView is visible in XML: with both keys 0 it goes now, so no placeholder flashes.
             container is AdSlotView -> container.hide()
+            else -> container.visibility = View.GONE
         }
+
+        val claimed = claimSlot(container, slotKey)
+        val stillCurrent = if (isCurrent == null) claimed else ({ claimed() && isCurrent() })
 
         AdsBootstrap.whenReady(activity) { canRequestAds ->
             if (activity.isFinishing) return@whenReady
 
             // Read after the fetch, never before: this is the whole point of waiting.
             val fetched = RemoteConfigManager.current()
-            val layout = fetched.int("${slotKey}_native")
-            val mode = fetched.int("${slotKey}_banner")
+            val fetchedAllAdsOn = fetched.allAdsOn == 1
+            val layout = if (fetchedAllAdsOn) fetched.int("${slotKey}_native") else AdsConfig.NATIVE_LAYOUT_NONE
+            val mode = if (fetchedAllAdsOn) fetched.int("${slotKey}_banner") else AdsConfig.BANNER_MODE_NONE
             when {
                 canRequestAds && layout > AdsConfig.NATIVE_LAYOUT_NONE -> {
                     val views = nativeViews(activity, container)
@@ -117,9 +122,12 @@ internal object AdSlots {
                     )
                 }
 
-                // Both keys 0 (or no consent): no loader call, the slot just collapses.
+                // Both keys 0 (or no consent or all_ads_on == 0): no loader call, the slot just collapses.
                 else -> {
-                    if (stillCurrent()) hideParts(container)
+                    if (stillCurrent()) {
+                        hideParts(container)
+                        if (container !is AdSlotView) container.visibility = View.GONE
+                    }
                     onResult(false)
                 }
             }
@@ -141,6 +149,7 @@ internal object AdSlots {
      * the loaders open with, so this never answers yes to a value they call "off".
      */
     fun mayShowAnAd(config: AdsConfig, slotKey: String, units: String?): Boolean {
+        if (config.allAdsOn == 0) return false
         val mode = config.int("${slotKey}_banner")
         val banner = mode > AdsConfig.BANNER_MODE_NONE &&
             AdUnitIds.banner(config.bannerUnit(units), mode).isNotBlank()

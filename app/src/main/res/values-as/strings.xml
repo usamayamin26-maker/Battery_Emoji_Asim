@@ -285,4 +285,12 @@
     <string name="lang_spanish_native">Español</string>
     <string name="lang_thai_native">ไทย</string>
     <string name="lang_ukrainian_native">Українська</string>
+
+    <string name="get_start_title">প্ৰতিটো বিৱৰণ\nআপোনাৰ পছন্দ অনুসৰি সজাওক</string>
+    <string name="get_start_subtitle">ইম’জি, পোহনীয়া জীৱ-জন্তু, বেটাৰী শৈলী, স্থিতি দণ্ড আৰু\nসুন্দৰ পটভূমিৰ সৈতে।</string>
+    <string name="restricted_settings_title">চুইচটো ধূসৰ হৈ আছে নে \"প্ৰতিবন্ধিত ছেটিং\" দেখুৱাইছে?</string>
+    <string name="restricted_settings_desc">Android 13 আৰু তাতকৈ নতুন সংস্কৰণত, APK ফাইলৰ পৰা ইনষ্টল কৰা এপসমূহৰ বাবে Android-এ অভিগম্যতা বন্ধ কৰি ৰাখে যেতিয়ালৈকে আপুনি অনুমতি নিদিয়ে। এয়া এটা Android সুৰক্ষা বৈশিষ্ট্য: এপে আপোনাৰ হৈ ইয়াক অন কৰিব নোৱাৰে, কেৱল আপুনিহে পাৰিব।</string>
+    <string name="restricted_settings_steps"><![CDATA[1. <b>ছেটিংছলৈ যাওক</b>ত টিপক আৰু এবাৰ সেৱা অন কৰিবলৈ চেষ্টা কৰক, যাতে Android-এ <b>প্ৰতিবন্ধিত ছেটিং</b> বাৰ্তা দেখুৱায়।<br/>2. ঘূৰি আহক আৰু <b>এপৰ তথ্য খোলক</b>ত টিপক।<br/>3. ওপৰৰ সোঁ চুকত থকা <b>⋮</b> মেনুত টিপক।<br/>4. <b>প্ৰতিবন্ধিত ছেটিংছৰ অনুমতি দিয়ক</b>ত টিপক আৰু আপোনাৰ PIN বা আঙুলিৰ ছাপেৰে নিশ্চিত কৰক।<br/>5. আকৌ <b>ছেটিংছলৈ যাওক</b>ত টিপক আৰু সেৱাটো অন কৰক।]]></string>
+    <string name="open_app_info">এপৰ তথ্য খোলক</string>
+    <string name="app_info_open_failed">এপৰ তথ্য খুলিব পৰা নগ\'ল। ছেটিংছ › এপসমূহ › Emoji Battery নিজে খোলক।</string>
 </resources>

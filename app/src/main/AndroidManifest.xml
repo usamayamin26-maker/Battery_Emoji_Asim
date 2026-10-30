@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-
     <!-- Permissions required to draw custom theme over Android status bar -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
@@ -21,18 +20,16 @@
         android:localeConfig="@xml/locales_config"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.JHBatteryApp"
+        android:theme="@style/Base.Theme.JHBatteryApp"
         tools:targetApi="33">
+        <activity android:name=".presentation.splash.GetStartedActivity" android:exported="false" android:screenOrientation="portrait" android:theme="@style/Theme.JHBatteryApp" />
 
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-3940256099942544~3347511713" />
-
+            android:value="ca-app-pub-6225110419921909~9729432115" />
         <meta-data
             android:name="applovin.sdk.key"
-            android:value="YOUR_APPLOVIN_SDK_KEY_HERE" />
-
-        <!-- 1. Splash Activity (Launcher) -->
+            android:value="YOUR_APPLOVIN_SDK_KEY_HERE" /> <!-- 1. Splash Activity (Launcher) -->
         <activity
             android:name=".presentation.splash.SplashActivity"
             android:exported="true"
@@ -40,86 +37,69 @@
             android:theme="@style/Theme.JHBatteryApp.Fullscreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-
-        <!-- Language Activity -->
+        </activity> <!-- Language Activity -->
         <activity
             android:name=".presentation.settings.LanguageActivity"
             android:configChanges="locale|layoutDirection"
             android:exported="false"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.JHBatteryApp" />
-
-        <!-- 2. Onboarding Activity -->
+            android:theme="@style/Theme.JHBatteryApp" /> <!-- 2. Onboarding Activity -->
         <activity
             android:name=".presentation.onboarding.OnboardingActivity"
             android:exported="false"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.JHBatteryApp.Fullscreen" />
-
-        <!-- 3. Home / Main Activity -->
+            android:theme="@style/Theme.JHBatteryApp.Fullscreen" /> <!-- 3. Home / Main Activity -->
         <activity
             android:name=".presentation.home.MainActivity"
             android:exported="false"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.JHBatteryApp" />
-
-        <!-- Welcome Activity -->
+            android:theme="@style/Theme.JHBatteryApp" /> <!-- Welcome Activity -->
         <activity
             android:name=".presentation.welcome.WelcomeActivity"
             android:exported="false"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.JHBatteryApp.Fullscreen" />
-
-        <!-- How To Use / Accessibility Guide Activity -->
+            android:theme="@style/Theme.JHBatteryApp.Fullscreen" /> <!-- How To Use / Accessibility Guide Activity -->
         <activity
             android:name=".presentation.guide.HowToUseActivity"
             android:exported="false"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.JHBatteryApp" />
-
-        <!-- 4. Status Bar Overlay Foreground Service -->
+            android:theme="@style/Theme.JHBatteryApp" /> <!-- 4. Status Bar Overlay Foreground Service -->
         <service
             android:name=".service.StatusBarOverlayService"
             android:exported="false"
-
-            android:stopWithTask="false"
-            android:foregroundServiceType="specialUse">
+            android:foregroundServiceType="specialUse"
+            android:stopWithTask="false">
             <property
                 android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
                 android:value="Status bar theme and emoji battery overlay" />
-        </service>
-
-        <!-- 5. Status Bar Accessibility Service (draws directly on top of system status bar) -->
+        </service> <!-- 5. Status Bar Accessibility Service (draws directly on top of system status bar) -->
         <service
             android:name=".service.StatusBarAccessibilityService"
-            android:label="@string/accessibility_service_label"
             android:description="@string/accessibility_service_desc"
-            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE"
             android:exported="true"
+            android:label="@string/accessibility_service_label"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE"
             android:stopWithTask="false">
             <intent-filter>
                 <action android:name="android.accessibilityservice.AccessibilityService" />
             </intent-filter>
+
             <meta-data
                 android:name="android.accessibilityservice"
                 android:resource="@xml/accessibility_service_config" />
-        </service>
-
-        <!-- 6. Floating Sticker Display Service -->
+        </service> <!-- 6. Floating Sticker Display Service -->
         <service
             android:name=".service.FloatingStickerService"
             android:exported="false"
-            android:stopWithTask="false"
-            android:foregroundServiceType="specialUse">
+            android:foregroundServiceType="specialUse"
+            android:stopWithTask="false">
             <property
                 android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
                 android:value="Floating screen sticker display overlay" />
-        </service>
-
-        <!-- Persists the in-app language (AppCompatDelegate.setApplicationLocales) on Android 12 and below -->
+        </service> <!-- Persists the in-app language (AppCompatDelegate.setApplicationLocales) on Android 12 and below -->
         <service
             android:name="androidx.appcompat.app.AppLocalesMetadataHolderService"
             android:enabled="false"
@@ -128,7 +108,6 @@
                 android:name="autoStoreLocales"
                 android:value="true" />
         </service>
-
     </application>
 
 </manifest>

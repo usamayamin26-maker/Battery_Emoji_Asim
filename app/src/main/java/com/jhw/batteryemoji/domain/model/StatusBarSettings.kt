@@ -36,8 +36,16 @@ data class StatusBarSettings(
     val appliedBatteryIconPath: String = "",
     val appliedAnimationPath: String = "",
     val leftStatusEmojiPath: String = "",
-    val emotionPath: String = ""
+    val emotionPath: String = "",
+    val appliedThemePath: String = ""
 ) {
+    /**
+     * Downloaded theme background to draw, or null. A remote theme is applied by setting
+     * appliedThemeDrawableRes to 0, so applying a built-in theme takes precedence.
+     */
+    val remoteThemePath: String?
+        get() = appliedThemePath.takeIf { appliedThemeDrawableRes == 0 && it.isNotEmpty() }
+
     /**
      * Downloaded battery icon to draw, or null. A remote icon is applied by setting the res to 0,
      * so applying any built-in icon (non-zero res) automatically takes precedence over it.

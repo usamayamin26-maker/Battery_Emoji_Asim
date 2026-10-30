@@ -70,6 +70,7 @@ object SplashAds {
      */
     fun isWorthWaitingFor(appOpenOnly: Boolean = false): Boolean {
         val config = RemoteConfigManager.current()
+        if (config.allAdsOn == 0) return false
         val hasFormatOn = isAppOpenOn(config) || (!appOpenOnly && isInterstitialOn(config))
         return hasFormatOn || config.isOn("is_show_admob_splash_native")
     }
@@ -104,6 +105,11 @@ object SplashAds {
         onResult: (Loaded?) -> Unit,
     ): () -> Unit {
         val config = RemoteConfigManager.current()
+        if (config.allAdsOn == 0) {
+            Log.d(TAG, "all_ads_on is 0; skipping splash ad")
+            onResult(null)
+            return {}
+        }
         val order = orderFor(config).filter { !appOpenOnly || it == Format.APP_OPEN }
 
         if (order.isEmpty()) {
@@ -175,6 +181,7 @@ object SplashAds {
     }
 
     private fun orderFor(config: AdsConfig): List<Format> {
+        if (config.allAdsOn == 0) return emptyList()
         val pref = if (config.splashAdPreference == AdsConfig.SPLASH_AD_PREFERENCE_NONE) {
             when {
                 isAppOpenOn(config) -> AdsConfig.SPLASH_AD_PREFERENCE_APP_OPEN_FIRST
@@ -197,6 +204,11 @@ object SplashAds {
      */
     fun show(activity: Activity, onDone: () -> Unit) {
         val config = RemoteConfigManager.current()
+        if (config.allAdsOn == 0) {
+            Log.d(TAG, "all_ads_on is 0; skipping splash ad")
+            onDone()
+            return
+        }
         val order = orderFor(config)
 
         if (order.isEmpty()) {
@@ -229,10 +241,14 @@ object SplashAds {
     private fun splashInterUnit(config: AdsConfig) = config.splashInterId.ifBlank { config.appInterId }
 
     private fun isAppOpenOn(config: AdsConfig) =
-        config.isShowSplashAppOpen == 1 && AdUnitIds.appOpen(config.splashAppOpenId).isNotBlank()
+        config.allAdsOn == 1 &&
+        config.isShowSplashAppOpen == 1 &&
+        AdUnitIds.appOpen(config.splashAppOpenId).isNotBlank()
 
     private fun isInterstitialOn(config: AdsConfig) =
-        config.isShowSplashInter == 1 && AdUnitIds.interstitial(splashInterUnit(config)).isNotBlank()
+        config.allAdsOn == 1 &&
+        config.isShowSplashInter == 1 &&
+        AdUnitIds.interstitial(splashInterUnit(config)).isNotBlank()
 
     private enum class Format {
         APP_OPEN {

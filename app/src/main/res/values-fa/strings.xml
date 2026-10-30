@@ -285,4 +285,12 @@
     <string name="lang_spanish_native">Español</string>
     <string name="lang_thai_native">ไทย</string>
     <string name="lang_ukrainian_native">Українська</string>
+
+    <string name="get_start_title">شخصی‌سازی تک‌تک\nجزئیات با</string>
+    <string name="get_start_subtitle">ایموجی‌ها، حیوانات خانگی، سبک‌های باتری، نوارهای وضعیت و\nپس‌زمینه‌های زیبا.</string>
+    <string name="restricted_settings_title">کلید خاکستری است یا پیام \"تنظیم محدودشده\" نمایش داده می‌شود؟</string>
+    <string name="restricted_settings_desc">در Android 13 و نسخه‌های جدیدتر، Android دسترسی‌پذیری برنامه‌های نصب‌شده از فایل APK را مسدود می‌کند تا زمانی که خودتان اجازه دهید. این یک ویژگی امنیتی Android است: برنامه نمی‌تواند آن را برای شما فعال کند، فقط خودتان می‌توانید.</string>
+    <string name="restricted_settings_steps"><![CDATA[1. روی <b>رفتن به تنظیمات</b> ضربه بزنید و یک‌بار سعی کنید سرویس را روشن کنید تا Android پیام <b>تنظیم محدودشده</b> را نشان دهد.<br/>2. برگردید و روی <b>باز کردن اطلاعات برنامه</b> ضربه بزنید.<br/>3. روی منوی <b>⋮</b> در گوشه بالا ضربه بزنید.<br/>4. روی <b>اجازه به تنظیمات محدودشده</b> ضربه بزنید و با PIN یا اثر انگشت تأیید کنید.<br/>5. دوباره روی <b>رفتن به تنظیمات</b> ضربه بزنید و سرویس را روشن کنید.]]></string>
+    <string name="open_app_info">باز کردن اطلاعات برنامه</string>
+    <string name="app_info_open_failed">اطلاعات برنامه باز نشد. تنظیمات › برنامه‌ها › Emoji Battery را به‌صورت دستی باز کنید.</string>
 </resources>

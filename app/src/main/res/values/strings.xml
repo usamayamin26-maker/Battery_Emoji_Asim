@@ -18,6 +18,9 @@
     <string name="get_started">Get Started</string>
     <string name="next">Next</string>
 
+    <string name="get_start_title">Personalize every\ndetail with</string>
+    <string name="get_start_subtitle">emojis, pets, battery styles, status bars &amp;\nbeautiful backgrounds.</string>
+
     <!-- Home Screen -->
     <string name="battery_icon_title">Battery Icon</string>
     <string name="search_emojis_title">Search Emojis</string>

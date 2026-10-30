@@ -398,6 +398,7 @@ class StatusBarAccessibilityService : AccessibilityService() {
         mascotRes: Int,
         isEmojiBatteryActive: Boolean
     ) {
+        preferenceRepository.setAppliedThemePath("")
         preferenceRepository.setAppliedThemeDrawableRes(themeDrawableRes)
         preferenceRepository.setAppliedThemeGradient(isGradient)
         preferenceRepository.setAppliedMascotDrawableRes(mascotRes)
@@ -504,7 +505,17 @@ class StatusBarAccessibilityService : AccessibilityService() {
 
         fun updateTheme(themeRes: Int, isGradient: Boolean) {
             val inst = instance ?: return
+            inst.preferenceRepository.setAppliedThemePath("")
             inst.preferenceRepository.setAppliedThemeDrawableRes(themeRes)
+            inst.preferenceRepository.setAppliedThemeGradient(isGradient)
+            inst.preferenceRepository.setLastAppliedThemeMode("theme")
+            inst.applyCustomSettings()
+        }
+
+        fun updateRemoteTheme(themePath: String, isGradient: Boolean) {
+            val inst = instance ?: return
+            inst.preferenceRepository.setAppliedThemePath(themePath)
+            inst.preferenceRepository.setAppliedThemeDrawableRes(0)
             inst.preferenceRepository.setAppliedThemeGradient(isGradient)
             inst.preferenceRepository.setLastAppliedThemeMode("theme")
             inst.applyCustomSettings()

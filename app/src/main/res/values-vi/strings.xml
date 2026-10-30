@@ -285,4 +285,12 @@
     <string name="lang_spanish_native">Español</string>
     <string name="lang_thai_native">ไทย</string>
     <string name="lang_ukrainian_native">Українська</string>
+
+    <string name="get_start_title">Cá nhân hóa từng\nchi tiết với</string>
+    <string name="get_start_subtitle">emoji, thú cưng, kiểu pin, thanh trạng thái &amp;\nhình nền tuyệt đẹp.</string>
+    <string name="restricted_settings_title">Công tắc bị mờ hoặc hiện \"Cài đặt bị hạn chế\"?</string>
+    <string name="restricted_settings_desc">Trên Android 13 trở lên, Android sẽ chặn tính năng Trợ năng đối với các ứng dụng được cài đặt từ tệp APK cho đến khi bạn cho phép. Đây là tính năng bảo mật của Android: ứng dụng không thể tự bật tính năng này cho bạn, chỉ có bạn mới có thể làm điều đó.</string>
+    <string name="restricted_settings_steps"><![CDATA[1. Nhấn vào <b>Đi tới Cài đặt</b> và thử bật dịch vụ một lần để Android hiển thị thông báo <b>Cài đặt bị hạn chế</b>.<br/>2. Quay lại và nhấn vào <b>Mở thông tin ứng dụng</b>.<br/>3. Nhấn vào menu <b>⋮</b> ở góc trên cùng bên phải.<br/>4. Nhấn vào <b>Cho phép cài đặt bị hạn chế</b> và xác nhận bằng mã PIN hoặc vân tay của bạn.<br/>5. Nhấn lại vào <b>Đi tới Cài đặt</b> và bật dịch vụ.]]></string>
+    <string name="open_app_info">Mở thông tin ứng dụng</string>
+    <string name="app_info_open_failed">Không thể mở Thông tin ứng dụng. Mở Cài đặt › Ứng dụng › Emoji Battery theo cách thủ công.</string>
 </resources>

@@ -285,4 +285,12 @@
     <string name="lang_spanish_native">Español</string>
     <string name="lang_thai_native">ไทย</string>
     <string name="lang_ukrainian_native">Українська</string>
+
+    <string name="get_start_title">Her detayı\nözelleştirin:</string>
+    <string name="get_start_subtitle">emojiler, evcil hayvanlar, pil stilleri, durum çubukları ve\ngüzel arka planlarla.</string>
+    <string name="restricted_settings_title">Anahtar devre dışı veya \"Kısıtlanmış ayar\" mı diyor?</string>
+    <string name="restricted_settings_desc">Android 13 ve daha yeni sürümlerde Android, siz izin verene kadar APK dosyasından yüklenen uygulamalar için Erişilebilirliği engeller. Bu bir Android güvenlik özelliğidir: uygulama bunu sizin yerinize açamaz, yalnızca siz açabilirsiniz.</string>
+    <string name="restricted_settings_steps"><![CDATA[1. <b>Ayarlara Git</b>\'e dokunun ve hizmeti bir kez açmayı deneyin, böylece Android <b>Kısıtlanmış ayar</b> uyarısını gösterir.<br/>2. Geri gelin ve <b>Uygulama Bilgisini Aç</b>\'a dokunun.<br/>3. Sağ üst köşedeki <b>⋮</b> menüsüne dokunun.<br/>4. <b>Kısıtlanmış ayarlara izin ver</b>\'e dokunun ve PIN veya parmak izinizle onaylayın.<br/>5. Tekrar <b>Ayarlara Git</b>\'e dokunun ve hizmeti açın.]]></string>
+    <string name="open_app_info">Uygulama Bilgisini Aç</string>
+    <string name="app_info_open_failed">Uygulama bilgisi açılamadı. Ayarlar › Uygulamalar › Emoji Battery bölümünü manuel olarak açın.</string>
 </resources>

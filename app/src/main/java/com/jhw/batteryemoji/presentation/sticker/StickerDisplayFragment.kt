@@ -109,6 +109,13 @@ class StickerDisplayFragment : Fragment() {
 
     /** Remote stickers are downloaded to a file first, then go through the same flow as local ones. */
     private fun onRemoteStickerSelected(asset: RemoteAssetItem) {
+        if (!com.jhw.batteryemoji.core.Utils.MyUtils.isNetworkAvailable(requireContext())) {
+            com.jhw.batteryemoji.core.Utils.MyUtils.showNoInternetDialog(
+                context = requireContext(),
+                onRetry = { onRemoteStickerSelected(asset) }
+            )
+            return
+        }
         if (isDownloadingSticker) return
         isDownloadingSticker = true
         val appContext = requireContext().applicationContext
@@ -326,6 +333,15 @@ class StickerDisplayFragment : Fragment() {
         // Remote stickers from the JSON manifest, appended after local items
         viewModel.remoteStickers.observe(viewLifecycleOwner) { remote ->
             gridAdapter.submitRemoteList(remote)
+        }
+
+        viewModel.remoteStickerState.observe(viewLifecycleOwner) { state ->
+            if (state is com.jhw.batteryemoji.presentation.remote.RemoteAssetUiState.Error && !com.jhw.batteryemoji.core.Utils.MyUtils.isNetworkAvailable(requireContext())) {
+                com.jhw.batteryemoji.core.Utils.MyUtils.showNoInternetDialog(
+                    context = requireContext(),
+                    onRetry = { viewModel.loadRemoteStickers() }
+                )
+            }
         }
 
         viewModel.myStickers.observe(viewLifecycleOwner) { myStickers ->

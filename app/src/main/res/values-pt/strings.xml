@@ -285,4 +285,12 @@
     <string name="lang_spanish_native">Español</string>
     <string name="lang_thai_native">ไทย</string>
     <string name="lang_ukrainian_native">Українська</string>
+
+    <string name="get_start_title">Personalize cada\ndetalhe com</string>
+    <string name="get_start_subtitle">emojis, pets, estilos de bateria, barras de status e\nlindos planos de fundo.</string>
+    <string name="restricted_settings_title">Interruptor desativado ou \"Configuração restrita\"?</string>
+    <string name="restricted_settings_desc">No Android 13 e versões mais recentes, o Android bloqueia a Acessibilidade para apps instalados a partir de um arquivo APK até que você permita. Este é um recurso de segurança do Android: o app não pode ativar por você, apenas você pode.</string>
+    <string name="restricted_settings_steps"><![CDATA[1. Toque em <b>Ir para Configurações</b> e tente ativar o serviço uma vez, para que o Android mostre a mensagem <b>Configuração restrita</b>.<br/>2. Volte e toque em <b>Abrir informações do app</b>.<br/>3. Toque no menu <b>⋮</b> no canto superior direito.<br/>4. Toque em <b>Permitir configurações restritas</b> e confirme com seu PIN ou impressão digital.<br/>5. Toque em <b>Ir para Configurações</b> novamente e ative o serviço.]]></string>
+    <string name="open_app_info">Abrir informações do app</string>
+    <string name="app_info_open_failed">Não foi possível abrir as Informações do app. Abra Configurações › Aplicativos › Emoji Battery manualmente.</string>
 </resources>

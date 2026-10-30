@@ -23,7 +23,7 @@
             android:layout_width="@dimen/_24sdp"
             android:layout_height="@dimen/_24sdp"
             android:contentDescription="@null"
-            android:src="@drawable/ic_status_wifi"
+            android:src="@drawable/wifi"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

@@ -98,6 +98,7 @@ class WelcomeActivity : AppCompatActivity() {
 
     private fun preloadAppOpenAd() {
         val config = RemoteConfigManager.current()
+        if (config.allAdsOn == 0) return
         val rawUnitId = config.resumeAppOpenId.ifBlank { config.splashAppOpenId }
         val unitId = AdUnitIds.appOpen(rawUnitId)
 

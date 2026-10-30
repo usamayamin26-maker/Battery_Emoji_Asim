@@ -285,4 +285,12 @@
     <string name="lang_spanish_native">Español</string>
     <string name="lang_thai_native">ไทย</string>
     <string name="lang_ukrainian_native">Українська</string>
+
+    <string name="get_start_title">התאם אישית כל\nפרט עם</string>
+    <string name="get_start_subtitle">אימוג\'ים, חיות מחמד, סגנונות סוללה, שורות מצב ו\nרקעים יפהפיים.</string>
+    <string name="restricted_settings_title">המתג אפור או מופיעה הודעת \"הגדרה מוגבלת\"?</string>
+    <string name="restricted_settings_desc">ב-Android 13 ואילך, Android חוסם נגישות עבור אפליקציות שהותקנו מקובץ APK עד שתאשר זאת בעצמך. זוהי תכונת אבטחה של Android: האפליקציה אינה יכולה להפעיל זאת עבורך, רק אתה יכול.</string>
+    <string name="restricted_settings_steps"><![CDATA[1. הקש על <b>עבור להגדרות</b> ונסה להפעיל את השירות פעם אחת, כדי ש-Android יציג את הודעת <b>הגדרה מוגבלת</b>.<br/>2. חזור והקש על <b>פתח פרטי אפליקציה</b>.<br/>3. הקש על תפריט <b>⋮</b> בפינה השמאלית העליונה.<br/>4. הקש על <b>אפשר הגדרות מוגבלות</b> ואשר באמצעות קוד PIN או טביעת אצבע.<br/>5. הקש שוב על <b>עבור להגדרות</b> והפעל את השירות.]]></string>
+    <string name="open_app_info">פתח פרטי אפליקציה</string>
+    <string name="app_info_open_failed">לא ניתן לפתוח את פרטי האפליקציה. פתח הגדרות › אפליקציות › Emoji Battery באופן ידני.</string>
 </resources>

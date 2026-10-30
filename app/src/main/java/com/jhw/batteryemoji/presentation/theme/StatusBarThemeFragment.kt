@@ -1,5 +1,7 @@
 package com.jhw.batteryemoji.presentation.theme
 
+import android.content.res.ColorStateList
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -7,12 +9,18 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.jhw.batteryemoji.R
+import com.jhw.batteryemoji.core.Utils.MyUtils
+import com.jhw.batteryemoji.data.remote.RemoteImageLoader
 import com.jhw.batteryemoji.databinding.FragmentStatusBarThemeBinding
-import androidx.fragment.app.viewModels
+import com.jhw.batteryemoji.domain.model.RemoteAssetItem
+import com.jhw.batteryemoji.domain.model.StatusBarThemeItem
+import com.jhw.batteryemoji.presentation.remote.RemoteAssetUiState
 import com.universal.remote.ads.AdsController
+import kotlinx.coroutines.launch
 
 class StatusBarThemeFragment : Fragment() {
 
@@ -51,6 +59,25 @@ class StatusBarThemeFragment : Fragment() {
         setupListeners()
         observeViewModel()
         bindAdSlots()
+        checkAndFetchRemoteThemes()
+    }
+
+    private fun checkAndFetchRemoteThemes() {
+        val currentRemoteList = if (viewModel.currentTab.value == StatusBarThemeViewModel.ThemeTab.BACKGROUND) {
+            viewModel.remoteBackgroundThemes.value
+        } else {
+            viewModel.remoteGradientThemes.value
+        }
+        if (currentRemoteList.isNullOrEmpty()) {
+            if (MyUtils.isNetworkAvailable(requireContext())) {
+                viewModel.loadRemoteThemes()
+            } else {
+                MyUtils.showNoInternetDialog(
+                    context = requireContext(),
+                    onRetry = { viewModel.loadRemoteThemes() }
+                )
+            }
+        }
     }
 
     private fun bindAdSlots() {
@@ -72,7 +99,11 @@ class StatusBarThemeFragment : Fragment() {
     }
 
     private fun setupRecyclerView() {
-        themeAdapter = StatusBarThemeAdapter { selectedItem ->
+        themeAdapter = StatusBarThemeAdapter(
+            onRemoteItemClick = { remoteItem ->
+                viewModel.selectRemoteTheme(remoteItem)
+            }
+        ) { selectedItem ->
             viewModel.selectTheme(selectedItem)
         }
         binding.rvThemesGrid.adapter = themeAdapter
@@ -114,6 +145,10 @@ class StatusBarThemeFragment : Fragment() {
     }
 
     private fun applyCurrentTheme() {
+        viewModel.selectedRemoteTheme.value?.let { remote ->
+            applyRemoteTheme(remote)
+            return
+        }
         val selected = viewModel.selectedTheme.value ?: return
         viewModel.applyTheme(selected)
 
@@ -133,23 +168,49 @@ class StatusBarThemeFragment : Fragment() {
         ).show()
     }
 
+    private fun applyRemoteTheme(item: RemoteAssetItem) {
+        val appContext = requireContext().applicationContext
+        if (!MyUtils.isNetworkAvailable(requireContext())) {
+            MyUtils.showNoInternetDialog(
+                context = requireContext(),
+                onRetry = { applyRemoteTheme(item) }
+            )
+            return
+        }
+        binding.btnApplyTheme.isEnabled = false
+        viewLifecycleOwner.lifecycleScope.launch {
+            val path = RemoteImageLoader.saveForApply(item)
+            _binding?.btnApplyTheme?.isEnabled = true
+            if (path == null) {
+                Toast.makeText(appContext, R.string.remote_asset_download_failed, Toast.LENGTH_SHORT).show()
+                return@launch
+            }
+            val isGradient = item.category.equals("gradient", ignoreCase = true) ||
+                    item.type.equals("gradient", ignoreCase = true)
+            viewModel.applyRemoteTheme(path, isGradient)
+
+            val ctx = context ?: return@launch
+            if (com.jhw.batteryemoji.service.StatusBarAccessibilityService.isAccessibilityServiceEnabled(ctx)) {
+                com.jhw.batteryemoji.service.StatusBarAccessibilityService.updateRemoteTheme(path, isGradient)
+                Toast.makeText(appContext, getString(R.string.theme_applied_success), Toast.LENGTH_SHORT).show()
+            } else if (com.jhw.batteryemoji.presentation.common.StatusBarPermissionHelper.hasOverlayPermission(ctx)) {
+                com.jhw.batteryemoji.service.StatusBarOverlayService.start(ctx)
+                Toast.makeText(appContext, getString(R.string.theme_applied_success), Toast.LENGTH_SHORT).show()
+            } else {
+                com.jhw.batteryemoji.presentation.common.StatusBarPermissionHelper.showAccessibilityDialog(
+                    context = ctx,
+                    onSettingsOpened = { isAwaitingPermission = true }
+                )
+            }
+        }
+    }
+
     override fun onResume() {
         super.onResume()
         if (com.jhw.batteryemoji.service.StatusBarAccessibilityService.isAccessibilityServiceEnabled(requireContext())) {
-            val selected = viewModel.selectedTheme.value
-            if (selected != null) {
-                com.jhw.batteryemoji.service.StatusBarAccessibilityService.updateTheme(
-                    themeRes = selected.drawableRes,
-                    isGradient = selected.isGradient
-                )
-                if (isAwaitingPermission) {
-                    isAwaitingPermission = false
-                    Toast.makeText(
-                        requireContext(),
-                        getString(R.string.theme_applied_success),
-                        Toast.LENGTH_SHORT
-                    ).show()
-                }
+            if (isAwaitingPermission) {
+                isAwaitingPermission = false
+                applyCurrentTheme()
             }
         }
     }
@@ -161,7 +222,9 @@ class StatusBarThemeFragment : Fragment() {
 
         viewModel.selectedTheme.observe(viewLifecycleOwner) { item ->
             if (item != null) {
-                binding.clStatusBarPreview.setBackgroundResource(item.drawableRes)
+                binding.clStatusBarPreview.background = null
+                binding.ivPreviewThemeBg.tag = null
+                binding.ivPreviewThemeBg.setImageResource(item.drawableRes)
                 themeAdapter.setSelectedId(item.id)
 
                 val contentColor = if (item.isGradient) {
@@ -169,14 +232,56 @@ class StatusBarThemeFragment : Fragment() {
                 } else {
                     ContextCompat.getColor(requireContext(), R.color.text_primary)
                 }
-                binding.tvPreviewTime.setTextColor(contentColor)
-                binding.tvPreviewBattery.setTextColor(contentColor)
-                binding.ivPreviewSignal.imageTintList = android.content.res.ColorStateList.valueOf(contentColor)
-                binding.ivPreviewWifi.imageTintList = android.content.res.ColorStateList.valueOf(contentColor)
-                binding.ivPreviewBattery.imageTintList = android.content.res.ColorStateList.valueOf(contentColor)
-                binding.ivPreviewBolt.imageTintList = android.content.res.ColorStateList.valueOf(contentColor)
+                updatePreviewColors(contentColor)
             }
         }
+
+        viewModel.selectedRemoteTheme.observe(viewLifecycleOwner) { remote ->
+            if (remote != null) {
+                binding.clStatusBarPreview.background = null
+                RemoteImageLoader.loadImage(remote, binding.ivPreviewThemeBg)
+                themeAdapter.setSelectedId(remote.id)
+
+                val isGradient = remote.category.equals("gradient", ignoreCase = true) ||
+                        remote.type.equals("gradient", ignoreCase = true)
+                val contentColor = if (isGradient) {
+                    Color.WHITE
+                } else {
+                    ContextCompat.getColor(requireContext(), R.color.text_primary)
+                }
+                updatePreviewColors(contentColor)
+            }
+        }
+
+        viewModel.remoteGradientThemes.observe(viewLifecycleOwner) { remoteList ->
+            if (viewModel.currentTab.value == StatusBarThemeViewModel.ThemeTab.GRADIENT) {
+                themeAdapter.submitRemoteList(remoteList)
+            }
+        }
+
+        viewModel.remoteBackgroundThemes.observe(viewLifecycleOwner) { remoteList ->
+            if (viewModel.currentTab.value == StatusBarThemeViewModel.ThemeTab.BACKGROUND) {
+                themeAdapter.submitRemoteList(remoteList)
+            }
+        }
+
+        viewModel.remoteThemeState.observe(viewLifecycleOwner) { state ->
+            if (state is RemoteAssetUiState.Error && !MyUtils.isNetworkAvailable(requireContext())) {
+                MyUtils.showNoInternetDialog(
+                    context = requireContext(),
+                    onRetry = { viewModel.loadRemoteThemes() }
+                )
+            }
+        }
+    }
+
+    private fun updatePreviewColors(contentColor: Int) {
+        binding.tvPreviewTime.setTextColor(contentColor)
+        binding.tvPreviewBattery.setTextColor(contentColor)
+        binding.ivPreviewSignal.imageTintList = ColorStateList.valueOf(contentColor)
+        binding.ivPreviewWifi.imageTintList = ColorStateList.valueOf(contentColor)
+        binding.ivPreviewBattery.imageTintList = ColorStateList.valueOf(contentColor)
+        binding.ivPreviewBolt.imageTintList = ColorStateList.valueOf(contentColor)
     }
 
     private fun updateTabUI(tab: StatusBarThemeViewModel.ThemeTab) {
@@ -194,8 +299,11 @@ class StatusBarThemeFragment : Fragment() {
                 binding.tvChooseLabel.setText(R.string.choose_gradient)
 
                 val items = viewModel.gradientThemes.value ?: emptyList()
-                val currentSelectedId = viewModel.selectedTheme.value?.id ?: (items.firstOrNull()?.id ?: "")
+                val currentSelectedId = viewModel.selectedTheme.value?.id
+                    ?: viewModel.selectedRemoteTheme.value?.id
+                    ?: (items.firstOrNull()?.id ?: "")
                 themeAdapter.setItems(items, currentSelectedId)
+                themeAdapter.submitRemoteList(viewModel.remoteGradientThemes.value ?: emptyList())
             }
             StatusBarThemeViewModel.ThemeTab.BACKGROUND -> {
                 binding.btnTabGradient.setBackgroundResource(R.drawable.bg_tab_pill_inactive)
@@ -207,8 +315,11 @@ class StatusBarThemeFragment : Fragment() {
                 binding.tvChooseLabel.setText(R.string.choose_background)
 
                 val items = viewModel.backgroundThemes.value ?: emptyList()
-                val currentSelectedId = viewModel.selectedTheme.value?.id ?: (items.firstOrNull()?.id ?: "")
+                val currentSelectedId = viewModel.selectedTheme.value?.id
+                    ?: viewModel.selectedRemoteTheme.value?.id
+                    ?: (items.firstOrNull()?.id ?: "")
                 themeAdapter.setItems(items, currentSelectedId)
+                themeAdapter.submitRemoteList(viewModel.remoteBackgroundThemes.value ?: emptyList())
             }
         }
     }

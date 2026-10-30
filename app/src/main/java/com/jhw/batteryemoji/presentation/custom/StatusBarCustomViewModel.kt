@@ -174,7 +174,7 @@ class StatusBarCustomViewModel(
             CustomStatusIconItem("calendar", "Date & Time", R.drawable.ic_calendar, titleRes = R.string.icon_date_time),
             CustomStatusIconItem("hotspot", "Hotspot", R.drawable.ic_hotspot, titleRes = R.string.icon_hotspot),
             CustomStatusIconItem("emotion", "Emotion", R.drawable.ic_emotion, titleRes = R.string.icon_emotion),
-            CustomStatusIconItem("wifi", "Wi-Fi", R.drawable.ic_status_wifi, titleRes = R.string.icon_wifi),
+            CustomStatusIconItem("wifi", "Wi-Fi", R.drawable.wifi, titleRes = R.string.icon_wifi),
             CustomStatusIconItem("signal", "SIM / Signal", R.drawable.ic_status_signal, titleRes = R.string.icon_sim_signal),
             CustomStatusIconItem("data", "Data", R.drawable.ic_data_swap, titleRes = R.string.icon_data),
             CustomStatusIconItem("animation", "Animation", R.drawable.ic_sparkle, titleRes = R.string.animation),

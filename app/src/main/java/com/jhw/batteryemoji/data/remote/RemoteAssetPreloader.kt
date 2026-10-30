@@ -34,6 +34,16 @@ object RemoteAssetPreloader {
             repository.loadCachedManifest()
             repository.fetchManifest().onSuccess { manifest ->
                 RemoteImageLoader.prefetch(manifest.getByType(AssetConfig.Type.EMOJI).take(HOME_THUMBNAILS))
+                RemoteImageLoader.prefetch(manifest.getByType(AssetConfig.Type.ANIMATION).take(6))
+                val themeItems = manifest.assets.filter {
+                    it.type.equals(AssetConfig.Type.THEME, ignoreCase = true) ||
+                    it.type.equals(AssetConfig.Type.GRADIENT, ignoreCase = true) ||
+                    it.type.equals(AssetConfig.Type.BACKGROUND, ignoreCase = true) ||
+                    it.category.equals(AssetConfig.Type.THEME, ignoreCase = true) ||
+                    it.category.equals(AssetConfig.Type.GRADIENT, ignoreCase = true) ||
+                    it.category.equals(AssetConfig.Type.BACKGROUND, ignoreCase = true)
+                }
+                RemoteImageLoader.prefetch(themeItems.take(6))
             }
             // A failed fetch is retried by the screens themselves, exactly as before
             started = false

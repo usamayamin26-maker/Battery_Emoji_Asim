@@ -285,4 +285,12 @@
     <string name="lang_spanish_native">Español</string>
     <string name="lang_thai_native">ไทย</string>
     <string name="lang_ukrainian_native">Українська</string>
+
+    <string name="get_start_title">すべての細部を\nカスタマイズ</string>
+    <string name="get_start_subtitle">絵文字、ペット、バッテリースタイル、ステータスバー、\n美しい背景で。</string>
+    <string name="restricted_settings_title">スイッチが灰色または「制限付き設定」と表示されますか？</string>
+    <string name="restricted_settings_desc">Android 13以降では、ユーザーが許可するまで、APKファイルからインストールされたアプリのユーザー補助機能がブロックされます。これはAndroidのセキュリティ機能です。アプリが自動でオンにすることはできず、ご自身で設定する必要があります。</string>
+    <string name="restricted_settings_steps"><![CDATA[1. <b>設定に移動</b>をタップしてサービスを一度オンにしようとすると、Androidに<b>制限付き設定</b>メッセージが表示されます。<br/>2. 戻って<b>アプリ情報を開く</b>をタップします。<br/>3. 右上の<b>⋮</b>メニューをタップします。<br/>4. <b>制限付き設定を許可</b>をタップし、PINまたは指紋で確認します。<br/>5. 再度<b>設定に移動</b>をタップしてサービスをオンにします。]]></string>
+    <string name="open_app_info">アプリ情報を開く</string>
+    <string name="app_info_open_failed">アプリ情報を開けませんでした。設定 › アプリ › Emoji Battery を手動で開いてください。</string>
 </resources>

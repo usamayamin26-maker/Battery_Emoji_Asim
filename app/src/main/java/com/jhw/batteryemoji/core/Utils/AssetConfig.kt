@@ -26,6 +26,10 @@ object AssetConfig {
         const val STATUS_EMOJI = "status_emoji"
         /** Emotion icon style (Custom → Customize Icon → Emotion), next to the built-in three. */
         const val EMOTION = "emotion"
+        /** Status bar themes (gradients & backgrounds). */
+        const val THEME = "theme"
+        const val GRADIENT = "gradient"
+        const val BACKGROUND = "background"
     }
 
     /** Asset format constants — must match manifest.json "format" field values. */

@@ -285,4 +285,12 @@
     <string name="lang_spanish_native">Español</string>
     <string name="lang_thai_native">ไทย</string>
     <string name="lang_ukrainian_native">Українська</string>
+
+    <string name="get_start_title">Personalisiere jedes\nDetail mit</string>
+    <string name="get_start_subtitle">Emojis, Haustieren, Akkustilen, Statusleisten und\nwunderschönen Hintergründen.</string>
+    <string name="restricted_settings_title">Schalter ausgegraut oder \"Eingeschränkte Einstellung\"?</string>
+    <string name="restricted_settings_desc">Unter Android 13 und neuer blockiert Android die Barrierefreiheit für Apps, die über eine APK-Datei installiert wurden, bis Sie sie zulassen. Dies ist eine Android-Sicherheitsfunktion: Die App kann sie nicht für Sie aktivieren, nur Sie selbst.</string>
+    <string name="restricted_settings_steps"><![CDATA[1. Tippen Sie auf <b>Zu Einstellungen</b> und versuchen Sie, den Dienst einmal zu aktivieren, damit Android die Meldung <b>Eingeschränkte Einstellung</b> anzeigt.<br/>2. Gehen Sie zurück und tippen Sie auf <b>App-Info öffnen</b>.<br/>3. Tippen Sie auf das <b>⋮</b>-Menü oben rechts.<br/>4. Tippen Sie auf <b>Eingeschränkte Einstellungen zulassen</b> und bestätigen Sie mit PIN oder Fingerabdruck.<br/>5. Tippen Sie erneut auf <b>Zu Einstellungen</b> und aktivieren Sie den Dienst.]]></string>
+    <string name="open_app_info">App-Info öffnen</string>
+    <string name="app_info_open_failed">App-Info konnte nicht geöffnet werden. Öffnen Sie Einstellungen › Apps › Emoji Battery manuell.</string>
 </resources>

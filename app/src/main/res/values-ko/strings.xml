@@ -285,4 +285,12 @@
     <string name="lang_spanish_native">Español</string>
     <string name="lang_thai_native">ไทย</string>
     <string name="lang_ukrainian_native">Українська</string>
+
+    <string name="get_start_title">모든 디테일을\n나만의 스타일로</string>
+    <string name="get_start_subtitle">이모지, 펫, 배터리 스타일, 상태 표시줄 및\n아름다운 배경화면으로 꾸며보세요.</string>
+    <string name="restricted_settings_title">스위치가 비활성화되었거나 \"제한된 설정\"이라고 표시되나요?</string>
+    <string name="restricted_settings_desc">Android 13 이상에서는 사용자가 허용할 때까지 APK 파일에서 설치된 앱의 접근성이 차단됩니다. 이는 Android 보안 기능으로, 앱이 대신 켤 수 없으며 직접 허용해야 합니다.</string>
+    <string name="restricted_settings_steps"><![CDATA[1. <b>설정으로 이동</b>을 누르고 서비스를 한 번 켜보세요. 그러면 Android에 <b>제한된 설정</b> 메시지가 표시됩니다.<br/>2. 돌아와서 <b>앱 정보 열기</b>를 누릅니다.<br/>3. 오른쪽 상단의 <b>⋮</b> 메뉴를 누릅니다.<br/>4. <b>제한된 설정 허용</b>을 누르고 PIN 또는 지문으로 확인합니다.<br/>5. 다시 <b>설정으로 이동</b>을 누르고 서비스를 켭니다.]]></string>
+    <string name="open_app_info">앱 정보 열기</string>
+    <string name="app_info_open_failed">앱 정보를 열 수 없습니다. 설정 › 앱 › Emoji Battery를 직접 열어주세요.</string>
 </resources>

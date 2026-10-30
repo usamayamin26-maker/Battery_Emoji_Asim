@@ -285,4 +285,12 @@
     <string name="lang_spanish_native">Español</string>
     <string name="lang_thai_native">ไทย</string>
     <string name="lang_ukrainian_native">Українська</string>
+
+    <string name="get_start_title">خصّص كل\nتفصيل مع</string>
+    <string name="get_start_subtitle">الرموز التعبيرية، والحيوانات الأليفة، وأنماط البطارية، وأشرطة الحالة و\nالخلفيات الجميلة.</string>
+    <string name="restricted_settings_title">المفتاح معطّل أو تظهر رسالة \"إعداد مقيّد\"؟</string>
+    <string name="restricted_settings_desc">على نظام Android 13 والإصدارات الأحدث، يحظر Android إمكانية الوصول للتطبيقات المثبتة من ملف APK حتى تسمح بها بنفسك. هذه ميزة أمان في Android: لا يمكن للتطبيق تفعيلها نيابة عنك، أنت وحدك من يستطيع ذلك.</string>
+    <string name="restricted_settings_steps"><![CDATA[1. اضغط على <b>الانتقال إلى الإعدادات</b> وحاول تفعيل الخدمة مرة واحدة، حتى يعرض Android رسالة <b>إعداد مقيّد</b>.<br/>2. عُد واضغط على <b>فتح معلومات التطبيق</b>.<br/>3. اضغط على قائمة <b>⋮</b> في الزاوية العلوية اليسرى.<br/>4. اضغط على <b>السماح بالإعدادات المقيّدة</b> وأكّد باستخدام رمز PIN أو بصمة الإصبع.<br/>5. اضغط على <b>الانتقال إلى الإعدادات</b> مرة أخرى وفعّل الخدمة.]]></string>
+    <string name="open_app_info">فتح معلومات التطبيق</string>
+    <string name="app_info_open_failed">تعذّر فتح معلومات التطبيق. افتح الإعدادات › التطبيقات › Emoji Battery يدويًا.</string>
 </resources>

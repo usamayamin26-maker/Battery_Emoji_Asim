@@ -21,6 +21,7 @@ import kotlinx.serialization.json.intOrNull
  */
 @Serializable
 data class AdsConfig(
+    @SerialName("all_ads_on") val allAdsOn: Int = 1,
     @SerialName("app_id") val appId: String = "",
 
     // ---- Shared units: the fallback for every placement whose own unit is blank.
@@ -76,7 +77,10 @@ data class AdsConfig(
     }
 
     /** A flag key is on (== 1). */
-    fun isOn(flagKey: String): Boolean = int(flagKey) == 1
+    fun isOn(flagKey: String): Boolean {
+        if (allAdsOn == 0) return false
+        return int(flagKey) == 1
+    }
 
     /**
      * A placement's unit id: [unitKey]'s value, or the shared [fallback] when it is blank, so a

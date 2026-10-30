@@ -76,7 +76,8 @@ class PreferenceRepositoryImpl(
             appliedBatteryIconPath = preferenceLocalDataSource.getAppliedBatteryIconPath(),
             appliedAnimationPath = preferenceLocalDataSource.getAppliedAnimationPath(),
             leftStatusEmojiPath = preferenceLocalDataSource.getLeftStatusEmojiPath(),
-            emotionPath = preferenceLocalDataSource.getEmotionPath()
+            emotionPath = preferenceLocalDataSource.getEmotionPath(),
+            appliedThemePath = preferenceLocalDataSource.getAppliedThemePath()
         )
     }
 
@@ -119,6 +120,7 @@ class PreferenceRepositoryImpl(
         preferenceLocalDataSource.setAppliedAnimationPath(settings.appliedAnimationPath)
         preferenceLocalDataSource.setLeftStatusEmojiPath(settings.leftStatusEmojiPath)
         preferenceLocalDataSource.setEmotionPath(settings.emotionPath)
+        preferenceLocalDataSource.setAppliedThemePath(settings.appliedThemePath)
         notifySettingsChanged()
     }
 
@@ -394,6 +396,15 @@ class PreferenceRepositoryImpl(
 
     override fun setAppliedAnimationPath(path: String) {
         preferenceLocalDataSource.setAppliedAnimationPath(path)
+        notifySettingsChanged()
+    }
+
+    override fun getAppliedThemePath(): String {
+        return preferenceLocalDataSource.getAppliedThemePath()
+    }
+
+    override fun setAppliedThemePath(path: String) {
+        preferenceLocalDataSource.setAppliedThemePath(path)
         notifySettingsChanged()
     }
 

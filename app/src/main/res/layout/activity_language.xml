@@ -24,6 +24,7 @@
         android:clipToPadding="false"
         android:paddingHorizontal="@dimen/_16sdp"
         android:paddingTop="@dimen/_12sdp"
+        android:layout_marginBottom="@dimen/_4sdp"
         android:paddingBottom="@dimen/_16sdp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toTopOf="@+id/btnApplyLanguage"

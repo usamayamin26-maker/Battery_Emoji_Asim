@@ -285,4 +285,12 @@
     <string name="lang_spanish_native">Español</string>
     <string name="lang_thai_native">ไทย</string>
     <string name="lang_ukrainian_native">Українська</string>
+
+    <string name="get_start_title">Personnalisez chaque\ndétail avec</string>
+    <string name="get_start_subtitle">des emojis, des animaux, des styles de batterie, des barres d\'état et\nde superbes arrière-plans.</string>
+    <string name="restricted_settings_title">Bouton grisé ou \"Paramètre restreint\" ?</string>
+    <string name="restricted_settings_desc">Sur Android 13 et versions ultérieures, Android bloque l\'accessibilité pour les applications installées à partir d\'un fichier APK jusqu\'à ce que vous l\'autorisiez. Il s\'agit d\'une fonctionnalité de sécurité Android : l\'application ne peut pas l\'activer pour vous, vous seul le pouvez.</string>
+    <string name="restricted_settings_steps"><![CDATA[1. Appuyez sur <b>Aller aux paramètres</b> et essayez d\'activer le service une fois pour qu\'Android affiche le message <b>Paramètre restreint</b>.<br/>2. Revenez en arrière et appuyez sur <b>Infos sur l\'app</b>.<br/>3. Appuyez sur le menu <b>⋮</b> dans le coin supérieur droit.<br/>4. Appuyez sur <b>Autoriser les paramètres restreints</b> et confirmez avec votre code PIN ou votre empreinte digitale.<br/>5. Appuyez à nouveau sur <b>Aller aux paramètres</b> et activez le service.]]></string>
+    <string name="open_app_info">Infos sur l\'app</string>
+    <string name="app_info_open_failed">Impossible d\'ouvrir les infos de l\'application. Ouvrez Paramètres › Applications › Emoji Battery manuellement.</string>
 </resources>

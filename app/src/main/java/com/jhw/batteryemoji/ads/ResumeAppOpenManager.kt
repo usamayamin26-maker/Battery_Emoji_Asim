@@ -100,7 +100,8 @@ object ResumeAppOpenManager {
 
     private fun isEnabled(): Boolean {
         val config = RemoteConfigManager.current()
-        return config.isShowResumeAppOpen == 1 &&
+        return config.allAdsOn == 1 &&
+            config.isShowResumeAppOpen == 1 &&
             AdUnitIds.appOpen(config.resumeAppOpenId).isNotBlank() &&
             AdsInitializer.isInitialized
     }

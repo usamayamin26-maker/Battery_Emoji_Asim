@@ -1,5 +1,6 @@
 package com.jhw.batteryemoji.core.Utils
 
+import android.app.Activity
 import android.app.Dialog
 import android.content.ClipData
 import android.content.ClipboardManager
@@ -112,6 +113,8 @@ object MyUtils {
         }
     }
 
+    private var isNoInternetDialogShowing = false
+
     /**
      * Displays the "No Internet Connection" dialog.
      * Retry button verifies connectivity via ConnectivityManager before dismissing.
@@ -121,11 +124,22 @@ object MyUtils {
         onRetry: (() -> Unit)? = null,
         onCancel: (() -> Unit)? = null
     ) {
+        if (isNoInternetDialogShowing) return
+        if (context is Activity && (context.isFinishing || context.isDestroyed)) return
+
+        isNoInternetDialogShowing = true
         createDialogWithBinding(
             bindingInflater = DialogNoInternetBinding::inflate,
             isCancelable = true,
             context = context
         ) { dialog, binding ->
+            dialog.setOnDismissListener {
+                isNoInternetDialogShowing = false
+            }
+            dialog.setOnCancelListener {
+                onCancel?.invoke()
+            }
+
             dialog.window?.apply {
                 setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
                 setLayout(

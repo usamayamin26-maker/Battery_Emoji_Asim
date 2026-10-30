@@ -285,4 +285,12 @@
     <string name="lang_spanish_native">Español</string>
     <string name="lang_thai_native">ไทย</string>
     <string name="lang_ukrainian_native">Українська</string>
+
+    <string name="get_start_title">Personalisasi setiap\ndetail dengan</string>
+    <string name="get_start_subtitle">emoji, hewan peliharaan, gaya baterai, bilah status &amp;\nlatar belakang indah.</string>
+    <string name="restricted_settings_title">Tombol redup atau bertuliskan \"Setelan yang dibatasi\"?</string>
+    <string name="restricted_settings_desc">Di Android 13 dan yang lebih baru, Android memblokir Aksesibilitas untuk aplikasi yang dipasang dari file APK hingga Anda mengizinkannya. Ini adalah fitur keamanan Android: aplikasi tidak dapat mengaktifkannya untuk Anda, hanya Anda yang bisa.</string>
+    <string name="restricted_settings_steps"><![CDATA[1. Ketuk <b>Buka Pengaturan</b> dan coba aktifkan layanan sekali, agar Android menampilkan pesan <b>Setelan yang dibatasi</b>.<br/>2. Kembali dan ketuk <b>Buka Info Aplikasi</b>.<br/>3. Ketuk menu <b>⋮</b> di sudut kanan atas.<br/>4. Ketuk <b>Izinkan setelan yang dibatasi</b> dan konfirmasikan dengan PIN atau sidik jari Anda.<br/>5. Ketuk <b>Buka Pengaturan</b> lagi dan aktifkan layanan.]]></string>
+    <string name="open_app_info">Buka Info Aplikasi</string>
+    <string name="app_info_open_failed">Tidak dapat membuka Info Aplikasi. Buka Pengaturan › Aplikasi › Emoji Battery secara manual.</string>
 </resources>

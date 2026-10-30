@@ -16,12 +16,14 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.jhw.batteryemoji.R
+import com.jhw.batteryemoji.core.Utils.MyUtils
 import com.jhw.batteryemoji.data.remote.RemoteImageLoader
 import com.jhw.batteryemoji.databinding.DialogBatteryPreviewBinding
 import com.jhw.batteryemoji.databinding.FragmentHomeBinding
 import com.jhw.batteryemoji.domain.model.BatteryEmojiItem
 import com.jhw.batteryemoji.domain.model.RemoteAssetItem
 import com.jhw.batteryemoji.presentation.common.NotificationPermissionDialog
+import com.jhw.batteryemoji.presentation.remote.RemoteAssetUiState
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.universal.remote.ads.AdsController
 import kotlinx.coroutines.launch
@@ -279,6 +281,15 @@ class HomeFragment : Fragment() {
             emojiAdapter.submitRemoteList(remote)
         }
 
+        viewModel.remoteEmojiState.observe(viewLifecycleOwner) { state ->
+            if (state is RemoteAssetUiState.Error && !MyUtils.isNetworkAvailable(requireContext())) {
+                MyUtils.showNoInternetDialog(
+                    context = requireContext(),
+                    onRetry = { viewModel.loadRemoteEmojis() }
+                )
+            }
+        }
+
         viewModel.isEmojiBatteryEnabled.observe(viewLifecycleOwner) { enabled ->
             if (enabled) {
                 binding.tvBannerText.text = getString(R.string.emoji_battery_is_active)
@@ -349,6 +360,15 @@ class HomeFragment : Fragment() {
                 if (!hasAccessibility) {
                     dismiss()
                     checkAccessibilityPermissionOnHome()
+                    return@setOnClickListener
+                }
+                if (!MyUtils.isNetworkAvailable(requireContext())) {
+                    MyUtils.showNoInternetDialog(
+                        context = requireContext(),
+                        onRetry = {
+                            dialogBinding.btnApplyStyle.performClick()
+                        }
+                    )
                     return@setOnClickListener
                 }
                 dialogBinding.btnApplyStyle.isEnabled = false

@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:clickable="true"
         android:focusable="true"
-        android:minHeight="@dimen/_74sdp"
+        android:minHeight="@dimen/_64sdp"
         app:cardCornerRadius="@dimen/_18sdp"
         app:cardElevation="0dp"
         app:strokeWidth="0dp"

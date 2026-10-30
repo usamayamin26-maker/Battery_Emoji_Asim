@@ -185,7 +185,7 @@
         android:layout_marginEnd="@dimen/_4sdp"
         android:contentDescription="@null"
         android:scaleType="fitCenter"
-        android:src="@drawable/ic_status_wifi"
+        android:src="@drawable/wifi"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/tvOverlayBattery"
         app:layout_constraintTop_toTopOf="parent"

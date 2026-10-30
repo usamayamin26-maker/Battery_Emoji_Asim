@@ -20,6 +20,7 @@ object InterstitialClickGates {
 
     /** Counts this click against [counterKey] and says whether it is the one that shows an ad. */
     fun shouldShow(config: AdsConfig, counterKey: String): Boolean {
+        if (config.allAdsOn == 0) return false
         val every = config.int(counterKey, default = 1)
         if (every <= 0) return false
         val count = (clicks[counterKey] ?: 0) + 1

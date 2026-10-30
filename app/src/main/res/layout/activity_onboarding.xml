@@ -5,41 +5,56 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!-- Top Right Skip Button (Using sdp and ssp) -->
+    <!-- Top Ad Slot -->
+
+
+    <!-- Top Right Skip Button -->
     <TextView
         android:id="@+id/tvSkip"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_28sdp"
-        android:layout_marginEnd="@dimen/_18sdp"
+        android:layout_marginTop="@dimen/_6sdp"
+        android:layout_marginEnd="@dimen/_14sdp"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:clickable="true"
         android:focusable="true"
         android:paddingHorizontal="@dimen/_8sdp"
-        android:paddingVertical="@dimen/_6sdp"
+        android:paddingVertical="@dimen/_4sdp"
         android:text="@string/skip"
         android:textColor="@color/text_primary"
         android:textSize="@dimen/_13ssp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/adSlotTop" />
 
     <!-- ViewPager2 for Onboarding Slides -->
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/vpOnboarding"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/llPageIndicators"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- Page Indicators (Using sdp) -->
+    <com.universal.remote.ads.AdSlotView
+        android:id="@+id/adSlotTop"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_28sdp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/vpOnboarding"
+        app:nativeMarginHorizontal="@dimen/_14sdp" />
+
+    <!-- Page Indicators -->
     <LinearLayout
         android:id="@+id/llPageIndicators"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/_16sdp"
+        android:layout_marginBottom="@dimen/_10sdp"
         android:gravity="center"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/btnGetStarted"
@@ -72,9 +87,9 @@
     <TextView
         android:id="@+id/btnGetStarted"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_44sdp"
+        android:layout_height="@dimen/_42sdp"
         android:layout_marginHorizontal="@dimen/_20sdp"
-        android:layout_marginBottom="@dimen/_28sdp"
+        android:layout_marginBottom="@dimen/_10sdp"
         android:background="@drawable/bg_btn_apply"
         android:clickable="true"
         android:elevation="@dimen/_2sdp"
@@ -84,6 +99,19 @@
         android:textColor="@color/white"
         android:textSize="@dimen/_14ssp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        app:layout_constraintBottom_toTopOf="@+id/adSlotBottom" />
+
+    <!-- Bottom Ad Slot -->
+    <com.universal.remote.ads.AdSlotView
+        android:id="@+id/adSlotBottom"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/_4sdp"
+        android:paddingBottom="@dimen/_4sdp"
+        android:visibility="gone"
+        app:nativeMarginHorizontal="@dimen/_14sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
